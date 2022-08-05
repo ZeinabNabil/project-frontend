@@ -19,9 +19,6 @@
 
 @media screen and (max-width: 767px) {
 
-    .main_auth_page {
-        height: max-content !important;
-    }
 
     .main_auth_page .auth_container .form_container {
         width: 95% !important;
@@ -35,6 +32,10 @@
     .main_auth_page .auth_container {
         width: 85% !important;
         margin: 20px auto !important;
+    }
+
+    .main_auth_page .auth_container .img_container {
+        display: none;
     }
     
 }
@@ -96,11 +97,12 @@
 .form_content .input_div {
     width: 90%;
     margin-bottom: 15px;
+    position: relative;
 }
 
 .input_div input {
-    border-left: none;
-    border-radius: 0px 10px 10px 0px;
+    padding-left: 30px;
+    border-radius: 5px !important;
     /* box-shadow: 6px 3px 7px #3c99dc; */
 }
 
@@ -108,7 +110,7 @@
     box-shadow: none;
     /* box-shadow: 6px 3px 7px #3c99dc; */
     box-shadow: 6px 3px 7px #3c99dc7a;
-    border-color: #ced4da;
+    border-color: #3C99DC;
 }
 
 .form_content .important_link a {
@@ -121,14 +123,26 @@
     margin-left: 6px;
 }
 
-.input_icon span {
+.input_div span {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%);
+    /* width: 12%; */
+    /* text-align: center; */
+    color: #3C99DC;
+    /* padding-right: 0; */
+    padding-left: 9px;
+}
+
+/* .input_icon span {
     background-color: white;
     height: 100%;
     border-right: none;
     border-radius: 10px 0px 0px 10px;
     padding-right: 0;
     color: #3C99DC;
-}
+} */
 
 .form_content .main_button button {
     width: 90%;
@@ -136,4 +150,9 @@
     background-color: #3C99DC;
     margin-bottom: 15px;
     margin-top: 20px;
+}
+
+.form_content .main_button button:focus {
+    border-color: #3c99dc7a;
+    box-shadow: 0 0 0 3px #3c99dc7a;
 }

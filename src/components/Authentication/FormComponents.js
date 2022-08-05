@@ -16,11 +16,9 @@ const FormComponent = ({
     <div className="col-lg-12">
       <div className={`${style.input_div} input-group mb-3`}>
         {isHasIcon === "yes" ? (
-          <div className={`${style.input_icon} input-group-prepend`}>
-            <span className="input-group-text" id="basic-addon1">
-              <FontAwesomeIcon icon={icon} className={style.highlight} />
-            </span>
-          </div>
+          <span>
+            <FontAwesomeIcon icon={icon} className={style.highlight} />
+          </span>
         ) : null}
         <input
           name={name}
