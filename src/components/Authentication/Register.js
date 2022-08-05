@@ -1,25 +1,33 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import FormComponent from './FormComponents';
 import {
   faUser,
   faPhone,
   faEnvelope,
   faLock,
-} from "@fortawesome/free-solid-svg-icons";
-import React, { useState, useEffect } from "react";
-import style from "../../css/Authentication/Authentication.module.css";
-import FormComponent from "./FormComponents";
-import { Link } from "react-router-dom";
-import MainButton from "./MainButton";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-const Register = () => {
+} from '@fortawesome/free-solid-svg-icons';
+import MainButton from './MainButton';
+import style from '../../css/Authentication/Authentication.module.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { createUser } from '../../actions/user.action';
+const Register = (props) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    phone: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
+  const [error, setError] = useState(undefined);
+  useEffect(() => {
+    setError(props.error.errors);
+  }, [props.error]);
   const onInputChange = (evt) => {
     const value = evt.target.value;
     setForm({
@@ -27,12 +35,17 @@ const Register = () => {
       [evt.target.name]: value,
     });
   };
-  const onFormSubmit = async (evt) => {
+  const onFormSubmit = (evt) => {
     evt.preventDefault();
+    const userData = {
+      name: form.name,
+      email: form.email,
+      password: form.password,
+      phone: form.phone,
+      confirmPassword: form.confirmPassword,
+    };
+    props.createUser(userData);
   };
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   return (
     <div className="row" data-aos="fade-right" data-aos-duration="1000">
@@ -53,6 +66,7 @@ const Register = () => {
                 name="name"
                 type="text"
                 placeholder="Enter your name"
+                err={error ? error.name : ''}
               />
               <FormComponent
                 value={form.email}
@@ -62,24 +76,27 @@ const Register = () => {
                 name="email"
                 type="email"
                 placeholder="Enter your Email"
+                err={error ? error.email : ''}
               />
               <FormComponent
                 value={form.password}
-                onInputChange={onInputChange}
+                onChange={onInputChange}
                 isHasIcon="yes"
                 icon={faLock}
                 name="password"
                 type="password"
                 placeholder="Enter your Password"
+                err={error ? error.password : ''}
               />
               <FormComponent
                 value={form.confirmPassword}
-                onInputChange={onInputChange}
+                onChange={onInputChange}
                 isHasIcon="yes"
                 icon={faLock}
                 name="confirmPassword"
                 type="password"
                 placeholder="Confirm your Password"
+                err={error ? error.confirmPassword : ''}
               />
               <FormComponent
                 value={form.phone}
@@ -89,6 +106,7 @@ const Register = () => {
                 name="phone"
                 type="text"
                 placeholder="Enter your phone"
+                err={error ? error.phone : ''}
               />
               <MainButton buttonName="Submit" />
               <div className="col-lg-12">
@@ -106,5 +124,7 @@ const Register = () => {
     </div>
   );
 };
-
-export default Register;
+const mapStateToProps = (state) => ({
+  error: state.error,
+});
+export default connect(mapStateToProps, { createUser })(Register);

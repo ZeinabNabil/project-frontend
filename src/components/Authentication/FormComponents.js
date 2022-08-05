@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../../css/Authentication/Authentication.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import classnames from "classnames";
 const FormComponent = ({
   isHasIcon,
   icon,
@@ -11,6 +11,7 @@ const FormComponent = ({
   placeholder,
   onChange,
   value,
+  err,
 }) => {
   return (
     <div className="col-lg-12">
@@ -23,12 +24,15 @@ const FormComponent = ({
         <input
           name={name}
           type={type}
-          className="form-control"
+          className={classnames("form-control", {
+            "is-invalid": err,
+          })}
           id={id}
           placeholder={placeholder}
           onChange={onChange}
           value={value}
         />
+        {err && <div className="invalid-feedback">{err}</div>}
       </div>
     </div>
   );
