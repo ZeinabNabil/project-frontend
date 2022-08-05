@@ -96,7 +96,6 @@
 .form_content .input_div {
     width: 90%;
     margin-bottom: 15px;
-    display: flex;
 }
 
 .input_div input {
@@ -116,6 +115,10 @@
     text-decoration: none;
     color: #3C99DC;
     font-weight: bold;
+}
+
+.form_content span > a {
+    margin-left: 6px;
 }
 
 .input_icon span {

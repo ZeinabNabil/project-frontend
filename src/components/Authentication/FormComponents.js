@@ -13,8 +13,8 @@ const FormComponent = ({
   value,
 }) => {
   return (
-    <div className={style.form_components_container}>
-      <div className={style.input_div}>
+    <div className="col-lg-12">
+      <div className={`${style.input_div} input-group mb-3`}>
         {isHasIcon === "yes" ? (
           <div className={`${style.input_icon} input-group-prepend`}>
             <span className="input-group-text" id="basic-addon1">
