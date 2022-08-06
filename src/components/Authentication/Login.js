@@ -12,12 +12,15 @@ const Login = () => {
     email: "",
     password: "",
   });
+
   const onInputChange = (evt) => {
     const value = evt.target.value;
     setForm({
       ...form,
       [evt.target.name]: value,
     });
+
+    console.log(form);
   };
   const onFormSubmit = async (evt) => {
     evt.preventDefault();
@@ -28,11 +31,15 @@ const Login = () => {
 
   return (
     <div className="row" data-aos="fade-right" data-aos-duration="1000">
+      {/* Start the header of the form */}
       <div className="col-lg-12">
         <div className={style.form_header}>
           <h3>Login</h3>
         </div>
       </div>
+      {/* End the header of the form */}
+
+      {/* Start login form */}
       <div className="col-lg-12">
         <div className={style.form_content}>
           <form onSubmit={onFormSubmit}>
@@ -73,6 +80,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+      {/* End login form */}
     </div>
   );
 };
