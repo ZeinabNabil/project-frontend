@@ -1,0 +1,50 @@
+:root{
+    --main-color: #3C99DC;
+    --secondary-color: #FACC5A;
+}
+
+/* ---------------start add course form----------------- */
+
+.addcourse {
+    height: 100vh;
+   
+}
+.addcourse .title{
+    text-align: center;
+    position: relative;
+    top: 80px;
+    color: var(--main-color)
+}
+.addcourse .formcontainer {
+    width: 80%;
+    margin: auto;
+    margin-top: 8%;
+    background-color:var(--main-color);
+    padding: 20px;
+    border-radius: 15px;
+}
+.addcourse form .formlabel{
+    font-weight: bold;
+    padding: 4px;
+    color: var(--secondary-color);
+    font-size: 20px;
+}
+.addcourse  .listTitle{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--secondary-color)
+}
+.addcourse .inputSpan_container{
+    display: flex;
+}
+.addcourse .listContainer span{
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+}
+.addcourse .itemsChecked{
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}

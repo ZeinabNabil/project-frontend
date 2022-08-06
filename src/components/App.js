@@ -9,9 +9,13 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Components
+
+// Components
 import MainAuthPage from './Authentication/MainAuthPage';
 import Login from './Authentication/Login';
 import Register from './Authentication/Register';
+import Homepage from './Layout/Homepage';
+import AddCourse from './Admin/AddCourse';
 import setAuthToken from './../utilis/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import { setCurrentUser } from './../actions/user.action';
@@ -24,6 +28,7 @@ if (localStorage.token) {
   store.dispatch(setCurrentUser(decoded));
   // check for expired token
 }
+
 const App = () => {
   return (
     <Provider store={store}>
@@ -32,6 +37,10 @@ const App = () => {
           <Route exact path="/auth" element={<MainAuthPage />}>
             <Route exact path="login" element={<Login />} />
             <Route exact path="register" element={<Register />} />
+          </Route>
+          <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/admin">
+            <Route exact path="addcourse" element={<AddCourse />} />
           </Route>
         </Routes>
       </BrowserRouter>

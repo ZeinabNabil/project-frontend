@@ -1,7 +1,7 @@
-import React from 'react';
-import style from '../../css/Authentication/Authentication.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classnames from 'classnames';
+import React from "react";
+import style from "../../css/Authentication/Authentication.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classnames from "classnames";
 const FormComponent = ({
   isHasIcon,
   icon,
@@ -16,18 +16,16 @@ const FormComponent = ({
   return (
     <div className="col-lg-12">
       <div className={`${style.input_div} input-group mb-3`}>
-        {isHasIcon === 'yes' ? (
-          <div className={`${style.input_icon} input-group-prepend`}>
-            <span className="input-group-text" id="basic-addon1">
-              <FontAwesomeIcon icon={icon} className={style.highlight} />
-            </span>
-          </div>
+        {isHasIcon === "yes" ? (
+          <span>
+            <FontAwesomeIcon icon={icon} className={style.highlight} />
+          </span>
         ) : null}
         <input
           name={name}
           type={type}
-          className={classnames('form-control', {
-            'is-invalid': err,
+          className={classnames("form-control", {
+            "is-invalid": err,
           })}
           id={id}
           placeholder={placeholder}
