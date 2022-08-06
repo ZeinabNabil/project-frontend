@@ -13,10 +13,11 @@ import style from '../../css/Authentication/Authentication.module.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { createUser } from '../../actions/user.action';
+import store from '../../store';
+import { useNavigate } from 'react-router-dom';
 const Register = (props) => {
-  useEffect(() => {
-    AOS.init();
-  }, []);
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -24,10 +25,10 @@ const Register = (props) => {
     password: '',
     confirmPassword: '',
   });
-  const [error, setError] = useState(undefined);
   useEffect(() => {
-    setError(props.error.errors);
-  }, [props.error]);
+    AOS.init();
+  }, []);
+
   const onInputChange = (evt) => {
     const value = evt.target.value;
     setForm({
@@ -44,9 +45,15 @@ const Register = (props) => {
       phone: form.phone,
       confirmPassword: form.confirmPassword,
     };
-    props.createUser(userData);
+    props.createUser(userData, navigate);
   };
-
+  useEffect(() => {
+    store.dispatch({
+      type: 'GET_ERRORS',
+      payload: {},
+    });
+  }, []);
+  const { errors } = props.error;
   return (
     <div className="row" data-aos="fade-right" data-aos-duration="1000">
       <div className="col-lg-12">
@@ -66,7 +73,7 @@ const Register = (props) => {
                 name="name"
                 type="text"
                 placeholder="Enter your name"
-                err={error ? error.name : ''}
+                err={errors ? errors.name : ''}
               />
               <FormComponent
                 value={form.email}
@@ -76,7 +83,7 @@ const Register = (props) => {
                 name="email"
                 type="email"
                 placeholder="Enter your Email"
-                err={error ? error.email : ''}
+                err={errors ? errors.email : ''}
               />
               <FormComponent
                 value={form.password}
@@ -86,7 +93,7 @@ const Register = (props) => {
                 name="password"
                 type="password"
                 placeholder="Enter your Password"
-                err={error ? error.password : ''}
+                err={errors ? errors.password : ''}
               />
               <FormComponent
                 value={form.confirmPassword}
@@ -96,7 +103,7 @@ const Register = (props) => {
                 name="confirmPassword"
                 type="password"
                 placeholder="Confirm your Password"
-                err={error ? error.confirmPassword : ''}
+                err={errors ? errors.confirmPassword : ''}
               />
               <FormComponent
                 value={form.phone}
@@ -106,7 +113,7 @@ const Register = (props) => {
                 name="phone"
                 type="text"
                 placeholder="Enter your phone"
-                err={error ? error.phone : ''}
+                err={errors ? errors.phone : ''}
               />
               <MainButton buttonName="Submit" />
               <div className="col-lg-12">
