@@ -1,3 +1,27 @@
+/* Start view course page css */
+
+
+/* Start add new course btn css */
+
+.add_btn {
+  display: flex;
+  justify-content: end;
+  padding-bottom: 5px;
+}
+
+.add_btn a {
+  background-color: var(--main-color) !important;
+  border-color: var(--main-color) !important;
+  width: 15%;
+  color: white !important;
+}
+
+.add_btn a:hover {
+  color: white;
+}
+
+/* End add new course btn css */
+/* Start search input */
 .filter_input {
     width: 25%;
     padding: 0.375rem 0.75rem;
@@ -32,61 +56,94 @@
   color: white;
 }
 
+/* End Search input */
+
+/* Start edit and delete btn css */
+
+.edit_delete_btns {
+  display: flex;
+  justify-content: center;
+}
+
+.edit_delete_btns .edit_btn button {
+  background-color: var(--main-color);
+  border-color: var(--main-color) ;
+  padding: 0.2px 4px;
+  color: white;
+
+  margin-right: 5px;
+}
+.edit_delete_btns button:focus {
+  border-color: var(--shadow-color);
+  box-shadow: 0 0 0 3px var(--shadow-color);
+}
+.edit_delete_btns .delete_btn button {
+  background-color: #bb0f15;
+  border-color: #bb0f15;
+  color: white;
+  padding: 0.2px 6px;
+}
+
+/* End edit and delete btn css */
+
 .view {
     margin-top: 20px;
-    /* margin-left: 20px; */
   }
   
   .view_data {
-    /* width: 97%;
-    margin: auto; */
     margin-top: 15px;
-  }
-  .view_table {
-    /* margin-left: -18px; */
   }
 
   .course_img {
     width: 80%;
   }
 
-  .edit_delete_btns {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .edit_delete_btns .edit_btn button {
+/* Start view more page css */
+
+.course_info {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.course_info .card_container {
+  width: 85%;
+  margin: auto;
+}
+.course_info .card_container .course_info_card {
+  box-shadow: 0px 0px 5px #77777747;
+  margin-bottom: 15px;
+}
+
+.course_info .card_container .course_info_card .card_title {
+  width: fit-content;
+  position: relative;
+  font-weight: bold;
+}
+.course_info .card_container .course_info_card .card_title::after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 60%;
+  background-color: var(--main-color);
+  left: 0;
+  bottom: -25%;
+}
+
+.course_info .card_container .course_info_card .course_card_text {
+  padding: 10px 0px;
+}
+.View_more_btn {
+  text-decoration: none;
     background-color: var(--main-color);
-    border-color: var(--main-color) ;
-    padding: 0.2px 4px;
-    color: white;
-  
-    margin-right: 5px;
-  }
-  .edit_delete_btns button:focus {
-    border-color: var(--shadow-color);
-    box-shadow: 0 0 0 3px var(--shadow-color);
-  }
-  .edit_delete_btns .delete_btn button {
-    background-color: #bb0f15;
-    border-color: #bb0f15;
-    color: white;
-    padding: 0.2px 6px;
-  }
+    padding: 5px 8px;
+    border-radius: 5px; font-weight: bold;
+    font-weight: 500;
+}
 
-  .add_view_btn {
-    display: flex;
-    justify-content: end;
-    padding-bottom: 5px;
-  }
-  
-  .add_view_btn a {
-    background-color: var(--main-color) !important;
-    border-color: var(--main-color) !important;
-    width: 15%;
-    color: white !important;
-  }
+.View_more_btn,
+.View_more_btn:hover {
+  color: white;
+}
 
-  .add_view_btn a:hover {
-    color: white;
-  }
+/* End view more page css */

@@ -20,6 +20,7 @@ import setAuthToken from "./../utilis/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { setCurrentUser } from "./../actions/user.action";
 import ViewCourses from "./Admin/ViewCourses";
+import CourseInfo from "./Admin/CourseInfo";
 if (localStorage.token) {
   //set auth token header auth
   setAuthToken(localStorage.token);
@@ -43,6 +44,7 @@ const App = () => {
           <Route exact path="/admin">
             <Route exact path="addcourse" element={<AddCourse />} />
             <Route exact path="viewcourse" element={<ViewCourses />} />
+            <Route exact path="courseinfo" element={<CourseInfo />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -2,6 +2,7 @@ import { faEdit, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 // CSS
 import style from "../../css/Admin/ViewCourses.module.css";
@@ -80,6 +81,23 @@ const CourseColumn = [
             <button type="button" className="btn">
               <FontAwesomeIcon icon={faXmark} />
             </button>
+          </div>
+        </div>
+      );
+    },
+  },
+  {
+    name: "Action",
+    button: true,
+    ignoreRowClick: true,
+    allowOverflow: true,
+    cell: (row) => {
+      return (
+        <div className={style.edit_delete_btns}>
+          <div className={style.edit_btn}>
+            <Link to="/admin/courseinfo" className={style.View_more_btn}>
+              View more
+            </Link>
           </div>
         </div>
       );
