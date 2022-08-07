@@ -82,7 +82,7 @@ const Landing = () => {
             <div className="col-lg-12">
               <div className="row">
                 {/* <-------------------------------start calling card-----------------------------*/}
-                <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
                   <div className={style.card}>
                     <Cards
                       icon={faUserGraduate}
@@ -91,7 +91,7 @@ const Landing = () => {
                     />
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
                   <div className={style.card}>
                     <Cards
                       icon={faFileLines}
@@ -100,7 +100,7 @@ const Landing = () => {
                     />
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
                   <div className={style.card}>
                     <Cards
                       icon={faLightbulb}
@@ -120,98 +120,112 @@ const Landing = () => {
       {/* --------------------------start similar sections (calling array of sections)---------------------------  */}
       {renderedSections}
       {/*------------------------------end similar sections---------------------------------------*/}
-
-      {/* ---------------------------------Start featuer section----------------------  */}
-      <div className={style.features}>
-        <div className={style.title}>Why you should choose our institute</div>
-        <div className={style.featureselements}>
-          <div className="col-lg-12 col-md-6 col-sm-6">
-            <div className={style.vmsElement}>
-              <div className="col-lg-6 col-md-12 col-sm-12">
-                <Accordion className={style.accordian}>
-                  <Accordion.Item eventKey="0" className={style.accordianitem}>
-                    <Accordion.Header>
-                      <div className={style.accordianHeader}>Vission</div>
-                    </Accordion.Header>
-                    <Accordion.Body>
-                      To occupy a leading position in the Gulf region and the
-                      Middle East in the field of continuing education and
-                      professional development.
-                    </Accordion.Body>
-                  </Accordion.Item>
-                  <Accordion.Item eventKey="1" className={style.accordianitem}>
-                    <Accordion.Header>
-                      <div className={style.accordianHeader}>The message</div>
-                    </Accordion.Header>
-                    <Accordion.Body>
-                      Improving the quality of training and capacity building,
-                      enabling individuals, public and private sector
-                      institutions, and various groups of society to develop
-                      positively and helping them to unleash potential human
-                      energies, which leads to raising competitiveness and
-                      achieving the highest levels of individual and
-                      institutional performance through the creation of
-                      knowledge awareness and the consolidation of a culture of
-                      scientific research and innovation to achieve global
-                      leadership
-                    </Accordion.Body>
-                  </Accordion.Item>
-                  <Accordion.Item eventKey="2" className={style.accordianitem}>
-                    <Accordion.Header>
-                      <div className={style.accordianHeader}>
-                        Strategic goals
-                      </div>
-                    </Accordion.Header>
-                    <Accordion.Body>
-                      strategic goals Focusing on the application of smart
-                      systems to develop human capital in order to achieve
-                      global leadership Working on communicating with
-                      contemporary experiences in the field of training and
-                      benefiting from them in order to best serve trainees and
-                      bodies Contribute to raising the efficiency of community
-                      members and developing their knowledge and capabilities by
-                      providing a variety of high-quality applied training
-                      programs Raising levels of institutional performance and
-                      competitiveness by providing consulting services in
-                      various disciplines for the public and private sectors
-                      Creating a happy and stimulating educational and training
-                      environment characterized by knowledge and the development
-                      of creative and innovative thought Building strategic
-                      companies that contribute to creating an added value that
-                      achieves the objectives of the stakeholders Raising skills
-                      and competencies with the latest innovations and modern
-                      methods of distance education That the Ivan Ilyich
-                      Institute be a pioneer and be one of the best training and
-                      education institutions at the regional and local levels
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </div>
-              <div className="col-lg-6 col-md-12 col-sm-12">
-                <div className={style.logo}>
-                  <img src={logo} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-12 col-md-6 col-sm-3">
-            <div className={style.clientelement}>
-              <div className="col-lg-8 col-md-12 col-sm-12">
+      <div className={style.features_clients_container}>
+        {/* ---------------------------------Start featuer section----------------------  */}
+        <div className={style.features}>
+          <div className={style.title}>Why you should choose our institute</div>
+          <div className={style.featureselements}>
+            <section>
+              <div className="container">
                 <div className="row">
                   <div
-                    className={style.clientlogos}
-                    style={{ borderRight: " solid 2px #DDDDDD" }}
+                    className="col-lg-6 col-md-12 col-sm-12 section-accordian "
+                    style={{ display: "flex", alignItems: "center" }}
                   >
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                      <div className={style.imgs}>
-                        <img src={logo} />
-                        <img src={logo} />
-                        <img src={logo} />
-                        <img src={logo} />
-                        <img src={logo} />
-                        <img src={logo} />
-                        <img src={logo} />
-                      </div>
+                    <Accordion className={style.accordian}>
+                      <Accordion.Item
+                        eventKey="0"
+                        className={style.accordianitem}
+                      >
+                        <Accordion.Header>
+                          <div className={style.accordianHeader}>Vission</div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          To occupy a leading position in the Gulf region and
+                          the Middle East in the field of continuing education
+                          and professional development.
+                        </Accordion.Body>
+                      </Accordion.Item>
+                      <Accordion.Item
+                        eventKey="1"
+                        className={style.accordianitem}
+                      >
+                        <Accordion.Header>
+                          <div className={style.accordianHeader}>
+                            The message
+                          </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          Improving the quality of training and capacity
+                          building, enabling individuals, public and private
+                          sector institutions, and various groups of society to
+                          develop positively and helping them to unleash
+                          potential human energies, which leads to raising
+                          competitiveness and achieving the highest levels of
+                          individual and institutional performance through the
+                          creation of knowledge awareness and the consolidation
+                          of a culture of scientific research and innovation to
+                          achieve global leadership
+                        </Accordion.Body>
+                      </Accordion.Item>
+                      <Accordion.Item
+                        eventKey="2"
+                        className={style.accordianitem}
+                      >
+                        <Accordion.Header>
+                          <div className={style.accordianHeader}>
+                            Strategic goals
+                          </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          strategic goals Focusing on the application of smart
+                          systems to develop human capital in order to achieve
+                          global leadership Working on communicating with
+                          contemporary experiences in the field of training and
+                          benefiting from them in order to best serve trainees
+                          and bodies Contribute to raising the efficiency of
+                          community members and developing their knowledge and
+                          capabilities by providing a variety of high-quality
+                          applied training programs Raising levels of
+                          institutional performance and competitiveness by
+                          providing consulting services in various disciplines
+                          for the public and private sectors Creating a happy
+                          and stimulating educational and training environment
+                          characterized by knowledge and the development of
+                          creative and innovative thought Building strategic
+                          companies that contribute to creating an added value
+                          that achieves the objectives of the stakeholders
+                          Raising skills and competencies with the latest
+                          innovations and modern methods of distance education
+                          That the Ivan Ilyich Institute be a pioneer and be one
+                          of the best training and education institutions at the
+                          regional and local levels
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    </Accordion>
+                  </div>
+                  <div className="col-lg-1"></div>
+                  <div className="col-lg-5 col-md-12 col-sm-12 align-self-center">
+                    <div className={style.logo}>
+                      <img src={logo} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        {/* --------------------------start client section-----------------------  */}
+        <div className={style.clients}>
+          <div className={style.clientelement}>
+            <section>
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-9 col-md-12 col-sm-12 section-pics">
+                    <div
+                      className={style.clientlogos}
+                      style={{ borderRight: " solid 2px #DDDDDD" }}
+                    >
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className={style.imgs}>
                           <img src={logo} />
@@ -222,22 +236,33 @@ const Landing = () => {
                           <img src={logo} />
                           <img src={logo} />
                         </div>
+                        <div className="col-lg-12 col-md-12 col-sm-12">
+                          <div className={style.imgs}>
+                            <img src={logo} />
+                            <img src={logo} />
+                            <img src={logo} />
+                            <img src={logo} />
+                            <img src={logo} />
+                            <img src={logo} />
+                            <img src={logo} />
+                          </div>
+                        </div>
                       </div>
+                    </div>
+                  </div>
+                  {/* <div className="col-lg-1"></div> */}
+                  <div className="col-lg-3 col-md-12 col-sm-12 align-self-center">
+                    <div className={style.ourclients}>
+                      <h2> Our Clients</h2>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className=" col-lg-4 col-md-12 col-sm-12">
-                <div className={style.ourclients}>
-                  <h2> Our Clients</h2>
-                </div>
-              </div>
-            </div>
+            </section>
           </div>
         </div>
+        {/* --------------------------End client section-----------------------  */}
       </div>
-      {/* --------------------------End features section-----------------------  */}
-
       {/* ---------------------------start reviews section---------------------  */}
       <div className={style.reviews}>
         <div className={style.title}>

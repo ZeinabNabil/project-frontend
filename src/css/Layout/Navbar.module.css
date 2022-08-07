@@ -1,55 +1,72 @@
-/* ----------------start navbar ------------------ */
-
-/* -----------------------Start Responsive navbar-------------------------- */
-/* @media screen and (max-width: 1245px ) {
-    .header{
-        height: 193px !important;
-    }
-    .contactInfo{
-        width: 85% !important;
-    }
-    .nav nav{
-        width: 96% !important;
-    }
-    .nav .joinbutton , .nav .loginbutton{
-        height: 55px;
-    }
-    }
-@media screen and (max-width: 1221px) {
-    .header{
-        height: 193px !important;
-    }
-    .contactInfo{
-        width: 90% !important;
-    }
-    .nav nav{
-        width: 98% !important;
-    }
-    .nav .joinbutton , .nav .loginbutton{
-        right: 5px!important;
-    }
+/* responsive */
+@media screen and (max-width: 1246px) {
+  .contactInfo {
+    width: 85% !important;
+  }
+  .nav nav {
+    width: 96% !important;
+  }
+  .nav .navbar_nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
-@media screen and (max-width: 1197px) {
-    .header{
-        height: 195px !important;
-    }
-    .contactInfo{
-        width: 90% !important;
-    }
-    .nav nav{
-        width: 100% !important;
-    }
-    .nav .navbtns{
-        position: relative !important;
-        left: 1px !important ;
-    }
-} */
-/* -----------------------End Responsive navbar-------------------------- */
 
-/* .header {
-  background-color: var(--main-color); */
-/* height: 169px;
-} */
+@media screen and (max-width: 1100px) {
+  .contactInfo {
+    width: 96% !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .contactInfo {
+    width: 98% !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .nav .navbtns {
+    position: absolute !important;
+    right: 0 !important;
+  }
+  .contactInfo {
+    font-size: 13px !important;
+    width: 98% !important;
+  }
+}
+@media screen and (min-width: 798px) and (max-width: 900px) {
+  .contactInfo {
+    width: 98% !important;
+    font-size: 11px !important;
+  }
+}
+@media screen and (max-width: 798px) {
+  .contactInfo {
+    width: 100% !important;
+    font-size: 10px !important;
+    padding: 0px 10px 0px 10px !important;
+  }
+}
+@media screen and (max-width: 765px) {
+  .topbar {
+    height: 145px !important;
+  }
+  .contactInfo .address,
+  .contactInfo .mail,
+  .contactInfo .phone {
+    display: none !important;
+  }
+  .contactInfo {
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .contactInfo img {
+    width: 75%;
+  }
+  .socialLinks {
+    top: 8px !important;
+    font-size: 15px;
+  }
+}
 
 /* ----------------------start topbar------------------------ */
 .topbar {
@@ -76,9 +93,10 @@
 .socialLinks .icon {
   color: white;
   background-color: var(--secondary-color);
-  padding: 7px;
   border-radius: 30px;
-  margin-right: 10px;
+  margin: 3px;
+  padding: 10px;
+  font-size: 16px;
 }
 .address {
   position: relative;
@@ -122,6 +140,7 @@
 }
 /* --------------------------end topbar--------------------- */
 
+/* ----------------start navbar ------------------ */
 .nav {
   background-color: var(--main-color);
   border-style: solid;
@@ -136,9 +155,9 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  right: 15px;
+  height: 45px;
 }
-.nav .join_login {
+.nav .navbtns .join_login {
   background-color: var(--secondary-color);
   color: white;
   font-weight: bold;
@@ -147,12 +166,12 @@
   border-radius: 10px;
   position: relative;
   right: 10px;
-  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 2px;
-  margin-left: 2px;
+  text-decoration: none;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .nav .navbtns .icon {
   padding-left: 5px;

@@ -10,8 +10,9 @@ const Section = ({title, cards}) => {
   console.log(cards)
   const renderedCards = cards.map((card) => {
     return (
+      <div className="col-lg-12 col-md-12 col-sm-12" style={{paddingBottom: "70px",paddingTop: "70px"}}>
       <CoursesCard  title={card.cardtitle} text={card.text} />
-
+      </div>
     );
   });
   return (
