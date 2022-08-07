@@ -13,52 +13,65 @@ const CourseColumn = [
     wrap: true,
   },
   {
-    name: 'Category',
-    selector: (row) => row.category,
-    sortable: true,
-    wrap: true,
-  },
-  {
-    name: 'Description',
+    name: 'Desecription',
     selector: (row) => row.description,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Attends',
-    selector: (row) => row.attends,
+    name: 'Category',
+    selector: (row) => row.category.toUpperCase(),
+    sortable: true,
+    wrap: true,
+  },
+  {
+    name: 'Course Hours',
+    selector: (row) => `${row.numbersOfHours} Hours`,
     sortable: true,
     wrap: true,
   },
   {
     name: 'Classes',
-    selector: (row) => row.classes,
+    selector: (row) => `${row.classes} Classes`,
     wrap: true,
   },
   {
-    name: 'Image',
-    cell: (row) => {
-      return (
-        <div>
-          <img src={row.image} className={style.course_img} />
-        </div>
-      );
-    },
+    name: 'duration',
+    selector: (row) => row.duration,
+    wrap: true,
+  },
+  // {
+  //   name: 'Image',
+  //   cell: (row) => {
+  //     return (
+  //       <div>
+  //         <img src={row.image} className={style.course_img} />
+  //       </div>
+  //     );
+  //   },
+  // },
+
+  {
+    name: 'Types',
+    selector: (row) => row.typesOfCourse.map((type) => <span>{type}, </span>),
+    wrap: true,
   },
   {
     name: 'What is',
-    selector: (row) => row.whatIs,
+    selector: (row) => row.whatis,
     grow: 2,
     wrap: true,
   },
   {
-    name: 'Types',
-    selector: (row) => row.types.map((type) => <span>{type}, </span>),
-    wrap: true,
-  },
-  {
     name: 'What will students learn',
-    selector: (row) => row.whatwillstudentslearn,
+    selector: (row) =>
+      row.whatWillStudentsLearn.map((feature) => (
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style={{ background: 'none' }}>
+            {feature}
+          </li>
+        </ul>
+      )),
     grow: 2,
     wrap: true,
   },

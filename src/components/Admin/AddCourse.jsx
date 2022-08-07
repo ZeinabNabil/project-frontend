@@ -22,7 +22,7 @@ const AddCourse = (props) => {
     description: '',
     attends: '',
     classes: '',
-    whatIs: '',
+    whatis: '',
     whatWillStudentsLearn: '',
     image: '',
     typesOfCourse: '',
@@ -44,7 +44,7 @@ const AddCourse = (props) => {
     course.append('description', form.description);
     course.append('attends', form.attends);
     course.append('classes', form.classes);
-    course.append('whatIs', form.whatIs);
+    course.append('whatis', form.whatis);
     course.append('whatWillStudentsLearn', form.whatWillStudentsLearn);
     course.append('typesOfCourse', checkedItems);
     course.append('numbersOfHours', form.numbersOfHours);
@@ -114,12 +114,12 @@ const AddCourse = (props) => {
             <div className="col-lg-6">
               <Input
                 onChange={onInputChange}
-                value={form.whatIs}
-                name="whatIs"
+                value={form.whatis}
+                name="whatis"
                 labelName="Course Definition"
                 type="text"
                 placeholder="Definition of this course"
-                err={errors ? errors.whatIs : ''}
+                err={errors ? errors.whatis : ''}
               />
             </div>
           </div>

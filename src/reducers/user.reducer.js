@@ -3,4 +3,4 @@ const initialState = {
   isAuhtenticated: false,
   user: {},
 };
-export default function name(statem, action) {}
+export default function name(state, action) {}

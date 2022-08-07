@@ -1,4 +1,4 @@
-import { GET_ERRORS } from './types';
+import { GET_ERRORS, GET_COURSES } from './types';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 toast.configure();
@@ -21,3 +21,16 @@ export const addCourse = (courseData) => async (dispatch) => {
     });
   }
 };
+export const getAllCourses = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/course');
+    dispatch(getCourses(response.data));
+  } catch (error) {
+    return;
+  }
+};
+
+const getCourses = (payload) => ({
+  type: GET_COURSES,
+  payload,
+});
