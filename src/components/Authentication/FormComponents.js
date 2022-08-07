@@ -16,11 +16,14 @@ const FormComponent = ({
   return (
     <div className="col-lg-12">
       <div className={`${style.input_div} input-group mb-3`}>
+        {/* Checking if the input has an icon or not */}
         {isHasIcon === "yes" ? (
           <span>
             <FontAwesomeIcon icon={icon} className={style.highlight} />
           </span>
         ) : null}
+
+        {/* input of the form */}
         <input
           name={name}
           type={type}

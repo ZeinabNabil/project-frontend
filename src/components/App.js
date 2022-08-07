@@ -1,24 +1,25 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from '../store';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "../store";
 // CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'jquery/dist/jquery.min.js';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import 'react-toastify/dist/ReactToastify.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "jquery/dist/jquery.min.js";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "react-toastify/dist/ReactToastify.css";
 
 // Components
 
 // Components
-import MainAuthPage from './Authentication/MainAuthPage';
-import Login from './Authentication/Login';
-import Register from './Authentication/Register';
-import Homepage from './Layout/Homepage';
-import AddCourse from './Admin/AddCourse';
-import setAuthToken from './../utilis/setAuthToken';
-import jwt_decode from 'jwt-decode';
-import { setCurrentUser } from './../actions/user.action';
+import MainAuthPage from "./Authentication/MainAuthPage";
+import Login from "./Authentication/Login";
+import Register from "./Authentication/Register";
+import Homepage from "./Layout/Homepage";
+import AddCourse from "./Admin/AddCourse";
+import setAuthToken from "./../utilis/setAuthToken";
+import jwt_decode from "jwt-decode";
+import { setCurrentUser } from "./../actions/user.action";
+import ViewCourses from "./Admin/ViewCourses";
 if (localStorage.token) {
   //set auth token header auth
   setAuthToken(localStorage.token);
@@ -41,6 +42,7 @@ const App = () => {
           <Route exact path="/" element={<Homepage />} />
           <Route exact path="/admin">
             <Route exact path="addcourse" element={<AddCourse />} />
+            <Route exact path="viewcourse" element={<ViewCourses />} />
           </Route>
         </Routes>
       </BrowserRouter>

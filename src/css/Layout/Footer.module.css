@@ -1,3 +1,4 @@
+
 :root{
   --main-color: #3C99DC;
   --secondary-color: #FACC5A;
@@ -62,6 +63,7 @@
   } 
 }
   
+
 /* -------------------------Start Footer---------------------------  */
 .footer {
     position: relative;

@@ -1,30 +1,35 @@
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import style from '../../css/Authentication/Authentication.module.css';
-import { Link } from 'react-router-dom';
-import FormComponent from './FormComponents';
-import MainButton from './MainButton';
-import { loginUser } from '../../actions/user.action';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import store from '../../store';
-import { useNavigate } from 'react-router-dom';
+import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import style from "../../css/Authentication/Authentication.module.css";
+import { Link } from "react-router-dom";
+import FormComponent from "./FormComponents";
+import MainButton from "./MainButton";
+import { loginUser } from "../../actions/user.action";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import store from "../../store";
+import { useNavigate } from "react-router-dom";
+
 const Login = (props) => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
+
   useEffect(() => {
     AOS.init();
   }, []);
+
   const onInputChange = (evt) => {
     const value = evt.target.value;
     setForm({
       ...form,
       [evt.target.name]: value,
     });
+
+    console.log(form);
   };
   const onFormSubmit = async (evt) => {
     evt.preventDefault();
@@ -36,7 +41,7 @@ const Login = (props) => {
   };
   useEffect(() => {
     store.dispatch({
-      type: 'GET_ERRORS',
+      type: "GET_ERRORS",
       payload: {},
     });
   }, []);
@@ -44,11 +49,15 @@ const Login = (props) => {
 
   return (
     <div className="row" data-aos="fade-right" data-aos-duration="1000">
+      {/* Start the header of the form */}
       <div className="col-lg-12">
         <div className={style.form_header}>
           <h3>Login</h3>
         </div>
       </div>
+      {/* End the header of the form */}
+
+      {/* Start login form */}
       <div className="col-lg-12">
         <div className={style.form_content}>
           <form onSubmit={onFormSubmit}>
@@ -61,7 +70,7 @@ const Login = (props) => {
                 type="text"
                 placeholder="Enter your Email"
                 onChange={onInputChange}
-                err={errors ? errors.email : ''}
+                err={errors ? errors.email : ""}
               />
               <FormComponent
                 value={form.password}
@@ -71,7 +80,7 @@ const Login = (props) => {
                 type="password"
                 placeholder="Enter your Password"
                 onChange={onInputChange}
-                err={errors ? errors.password : ''}
+                err={errors ? errors.password : ""}
               />
               <div className="col-lg-12">
                 <div className={style.important_link}>
@@ -91,6 +100,7 @@ const Login = (props) => {
           </form>
         </div>
       </div>
+      {/* End login form */}
     </div>
   );
 };
