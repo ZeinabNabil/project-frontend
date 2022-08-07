@@ -1,11 +1,7 @@
-import React from "react";
-import style from "../../css/Authentication/Authentication.module.css";
-import { Outlet } from "react-router-dom";
-import authImage from "../../images/login-register1.png";
-import FormComponent from "./FormComponents";
-import { faEnvelope } from "@fortawesome/fontawesome-free";
-import Login from "./Login";
-import Register from "./Register";
+import React from 'react';
+import style from '../../css/Authentication/Authentication.module.css';
+import { Outlet } from 'react-router-dom';
+import authImage from '../../images/login-register1.png';
 
 const MainAuthPage = () => {
   return (
@@ -48,7 +44,7 @@ const MainAuthPage = () => {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className={style.img_container}>
-              <img src={authImage} />
+              <img src={authImage} alt="main" />
             </div>
           </div>
         </div>

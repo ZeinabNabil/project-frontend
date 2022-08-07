@@ -1,8 +1,10 @@
 import { faEdit, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { ListGroup } from "react-bootstrap";
 
-import style from "../css/Admin.module.css";
+// CSS
+import style from "../../css/Admin/ViewCourses.module.css";
 
 const CourseColumn = [
   {
@@ -52,11 +54,11 @@ const CourseColumn = [
   },
   {
     name: "Types",
-    selector: (row) => row.types,
+    selector: (row) => row.types.map((type) => <span>{type}, </span>),
     wrap: true,
   },
   {
-    name: "Whatwillstudentslearn",
+    name: "What will students learn",
     selector: (row) => row.whatwillstudentslearn,
     grow: 2,
     wrap: true,

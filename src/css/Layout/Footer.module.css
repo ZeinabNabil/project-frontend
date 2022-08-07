@@ -1,0 +1,99 @@
+
+/* -------------------------Start Footer---------------------------  */
+.footer {
+    position: relative;
+    height: 65vh;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--main-color);
+    margin-top: 115px;
+}
+  
+
+.footerelements{
+  width: 85%;
+  margin: auto;
+  position: relative;
+  top: 120px;
+}
+
+.footer .footerelements .title{
+  margin-bottom: 13px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.footer form input{
+  border-radius: 0;
+    padding: 10px;
+    box-shadow: none !important;
+}
+
+.footer form button{
+  padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 0;
+    width: 100%;
+    color: white;
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    padding-bottom: 15px;
+    align-items: center;
+}
+
+.footer form button:hover{
+  background-color:  black !important;
+  box-shadow: none !important;
+  border: none;
+}
+
+.footer .links a{
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+.footer .links a:hover{
+  color: var(--secondary-color);
+  border:solid #55595c !important;
+}
+.footer .phone , .footer .address , .footer .mail{
+  display: flex;
+}
+.footer  .icon{
+  position: relative;
+  left: 20px;
+  color: var(--secondary-color);
+  font-size: 25px;
+}
+.footer  p{
+  color: white;
+  font-weight: bold;
+}
+
+.footer .lastelement {
+  display: flex;
+}
+.footer .footerelements .logo img{
+  width: 150px;
+  position: relative;
+  left: 35px;
+}
+
+.footer .icons{
+  display: flex;
+  position: relative;
+  margin-top: 30px;
+  left: 30px;
+  /* right: 20px; */
+}
+.footer .icons .icon{
+  color: white;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  border-radius: 30px;
+  margin-right: 10px;
+}
+  /* -------------------------------End Footer----------------------------- */

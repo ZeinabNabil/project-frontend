@@ -1,17 +1,26 @@
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import style from "../../css/Authentication/Authentication.module.css";
 import { Link } from "react-router-dom";
 import FormComponent from "./FormComponents";
 import MainButton from "./MainButton";
+import { loginUser } from "../../actions/user.action";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import store from "../../store";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const onInputChange = (evt) => {
     const value = evt.target.value;
@@ -24,10 +33,19 @@ const Login = () => {
   };
   const onFormSubmit = async (evt) => {
     evt.preventDefault();
+    const userData = {
+      email: form.email,
+      password: form.password,
+    };
+    props.loginUser(userData, navigate);
   };
   useEffect(() => {
-    AOS.init();
+    store.dispatch({
+      type: "GET_ERRORS",
+      payload: {},
+    });
   }, []);
+  const { errors } = props.error;
 
   return (
     <div className="row" data-aos="fade-right" data-aos-duration="1000">
@@ -52,6 +70,7 @@ const Login = () => {
                 type="text"
                 placeholder="Enter your Email"
                 onChange={onInputChange}
+                err={errors ? errors.email : ""}
               />
               <FormComponent
                 value={form.password}
@@ -61,10 +80,11 @@ const Login = () => {
                 type="password"
                 placeholder="Enter your Password"
                 onChange={onInputChange}
+                err={errors ? errors.password : ""}
               />
               <div className="col-lg-12">
                 <div className={style.important_link}>
-                  <a href="#">Forget Password?</a>
+                  <Link to="/">Sign in Now!</Link>
                 </div>
               </div>
               <MainButton buttonName="Submit" />
@@ -84,5 +104,7 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;
+const mapStateToProps = (state) => ({
+  error: state.error,
+});
+export default connect(mapStateToProps, { loginUser })(Login);

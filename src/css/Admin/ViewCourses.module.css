@@ -7,28 +7,28 @@
     color: #212529;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #3c99dc;
+    border: 1px solid var(--main-color);
     -webkit-appearance: none;
     appearance: none;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
   .filter_input:focus {
-    box-shadow: 0 0 0 3px #3c99dc7a;
-    border-color: #3C99DC;
+    box-shadow: 0 0 0 3px var(--shadow-color);
+    border-color: var(--main-color);
     outline: none;
   }
 .filter_button button:focus {
-    border-color: #3c99dc7a;
-    box-shadow: 0 0 0 3px #3c99dc7a;
+    border-color: var(--shadow-color);
+    box-shadow: 0 0 0 3px var(--shadow-color);
 }
 .filter_button button {
   margin-left: 5px;
 }
 .filter_button button,
 .filter_button button:hover {
-  background-color: #3c99dc;
-  border-color: #3c99dc;
+  background-color: var(--main-color);
+  border-color: var(--main-color);
   color: white;
 }
 
@@ -56,16 +56,16 @@
   }
   
   .edit_delete_btns .edit_btn button {
-    background-color: #3C99DC;
-    border-color: #3C99DC ;
+    background-color: var(--main-color);
+    border-color: var(--main-color) ;
     padding: 0.2px 4px;
     color: white;
   
     margin-right: 5px;
   }
   .edit_delete_btns button:focus {
-    border-color: #3c99dc7a;
-    box-shadow: 0 0 0 3px #3c99dc7a;
+    border-color: var(--shadow-color);
+    box-shadow: 0 0 0 3px var(--shadow-color);
   }
   .edit_delete_btns .delete_btn button {
     background-color: #bb0f15;
@@ -80,13 +80,13 @@
     padding-bottom: 5px;
   }
   
-  .add_view_btn button {
-    background-color: #3C99DC !important;
-    border-color: #3C99DC !important;
+  .add_view_btn a {
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
     width: 15%;
-    color: white;
+    color: white !important;
   }
 
-  .add_view_btn button:hover {
+  .add_view_btn a:hover {
     color: white;
   }

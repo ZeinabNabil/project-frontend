@@ -1,13 +1,20 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import DataTable from "react-data-table-component";
-import FilterComponent from "./FilterComponent";
-import style from "../css/Admin.module.css";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import image from "../images/Learning-rafiki (1).png";
+
+// CSS
+import style from "../css/Admin/ViewCourses.module.css";
+
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
+import image from "../images/Learning-rafiki (1).png";
+
+// Conponents
+import FilterComponent from "./FilterComponent";
 
 const Table = (props) => {
   const data = [
@@ -26,6 +33,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -33,6 +41,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -40,6 +49,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -47,6 +57,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -54,6 +65,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -61,6 +73,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -68,6 +81,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -75,6 +89,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -82,6 +97,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -89,6 +105,7 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
     {
       name: "Leanne Graham",
@@ -96,12 +113,12 @@ const Table = (props) => {
       description: "Sincere@april.biz",
       attends: "1-770-736-8031 x56442",
       classes: "hildegard.org",
+      types: ["Vip 1", "Vip 2"],
     },
   ];
 
-  const [filterText, setFilterText] = React.useState("");
-  const [resetPaginationToggle, setResetPaginationToggle] =
-    React.useState(false);
+  const [filterText, setFilterText] = useState("");
+  const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 
   const filteredItems = data.filter(
     (item) =>
@@ -131,9 +148,9 @@ const Table = (props) => {
         <div className="row" style={{ margin: "0px" }}>
           <div className="col-lg-12">
             <div className={style.add_view_btn}>
-              <button className="btn">
+              <Link to="/admin/addcourse" type="button" className="btn">
                 <FontAwesomeIcon icon={faPlus} /> Add new course
-              </button>
+              </Link>
             </div>
           </div>
           <div className="col-lg-12 col-md-12 col-sm-12">

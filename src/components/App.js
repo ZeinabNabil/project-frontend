@@ -6,26 +6,47 @@ import store from "../store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
+import "react-toastify/dist/ReactToastify.css";
+
+// Components
+
 // Components
 import MainAuthPage from "./Authentication/MainAuthPage";
 import Login from "./Authentication/Login";
 import Register from "./Authentication/Register";
-import ViewCourses from "./ViewCourses";
-import "../css/App.css";
+import Homepage from "./Layout/Homepage";
+import AddCourse from "./Admin/AddCourse";
+import setAuthToken from "./../utilis/setAuthToken";
+import jwt_decode from "jwt-decode";
+import { setCurrentUser } from "./../actions/user.action";
+import ViewCourses from "./Admin/ViewCourses";
+if (localStorage.token) {
+  //set auth token header auth
+  setAuthToken(localStorage.token);
+  // decode token and get user info and expiration
+  const decoded = jwt_decode(localStorage.token);
+  // set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+  // check for expired token
+}
 
 const App = () => {
   return (
-    // <Provider store={store}>
-    //   <BrowserRouter>
-    //     <Routes>
-    //       <Route exact path="/auth" element={<MainAuthPage />}>
-    //         <Route exact path="login" element={<Login />} />
-    //         <Route exact path="register" element={<Register />} />
-    //       </Route>
-    //     </Routes>
-    //   </BrowserRouter>
-    // </Provider>
-    <ViewCourses />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/auth" element={<MainAuthPage />}>
+            <Route exact path="login" element={<Login />} />
+            <Route exact path="register" element={<Register />} />
+          </Route>
+          <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/admin">
+            <Route exact path="addcourse" element={<AddCourse />} />
+            <Route exact path="viewcourse" element={<ViewCourses />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

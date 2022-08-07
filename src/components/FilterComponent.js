@@ -1,7 +1,7 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import style from "../css/Admin.module.css";
+import style from "../css/Admin/ViewCourses.module.css";
 
 const FilterComponent = ({ filterText, onFilter, onClear }) => (
   <>
