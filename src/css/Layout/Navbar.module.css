@@ -1,6 +1,6 @@
-:root{
-    --main-color: #3C99DC;
-    --secondary-color: #FACC5A;
+:root {
+  --main-color: #3c99dc;
+  --secondary-color: #facc5a;
 }
 
 /* ----------------start navbar ------------------ */
@@ -51,121 +51,125 @@
 } */
 /* -----------------------End Responsive navbar-------------------------- */
 
-.header{
-    /* background-color: var(--main-color); */
-    /* height: 169px; */
-}
+/* .header {
+  background-color: var(--main-color); */
+/* height: 169px;
+} */
 
 /* ----------------------start topbar------------------------ */
-.topbar{
-    background-color: var(--main-color);
-    height: 100px;
+.topbar {
+  background-color: var(--main-color);
+  height: 100px;
 }
-.contactInfo{
-    position: relative;
-    top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 70%;
-    margin: auto;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
+.contactInfo {
+  position: relative;
+  top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-.socialLinks{
-    display: flex;
-    position: relative;
-} 
- .socialLinks .icon{
-    color: white;
-    background-color: var(--secondary-color);
-    padding: 7px;
-    border-radius: 30px;
-    margin-right: 10px;
+.socialLinks {
+  display: flex;
+  position: relative;
 }
- .address{
-   position: relative;
-   display: flex;
-   align-items: center;
-} 
+.socialLinks .icon {
+  color: white;
+  background-color: var(--secondary-color);
+  padding: 7px;
+  border-radius: 30px;
+  margin-right: 10px;
+}
+.address {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-.address .icon{
-    color: var(--secondary-color);
-    font-size: 35px;
-    position: relative;
+.address .icon {
+  color: var(--secondary-color);
+  font-size: 35px;
+  position: relative;
 }
 .mail {
-    position: relative;
-    right: 10px;
-    display: flex;
+  position: relative;
+  right: 10px;
+  display: flex;
 }
 
-.mail .icon{
-    color: var(--secondary-color);
-    font-size: 25px;
-    position: relative;
-    left: 10px;
+.mail .icon {
+  color: var(--secondary-color);
+  font-size: 25px;
+  position: relative;
+  left: 10px;
 }
 
 .phone {
-    position: relative;
-    right: 10px;
-    display: flex;
+  position: relative;
+  right: 10px;
+  display: flex;
 }
 
-.phone .icon{
-    color: var(--secondary-color);
-    font-size: 25px;
-    position: relative;
-    left: 10px;
+.phone .icon {
+  color: var(--secondary-color);
+  font-size: 25px;
+  position: relative;
+  left: 10px;
 }
 
-.contactInfo .sitelogo img{
-    width: 65px;
+.contactInfo .sitelogo img {
+  width: 65px;
 }
 /* --------------------------end topbar--------------------- */
 
-.nav{
-    background-color: var(--main-color);
-    border-style: solid;
-    border-width: 4px 0px 4px 0;
-    border-color: var(--secondary-color);
+.nav {
+  background-color: var(--main-color);
+  border-style: solid;
+  border-width: 4px 0px 4px 0;
+  border-color: var(--secondary-color);
 }
-.nav nav{
-    width: 90%;
-    margin: auto;
+.nav nav {
+  width: 90%;
+  margin: auto;
 }
- .nav .navbtns{
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    right: 15px;
-} 
-.nav .joinbutton{
-    background-color: var(--secondary-color);
-    color: white;
-    font-weight: bold;
-    width: 100px;
-    border: none;
-    border-radius: 10px;
-    position: relative;
-    right: 10px;
+.nav .navbtns {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  right: 15px;
 }
-.nav .navbtns .icon{
-    padding-left: 5px;
+.nav .join_login {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  right: 10px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.nav .navbtns .icon {
+  padding-left: 5px;
 }
 
-.nav .loginbutton{
-    background-color: var(--secondary-color);
-    color: white;
-    font-weight: bold;
-    width: 100px;
-    border: none;
-    border-radius: 10px;
- 
-
-} 
+.nav .loginbutton {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+}
 
 /* -------------------end navbar---------------------- */

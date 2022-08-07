@@ -1,50 +1,66 @@
-:root{
-    --main-color: #3C99DC;
-    --secondary-color: #FACC5A;
+:root {
+  --main-color: #3c99dc;
+  --secondary-color: #facc5a;
 }
 
 /* ---------------start add course form----------------- */
 
 .addcourse {
-    height: 100vh;
-   
+  height: 100vh;
 }
-.addcourse .title{
-    text-align: center;
-    position: relative;
-    top: 80px;
-    color: var(--main-color)
+.addcourse .title {
+  text-align: center;
+  position: relative;
+  top: 80px;
+  color: var(--main-color);
 }
 .addcourse .formcontainer {
-    width: 80%;
-    margin: auto;
-    margin-top: 8%;
-    background-color:var(--main-color);
-    padding: 20px;
-    border-radius: 15px;
+  width: 80%;
+  margin: auto;
+  margin-top: 8%;
+  background-color: var(--main-color);
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0px 1px 6px var(--main-color);
 }
-.addcourse form .formlabel{
-    font-weight: bold;
-    padding: 4px;
-    color: var(--secondary-color);
-    font-size: 20px;
+.addcourse form .formlabel {
+  padding: 4px;
+  color: white;
 }
-.addcourse  .listTitle{
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--secondary-color)
+.addcourse .checkList {
+  margin-top: 5px;
 }
-.addcourse .inputSpan_container{
-    display: flex;
+.addcourse .listTitle {
+  color: white;
 }
-.addcourse .listContainer span{
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-    padding: 10px;
+.input_course {
+  margin-top: 5px;
 }
-.addcourse .itemsChecked{
-    font-size: 15px;
-    font-weight: bold;
-    color: var(--secondary-color);
+.addcourse .inputSpan_container {
+  display: flex;
+}
+.addcourse .listContainer span {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+}
+.addcourse .itemsChecked {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+.addcourse .save_btn button {
+  margin-top: 8px;
+  background-color: var(--secondary-color);
+  width: 19%;
+}
+
+.addcourse .save_btn button:hover {
+  border-color: white;
+}
+
+.addcourse .error_text {
+  color: var(--secondary-color);
+  font-weight: bold;
 }

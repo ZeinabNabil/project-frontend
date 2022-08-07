@@ -9,8 +9,6 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Components
-
-// Components
 import MainAuthPage from './Authentication/MainAuthPage';
 import Login from './Authentication/Login';
 import Register from './Authentication/Register';
@@ -19,6 +17,8 @@ import AddCourse from './Admin/AddCourse';
 import setAuthToken from './../utilis/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import { setCurrentUser } from './../actions/user.action';
+import Navbar from './Layout/Navbar';
+import Footer from './Layout/Footer';
 if (localStorage.token) {
   //set auth token header auth
   setAuthToken(localStorage.token);
@@ -38,11 +38,15 @@ const App = () => {
             <Route exact path="login" element={<Login />} />
             <Route exact path="register" element={<Register />} />
           </Route>
+        </Routes>
+        <Navbar />
+        <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route exact path="/admin">
             <Route exact path="addcourse" element={<AddCourse />} />
           </Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </Provider>
   );
