@@ -23,14 +23,14 @@ const Navbar = () => {
   <div className={style.header}>
     {/* ----------------------start topbar----------------- */}
     <div className={style.topbar}>
-    <div className="col-lg-12 col-md-6 col-sm-12">
+    <div className="col-lg-12 col-md-12 col-sm-12">
         <div className={style.contactInfo}>
             <div className={style.socialLinks}>
                 <a href="#">
                   <FontAwesomeIcon
                     className={style.icon}
                     icon={faFacebookF}
-                    style={{paddingLeft:"10px" , paddingRight:"10px"}}
+                    // style={{paddingLeft:"10px" , paddingRight:"10px"}}
                   />
                 </a>
                 <a href="#">
@@ -76,25 +76,27 @@ const Navbar = () => {
       </div> 
     </div>
     {/* -----------------------end topbar--------------------- */}
+    {/* ----------------------------------------start navbar---------------------------------- */}
     <div className={style.nav}>
-      <div className="col-lg-12 col-md-6 col-sm-12">
-          <nav class="navbar navbar-expand-lg " style={{zIndex: "1"}}>
+      <div className="col-lg-12 col-md-12 col-sm-12">
+          <nav class="navbar navbar-expand-lg " style={{zIndex: "1", display:"flex"}}>
+              <div className={style.navbtns}>
+                <button className={style.joinbutton}>
+                  Join us
+                   <FontAwesomeIcon className={style.icon} icon={faUserGraduate}/>
+                </button>
+                <button className={style.loginbutton}>
+                  Log in
+                  <FontAwesomeIcon className={style.icon} icon={faRightToBracket}/>
+                </button>
+              </div>
               <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav">
-                    <div className={style.navbtns}>
-                    <button className={style.joinbutton}>
-                      Join us
-                      <FontAwesomeIcon className={style.icon} icon={faUserGraduate}/>
-                    </button>
-                    <button className={style.loginbutton}>
-                    Log in
-                      <FontAwesomeIcon className={style.icon} icon={faRightToBracket}/>
-                    </button>
-                    </div>
+                  <ul class="navbar-nav" style={{display:"flex" , flexWrap:"wrap" , justifyContent:"center"}}>
+
                     <li class="nav-item">
                       <a
                         class="nav-link active"
@@ -226,7 +228,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-
+  // ----------------------------------------end navbar-----------------------------------
    
   );
 };

@@ -71,7 +71,7 @@
                             </a>
                         </div>
                     </div>
-                    <div className="col-lg-5 col-md-6 col-sm-12">
+                    <div className="col-lg-5 col-md-12 col-sm-12">
                         <div className={style.lastelement}>
                             <div className={style.info}>
                                 <div className={style.title}>
@@ -131,6 +131,7 @@
                 </div>
             </div>
         </div>
+    // -------------------------end footer-----------------
     );
   };
   
