@@ -3,20 +3,16 @@ import style from "../../css/Admin/AddCourse.module.css"
 import Input from "../Admin/Input"
 
 
-const AddCourse = (props) =>{
+const AddUSer = (props) =>{
   const checkList = ["VIP1", "VIP2", "Group"];
   const [checked, setChecked] = useState([]);
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
-  Name: "",
-  Category: "",
-  Description: "",
-  Attends: "",
-  Classes: "",
-  Whatis: "",
-  Types: [],
-  StudentLearn: "",
-  courseImage: [],
+    name: '',
+    phone: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
   const onInputChange = (e) => {
     const value = e.target.value;
@@ -29,22 +25,13 @@ const AddCourse = (props) =>{
     e.preventDefault();
     setErrors({});
 
-    const course = new FormData();
-    course.append("Name", form.Name);
-    course.append("Category", form.Category);
-    course.append("Description", form.Description);
-    course.append("Attends", form.Attends);
-    course.append("Classes", form.Classes);
-    course.append("Whatis", form.Whatis);
-    course.append("studentLearn", form.StudentLearn);
-    for (let i = 0; i < form.courseImage.length; i++) {
-      course.append(`courseImage${[]}`, form.courseImage[i]);
-    }
-    for (let i = 0; i < form.Types.length; i++) {
-      course.append(`Types${[]}`, form.Types[i]);
-    }
+    const user = new FormData();
+    user.append("Name", form.name);
+    user.append("phone", form.phone);
+    user.append("email", form.email);
+    user.append("password", form.password);
     console.log(form);
-    props.addCourse(course);
+    props.addUser(user);
   };
   useEffect(() => {
     setErrors({});
@@ -200,6 +187,6 @@ const AddCourse = (props) =>{
       
 }
 
-export default AddCourse;
+export default AddUSer;
 
  
