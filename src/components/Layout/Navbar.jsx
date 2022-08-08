@@ -62,8 +62,9 @@ const Navbar = () => {
         </div>
       </div>
       {/* -----------------------end topbar--------------------- */}
+      {/* -------------------------start navbar--------------------- */}
       <div className={style.nav}>
-        <div className="col-lg-12 col-md-6 col-sm-12">
+        <div className="col-lg-12 col-md-12 col-sm-12">
           <nav className="navbar navbar-expand-lg " style={{width: "75%", margin:"auto"}} >
             <div className="container-fluid">
               <button
@@ -227,6 +228,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+// ---------------------end navbar-----------------s
   );
 };
 
