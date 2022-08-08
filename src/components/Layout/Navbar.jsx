@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className={style.header}>
       {/* ----------------------start topbar----------------- */}
       <div className={style.topbar}>
-        <div className="col-lg-12 col-md-6 col-sm-12">
+        <div className="col-lg-12 col-md-12 col-sm-12">
           <div className={style.contactInfo}>
             <div className={style.socialLinks}>
               <a href="#">
@@ -64,7 +64,7 @@ const Navbar = () => {
       {/* -----------------------end topbar--------------------- */}
       <div className={style.nav}>
         <div className="col-lg-12 col-md-6 col-sm-12">
-          <nav className="navbar navbar-expand-lg " style={{ zIndex: '1' }}>
+          <nav className="navbar navbar-expand-lg " style={{width: "75%", margin:"auto"}} >
             <div className="container-fluid">
               <button
                 className="navbar-toggler"
@@ -78,32 +78,33 @@ const Navbar = () => {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul className="navbar-nav">
                   <div className={style.navbtns}>
-                    <Link to="/auth/register" className={style.join_login}>
-                      Join us
-                      <FontAwesomeIcon
-                        className={style.icon}
-                        icon={faUserGraduate}
-                      />
-                    </Link>
-                    <Link to="/auth/login" className={style.join_login}>
-                      Log in
-                      <FontAwesomeIcon
-                        className={style.icon}
-                        icon={faRightToBracket}
-                      />
-                    </Link>
+                        <Link to="/auth/register" className={style.join_login}>
+                          Join us
+                          <FontAwesomeIcon
+                            className={style.icon}
+                            icon={faUserGraduate}
+                          />
+                        </Link>
+                        <Link to="/auth/login" className={style.join_login}>
+                          Log in
+                          <FontAwesomeIcon
+                            className={style.icon}
+                            icon={faRightToBracket}
+                          />
+                        </Link>
                   </div>
+                <ul className="navbar-nav" style={{display:"flex" , flexWrap:"wrap" , justifyContent:"center"}}>
                   <li className="nav-item">
-                    <a
+                    <Link to="/"
                       className="nav-link active"
                       style={{ color: 'white', fontWeight: 'bold' }}
                       aria-current="page"
                       href="#"
+                    
                     >
                       MAIN
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a

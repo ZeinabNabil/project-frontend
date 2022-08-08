@@ -1,7 +1,6 @@
 import React , {useEffect, useState} from "react";
-import style from "../../css/Admin/Add.module.css"
+import style from "../../css/Admin/Adduser.module.css"
 import Input from "../Admin/Input"
-
 
 
 const AddUser= (props) =>{
@@ -51,14 +50,14 @@ const AddUser= (props) =>{
      checked.includes(item) ? "checked-item" : "not-checked-item";
 
     return(
-        <div className={style.add}>
+        <div className={style.adduser}>
             <div className={style.title}>
             <h1>Add User</h1>
             </div>
-            <div className={style.formcontainer} style={{width:"40%" ,marginTop:"5%" , padding: "40px"}}>
+            <div className={style.formcontainer}>
             <form 
             className="form-group" 
-            style={{width:"90%", margin:"auto"}}
+            style={{width:"100%", margin:"auto"}}
             onSubmit={onFormSubmit}
             >
 
@@ -122,7 +121,7 @@ const AddUser= (props) =>{
                     multiple={true}
                 />
                 <div className={style.save_btn} >
-                    <button className="btn"  style={{marginTop:"12px", width:"100%"}}>Save</button>
+                    <button className="btn" >Save</button>
                 </div>
             </form>
         </div>
