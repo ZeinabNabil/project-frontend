@@ -19,7 +19,14 @@ const ViewCourses = (props) => {
     setData(props.course.courses.courses);
   }, [props.course.courses.courses]);
 
-  return <Table columns={columns} data={data ? data : []} />;
+  return (
+    <Table
+      btnName="Add new course"
+      btnLink="addcourse"
+      columns={columns}
+      data={data ? data : []}
+    />
+  );
 };
 
 const mapStateToProps = (state) => ({

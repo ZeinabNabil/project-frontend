@@ -10,7 +10,14 @@ import Table from "../Table";
 const ViewUsers = (props) => {
   const [data, setData] = useState(null);
 
-  return <Table columns={columns} data={data ? data : []} />;
+  return (
+    <Table
+      btnName="Add new user"
+      btnLink="adduser"
+      columns={columns}
+      data={data ? data : []}
+    />
+  );
 };
 
 export default ViewUsers;
