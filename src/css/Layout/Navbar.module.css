@@ -1,191 +1,189 @@
-
-
 /* responsive */
- @media screen and (max-width: 1246px ) {
-    .contactInfo{
-        width: 85% !important;
-    }
-    .nav nav{
-        width: 96% !important;
-    }
-    .nav .navbar_nav{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    }
-    
-@media screen and (max-width: 1100px) {
-    .contactInfo{
-        width: 96% !important;
-    }
+@media screen and (max-width: 1246px) {
+  .contactInfo {
+    width: 85% !important;
+  }
+  .nav nav {
+    width: 96% !important;
+  }
+  .nav .navbar_nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
+@media screen and (max-width: 1100px) {
+  .contactInfo {
+    width: 96% !important;
+  }
 }
 @media screen and (max-width: 1000px) {
-    .contactInfo{
-        width: 98% !important;
-    }
-
+  .contactInfo {
+    width: 98% !important;
+  }
 }
 @media screen and (max-width: 991px) {
-    .nav .navbtns{
-        position: absolute !important;
-        right: 0 !important;
-    }
-    .contactInfo{
-        font-size: 13px !important;
-        width: 98% !important;
-    }
-
+  .nav .navbtns {
+    position: absolute !important;
+    right: 0 !important;
+  }
+  .contactInfo {
+    font-size: 13px !important;
+    width: 98% !important;
+  }
 }
-@media screen and (min-width: 798px) and (max-width:900px) {
-    .contactInfo{
-        width: 98% !important;
-        font-size: 11px !important;
-
-    }
+@media screen and (min-width: 798px) and (max-width: 900px) {
+  .contactInfo {
+    width: 98% !important;
+    font-size: 11px !important;
+  }
 }
 @media screen and (max-width: 798px) {
-    .contactInfo{
-        width: 100% !important;
-        font-size: 10px !important;
-        padding: 0px 10px 0px 10px !important;
-    }
-
+  .contactInfo {
+    width: 100% !important;
+    font-size: 10px !important;
+    padding: 0px 10px 0px 10px !important;
+  }
 }
 @media screen and (max-width: 765px) {
-    .topbar{
-        height: 145px !important;
-    }
-    .contactInfo .address , .contactInfo .mail , .contactInfo .phone{
-        display: none !important;
-    }
-    .contactInfo{
-        justify-content: center;
-        flex-direction: column-reverse;
-    }
-    .contactInfo img{
-        width: 75%;
-    }
-    .socialLinks{
-        top: 8px !important;
-        font-size: 15px;
-    }
+  .topbar {
+    height: 145px !important;
+  }
+  .contactInfo .address,
+  .contactInfo .mail,
+  .contactInfo .phone {
+    display: none !important;
+  }
+  .contactInfo {
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .contactInfo img {
+    width: 75%;
+  }
+  .socialLinks {
+    top: 8px !important;
+    font-size: 15px;
+  }
 }
-
 
 /* ----------------------start topbar------------------------ */
-.topbar{
-    background-color: var(--main-color);
-    height: 100px;
+.topbar {
+  background-color: var(--main-color);
+  height: 100px;
 }
-.contactInfo{
-    position: relative;
-    top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 70%;
-    margin: auto;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
+.contactInfo {
+  position: relative;
+  top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-.socialLinks{
-    display: flex;
-    position: relative;
-} 
- .socialLinks .icon{
-    color: white;
-    background-color: var(--secondary-color);
-    border-radius: 30px;
-    margin: 3px;
-    padding: 10px;
-    font-size: 16px;
+.socialLinks {
+  display: flex;
+  position: relative;
 }
- .address{
-   position: relative;
-   display: flex;
-   align-items: center;
-} 
+.socialLinks .icon {
+  color: white;
+  background-color: var(--secondary-color);
+  border-radius: 30px;
+  margin: 3px;
+  padding: 10px;
+  font-size: 16px;
+}
+.address {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-.address .icon{
-    color: var(--secondary-color);
-    font-size: 35px;
-    position: relative;
+.address .icon {
+  color: var(--secondary-color);
+  font-size: 35px;
+  position: relative;
 }
 .mail {
-    position: relative;
-    right: 10px;
-    display: flex;
+  position: relative;
+  right: 10px;
+  display: flex;
 }
 
-.mail .icon{
-    color: var(--secondary-color);
-    font-size: 25px;
-    position: relative;
-    left: 10px;
+.mail .icon {
+  color: var(--secondary-color);
+  font-size: 25px;
+  position: relative;
+  left: 10px;
 }
 
 .phone {
-    position: relative;
-    right: 10px;
-    display: flex;
+  position: relative;
+  right: 10px;
+  display: flex;
 }
 
-.phone .icon{
-    color: var(--secondary-color);
-    font-size: 25px;
-    position: relative;
-    left: 10px;
+.phone .icon {
+  color: var(--secondary-color);
+  font-size: 25px;
+  position: relative;
+  left: 10px;
 }
 
-.contactInfo .sitelogo img{
-    width: 65px;
+.contactInfo .sitelogo img {
+  width: 65px;
 }
 /* --------------------------end topbar--------------------- */
 
 /* ----------------start navbar ------------------ */
-.nav{
-    background-color: var(--main-color);
-    border-style: solid;
-    border-width: 4px 0px 4px 0;
-    border-color: var(--secondary-color);
+.nav {
+  background-color: var(--main-color);
+  border-style: solid;
+  border-width: 4px 0px 4px 0;
+  border-color: var(--secondary-color);
 }
-.nav nav{
-    width: 90%;
-    margin: auto;
+.nav nav {
+  width: 90%;
+  margin: auto;
 }
- .nav .navbtns{
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    height: 45px;
-} 
-.nav .navbtns .joinbutton{
-    background-color: var(--secondary-color);
-    color: white;
-    font-weight: bold;
-    width: 100px;
-    border: none;
-    border-radius: 10px;
-    position: relative;
-    right: 10px;
+.nav .navbtns {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 45px;
 }
-.nav .navbtns .icon{
-    padding-left: 5px;
+.nav .navbtns .join_login {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.nav .navbtns .icon {
+  padding-left: 5px;
 }
 
-.nav .loginbutton{
-    background-color: var(--secondary-color);
-    color: white;
-    font-weight: bold;
-    width: 100px;
-    border: none;
-    border-radius: 10px;
- 
-
-} 
+.nav .loginbutton {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+}
 
 /* -------------------end navbar---------------------- */

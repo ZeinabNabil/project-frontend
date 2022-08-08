@@ -1,9 +1,10 @@
 import React , {useEffect, useState} from "react";
-import style from "../../css/Admin/AddCourse.module.css"
+import style from "../../css/Admin/Add.module.css"
 import Input from "../Admin/Input"
 
 
-const AddUSer = (props) =>{
+
+const AddUser= (props) =>{
   const checkList = ["VIP1", "VIP2", "Group"];
   const [checked, setChecked] = useState([]);
   const [errors, setErrors] = useState({});
@@ -26,56 +27,41 @@ const AddUSer = (props) =>{
     setErrors({});
 
     const user = new FormData();
-    user.append("Name", form.name);
+    user.append("name", form.name);
     user.append("phone", form.phone);
     user.append("email", form.email);
     user.append("password", form.password);
+    user.append("confirmpassword", form.confirmpassword);
     console.log(form);
-    props.addUser(user);
+    props.adduser(user);
   };
   useEffect(() => {
     setErrors({});
     setErrors(props.errors);
   }, [props.errors]);
   const onFileChange = (e) => {
-    setForm({ ...form, courseImage: e.target.files });
+    setForm({ ...form, [e.target.name]: e.target.files });
     console.log([...e.target.files]);
   };
-   // Add/Remove checked item from list
-   const handleCheck = (event) => {
-     var updatedList = [...checked];
-     if (event.target.checked) {
-       updatedList = [...checked, event.target.value];
-     } else {
-       updatedList.splice(checked.indexOf(event.target.value), 1);
-     }
-     setChecked(updatedList);
-   };
+   
+
  
-   // Generate string of checked items
-   const checkedItems = checked.length
-     ? checked.reduce((total, item) => {
-         return total + ", " + item;
-       })
-     : "";
- 
-   // Return classes based on whether item is checked
+   // Return confirmpassword based on whether item is checked
    var isChecked = (item) =>
      checked.includes(item) ? "checked-item" : "not-checked-item";
 
     return(
-        <div className={style.addcourse}>
+        <div className={style.add}>
             <div className={style.title}>
-            <h1>Add New Course</h1>
+            <h1>Add User</h1>
             </div>
-            <div className={style.formcontainer}>
+            <div className={style.formcontainer} style={{width:"40%" ,marginTop:"5%" , padding: "40px"}}>
             <form 
             className="form-group" 
             style={{width:"90%", margin:"auto"}}
             onSubmit={onFormSubmit}
             >
-                <div className="row g-3">
-                    <div className="col-lg-6">
+
                 <Input 
                   onChange={onInputChange}
                     value={form.Name}
@@ -84,8 +70,6 @@ const AddUSer = (props) =>{
                     class="form-control"
                     placeholder="Enter Course Name"
                 />
-                </div>
-                <div className="col-lg-6">
                   <Input
                      onChange={onInputChange} 
                     value={form.Whatis}
@@ -93,51 +77,35 @@ const AddUSer = (props) =>{
                     type="text"
                     placeholder="What is this?"
                 />
-                </div>
-                </div>
-                <div className="row g-3">
-                <div className="col-lg-6">
                   <Input
                     onChange={onInputChange} 
-                    value={form.Classes}
-                    labelName ="Course Classes"
+                    value={form.confirmpassword}
+                    labelName ="Course confirmpassword"
                     type="number"
-                    placeholder="Enter number of classes"
+                    placeholder="Enter number of confirmpassword"
                 />
-                </div>
-                 <div className="col-lg-6">
                   <Input
                     onChange={onInputChange} 
-                    value={form.Attends}
-                    labelName ="Course Attends"
+                    value={form.password}
+                    labelName ="Course password"
                     type="number"
-                    placeholder="Enter number of attends"
+                    placeholder="Enter number of password"
                 />
-                </div>
-            </div>
-            <div className="row g-3">
-                <div className="col-lg-6">
                     <Input
                         onChange={onInputChange} 
-                        value={form.Description}
-                        labelName ="Course Description"
+                        value={form.email}
+                        labelName ="Course email"
                         type="text"
-                        placeholder="Enter Course Description"
+                        placeholder="Enter Course email"
                     />
-                    </div>
-                <div className="col-lg-6">
                   <Input
                     onChange={onInputChange} 
-                    value={form.Category}
-                    labelName ="Course Category"
+                    value={form.phone}
+                    labelName ="Course phone"
                     type="text"
                     class="form-control"
-                    placeholder="Enter Course Category"
+                    placeholder="Enter Course phone"
                 />
-                </div>
-            </div>
-            <div className="row g-3">
-                <div className="col-lg-6">
                   <Input
                     onChange={onInputChange} 
                     value={form.StudentLearn}
@@ -145,8 +113,6 @@ const AddUSer = (props) =>{
                     type="text"
                     placeholder="What will students learn"
                 />
-                </div>
-                <div className="col-lg-6">
                 <Input
                     onChange={onInputChange}
                     value={form.courseImage}
@@ -155,28 +121,8 @@ const AddUSer = (props) =>{
                     file="yes"
                     multiple={true}
                 />
-                </div>
-            </div>
-                <div className="col-lg-12">
-                   <div className={style.checkList}>
-                        <div className={style.listContainer}>
-                            <div className={style.listTitle}>Types of Course</div>
-                            <div className={style.inputSpan_container}>
-                            {checkList.map((item, index) => (
-                                <div key={index}>
-                                <input value={item} type="checkbox" onChange={handleCheck} />
-                                <span className={isChecked(item)}>{item}</span>
-                                </div>
-                              
-                            ))}
-                            </div>
-                        </div>
-                       
-                    </div>
-                    <div className={style.itemsChecked}>
-                        {`Items checked are: ${checkedItems}`}
-                    </div>
-                    
+                <div className={style.save_btn} >
+                    <button className="btn"  style={{marginTop:"12px", width:"100%"}}>Save</button>
                 </div>
             </form>
         </div>
@@ -187,6 +133,6 @@ const AddUSer = (props) =>{
       
 }
 
-export default AddUSer;
+export default AddUser;
 
  

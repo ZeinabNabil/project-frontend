@@ -1,0 +1,61 @@
+/* :root {
+  --main-color: #3c99dc;
+  --secondary-color: #facc5a;
+} */
+
+/* ---------------start add course form----------------- */
+
+.add {
+  height: 100vh;
+}
+.add .title {
+  text-align: center;
+  position: relative;
+  top: 60px;
+  color: var(--main-color);
+}
+.add .formcontainer {
+  margin: auto;
+  background-color: var(--main-color);
+  border-radius: 6px;
+  box-shadow: 0px 1px 6px var(--main-color);
+}
+.add form .formlabel {
+  padding: 4px;
+  color: white;
+}
+.add .checkList {
+  margin-top: 5px;
+}
+.add .listTitle {
+  color: white;
+}
+.input_course {
+  margin-top: 5px;
+}
+.add .inputSpan_container {
+  display: flex;
+}
+.add .listContainer span {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+}
+.add .itemsChecked {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+.add .save_btn button {
+  background-color: var(--secondary-color);
+}
+
+.add .save_btn button:hover {
+  border-color: white;
+}
+
+.add .error_text {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
