@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from '../../css/Admin/Add.module.css';
+import style from '../../css/Admin/Addcourse.module.css';
 import Input from '../Admin/Input';
 import { addCourse } from '../../actions/course.action';
 import { connect } from 'react-redux';
@@ -101,11 +101,12 @@ const AddCourse = (props) => {
   }, []);
   const { errors } = props.error;
   return (
-    <div className={style.add}>
+    <div className={style.addcourse}>
       <div className={style.title}>
         <h1>Add Course</h1>
       </div>
-      <div className={style.formcontainer} style={{width:"80%" ,marginTop:"8%" , padding: "20px"}}>
+      <div className={style.form}>
+      <div className={style.formcontainer}>
         <form
           enctype="application/json"
           className="form-group"
@@ -266,9 +267,10 @@ const AddCourse = (props) => {
             </div>
           </div>
           <div className={style.save_btn} >
-            <button className="btn" style={{marginTop:"8px", width:"19%"}}>Save</button>
+            <button className="btn">Save</button>
           </div>
         </form>
+      </div>
       </div>
     </div>
   );

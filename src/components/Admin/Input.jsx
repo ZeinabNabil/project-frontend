@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import style from '../../css/Admin/Add.module.css';
+import style from '../../css/Admin/Addcourse.module.css';
 
 const Input = ({
   labelName,
@@ -15,7 +15,7 @@ const Input = ({
   return (
     <div className={style.input}>
       <div className="col-lg-12 col-md-12 col-sm-12">
-        <label className={style.formlabel}>{labelName}</label>
+        <label className={style.formlabel} style={{padding:"4px" , color:"white"}}>{labelName}</label>
       </div>
       <input
         value={value}

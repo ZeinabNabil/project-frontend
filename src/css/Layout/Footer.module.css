@@ -36,6 +36,9 @@
     .footer {
      height: 110vh !important;
     }
+    .footer .footerelements{
+      padding-top: 190px !important;
+    }
     .footer .lastelement{
       justify-content: center !important;
     }
