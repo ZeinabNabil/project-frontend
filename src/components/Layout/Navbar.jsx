@@ -87,7 +87,7 @@ const Navbar = () => {
                         icon={faUserGraduate}
                       />
                     </Link>
-                    <Link to="/auth/register" className={style.join_login}>
+                    <Link to="/auth/login" className={style.join_login}>
                       Log in
                       <FontAwesomeIcon
                         className={style.icon}

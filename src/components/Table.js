@@ -47,7 +47,7 @@ const Table = (props) => {
       <div className={style.view_data}>
         <div className="row" style={{ margin: '0px' }}>
           <div className="col-lg-12">
-            <div className={style.add_view_btn}>
+            <div className={style.add_btn}>
               <Link to="/admin/addcourse" type="button" className="btn">
                 <FontAwesomeIcon icon={faPlus} /> Add new course
               </Link>

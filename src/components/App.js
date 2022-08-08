@@ -23,6 +23,8 @@ import ViewCourses from "./Admin/ViewCourses";
 import Navbar from "./Layout/Navbar";
 import Footer from "./Layout/Footer";
 import AddUser from "./Admin/AddUser";
+import CourseInfo from "./Admin/CourseInfo";
+
 if (localStorage.token) {
   //set auth token header auth
   setAuthToken(localStorage.token);
@@ -50,6 +52,7 @@ const App = () => {
             <Route exact path="addcourse" element={<AddCourse />} />
             <Route exact path="viewcourse" element={<ViewCourses />} />
             <Route exact path="adduser" element={<AddUser />} />
+            <Route exact path="courseinfo" element={<CourseInfo />} />
           </Route>
         </Routes>
         <Footer />

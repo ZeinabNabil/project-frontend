@@ -1,42 +1,46 @@
-import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ListGroup } from "react-bootstrap";
+
+// Icons
+import { faEdit, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // CSS
-import style from '../../css/Admin/ViewCourses.module.css';
+import style from "../../css/Admin/ViewCourses.module.css";
 
 const CourseColumn = [
   {
-    name: 'Name',
+    name: "Name",
     selector: (row) => row.name,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Desecription',
+    name: "Desecription",
     selector: (row) => row.description,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Category',
+    name: "Category",
     selector: (row) => row.category.toUpperCase(),
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Course Hours',
+    name: "Course Hours",
     selector: (row) => `${row.numbersOfHours} Hours`,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Classes',
+    name: "Classes",
     selector: (row) => `${row.classes} Classes`,
     wrap: true,
   },
   {
-    name: 'duration',
+    name: "duration",
     selector: (row) => row.duration,
     wrap: true,
   },
@@ -52,22 +56,22 @@ const CourseColumn = [
   // },
 
   {
-    name: 'Types',
+    name: "Types",
     selector: (row) => row.typesOfCourse.map((type) => <span>{type}, </span>),
     wrap: true,
   },
   {
-    name: 'What is',
+    name: "What is",
     selector: (row) => row.whatis,
     grow: 2,
     wrap: true,
   },
   {
-    name: 'What will students learn',
+    name: "What will students learn",
     selector: (row) =>
       row.whatWillStudentsLearn.map((feature) => (
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" style={{ background: 'none' }}>
+          <li class="list-group-item" style={{ background: "none" }}>
             {feature}
           </li>
         </ul>
@@ -76,7 +80,7 @@ const CourseColumn = [
     wrap: true,
   },
   {
-    name: 'Action',
+    name: "Action",
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,
@@ -92,6 +96,23 @@ const CourseColumn = [
             <button type="button" className="btn">
               <FontAwesomeIcon icon={faXmark} />
             </button>
+          </div>
+        </div>
+      );
+    },
+  },
+  {
+    name: "Action",
+    button: true,
+    ignoreRowClick: true,
+    allowOverflow: true,
+    cell: (row) => {
+      return (
+        <div className={style.edit_delete_btns}>
+          <div className={style.edit_btn}>
+            <Link to="/admin/courseinfo" className={style.View_more_btn}>
+              View more
+            </Link>
           </div>
         </div>
       );
