@@ -1,4 +1,69 @@
 
+:root{
+  --main-color: #3C99DC;
+  --secondary-color: #FACC5A;
+}
+/* responsive */
+@media screen and (max-width: 601px) {
+  .footer .lastelement .info{
+    display: none;
+  }
+  .footer .lastelement{
+    justify-content: center !important;
+    right: 40px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+   height: 110vh !important;
+  }
+  .footer .footerelements .title{
+    display: none !important;
+  }
+  .footer .footerelements .links{
+    display: none !important;
+  }
+
+   .footer .lastelement{
+    width: 90%;
+    margin: auto;
+    position: relative !important;
+    top: 55px;
+  } 
+
+}
+@media screen and (max-width: 992px) {
+    .footer {
+     height: 110vh !important;
+    }
+    .footer .lastelement{
+      justify-content: center !important;
+    }
+    .footer .lastelement .info{
+      position: relative !important;
+      top: 70px !important;
+      right: 50px !important;
+    }
+  }
+@media screen and (max-width: 1092px) {
+  .footer .footerelements{
+    padding-top: 77px;
+  }
+  
+}
+@media screen and (max-width: 1058px) {
+  .footer .footerelements{
+    width: 90%;
+  } 
+}
+@media screen and (max-width: 1058px) {
+  .footer .footerelements{
+    width: 88%;
+    padding-top: 56px;
+  } 
+}
+  
+
 /* -------------------------Start Footer---------------------------  */
 .footer {
     position: relative;
@@ -14,8 +79,7 @@
 .footerelements{
   width: 85%;
   margin: auto;
-  position: relative;
-  top: 120px;
+  padding-top: 120px;
 }
 
 .footer .footerelements .title{

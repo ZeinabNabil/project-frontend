@@ -20,7 +20,10 @@ import setAuthToken from "./../utilis/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { setCurrentUser } from "./../actions/user.action";
 import ViewCourses from "./Admin/ViewCourses";
+import Navbar from "./Layout/Navbar";
+import Footer from "./Layout/Footer";
 import CourseInfo from "./Admin/CourseInfo";
+
 if (localStorage.token) {
   //set auth token header auth
   setAuthToken(localStorage.token);
@@ -40,6 +43,9 @@ const App = () => {
             <Route exact path="login" element={<Login />} />
             <Route exact path="register" element={<Register />} />
           </Route>
+        </Routes>
+        <Navbar />
+        <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route exact path="/admin">
             <Route exact path="addcourse" element={<AddCourse />} />
@@ -47,6 +53,7 @@ const App = () => {
             <Route exact path="courseinfo" element={<CourseInfo />} />
           </Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </Provider>
   );

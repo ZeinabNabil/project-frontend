@@ -1,19 +1,21 @@
-:root{
-    --main-color: #3C99DC;
-    --secondary-color: #FACC5A;
-    --shadow-color: #3c99dc7a
-  }
-
+:root {
+  --main-color: #3c99dc;
+  --secondary-color: #facc5a;
+  --shadow-color: #3c99dc7a;
+}
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 .gZWIKX {
-    background-color: var(--main-color) !important;
-    color: white;
-    font-size: 15px;
+  background-color: var(--main-color) !important;
+  color: white;
+  font-size: 15px;
 }
 
 .TUEFO {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .zruCi {
-    background-color: #3c99dc1f !important;
+  background-color: #3c99dc1f !important;
 }
