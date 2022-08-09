@@ -67,7 +67,7 @@ const AddUser= (props) =>{
                     labelName="User Name"
                     type="text"
                     class="form-control"
-                    placeholder="User Name"
+                    placeholder="Username"
                 />
                   <Input
                      onChange={onInputChange} 
