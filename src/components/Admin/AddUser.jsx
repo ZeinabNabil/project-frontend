@@ -63,62 +63,40 @@ const AddUser= (props) =>{
 
                 <Input 
                   onChange={onInputChange}
-                    value={form.Name}
-                    labelName="Course Name"
+                    value={form.name}
+                    labelName="User Name"
                     type="text"
                     class="form-control"
-                    placeholder="Enter Course Name"
+                    placeholder="User Name"
                 />
                   <Input
                      onChange={onInputChange} 
-                    value={form.Whatis}
-                    labelName ="Course Definition"
-                    type="text"
-                    placeholder="What is this?"
-                />
-                  <Input
-                    onChange={onInputChange} 
-                    value={form.confirmpassword}
-                    labelName ="Course confirmpassword"
-                    type="number"
-                    placeholder="Enter number of confirmpassword"
+                    value={form.email}
+                    labelName ="Email"
+                    type="email"
+                    placeholder="Example : username @example.com"
                 />
                   <Input
                     onChange={onInputChange} 
                     value={form.password}
-                    labelName ="Course password"
-                    type="number"
-                    placeholder="Enter number of password"
+                    labelName ="Password"
+                    type="password"
+                    placeholder="Enter your password"
                 />
-                    <Input
-                        onChange={onInputChange} 
-                        value={form.email}
-                        labelName ="Course email"
-                        type="text"
-                        placeholder="Enter Course email"
-                    />
+                   <Input
+                    onChange={onInputChange} 
+                    value={form.confirmpassword}
+                    labelName ="Confirm password"
+                    type="password"
+                    placeholder="Confirm your password"
+                />
                   <Input
                     onChange={onInputChange} 
                     value={form.phone}
-                    labelName ="Course phone"
+                    labelName ="Phone"
                     type="text"
                     class="form-control"
-                    placeholder="Enter Course phone"
-                />
-                  <Input
-                    onChange={onInputChange} 
-                    value={form.StudentLearn}
-                    labelName ="Course use"
-                    type="text"
-                    placeholder="What will students learn"
-                />
-                <Input
-                    onChange={onInputChange}
-                    value={form.courseImage}
-                    labelName="Course Photo"
-                    type="file"
-                    file="yes"
-                    multiple={true}
+                    placeholder="phone number"
                 />
                 <div className={style.save_btn} >
                     <button className="btn" >Save</button>
