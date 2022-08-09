@@ -25,6 +25,7 @@ import Footer from './Layout/Footer';
 import AddUser from './Admin/AddUser';
 import CourseInfo from './Admin/CourseInfo';
 import ViewUsers from './Admin/ViewUsers';
+import Dashboard from './Admin/layout/Dashboard';
 
 if (localStorage.token) {
   //set auth token header auth
@@ -45,6 +46,7 @@ const App = () => {
             <Route exact path="login" element={<Login />} />
             <Route exact path="register" element={<Register />} />
           </Route>
+          <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Navbar />
         <Routes>
