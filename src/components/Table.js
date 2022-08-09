@@ -1,23 +1,23 @@
-import React, { useState, useEffect, useMemo } from "react";
-import DataTable from "react-data-table-component";
-import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState, useEffect, useMemo } from 'react';
+import DataTable from 'react-data-table-component';
+import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // CSS
-import style from "../css/Admin/ViewCourses.module.css";
+import style from '../css/Admin/ViewCourses.module.css';
 
 // Icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import image from "../images/Learning-rafiki (1).png";
+import image from '../images/Learning-rafiki (1).png';
 
 // Conponents
-import FilterComponent from "./FilterComponent";
+import FilterComponent from './FilterComponent';
 
 const Table = (props) => {
-  const [filterText, setFilterText] = useState("");
+  const [filterText, setFilterText] = useState('');
   const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 
   const filteredItems = props.data.filter(
@@ -30,7 +30,7 @@ const Table = (props) => {
     const handleClear = () => {
       if (filterText) {
         setResetPaginationToggle(!resetPaginationToggle);
-        setFilterText("");
+        setFilterText('');
       }
     };
 
@@ -45,7 +45,7 @@ const Table = (props) => {
   return (
     <div className={style.view}>
       <div className={style.view_data}>
-        <div className="row" style={{ margin: "0px" }}>
+        <div className="row" style={{ margin: '0px' }}>
           <div className="col-lg-12">
             <div className={style.add_btn}>
               <Link

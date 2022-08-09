@@ -1,30 +1,30 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "../store";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../store';
 // CSS
-import "bootstrap/dist/css/bootstrap.min.css";
-import "jquery/dist/jquery.min.js";
-import "bootstrap/dist/js/bootstrap.min.js";
-import "react-toastify/dist/ReactToastify.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Components
 
 // Components
-import MainAuthPage from "./Authentication/MainAuthPage";
-import Login from "./Authentication/Login";
-import Register from "./Authentication/Register";
-import Homepage from "./Layout/Homepage";
-import AddCourse from "./Admin/AddCourse";
-import setAuthToken from "./../utilis/setAuthToken";
-import jwt_decode from "jwt-decode";
-import { setCurrentUser } from "./../actions/user.action";
-import ViewCourses from "./Admin/ViewCourses";
-import Navbar from "./Layout/Navbar";
-import Footer from "./Layout/Footer";
-import AddUser from "./Admin/AddUser";
-import CourseInfo from "./Admin/CourseInfo";
-import ViewUsers from "./Admin/ViewUsers";
+import MainAuthPage from './Authentication/MainAuthPage';
+import Login from './Authentication/Login';
+import Register from './Authentication/Register';
+import Homepage from './Layout/Homepage';
+import AddCourse from './Admin/AddCourse';
+import setAuthToken from './../utilis/setAuthToken';
+import jwt_decode from 'jwt-decode';
+import { setCurrentUser } from './../actions/user.action';
+import ViewCourses from './Admin/ViewCourses';
+import Navbar from './Layout/Navbar';
+import Footer from './Layout/Footer';
+import AddUser from './Admin/AddUser';
+import CourseInfo from './Admin/CourseInfo';
+import ViewUsers from './Admin/ViewUsers';
 
 if (localStorage.token) {
   //set auth token header auth
@@ -52,12 +52,16 @@ const App = () => {
           <Route exact path="/admin">
             <Route exact path="addcourse" element={<AddCourse />} />
             <Route exact path="viewcourse" element={<ViewCourses />} />
-            <Route exact path="courseinfo" element={<CourseInfo />} />
+            <Route
+              exact
+              path="viewcourse/course/:id"
+              element={<CourseInfo />}
+            />
             <Route exact path="adduser" element={<AddUser />} />
             <Route exact path="viewusers" element={<ViewUsers />} />
           </Route>
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </Provider>
   );

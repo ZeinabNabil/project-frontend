@@ -5,6 +5,7 @@ import { addCourse } from '../../actions/course.action';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import store from './../../store';
+import BackToList from './BackToList';
 const AddCourse = (props) => {
   const checkList = ['VIP1', 'VIP2', 'Group'];
   const categories = [
@@ -39,13 +40,13 @@ const AddCourse = (props) => {
   const onFormSubmit = (e) => {
     e.preventDefault();
     const course = new FormData();
-    course.append("Name", form.Name);
-    course.append("Category", form.Category);
-    course.append("Description", form.Description);
-    course.append("Attends", form.Attends);
-    course.append("Classes", form.Classes);
-    course.append("Whatis", form.Whatis);
-    course.append("studentLearn", form.StudentLearn);
+    course.append('Name', form.Name);
+    course.append('Category', form.Category);
+    course.append('Description', form.Description);
+    course.append('Attends', form.Attends);
+    course.append('Classes', form.Classes);
+    course.append('Whatis', form.Whatis);
+    course.append('studentLearn', form.StudentLearn);
     for (let i = 0; i < form.courseImage.length; i++) {
       course.append(`courseImage${[]}`, form.courseImage[i]);
     }
@@ -106,171 +107,187 @@ const AddCourse = (props) => {
         <h1>Add Course</h1>
       </div>
       <div className={style.form}>
-      <div className={style.formcontainer}>
-        <form
-          enctype="application/json"
-          className="form-group"
-          style={{ width: '90%', margin: 'auto' }}
-          onSubmit={onFormSubmit}
-        >
-          <div className="row g-3">
-            <div className="col-lg-6">
-              <Input
-                onChange={onInputChange}
-                value={form.name}
-                name="name"
-                labelName="Course Name"
-                type="text"
-                className="form-control"
-                placeholder="Example : course one"
-                err={errors ? errors.name : ''}
-              />
-            </div>
-            <div className="col-lg-6">
-              <Input
-                onChange={onInputChange}
-                value={form.whatis}
-                name="whatis"
-                labelName="Course Definition"
-                type="text"
-                placeholder="Definition of this course"
-                err={errors ? errors.whatis : ''}
-              />
-            </div>
-          </div>
-          <div className="row g-3">
-            <div className="col-lg-6">
-              <Input
-                onChange={onInputChange}
-                value={form.duration}
-                name="duration"
-                labelName="Course Duration"
-                type="text"
-                className="form-control"
-                placeholder="Example : 3 months 2weeks"
-                err={errors ? errors.duration : ''}
-              />
-            </div>
-            <div className="col-lg-6">
-              <Input
-                onChange={onInputChange}
-                value={form.numbersOfHours}
-                name="numbersOfHours"
-                labelName="Course Hours"
-                type="number"
-                placeholder="Enter number of hours"
-                err={errors ? errors.numbersOfHours : ''}
-              />
-            </div>
-          </div>
-          <div className="row g-3">
-            <div className="col-lg-6">
-              <Input
-                onChange={onInputChange}
-                value={form.classes}
-                name="classes"
-                labelName="Course Classes"
-                type="number"
-                placeholder="Enter number of classes"
-                err={errors ? errors.classes : ''}
-              />
-            </div>
-            <div className="col-lg-6">
-              <Input
-                onChange={onInputChange}
-                value={form.description}
-                name="description"
-                labelName="Course Description"
-                type="text"
-                placeholder="Short brief about this course"
-                err={errors ? errors.description : ''}
-              />
-            </div>
-          </div>
-          <div className="row g-3">
-            <div className="col-lg-6">
-              <div className="col-lg-12 col-md-12 col-sm-12">
-                <label className={style.formlabel}>Category</label>
+        <div className={style.formcontainer}>
+          <BackToList />
+
+          <form
+            enctype="application/json"
+            className="form-group"
+            style={{ width: '90%', margin: 'auto' }}
+            onSubmit={onFormSubmit}
+          >
+            <div className="row g-3">
+              <div className="col-lg-6">
+                <Input
+                  onChange={onInputChange}
+                  value={form.name}
+                  name="name"
+                  labelName="Course Name"
+                  type="text"
+                  className="form-control"
+                  placeholder="Example : course one"
+                  err={errors ? errors.name : ''}
+                />
               </div>
-              <select
-                value={form.category}
-                onChange={onInputChange}
-                className={classnames('form-select', {
-                  'is-invalid': errors ? errors.category : '',
-                })}
-                name="category"
-              >
-                <option>Choose</option>
-                {categories.map((category) => (
-                  <option value={category.toLowerCase()}>{category}</option>
-                ))}
-              </select>
-              {errors && (
-                <div className={`invalid-feedback ${style.error_text}`}>
-                  {errors ? errors.category : ''}
-                </div>
-              )}
+              <div className="col-lg-6">
+                <Input
+                  onChange={onInputChange}
+                  value={form.whatis}
+                  name="whatis"
+                  labelName="Course Definition"
+                  type="text"
+                  placeholder="Definition of this course"
+                  err={errors ? errors.whatis : ''}
+                />
+              </div>
             </div>
-            <div className="col-lg-6">
-              <Input
-                onChange={onFileChange}
-                labelName="Course Photo"
-                type="file"
-                file="yes"
-                name="image"
-                err={errors ? errors.image : ''}
-              />
+            <div className="row g-3">
+              <div className="col-lg-6">
+                <Input
+                  onChange={onInputChange}
+                  value={form.duration}
+                  name="duration"
+                  labelName="Course Duration"
+                  type="text"
+                  className="form-control"
+                  placeholder="Example : 3 months 2weeks"
+                  err={errors ? errors.duration : ''}
+                />
+              </div>
+              <div className="col-lg-6">
+                <Input
+                  onChange={onInputChange}
+                  value={form.numbersOfHours}
+                  name="numbersOfHours"
+                  labelName="Course Hours"
+                  type="number"
+                  placeholder="Enter number of hours"
+                  err={errors ? errors.numbersOfHours : ''}
+                />
+              </div>
             </div>
-          </div>
-          <div className="row g-3">
-            <div className="col-lg-6">
-              <div>
+            <div className="row g-3">
+              <div className="col-lg-6">
+                <Input
+                  onChange={onInputChange}
+                  value={form.classes}
+                  name="classes"
+                  labelName="Course Classes"
+                  type="number"
+                  placeholder="Enter number of classes"
+                  err={errors ? errors.classes : ''}
+                />
+              </div>
+              <div className="col-lg-6">
+                <Input
+                  onChange={onInputChange}
+                  value={form.description}
+                  name="description"
+                  labelName="Course Description"
+                  type="text"
+                  placeholder="Short brief about this course"
+                  err={errors ? errors.description : ''}
+                />
+              </div>
+            </div>
+            <div className="row g-3">
+              <div className="col-lg-6">
                 <div className="col-lg-12 col-md-12 col-sm-12">
-                  <label className={style.formlabel}>
-                    What will students learn
+                  <label className={style.formlabel} style={{ color: 'white' }}>
+                    Category
                   </label>
                 </div>
-                <textarea
-                  className="form-control"
-                  style={{ width: '100%', marginTop: '5px' }}
-                  rows={2}
+                <select
+                  value={form.category}
                   onChange={onInputChange}
-                  value={form.whatWillStudentsLearn}
-                  name="whatWillStudentsLearn"
-                  type="text"
-                  placeholder="Write the features and separate each feature with , 
-                  Example: Define the roles and responsibilities of a project manager, 
-                  Estimate project timelines and budgets"
-                ></textarea>
+                  className={classnames('form-select', {
+                    'is-invalid': errors ? errors.category : '',
+                  })}
+                  name="category"
+                >
+                  <option>Choose</option>
+                  {categories.map((category) => (
+                    <option value={category.toLowerCase()}>{category}</option>
+                  ))}
+                </select>
+                {errors && (
+                  <div className={`invalid-feedback ${style.error_text}`}>
+                    {errors ? errors.category : ''}
+                  </div>
+                )}
+              </div>
+              <div className="col-lg-6">
+                <Input
+                  onChange={onFileChange}
+                  labelName="Course Photo"
+                  type="file"
+                  file="yes"
+                  name="image"
+                  err={errors ? errors.image : ''}
+                />
               </div>
             </div>
-          </div>
-          <div className="row g-3">
-            <div className="col-lg-6">
-              <div className={style.checkList}>
-                <div className={style.listContainer}>
-                  <div className={style.listTitle}>Types of Course</div>
-                  <div className={style.inputSpan_container}>
-                    {checkList.map((item, index) => (
-                      <div key={index}>
-                        <input
-                          value={item}
-                          type="checkbox"
-                          onChange={handleCheck}
-                        />
-                        <span className={isChecked(item)}>{item}</span>
-                      </div>
-                    ))}
+            <div className="row g-3">
+              <div className="col-lg-6">
+                <div>
+                  <div className="col-lg-12 col-md-12 col-sm-12">
+                    <label
+                      className={style.formlabel}
+                      style={{ color: 'white' }}
+                    >
+                      What will students learn
+                    </label>
+                  </div>
+                  <textarea
+                    className="form-control"
+                    style={{ width: '100%', marginTop: '5px' }}
+                    rows={4}
+                    onChange={onInputChange}
+                    value={form.whatWillStudentsLearn}
+                    name="whatWillStudentsLearn"
+                    type="text"
+                    placeholder="Write the features and separate each feature with @ Example: Define the roles and responsibilities of a project manager @ Estimate project timelines and budgets"
+                  ></textarea>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <Input
+                  onChange={onInputChange}
+                  value={form.price}
+                  name="price"
+                  labelName="Course Price"
+                  type="text"
+                  placeholder="Enter price course"
+                  err={errors ? errors.price : ''}
+                />
+              </div>
+            </div>
+            <div className="row g-3">
+              <div className="col-lg-6">
+                <div className={style.checkList}>
+                  <div className={style.listContainer}>
+                    <div className={style.listTitle}>Types of Course</div>
+                    <div className={style.inputSpan_container}>
+                      {checkList.map((item, index) => (
+                        <div key={index}>
+                          <input
+                            value={item}
+                            type="checkbox"
+                            onChange={handleCheck}
+                          />
+                          <span className={isChecked(item)}>{item}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className={style.save_btn} >
-            <button className="btn">Save</button>
-          </div>
-        </form>
-      </div>
+            <div className={style.save_btn}>
+              <button className="btn">Save</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

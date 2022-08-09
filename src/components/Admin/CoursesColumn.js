@@ -1,86 +1,75 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ListGroup } from "react-bootstrap";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ListGroup } from 'react-bootstrap';
 
 // Icons
-import { faEdit, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // CSS
-import style from "../../css/Admin/ViewCourses.module.css";
+import style from '../../css/Admin/ViewCourses.module.css';
 
 const CourseColumn = [
   {
-    name: "Name",
+    name: 'Name',
     selector: (row) => row.name,
     sortable: true,
     wrap: true,
   },
+
   {
-    name: "Desecription",
-    selector: (row) => row.description,
-    sortable: true,
-    wrap: true,
-  },
-  {
-    name: "Category",
+    name: 'Category',
     selector: (row) => row.category.toUpperCase(),
     sortable: true,
     wrap: true,
   },
   {
-    name: "Course Hours",
+    name: 'Attends',
+    selector: (row) => row.attends,
+    sortable: true,
+    wrap: true,
+  },
+  {
+    name: 'Course Hours',
     selector: (row) => `${row.numbersOfHours} Hours`,
     sortable: true,
     wrap: true,
   },
   {
-    name: "Classes",
+    name: 'Classes',
     selector: (row) => `${row.classes} Classes`,
     wrap: true,
   },
   {
-    name: "duration",
+    name: 'duration',
     selector: (row) => row.duration,
     wrap: true,
   },
-  // {
-  //   name: 'Image',
-  //   cell: (row) => {
-  //     return (
-  //       <div>
-  //         <img src={row.image} className={style.course_img} />
-  //       </div>
-  //     );
-  //   },
-  // },
 
   {
-    name: "Types",
+    name: 'Types',
     selector: (row) => row.typesOfCourse.map((type) => <span>{type}, </span>),
     wrap: true,
   },
   {
-    name: "What is",
-    selector: (row) => row.whatis,
-    grow: 2,
-    wrap: true,
+    name: 'Detail',
+    button: true,
+    ignoreRowClick: true,
+    allowOverflow: true,
+    cell: (row) => {
+      return (
+        <div className={style.edit_delete_btns}>
+          <div className={style.edit_btn}>
+            <Link to={`./course/${row._id}`} className={style.View_more_btn}>
+              View more
+            </Link>
+          </div>
+        </div>
+      );
+    },
   },
   {
-    name: "What will students learn",
-    selector: (row) =>
-      row.whatWillStudentsLearn.map((feature) => (
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" style={{ background: "none" }}>
-            {feature}
-          </li>
-        </ul>
-      )),
-    grow: 2,
-    wrap: true,
-  },
-  {
-    name: "Action",
+    name: 'Action',
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,
@@ -96,23 +85,6 @@ const CourseColumn = [
             <button type="button" className="btn">
               <FontAwesomeIcon icon={faXmark} />
             </button>
-          </div>
-        </div>
-      );
-    },
-  },
-  {
-    name: "Action",
-    button: true,
-    ignoreRowClick: true,
-    allowOverflow: true,
-    cell: (row) => {
-      return (
-        <div className={style.edit_delete_btns}>
-          <div className={style.edit_btn}>
-            <Link to="/admin/courseinfo" className={style.View_more_btn}>
-              View more
-            </Link>
           </div>
         </div>
       );

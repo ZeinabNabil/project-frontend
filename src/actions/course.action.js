@@ -1,4 +1,4 @@
-import { GET_ERRORS, GET_COURSES } from './types';
+import { GET_ERRORS, GET_COURSES, GET_COURSE, COURSE_LOADING } from './types';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 toast.configure();
@@ -33,4 +33,21 @@ export const getAllCourses = () => async (dispatch) => {
 const getCourses = (payload) => ({
   type: GET_COURSES,
   payload,
+});
+
+export const getCourseById = (id) => async (dispatch) => {
+  try {
+    dispatch(Loading);
+    const response = await axios.get(`/course/${id}`);
+    dispatch({
+      type: GET_COURSE,
+      payload: response.data.course,
+    });
+  } catch (error) {
+    console.log(error.response);
+  }
+};
+
+export const Loading = () => ({
+  type: COURSE_LOADING,
 });

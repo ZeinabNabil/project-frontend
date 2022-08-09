@@ -1,32 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 // Redux
-import { connect } from "react-redux";
-import { getAllCourses } from "../../actions/course.action";
-
+import { connect } from 'react-redux';
+import { getAllCourses } from '../../actions/course.action';
+//CSS
+import style from '../../css/Admin/ViewCourses.module.css';
 // Components
-import columns from "./CoursesColumn";
-import Table from "../Table";
+import columns from './CoursesColumn';
+import Table from '../Table';
 
 const ViewCourses = (props) => {
-  const [data, setData] = useState(null);
-
   useEffect(() => {
     props.getAllCourses();
   }, []);
-
-  useEffect(() => {
-    setData(props.course.courses.courses);
-  }, [props.course.courses.courses]);
-
-  return (
-    <Table
-      btnName="Add new course"
-      btnLink="addcourse"
-      columns={columns}
-      data={data ? data : []}
-    />
-  );
+  var renderContent;
+  const { courses, loading } = props.course;
+  console.log(courses, loading);
+  if (courses === null || loading) {
+    renderContent = 'Loading';
+  } else {
+    renderContent = (
+      <Table
+        btnName="Add new course"
+        btnLink="addcourse"
+        columns={columns}
+        data={courses.courses}
+      />
+    );
+  }
+  return <div className={style.viewcourses}>{renderContent}</div>;
 };
 
 const mapStateToProps = (state) => ({

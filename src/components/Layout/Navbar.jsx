@@ -15,7 +15,74 @@ import {
   faUserGraduate,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-const Navbar = () => {
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/user.action';
+
+const Navbar = (props) => {
+  const { isAuthenticated, currentUser } = props.user;
+  console.log(isAuthenticated, currentUser);
+  const navItems = [
+    { name: 'main', link: '/' },
+    { name: 'Who are we', link: '/aboutus' },
+    { name: 'contact with us', link: '/contact' },
+    { name: 'IELTS', link: '/ielts' },
+    { name: 'EMSAT', link: '/emsat' },
+    { name: 'ICDL', link: '/icdl' },
+    { name: 'Management Courses', link: '/management' },
+    { name: 'Computer Courses', link: '/computer' },
+    { name: 'Language Courses', link: '/language' },
+  ];
+  const onLogoutClick = () => {
+    props.logoutUser();
+  };
+  const guest = () => {
+    return (
+      <div className={style.navbtns}>
+        <Link to="/auth/register" className={style.join_login}>
+          Join us
+          <FontAwesomeIcon className={style.icon} icon={faUserGraduate} />
+        </Link>
+        <Link to="/auth/login" className={style.join_login}>
+          Log in
+          <FontAwesomeIcon className={style.icon} icon={faRightToBracket} />
+        </Link>
+      </div>
+    );
+  };
+  const user = () => {
+    return (
+      <>
+        <li className="nav-item">
+          <Link
+            className="nav-link active"
+            style={{ color: 'white', fontWeight: 'bold' }}
+            aria-current="page"
+            to="/profile"
+          >
+            PROFILE
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            className="nav-link active"
+            style={{ color: 'white', fontWeight: 'bold' }}
+            aria-current="page"
+            to="/"
+            onClick={onLogoutClick}
+          >
+            LOGOUT
+          </Link>
+        </li>
+      </>
+    );
+  };
+  const renderItems = () => {
+    if (currentUser.role == 0) {
+      return user();
+    }
+
+    return null;
+  };
   return (
     <div className={style.header}>
       {/* ----------------------start topbar----------------- */}
@@ -23,19 +90,19 @@ const Navbar = () => {
         <div className="col-lg-12 col-md-12 col-sm-12">
           <div className={style.contactInfo}>
             <div className={style.socialLinks}>
-              <a href="#">
+              <Link to="#">
                 <FontAwesomeIcon
                   className={style.icon}
                   icon={faFacebookF}
                   style={{ paddingLeft: '10px', paddingRight: '10px' }}
                 />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <FontAwesomeIcon className={style.icon} icon={faInstagram} />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <FontAwesomeIcon className={style.icon} icon={faLinkedinIn} />
-              </a>
+              </Link>
             </div>
             <div className={style.address}>
               <p>Dubai, Deira, Wasel Business Center, 7th floor, office 701</p>
@@ -65,7 +132,10 @@ const Navbar = () => {
       {/* -------------------------start navbar--------------------- */}
       <div className={style.nav}>
         <div className="col-lg-12 col-md-12 col-sm-12">
-          <nav className="navbar navbar-expand-lg " style={{width: "75%", margin:"auto"}} >
+          <nav
+            className="navbar navbar-expand-lg "
+            style={{ width: '75%', margin: 'auto' }}
+          >
             <div className="container-fluid">
               <button
                 className="navbar-toggler"
@@ -79,148 +149,28 @@ const Navbar = () => {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                  <div className={style.navbtns}>
-                        <Link to="/auth/register" className={style.join_login}>
-                          Join us
-                          <FontAwesomeIcon
-                            className={style.icon}
-                            icon={faUserGraduate}
-                          />
-                        </Link>
-                        <Link to="/auth/login" className={style.join_login}>
-                          Log in
-                          <FontAwesomeIcon
-                            className={style.icon}
-                            icon={faRightToBracket}
-                          />
-                        </Link>
-                  </div>
-                <ul className="navbar-nav" style={{display:"flex" , flexWrap:"wrap" , justifyContent:"center"}}>
-                  <li className="nav-item">
-                    <Link to="/"
-                      className="nav-link active"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      aria-current="page"
-                      href="#"
-                    
-                    >
-                      MAIN
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      href="#"
-                    >
-                      WHO ARE WHE
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      href="#"
-                    >
-                      CONNECT WITH US
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      href="#"
-                    >
-                      IELTS
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      href="#"
-                    >
-                      EMSAT
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      href="#"
-                    >
-                      ICDL
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      href="#"
-                    >
-                      MANAGEMENT COURSES
-                    </a>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      COMPUTER COURSES
-                    </a>
-
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      style={{ color: 'white', fontWeight: 'bold' }}
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      LANGUAGE COURSES
-                    </a>
-
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
+                {!isAuthenticated ? guest() : ''}
+                <ul
+                  className="navbar-nav"
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {navItems.map((item, index) => (
+                    <li className="nav-item" key={index}>
+                      <Link
+                        className="nav-link active"
+                        style={{ color: 'white', fontWeight: 'bold' }}
+                        aria-current="page"
+                        to={item.link}
+                      >
+                        {item.name.toUpperCase()}
+                      </Link>
+                    </li>
+                  ))}
+                  {isAuthenticated ? renderItems() : null}
                 </ul>
               </div>
             </div>
@@ -228,8 +178,10 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-// ---------------------end navbar-----------------s
+    // ---------------------end navbar-----------------s
   );
 };
-
-export default Navbar;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+export default connect(mapStateToProps, { logoutUser })(Navbar);
