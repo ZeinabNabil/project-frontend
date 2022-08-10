@@ -1,7 +1,7 @@
 import React from 'react';
 
 // CSS
-import style from '../../css/Admin/ViewCourses.module.css';
+import style from '../../../css/Admin/View.module.css';
 
 const CourseInfoCard = ({ cardTitle, cardText }) => {
   return (

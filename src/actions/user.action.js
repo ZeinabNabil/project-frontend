@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ERRORS, LOGOUT, SET_CURRENT_USER } from './types';
+import { GET_ERRORS, GET_USERS, LOGOUT, SET_CURRENT_USER } from './types';
 import { toast } from 'react-toastify';
 import setAuthToken from './../utilis/setAuthToken';
 import jwt_decode from 'jwt-decode';
@@ -11,18 +11,17 @@ const toastify = (message) => {
     autoClose: 1000,
   });
 };
-export const createUser = (userData, navigate) => async (dispatch) => {
+export const createUser = (userData) => async (dispatch) => {
   try {
     await axios.post('/user/create', userData);
-    toastify('Successfully Registered');
-    setTimeout(() => {
-      navigate('/auth/login');
-    }, 800);
+    toastify('Successfully created an account');
+    return true;
   } catch (error) {
     dispatch({
       type: GET_ERRORS,
       payload: error.response.data,
     });
+    return false;
   }
 };
 
@@ -79,4 +78,16 @@ export const currentProfile = (id) => async (dispatch) => {
   try {
     const response = await axios.get('/user/profile/me');
   } catch (error) {}
+};
+
+export const getUsers = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/user');
+    dispatch({
+      type: GET_USERS,
+      payload: response.data,
+    });
+  } catch (error) {
+    return;
+  }
 };

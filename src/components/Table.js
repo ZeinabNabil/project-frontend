@@ -5,7 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 // CSS
-import style from '../css/Admin/ViewCourses.module.css';
+import style from '../css/Admin/View.module.css';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

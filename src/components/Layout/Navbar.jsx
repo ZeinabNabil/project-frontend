@@ -20,7 +20,6 @@ import { logoutUser } from '../../actions/user.action';
 
 const Navbar = (props) => {
   const { isAuthenticated, currentUser } = props.user;
-  console.log(isAuthenticated, currentUser);
   const navItems = [
     { name: 'main', link: '/' },
     { name: 'Who are we', link: '/aboutus' },

@@ -24,17 +24,14 @@ export const addCourse = (courseData) => async (dispatch) => {
 export const getAllCourses = () => async (dispatch) => {
   try {
     const response = await axios.get('/course');
-    dispatch(getCourses(response.data));
+    dispatch({
+      type: GET_COURSES,
+      payload: response.data,
+    });
   } catch (error) {
     return;
   }
 };
-
-const getCourses = (payload) => ({
-  type: GET_COURSES,
-  payload,
-});
-
 export const getCourseById = (id) => async (dispatch) => {
   try {
     dispatch(Loading);
@@ -47,7 +44,6 @@ export const getCourseById = (id) => async (dispatch) => {
     console.log(error.response);
   }
 };
-
 export const Loading = () => ({
   type: COURSE_LOADING,
 });

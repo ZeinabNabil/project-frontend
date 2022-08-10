@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import style from '../../css/Admin/ViewCourses.module.css';
+import style from '../../../css/Admin/View.module.css';
 import CourseInfoCard from './CourseInfoCard';
 import { connect } from 'react-redux';
-import { getCourseById } from '../../actions/course.action';
+import { getCourseById } from '../../../actions/course.action';
 import { useParams, Link } from 'react-router-dom';
 
-import BackToList from './BackToList';
+import BackToList from '../BackToList';
 
 const CourseInfo = (props) => {
   const { id } = useParams();
@@ -43,7 +43,7 @@ const CourseInfo = (props) => {
     <div className={style.course_info}>
       <div className={style.card_container}>
         <div className="row">
-          <BackToList />
+          <BackToList linkTo="/admin/viewcourse" />
           <div class={style.course_name}>
             <h1>
               {course === null ? 'Loading' : course.name}

@@ -7,7 +7,7 @@ import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // CSS
-import style from '../../css/Admin/ViewCourses.module.css';
+import style from '../../../css/Admin/View.module.css';
 
 const CourseColumn = [
   {

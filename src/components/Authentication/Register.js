@@ -36,7 +36,7 @@ const Register = (props) => {
       [evt.target.name]: value,
     });
   };
-  const onFormSubmit = (evt) => {
+  const onFormSubmit = async (evt) => {
     evt.preventDefault();
     const userData = {
       name: form.name,
@@ -45,7 +45,12 @@ const Register = (props) => {
       phone: form.phone,
       confirmPassword: form.confirmPassword,
     };
-    props.createUser(userData, navigate);
+    const result = await props.createUser(userData);
+    if (result) {
+      setTimeout(() => {
+        navigate('/auth/login');
+      }, 800);
+    }
   };
   useEffect(() => {
     store.dispatch({

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import style from '../../css/Admin/Addcourse.module.css';
-import Input from '../Admin/Input';
-import { addCourse } from '../../actions/course.action';
+import style from '../../../css/Admin/Addcourse.module.css';
+import Input from '../../Admin/Input';
+import { addCourse } from '../../../actions/course.action';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import store from './../../store';
-import BackToList from './BackToList';
+import store from './../../../store';
+import BackToList from '../BackToList';
 const AddCourse = (props) => {
   const checkList = ['VIP1', 'VIP2', 'Group'];
   const categories = [
@@ -108,7 +108,7 @@ const AddCourse = (props) => {
       </div>
       <div className={style.form}>
         <div className={style.formcontainer}>
-          <BackToList />
+          <BackToList linkTo="/admin/viewcourse" />
 
           <form
             enctype="application/json"

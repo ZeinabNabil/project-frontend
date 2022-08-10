@@ -15,16 +15,16 @@ import MainAuthPage from './Authentication/MainAuthPage';
 import Login from './Authentication/Login';
 import Register from './Authentication/Register';
 import Homepage from './Layout/Homepage';
-import AddCourse from './Admin/AddCourse';
+import AddCourse from './Admin/course/AddCourse';
 import setAuthToken from './../utilis/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import { setCurrentUser } from './../actions/user.action';
-import ViewCourses from './Admin/ViewCourses';
+import ViewCourses from './Admin/course/ViewCourses';
 import Navbar from './Layout/Navbar';
 import Footer from './Layout/Footer';
-import AddUser from './Admin/AddUser';
-import CourseInfo from './Admin/CourseInfo';
-import ViewUsers from './Admin/ViewUsers';
+import AddUser from './Admin/user/AddUser';
+import CourseInfo from './Admin/course/CourseInfo';
+import ViewUsers from './Admin/user/ViewUsers';
 import Dashboard from './Admin/layout/Dashboard';
 
 if (localStorage.token) {

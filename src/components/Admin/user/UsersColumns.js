@@ -1,41 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ListGroup } from "react-bootstrap";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ListGroup } from 'react-bootstrap';
 
 // Icons
-import { faEdit, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // CSS
-import style from "../../css/Admin/ViewCourses.module.css";
+import style from '../../../css/Admin/View.module.css';
 
 const UsersColumns = [
   {
-    name: "Name",
+    name: 'Name',
     selector: (row) => row.name,
     sortable: true,
     wrap: true,
   },
   {
-    name: "Email",
+    name: 'Email',
     selector: (row) => row.email,
     sortable: true,
     wrap: true,
   },
   {
-    name: "Phone",
+    name: 'Phone',
     selector: (row) => row.phone,
     sortable: true,
     wrap: true,
   },
   {
-    name: "Role",
-    selector: (row) => row.role,
+    name: 'Role',
+    selector: (row) => {
+      if (row.role == 0) {
+        return 'User';
+      }
+      return 'Admin';
+    },
     sortable: true,
     wrap: true,
   },
   {
-    name: "Action",
+    name: 'Action',
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,

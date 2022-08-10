@@ -1,59 +1,40 @@
-import React from "react";
-import style from "../../css/Layout/Landing.module.css";
-import Cards from "./Cards";
+import React, { useEffect } from 'react';
+import style from '../../css/Layout/Landing.module.css';
+import Cards from './Cards';
 import {
   faFileLines,
-  faFolderPlus,
-  faHeartPulse,
-  faLaptopMedical,
   faLightbulb,
-  faUserDoctor,
   faUserGraduate,
-} from "@fortawesome/free-solid-svg-icons";
-import cardimg from "../../images/IELTS.jpg";
-import CoursesCard from "./Coursescard";
-import Section from "./Section";
-import logo from "../../images/logo.png";
-import ReviewsCard from "./ReviewsCard";
-import { Accordion } from "react-bootstrap";
-
-const Landing = () => {
-  const sections = [
-    {
-      title: "Language Courses",
-      card: [
-        {
-          // img: { cardimg },
-          cardtitle: "IELTS course",
-          text: "Preparatory course for the IELTS exam",
-        },
-      ],
-    },
-    {
-      title: "Language Courses",
-      card: [
-        {
-          // img: { cardimg },
-          cardtitle: "IELTS course",
-          text: "Preparatory course for the IELTS exam",
-        },
-      ],
-    },
-    {
-      title: "Language Courses",
-      card: [
-        {
-          // img: { cardimg },
-          cardtitle: "IELTS course",
-          text: "Preparatory course for the IELTS exam",
-        },
-      ],
-    },
-  ];
-  const renderedSections = sections.map((section) => {
-    return <Section title={section.title} cards={section.card} />;
-  });
-
+} from '@fortawesome/free-solid-svg-icons';
+import Section from './Section';
+import logo from '../../images/logo.png';
+import ReviewsCard from './ReviewsCard';
+import { Accordion } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { getAllCourses } from '../../actions/course.action';
+const Landing = (props) => {
+  useEffect(() => {
+    props.getAllCourses();
+  }, []);
+  var renderContent;
+  const { courses, loading } = props.course;
+  if (courses === null || loading) {
+    renderContent = `<h1>Loading</h1>`;
+  } else {
+    const ICDL = courses.courses.filter((course) => {
+      return course.category === 'icdl';
+    });
+    const IELTS = courses.courses.filter((course) => {
+      return course.category === 'ielts';
+    });
+    console.log(ICDL);
+    renderContent = (
+      <>
+        <Section title="ICDL" courses={ICDL} />
+        <Section title="IELTS" courses={IELTS} />
+      </>
+    );
+  }
   return (
     <div>
       {/* ------------------------------Start landing area---------------------------- */}
@@ -118,7 +99,7 @@ const Landing = () => {
       {/* -------------------------------------------End Cards section--------------------------------------------  */}
 
       {/* --------------------------start similar sections (calling array of sections)---------------------------  */}
-      {renderedSections}
+      <div className={style.viewcourses}>{renderContent}</div>
       {/*------------------------------end similar sections---------------------------------------*/}
       <div className={style.features_clients_container}>
         {/* ---------------------------------Start featuer section----------------------  */}
@@ -130,7 +111,7 @@ const Landing = () => {
                 <div className="row">
                   <div
                     className="col-lg-6 col-md-12 col-sm-12 section-accordian "
-                    style={{ display: "flex", alignItems: "center" }}
+                    style={{ display: 'flex', alignItems: 'center' }}
                   >
                     <Accordion className={style.accordian}>
                       <Accordion.Item
@@ -224,7 +205,7 @@ const Landing = () => {
                   <div className="col-lg-9 col-md-12 col-sm-12 section-pics">
                     <div
                       className={style.clientlogos}
-                      style={{ borderRight: " solid 2px #DDDDDD" }}
+                      style={{ borderRight: ' solid 2px #DDDDDD' }}
                     >
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className={style.imgs}>
@@ -332,23 +313,7 @@ const Landing = () => {
     // ----------------------End landing area---------------------------
   );
 };
-
-export default Landing;
-
-{
-  /* <div className={style.langCourses}>
-        <div className={style.title}>Language Courses</div>
-        <CoursesCard
-          img={cardimg}
-          cardtitle="IELTS course"
-          text="Preparatory course for the IELTS exam"
-        />
-      </div> */
-}
-{
-  /* <div className={style.traincourses}>
-        <div className={style.title} style={{ marginTop: "40px" }}>
-          Computer training courses{" "}
-        </div>
-      </div> */
-}
+const mapStateToProps = (state) => ({
+  course: state.course,
+});
+export default connect(mapStateToProps, { getAllCourses })(Landing);

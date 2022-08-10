@@ -4,10 +4,12 @@ import style from '../../css/Layout/Landing.module.css';
 const CoursesCard = (props) => {
   return (
     <div className={style.card}>
-      {/* <img src={props.img} /> */}
+      <div className={style.image}>
+        <img src={`/course/image/${props.id}`} />
+      </div>
       <div className={style.card_body}>
         <h5 className={style.cardtitle}>{props.title}</h5>
-        <p className={style.text}>{props.text}</p>
+        <span className={style.text}>{props.text}</span>
         <div className={style.cardbtns}>
           <a href="#" className="btn btn-primary 1">
             Read More

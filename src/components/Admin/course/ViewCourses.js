@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-
 // Redux
 import { connect } from 'react-redux';
-import { getAllCourses } from '../../actions/course.action';
+import { getAllCourses } from '../../../actions/course.action';
 //CSS
-import style from '../../css/Admin/ViewCourses.module.css';
+import style from '../../../css/Admin/View.module.css';
 // Components
 import columns from './CoursesColumn';
-import Table from '../Table';
+import Table from '../../Table';
 
 const ViewCourses = (props) => {
   useEffect(() => {
