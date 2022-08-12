@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { GET_ERRORS, GET_USERS, LOGOUT, SET_CURRENT_USER } from './types';
+import {
+  GET_ERRORS,
+  GET_USERS,
+  LOGOUT,
+  SET_CURRENT_USER,
+  GET_NUMBER_OF_USERS,
+  GET_NUMBER_OF_USERS_WHOSE_REGISTERED_COURSES,
+} from './types';
 import { toast } from 'react-toastify';
 import setAuthToken from './../utilis/setAuthToken';
 import jwt_decode from 'jwt-decode';
@@ -89,5 +96,30 @@ export const getUsers = () => async (dispatch) => {
     });
   } catch (error) {
     return;
+  }
+};
+
+export const numberOfUsers = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/user/count');
+    dispatch({
+      type: GET_NUMBER_OF_USERS,
+      payload: response.data.numberOfUsers,
+    });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
+export const numberOfUsersWhoseRegisterCourses = () => async (dispatch) => {
+  try {
+    const response = await axios.get(
+      '/user/count/numberOfUsersWhoseRegisteredCourses'
+    );
+    dispatch({
+      type: GET_NUMBER_OF_USERS_WHOSE_REGISTERED_COURSES,
+      payload: response.data.numberOfUsersWhoseRegisteredCourses,
+    });
+  } catch (error) {
+    console.log(error.response.data);
   }
 };

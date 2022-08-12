@@ -1,7 +1,7 @@
-import React from "react";
-import AdminHome from "./AdminHome";
-import AdminNavbar from "./AdminNavbar";
-import AdminSidebar from "./AdminSidebar";
+import React from 'react';
+import AdminHome from './AdminHome';
+import AdminNavbar from './AdminNavbar';
+import AdminSidebar from './AdminSidebar';
 
 const Dashboard = () => {
   return (

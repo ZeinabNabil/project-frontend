@@ -24,12 +24,12 @@ const Navbar = (props) => {
     { name: 'main', link: '/' },
     { name: 'Who are we', link: '/aboutus' },
     { name: 'contact with us', link: '/contact' },
-    { name: 'IELTS', link: '/ielts' },
-    { name: 'EMSAT', link: '/emsat' },
-    { name: 'ICDL', link: '/icdl' },
-    { name: 'Management Courses', link: '/management' },
-    { name: 'Computer Courses', link: '/computer' },
-    { name: 'Language Courses', link: '/language' },
+    { name: 'IELTS', link: '/ielts', cat: true },
+    { name: 'EMSAT', link: '/emsat', cat: true },
+    { name: 'ICDL', link: '/icdl', cat: true },
+    { name: 'Management Courses', link: '/management', cat: true },
+    { name: 'Computer Courses', link: '/computer', cat: true },
+    { name: 'Language Courses', link: '/language', cat: true },
   ];
   const onLogoutClick = () => {
     props.logoutUser();
@@ -159,14 +159,25 @@ const Navbar = (props) => {
                 >
                   {navItems.map((item, index) => (
                     <li className="nav-item" key={index}>
-                      <Link
-                        className="nav-link active"
-                        style={{ color: 'white', fontWeight: 'bold' }}
-                        aria-current="page"
-                        to={item.link}
-                      >
-                        {item.name.toUpperCase()}
-                      </Link>
+                      {item.cat ? (
+                        <Link
+                          className="nav-link active"
+                          style={{ color: 'white', fontWeight: 'bold' }}
+                          aria-current="page"
+                          to={`/courses${item.link}`}
+                        >
+                          {item.name.toUpperCase()}
+                        </Link>
+                      ) : (
+                        <Link
+                          className="nav-link active"
+                          style={{ color: 'white', fontWeight: 'bold' }}
+                          aria-current="page"
+                          to={item.link}
+                        >
+                          {item.name.toUpperCase()}
+                        </Link>
+                      )}
                     </li>
                   ))}
                   {isAuthenticated ? renderItems() : null}

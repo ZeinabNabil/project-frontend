@@ -1,71 +1,71 @@
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import style from "../../../css/Admin/Dashboard.module.css";
-import profilePic from "../../../images/profile-circle.png";
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import style from '../../../css/Admin/Dashboard.module.css';
+import profilePic from '../../../images/profile-circle.png';
 const AdminWidget = () => {
   const widgets = [
     {
       imgSrc: profilePic,
-      username: "Anna Keller",
-      title: "Software Engineering",
+      username: 'Anna Keller',
+      title: 'Software Engineering',
     },
     {
       imgSrc: profilePic,
-      username: "Anna Keller",
-      title: "Software Engineering",
+      username: 'Anna Keller',
+      title: 'Software Engineering',
     },
     {
       imgSrc: profilePic,
-      username: "Anna Keller",
-      title: "Software Engineering",
+      username: 'Anna Keller',
+      title: 'Software Engineering',
     },
     {
       imgSrc: profilePic,
-      username: "Anna Keller",
-      title: "Software Engineering",
+      username: 'Anna Keller',
+      title: 'Software Engineering',
     },
     {
       imgSrc: profilePic,
-      username: "Anna Keller",
-      title: "Software Engineering",
+      username: 'Anna Keller',
+      title: 'Software Engineering',
     },
   ];
   const tableData = [
     {
       imgSrc: profilePic,
-      name: "Susan Carol",
-      date: "2 Jun 2021",
-      amount: "$122.00",
-      status: "Approved",
+      name: 'Susan Carol',
+      date: '2 Jun 2021',
+      amount: '$122.00',
+      status: 'Approved',
     },
     {
       imgSrc: profilePic,
-      name: "Susan Carol",
-      date: "2 Jun 2021",
-      amount: "$122.00",
-      status: "Declined",
+      name: 'Susan Carol',
+      date: '2 Jun 2021',
+      amount: '$122.00',
+      status: 'Declined',
     },
     {
       imgSrc: profilePic,
-      name: "Susan Carol",
-      date: "2 Jun 2021",
-      amount: "$122.00",
-      status: "Pending",
+      name: 'Susan Carol',
+      date: '2 Jun 2021',
+      amount: '$122.00',
+      status: 'Pending',
     },
     {
       imgSrc: profilePic,
-      name: "Susan Carol",
-      date: "2 Jun 2021",
-      amount: "$122.00",
-      status: "Approved",
+      name: 'Susan Carol',
+      date: '2 Jun 2021',
+      amount: '$122.00',
+      status: 'Approved',
     },
     {
       imgSrc: profilePic,
-      name: "Susan Carol",
-      date: "2 Jun 2021",
-      amount: "$122.00",
-      status: "Approved",
+      name: 'Susan Carol',
+      date: '2 Jun 2021',
+      amount: '$122.00',
+      status: 'Approved',
     },
   ];
   return (
@@ -75,9 +75,9 @@ const AdminWidget = () => {
           <div className={style.widget}>
             <span className={style.widget_title}>New Join Members</span>
             <ul className={style.widget_list}>
-              {widgets.map((widget) => {
+              {widgets.map((widget, index) => {
                 return (
-                  <li className={style.widget_list_item}>
+                  <li className={style.widget_list_item} key={index}>
                     <div className={style.widget_list_item_img}>
                       <img src={widget.imgSrc} alt="profile picture" />
                     </div>

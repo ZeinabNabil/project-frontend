@@ -27,11 +27,27 @@ const Landing = (props) => {
     const IELTS = courses.courses.filter((course) => {
       return course.category === 'ielts';
     });
+    const EMSAT = courses.courses.filter((course) => {
+      return course.category === 'emsat';
+    });
+    const management = courses.courses.filter((course) => {
+      return course.category === 'management';
+    });
+    const computer = courses.courses.filter((course) => {
+      return course.category === 'computer';
+    });
+    const language = courses.courses.filter((course) => {
+      return course.category === 'language';
+    });
     console.log(ICDL);
     renderContent = (
       <>
-        <Section title="ICDL" courses={ICDL} />
+        <Section title="EMSAT" courses={EMSAT} />
         <Section title="IELTS" courses={IELTS} />
+        <Section title="ICDL" courses={ICDL} />
+        <Section title="MANAGEMENT" courses={management} />
+        <Section title="COMPUTER" courses={computer} />
+        <Section title="LANGUAGE" courses={language} />
       </>
     );
   }
