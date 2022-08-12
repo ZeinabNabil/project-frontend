@@ -1,0 +1,161 @@
+/* ---------------------------Start landing area----------------------------  */
+
+.helpArea {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-color);
+    height: 55vh;
+  }
+  .helpArea .helpInstruction {
+    transform: translateY(15%);
+    text-align: center;
+    width: 100%;
+  }
+  
+  .helpArea .helpInstruction h1 {
+    font-weight: bold;
+    font-family: 'Bahij', Sans-serif;
+    font-size: 40px;
+    line-height: 54px;
+    color: var(--secondary-color);
+  }
+  
+  .helpArea .helpInstruction p {
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+    line-height: 28px;
+    letter-spacing: 0.25px;
+    margin-top: 0%;
+    margin-bottom: 200px;
+    position: relative;
+  }
+  /* ------------------------------- End landing area -------------------------- */
+
+  /* ----------------------start card section---------------------------- */
+ .cardsSection {
+  width: 70%;
+  margin: auto;
+  padding-bottom: 90px;
+  padding-top: 130px;
+}
+
+.cardsSection .card {
+  cursor: pointer;
+  text-align: center;
+  height: 100%;
+  display: block;
+  background: #ffffff;
+  box-shadow: 0px 2px 15px 5px rgb(0 0 0 / 6%);
+  border-radius: 5px !important;
+  padding: 25px;
+  margin-right: 20px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.card .cardicon {
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  margin: auto;
+  position: relative;
+  border-radius: 50%;
+  padding: 15px !important;
+}
+
+.card .title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1e1e1e;
+  letter-spacing: 0.7px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.card p {
+  font-weight: 400;
+  font-size: 100%;
+  color: rgb(99, 95, 95);
+  letter-spacing: 0.5px;
+  line-height: 25px;
+  position: relative;
+  z-index: 2;
+}
+
+/* -------------------------------End card section-------------------------------- */
+
+/* -----------------------------------start questions & inquiries section------------------------------- */
+
+.qusestion_inquiry{
+  width: 85%;
+  margin: auto;
+  padding-bottom: 60px;
+}
+.qusestion_inquiry .questions{
+  margin: 15px;
+}
+.qusestion_inquiry .questions .accordian{
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px
+}
+.qusestion_inquiry .questions .accordian .accordianHeader{
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: 'Bahij', Sans-serif;
+  padding: 20px 10px 20px 10px;
+}
+.qusestion_inquiry .questions .accordian .accordian_body{
+  background-color: rgba(128, 128, 128, 0.092);
+}
+.qusestion_inquiry .questions .accordian h1{
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.qusestion_inquiry .questions .title{
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 25px;
+}
+.qusestion_inquiry .inquiries{
+  margin: 15px;
+}
+.qusestion_inquiry .inquiries .formContainer{
+  padding: 30px;
+  background-color: white;
+  border-radius: 5px;
+}
+.qusestion_inquiry .inquiries .title{
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 25px;
+}
+.qusestion_inquiry .inquiries .input{
+  padding-bottom: 20px;
+}
+.qusestion_inquiry form input , .qusestion_inquiry form textarea{
+  background-color: #f9f9f9;
+}
+.qusestion_inquiry .inquiries .sendmsg_btn{
+  padding-top: 20px;
+}
+.qusestion_inquiry .inquiries form button{
+  border-radius: 10px;
+  width: 50%;
+  height: 50px;
+}
+
+/* -----------------------------------end questions & inquiries section------------------------------- */
