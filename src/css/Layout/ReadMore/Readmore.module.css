@@ -1,0 +1,285 @@
+/* Start Read More CSS */
+
+/* Start Read More First Section CSS */
+
+.read_more_first_section {
+    height: 85vh;
+    background-color: #f3f5f5;
+    position: relative;
+}
+
+/* Start Read More Area CSS */
+
+.read_more_area {
+    background-image: url(../../../images/role-of-internet-in-education-3.jpg);
+  background-repeat: no-repeat;
+  /* background-position: center center; */
+  background-size: cover;
+  height: 65vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.read_more_area::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.5;
+  }
+
+  .read_more_area .read_more_content {
+    z-index: 2;
+  }
+
+  .read_more_area .read_more_content .read_more_btns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .read_more_area .read_more_content .read_more_btns button:first-child,
+  .read_more_area .read_more_content .read_more_btns button:nth-child(2) {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: white;
+    border-color: white;
+  }
+
+  .read_more_area .read_more_content .read_more_btns button:focus {
+    border-color: none;
+    box-shadow: none;
+  }
+
+  .read_more_area .read_more_content .read_more_btns button:first-child {
+    margin-bottom: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+
+  .read_more_area .read_more_content .read_more_btns button:nth-child(2) {
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+/* End Read More Area CSS */
+
+/* Start Read More Cards */
+
+.read_more_cards_container {
+    position: absolute;
+    width: 100%;
+    bottom: 4%;
+    /* width: 75%;
+    margin: -60px auto 40px;
+    padding-bottom: 40px;   */
+}
+
+.read_more_cards_container .read_more_cards {
+    width: 75%;
+    margin: auto;
+}
+
+.card {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    height: 95%;
+}
+
+.card .card_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card .card_body svg {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: var(--main-color);
+}
+
+.card .card_body h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card .card_body p {
+    color: white;
+    /* font-weight: bold; */
+    font-size: 20px;
+}
+
+/* End Read More Cards */
+
+/* End Read More First Section */
+/* Start Read More Second Section */
+
+.read_more_second_section {
+    margin: 40px;
+}
+
+/* .second_section_top {
+    width: 75%;
+    margin: auto;
+}  */
+
+ .box {
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 21%);
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    /* height: 95%; */
+    margin-bottom: 20px;
+}
+
+.read_more_header {
+    display: flex;
+    justify-content: center;
+}
+
+.read_more_header h5 {
+    font-weight: bold;
+    margin-bottom: 30px;
+    width: fit-content;
+    position: relative;
+}
+
+.read_more_header h5::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: var(--main-color);
+    left: 0;
+    bottom: -25%;
+    width: 50%;
+}
+
+ .box .box_body img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* End Read More Second Section */
+/* Start Read More Third Section */
+.read_more_third_section{
+    background-color: #f3f5f5;
+    padding: 80px 0px;
+}
+
+.course_type_box {
+    position: relative;
+    height: 150px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.course_type_box:hover{
+    transform: rotateX(-180deg);
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+}
+
+.front{
+    background-color: white;
+}
+
+.back {
+    background-color: var(--main-color);
+    transform: rotateX(180deg);
+}
+/* End Read More Third Section */
+
+/* Start Read More Fourth Section */
+
+.read_more_fourth_section {
+    margin: 40px;
+}
+.register_now {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 21%);
+}
+
+.register_now p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register_now .register_form_container {
+    width: 60%;
+    margin: auto;
+    border: 1px solid var(--main-color);
+    border-radius: 20px;
+}
+
+.register_form_style {
+    width: 100%;
+    height: 0.5px;
+    background-color: var(--main-color);
+    margin: 20px 0px 30px;
+    position: relative;
+}
+
+.register_form_style svg {
+    position: absolute;
+    padding: 5px;
+    border-radius: 7px;
+    bottom: -12px;
+    z-index: 2;
+    
+}
+
+.register_form_style svg:first-child {
+    background-color: var(--main-color);
+    color: white;
+    right: 0;
+}
+
+.register_form_style svg:last-child {
+    background-color: white;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.register_now .register_form_container .register_form {
+    padding: 20px;
+}
+
+.register_form label {
+    font-weight: bold;
+    color: var(--main-color) !important;
+}
+.register_form input {
+margin-bottom: 15px !important;
+}
+.register_form .register_btn {
+    display: flex;
+    justify-content: end;
+}
+.register_form .register_btn button {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    border-radius: 20px;
+    padding: 7px 20px;
+}
+/* End Read More Fourth Section */
+
+/* End Read More CSS */
