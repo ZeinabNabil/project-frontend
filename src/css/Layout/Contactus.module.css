@@ -37,8 +37,8 @@
 
   /* ----------------------start card section---------------------------- */
  .cardsSection {
-  width: 70%;
-  margin: auto;
+  width: 80% !important;
+  margin: auto !important;
   padding-bottom: 90px;
   padding-top: 130px;
 }
@@ -64,7 +64,7 @@
   margin: auto;
   position: relative;
   border-radius: 50%;
-  padding: 15px !important;
+  padding: 20px !important;
 }
 
 .card .title {

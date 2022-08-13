@@ -28,6 +28,7 @@ import ViewUsers from "./Admin/user/ViewUsers";
 import Dashboard from "./Admin/layout/Dashboard";
 import UserProfile from "./Layout/user/UserProfile";
 import Contactus from "./Layout/Contactus";
+import ReadMore from "./Layout/ReadMore/ReadMore";
 
 if (localStorage.token) {
   //set auth token header auth
@@ -49,6 +50,7 @@ const App = () => {
             <Route exact path="register" element={<Register />} />
           </Route>
           <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/readmore" element={<ReadMore />} />
         </Routes>
         <Navbar />
         <Routes>

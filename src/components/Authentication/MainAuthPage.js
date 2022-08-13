@@ -1,7 +1,7 @@
-import React from 'react';
-import style from '../../css/Authentication/Authentication.module.css';
-import { Outlet } from 'react-router-dom';
-import authImage from '../../images/login-register1.png';
+import React from "react";
+import style from "../../css/Authentication/Authentication.module.css";
+import { Outlet } from "react-router-dom";
+import authImage from "../../images/login-register1.png";
 
 const MainAuthPage = () => {
   return (
