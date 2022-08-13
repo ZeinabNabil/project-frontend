@@ -13,7 +13,9 @@
   border-radius: 6px;
   margin-bottom: 10px;
 }
-
+.course_card .course_image img {
+  width: 100%;
+}
 .course_card .course_info h3 {
   position: relative;
   text-align: center;
@@ -42,7 +44,28 @@
   letter-spacing: none;
 }
 
-.course_card .course_btns button {
+.course_card .course_btns button,
+.course_card .course_btns a {
   width: 100%;
   margin-top: 10px;
+}
+
+.category_name {
+  text-align: center;
+  margin: 30px 0;
+}
+.category_name span {
+  display: inline-block;
+  font-size: 28px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: relative;
+}
+.category_name span::after {
+  content: '';
+  width: 100%;
+  height: 4px;
+  bottom: 0;
+  position: absolute;
+  background-color: var(--main-color);
+  left: 0;
 }

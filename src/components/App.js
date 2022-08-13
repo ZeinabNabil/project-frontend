@@ -26,6 +26,7 @@ import AddUser from './Admin/user/AddUser';
 import CourseInfo from './Admin/course/CourseInfo';
 import ViewUsers from './Admin/user/ViewUsers';
 import Dashboard from './Admin/layout/Dashboard';
+import ReadMore from './Layout/ReadMore/ReadMore';
 import CoursesByCategory from './courses/CoursesByCategory';
 
 if (localStorage.token) {
@@ -47,10 +48,11 @@ const App = () => {
             <Route exact path="login" element={<Login />} />
             <Route exact path="register" element={<Register />} />
           </Route>
-          <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Navbar />
         <Routes>
+          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/readmore/:id" element={<ReadMore />} />
           <Route exact path="/" element={<Homepage />} />
           <Route
             exact

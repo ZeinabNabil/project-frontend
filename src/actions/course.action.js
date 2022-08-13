@@ -66,7 +66,7 @@ export const getCoursesByCategory = (category) => async (dispatch) => {
       payload: response.data.courses,
     });
   } catch (error) {
-    console.log(error.response.data);
+    // console.log(error.response.data);
   }
 };
 export const numberOfCourses = () => async (dispatch) => {
