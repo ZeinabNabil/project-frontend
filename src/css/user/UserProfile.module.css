@@ -1,0 +1,102 @@
+
+/* -----------------start welcome area------------- */
+.welcomeArea{
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../../images/istockphoto-903018734-612x612.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 65vh;
+  }
+  .welcomeArea::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 108, 244, 0.7);
+}
+.welcomeArea .welcomequote{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-55%);
+    text-align: center;
+    width: 100%;
+}
+
+.welcomeArea .welcomequote h1{
+    font-weight: bold;
+    font-family: "Bahij", Sans-serif;
+    font-size: 40px;
+    line-height: 54px;
+    color: var(--secondary-color);
+}
+
+.welcomeArea .welcomequote p{
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+    line-height: 28px;
+    letter-spacing: 0.25px;
+    margin-top: 0%;
+    margin-bottom: 200px;
+    position: relative;
+}
+/* ----------------end welcome area----------------- */
+/* --------------------------profile----------------- */
+.profilecardcontainer{
+    width: 60%;
+    margin: auto;
+    margin-top: -100px;
+    margin-bottom: 70px;
+    box-shadow: 0px 0px 8px 0px var(--main-color)
+}
+.profilecardcontainer form{
+    padding: 15px;
+    width: 70%;
+    margin: auto;
+}
+.profilecardcontainer .inputcontainer{
+    padding: 10px;
+}
+.profilecardcontainer form input{
+    padding: 10px;
+}
+.profilecardcontainer h3{
+    color: lightgray;
+}
+.profilecardcontainer button{
+    width: 10%;
+    border-radius: 5px;
+    border: navajowhite;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 20px;
+}
+/* ---------------------------------------------- */
+/* ------------------user corses-------------------- */
+
+.course_card_container .coursesHeader{
+    margin-bottom: 20px;
+    color: var(--main-color);
+}
+.course_card_container .cardimg{
+    padding: 15px;
+}
+.course_card_container img {
+    width: 100%;
+    box-shadow: 0px 2px 15px 5px rgb(0 0 0 / 6%)
+}
+.course_card_container .cardTitle{
+    font-weight: bold;
+    color:black;
+    font-size: 20px;
+}
+.course_card_container .cardtext{
+    color: #9f9393;
+}
+
+/* ---------------------------------------------------------- */

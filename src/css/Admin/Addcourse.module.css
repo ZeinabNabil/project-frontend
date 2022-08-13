@@ -27,6 +27,7 @@
 .addcourse .form{
   display: flex;
   justify-content: center;
+  padding-bottom: 150px;
 }
 
 .addcourse .checkList {

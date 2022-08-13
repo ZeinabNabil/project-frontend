@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
-import style from '../../css/Layout/Landing.module.css';
-import Cards from './Cards';
+import React, { useEffect } from "react";
+import style from "../../css/Layout/Landing.module.css";
+import Cards from "./Cards";
 import {
   faFileLines,
   faLightbulb,
   faUserGraduate,
-} from '@fortawesome/free-solid-svg-icons';
-import Section from './Section';
-import logo from '../../images/logo.png';
-import ReviewsCard from './ReviewsCard';
-import { Accordion } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { getAllCourses } from '../../actions/course.action';
+} from "@fortawesome/free-solid-svg-icons";
+import Section from "./Section";
+import logo from "../../images/logo.png";
+import ReviewsCard from "./ReviewsCard";
+import { Accordion } from "react-bootstrap";
+import { connect } from "react-redux";
+import { getAllCourses } from "../../actions/course.action";
 const Landing = (props) => {
   useEffect(() => {
     props.getAllCourses();
@@ -22,10 +22,10 @@ const Landing = (props) => {
     renderContent = `<h1>Loading</h1>`;
   } else {
     const ICDL = courses.courses.filter((course) => {
-      return course.category === 'icdl';
+      return course.category === "icdl";
     });
     const IELTS = courses.courses.filter((course) => {
-      return course.category === 'ielts';
+      return course.category === "ielts";
     });
     const EMSAT = courses.courses.filter((course) => {
       return course.category === 'emsat';
@@ -93,7 +93,7 @@ const Landing = (props) => {
                     <Cards
                       icon={faFileLines}
                       title="Placement Tests"
-                      text="The pulse is a bulge of an artery from waves of blood that course through the blood vessels each time the heart beats. The pulse is often taken at the wrist to estimate the heart rate"
+                      text="To first determine the level of the trainee and then evaluate his progress periodically during the levels of the training course"
                     />
                   </div>
                 </div>
@@ -102,7 +102,7 @@ const Landing = (props) => {
                     <Cards
                       icon={faLightbulb}
                       title="Interactive Courses"
-                      text="e-health is an emerging field in the intersection of medical informatics, public health and business, referring to health services and information delivered or enhanced through the Internet and related technologies."
+                      text="It aims to develop the capabilities of the trainees and direct them to the right path"
                     />
                   </div>
                 </div>
@@ -127,7 +127,7 @@ const Landing = (props) => {
                 <div className="row">
                   <div
                     className="col-lg-6 col-md-12 col-sm-12 section-accordian "
-                    style={{ display: 'flex', alignItems: 'center' }}
+                    style={{ display: "flex", alignItems: "center" }}
                   >
                     <Accordion className={style.accordian}>
                       <Accordion.Item
@@ -137,7 +137,7 @@ const Landing = (props) => {
                         <Accordion.Header>
                           <div className={style.accordianHeader}>Vission</div>
                         </Accordion.Header>
-                        <Accordion.Body>
+                        <Accordion.Body className={style.accordian_body}>
                           To occupy a leading position in the Gulf region and
                           the Middle East in the field of continuing education
                           and professional development.
@@ -152,7 +152,7 @@ const Landing = (props) => {
                             The message
                           </div>
                         </Accordion.Header>
-                        <Accordion.Body>
+                        <Accordion.Body className={style.accordian_body}>
                           Improving the quality of training and capacity
                           building, enabling individuals, public and private
                           sector institutions, and various groups of society to
@@ -174,29 +174,53 @@ const Landing = (props) => {
                             Strategic goals
                           </div>
                         </Accordion.Header>
-                        <Accordion.Body>
-                          strategic goals Focusing on the application of smart
-                          systems to develop human capital in order to achieve
-                          global leadership Working on communicating with
-                          contemporary experiences in the field of training and
-                          benefiting from them in order to best serve trainees
-                          and bodies Contribute to raising the efficiency of
-                          community members and developing their knowledge and
-                          capabilities by providing a variety of high-quality
-                          applied training programs Raising levels of
-                          institutional performance and competitiveness by
-                          providing consulting services in various disciplines
-                          for the public and private sectors Creating a happy
-                          and stimulating educational and training environment
-                          characterized by knowledge and the development of
-                          creative and innovative thought Building strategic
-                          companies that contribute to creating an added value
-                          that achieves the objectives of the stakeholders
-                          Raising skills and competencies with the latest
-                          innovations and modern methods of distance education
-                          That the Ivan Ilyich Institute be a pioneer and be one
-                          of the best training and education institutions at the
-                          regional and local levels
+                        <Accordion.Body className={style.accordian_body}>
+                          <ul>
+                            <li>
+                              Focusing on the application of smart systems to
+                              develop human capital in order to achieve global
+                              leadership
+                            </li>
+                            <li>
+                              Working on communicating with contemporary
+                              experiences in the field of training and
+                              benefiting from them in order to best serve
+                              trainees and bodies
+                            </li>
+                            <li>
+                              Contribute to raising the efficiency of community
+                              members and developing their knowledge and
+                              capabilities by providing a variety of
+                              high-quality applied training programs
+                            </li>
+                            <li>
+                              Raising levels of institutional performance and
+                              competitiveness by providing consulting services
+                              in various disciplines for the public and private
+                              sectors
+                            </li>
+                            <li>
+                              Creating a happy and stimulating educational and
+                              training environment characterized by knowledge
+                              and the development of creative and innovative
+                              thought
+                            </li>
+                            <li>
+                              Building strategic companies that contribute to
+                              creating an added value that achieves the
+                              objectives of the stakeholders
+                            </li>
+                            <li>
+                              Raising skills and competencies with the latest
+                              innovations and modern methods of distance
+                              education
+                            </li>
+                            <li>
+                              That the Ivan Ilyich Institute be a pioneer and be
+                              one of the best training and education
+                              institutions at the regional and local levels
+                            </li>
+                          </ul>
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
@@ -221,7 +245,7 @@ const Landing = (props) => {
                   <div className="col-lg-9 col-md-12 col-sm-12 section-pics">
                     <div
                       className={style.clientlogos}
-                      style={{ borderRight: ' solid 2px #DDDDDD' }}
+                      style={{ borderRight: " solid 2px #DDDDDD" }}
                     >
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className={style.imgs}>

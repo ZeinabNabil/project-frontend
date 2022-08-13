@@ -26,8 +26,10 @@ import AddUser from './Admin/user/AddUser';
 import CourseInfo from './Admin/course/CourseInfo';
 import ViewUsers from './Admin/user/ViewUsers';
 import Dashboard from './Admin/layout/Dashboard';
-import ReadMore from './Layout/ReadMore/ReadMore';
+import UserProfile from './Layout/user/UserProfile';
+import Contactus from './Layout/Contactus';
 import CoursesByCategory from './courses/CoursesByCategory';
+import ReadMore from './Layout/ReadMore/ReadMore';
 
 if (localStorage.token) {
   //set auth token header auth
@@ -54,12 +56,12 @@ const App = () => {
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/readmore/:id" element={<ReadMore />} />
           <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/contact" element={<Contactus />} />
           <Route
             exact
             path="/courses/:category"
             element={<CoursesByCategory />}
           />
-
           <Route exact path="/admin">
             <Route exact path="addcourse" element={<AddCourse />} />
             <Route exact path="viewcourse" element={<ViewCourses />} />
@@ -71,8 +73,9 @@ const App = () => {
             <Route exact path="adduser" element={<AddUser />} />
             <Route exact path="viewusers" element={<ViewUsers />} />
           </Route>
+          <Route exact path="/profile" element={<UserProfile />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </Provider>
   );

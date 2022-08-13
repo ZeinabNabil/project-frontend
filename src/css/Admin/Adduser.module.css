@@ -2,7 +2,9 @@
 
 /* ---------------start add userform----------------- */
 
-
+  .adduser{
+    padding-bottom: 150px;
+  }
   .adduser .title {
     text-align: center;
     position: relative;

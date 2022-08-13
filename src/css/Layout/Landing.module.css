@@ -104,6 +104,7 @@
   margin: auto;
   position: relative;
   border-radius: 50%;
+  padding: 15px;
 }
 
 .card .title {
@@ -212,6 +213,12 @@
   width: 100% !important;
   background-color: white;
   box-shadow: 0px 5px 30px 5px rgb(0 0 0 / 6%);
+}
+.features .accordian_body{
+  background-color: rgba(128, 128, 128, 0.092);
+  color: #6a6a6a;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .features .accordianHeader {

@@ -44,7 +44,7 @@
     }
     .footer .lastelement .info{
       position: relative !important;
-      top: 70px !important;
+      /* top: 70px !important; */
       right: 50px !important;
     }
   }
@@ -75,7 +75,7 @@
     bottom: 0;
     width: 100%;
     background-color: var(--main-color);
-    margin-top: 115px;
+    /* margin-top: 115px; */
 }
   
 
