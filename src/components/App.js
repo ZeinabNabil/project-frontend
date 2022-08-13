@@ -50,11 +50,11 @@ const App = () => {
             <Route exact path="register" element={<Register />} />
           </Route>
           <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route exact path="/readmore" element={<ReadMore />} />
         </Routes>
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/readmore" element={<ReadMore />} />
           <Route exact path="/contact" element={<Contactus />} />
           <Route exact path="/admin">
             <Route exact path="addcourse" element={<AddCourse />} />
