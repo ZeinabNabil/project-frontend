@@ -4,6 +4,21 @@
   --shadow-color: #3c99dc7a;
    /* background-Color: rgba(128, 128, 128, 0.092); */
 }
+
+* {
+  box-sizing: border-box;
+}
+
+/* Start Media */
+
+@media screen and (max-width: 922px) {
+  .container {
+    width: 100% !important;
+  }
+}
+
+/* End Media */
+
 input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }

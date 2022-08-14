@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import style from "../../../css/user/UserProfile.module.css"
+import style from "../../css/user/UserProfile.module.css"
 
 const Input = ({
   labelName,

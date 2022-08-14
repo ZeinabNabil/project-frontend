@@ -1,5 +1,56 @@
 /* Start Read More CSS */
 
+/* Start Media */
+@media screen and (max-width: 992px) {
+    .read_more_first_section {
+        height: 100vh !important;
+    }
+    .read_more_cards_container {
+        bottom: 2% !important;
+        margin-bottom: 10px;
+    }
+    .read_more_cards {
+        width: 85% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .read_more_cards_container {
+        bottom: 0 !important;
+        margin: 10px 0px !important;
+    }
+    .read_more_cards{
+        width: 95% !important;
+     }
+    /* .read_more_cards {
+        width: 85% !important;
+    }  */
+}
+
+@media screen and (max-width: 576px) { 
+    .read_more_first_section {
+        height: 100% !important;
+        position: unset !important;
+    }
+    .read_more_cards_container {
+        position: unset !important;
+    }
+    .read_more_cards {
+        width: 75% !important;
+    }
+    .read_more_cards_container {
+        margin: 15px 0 !important;
+    }
+    .read_more_second_section,
+    .read_more_fourth_section  {
+    margin: 20px !important;
+    }
+    .box {
+        height: 98% !important;
+    }
+ }
+/* End Media */
+
 /* Start Read More First Section CSS */
 
 .read_more_first_section {
@@ -11,9 +62,9 @@
 /* Start Read More Area CSS */
 
 .read_more_area {
-    background-image: url(../../../images/role-of-internet-in-education-3.jpg);
+    background-image: url(../../images/role-of-internet-in-education-3.jpg);
   background-repeat: no-repeat;
-  /* background-position: center center; */
+  background-position: center center;
   background-size: cover;
   height: 65vh;
   overflow: hidden;
@@ -122,7 +173,8 @@
 /* End Read More First Section */
 /* Start Read More Second Section */
 
-.read_more_second_section {
+.read_more_second_section,
+.read_more_fourth_section  {
     margin: 40px;
 }
 
@@ -130,14 +182,17 @@
     width: 75%;
     margin: auto;
 }  */
-
+.box_container {
+    height: 100%;
+    margin-bottom: 20px;
+}
  .box {
     box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 21%);
     border: none;
     padding: 10px;
     border-radius: 15px;
-    /* height: 95%; */
-    margin-bottom: 20px;
+    height: 95%;
+    /* padding-bottom: 20px; */
 }
 
 .read_more_header {
@@ -180,6 +235,7 @@
     height: 150px;
     transform-style: preserve-3d;
     transition: transform 1s;
+    margin-bottom: 10px;
 }
 
 .course_type_box:hover{
@@ -208,9 +264,6 @@
 
 /* Start Read More Fourth Section */
 
-.read_more_fourth_section {
-    margin: 40px;
-}
 .register_now {
     background-color: white;
     padding: 40px;

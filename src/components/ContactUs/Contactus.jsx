@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from "../../css/Layout/ContactUs/Contactus.module.css"
+import style from "../../css/ContactUs/Contactus.module.css"
 import {
   faFileLines,
   faLightbulb,

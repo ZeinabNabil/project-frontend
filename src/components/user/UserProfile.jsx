@@ -1,9 +1,9 @@
 import React , {useEffect, useState} from "react";
-import style from "../../../css/user/UserProfile.module.css";
+import style from "../../css/user/UserProfile.module.css";
 import ProfileEditInput from "./ProfileEditInput";
 import UserCourseCard from "./UserCourseCard";
-import IELTS from "../../../images/IELTS.jpg"
-import TOEFL from "../../../images/TOEFL_Logo.jpg"
+import IELTS from "../../images/IELTS.jpg"
+import TOEFL from "../../images/TOEFL_Logo.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileSignature, faLightbulb, faUser } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -11,7 +11,7 @@ import {
     faInstagram,
     faLinkedinIn,
   } from '@fortawesome/free-brands-svg-icons';
-import LandingPicArea from "../LandingPicArea";
+import LandingPicArea from "../../components/Layout/LandingPicArea";
 
 const UserProfile =(props) =>{
     const [errors, setErrors] = useState({});

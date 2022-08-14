@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import style from '../../css/Layout/ContactUs/Contactus.module.css';
+import style from '../../css/ContactUs/Contactus.module.css';
 
 const InquriyInput = ({
   labelName,

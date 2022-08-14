@@ -1,10 +1,16 @@
 import React from "react";
-import style from "../../css/Layout/ReadMore/Readmore.module.css";
+import style from "../../css/ReadMore/Readmore.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CourseTypeCard = ({ typeIcon, typeTitle, typeText }) => {
   return (
-    <div className="col-lg-4">
+    <div
+      className="col-lg-4"
+      data-aos="fade-down"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
+      data-aos-duration="800"
+    >
       <div className={style.course_type_box}>
         <div className={`${style.face} ${style.front} ${style.card} card`}>
           {/*  />

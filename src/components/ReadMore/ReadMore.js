@@ -1,5 +1,8 @@
-import React, { useState } from "react";
-import style from "../../css/Layout/ReadMore/Readmore.module.css";
+import React, { useEffect, useState } from "react";
+import style from "../../css/ReadMore/Readmore.module.css";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Images
 import firstPhoto from "../../images/IELTS.jpg";
@@ -31,6 +34,11 @@ const ReadMore = () => {
     phone: "",
     email: "",
   });
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const onInputChange = (e) => {
     const value = e.target.value;
     setForm({
@@ -124,18 +132,26 @@ const ReadMore = () => {
                   It is an English language test that assesses all four language skills: listening, reading, speaking and writing.
                   We at Ivan Ilç Institute offer academic IELTS if you want to obtain higher education, professional registration, immigration or study abroad, and we also offer IELTS general to help you improve your English in professional life.`}
                 />
-                <div className="col-lg-6 col-md-12">
-                  <div className={`${style.box} card`}>
-                    <div className={`${style.box_body} card-body`}>
-                      <div className="row">
-                        <div className="col-lg-12">
-                          <img src={firstPhoto} alt="first-photo" />
-                        </div>
-                        <div className="col-lg-6">
-                          <img src={secondPhoto} alt="second-photo" />
-                        </div>
-                        <div className="col-lg-6">
-                          <img src={thirdPhoto} alt="third-photo" />
+                <div
+                  className="col-lg-6 col-md-12"
+                  data-aos="fade-left"
+                  data-aos-offset="300"
+                  data-aos-easing="ease-in-sine"
+                  data-aos-duration="800"
+                >
+                  <div className={style.box_container}>
+                    <div className={`${style.box} card`}>
+                      <div className={`${style.box_body} card-body`}>
+                        <div className="row">
+                          <div className="col-lg-12">
+                            <img src={firstPhoto} alt="first-photo" />
+                          </div>
+                          <div className="col-lg-6">
+                            <img src={secondPhoto} alt="second-photo" />
+                          </div>
+                          <div className="col-lg-6">
+                            <img src={thirdPhoto} alt="third-photo" />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -205,7 +221,13 @@ const ReadMore = () => {
           {/* Start Register form */}
           <div className={style.read_more_fourth_section}>
             <div className="container">
-              <div className={style.register_now}>
+              <div
+                className={style.register_now}
+                data-aos="zoom-in-up"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="800"
+              >
                 <div className={style.read_more_header}>
                   <h5>Register with us now</h5>
                 </div>
