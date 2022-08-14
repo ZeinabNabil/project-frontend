@@ -1,7 +1,8 @@
 import React from 'react';
 import style from '../../css/Layout/Landing.module.css';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux/es/exports';
+import { registerCourse } from '../../actions/course.action';
 const CoursesCard = (props) => {
   return (
     <div className={style.card}>
@@ -15,13 +16,17 @@ const CoursesCard = (props) => {
           <Link className="btn btn-primary" to={`/readmore/${props.id}`}>
             Read More
           </Link>
-          <a href="#" className="btn btn-primary 2">
+          <Link
+            to="./"
+            onClick={() => props.registerCourse(props.id)}
+            className="btn btn-primary 2"
+          >
             Register Now
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default CoursesCard;
+export default connect(null, { registerCourse })(CoursesCard);

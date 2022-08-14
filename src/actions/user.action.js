@@ -6,6 +6,7 @@ import {
   SET_CURRENT_USER,
   GET_NUMBER_OF_USERS,
   GET_NUMBER_OF_USERS_WHOSE_REGISTERED_COURSES,
+  CURRENT_PROFILE,
 } from './types';
 import { toast } from 'react-toastify';
 import setAuthToken from './../utilis/setAuthToken';
@@ -84,7 +85,13 @@ export const logoutUser = () => async (dispatch) => {
 export const currentProfile = (id) => async (dispatch) => {
   try {
     const response = await axios.get('/user/profile/me');
-  } catch (error) {}
+    dispatch({
+      type: CURRENT_PROFILE,
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error.response.data);
+  }
 };
 
 export const getUsers = () => async (dispatch) => {

@@ -40,20 +40,7 @@ const AddCourse = (props) => {
   const onFormSubmit = (e) => {
     e.preventDefault();
     const course = new FormData();
-    course.append('Name', form.Name);
-    course.append('Category', form.Category);
-    course.append('Description', form.Description);
-    course.append('Attends', form.Attends);
-    course.append('Classes', form.Classes);
-    course.append('Whatis', form.Whatis);
-    course.append('studentLearn', form.StudentLearn);
-    for (let i = 0; i < form.courseImage.length; i++) {
-      course.append(`courseImage${[]}`, form.courseImage[i]);
-    }
-    for (let i = 0; i < form.Types.length; i++) {
-      course.append(`Types${[]}`, form.Types[i]);
-    }
-    console.log(form);
+
     course.append('name', form.name);
     course.append('category', form.category);
     course.append('description', form.description);

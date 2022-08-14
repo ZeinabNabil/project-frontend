@@ -6,6 +6,7 @@ import {
   GET_COURSES_CATEGORY,
   GET_NUMBER_OF_COURSES,
   GET_NUMBER_OF_REGISTERED_COURESES,
+  GET_REGISTERED_COURSES,
 } from './types';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -88,6 +89,24 @@ export const numberOfRegisteredCourses = () => async (dispatch) => {
       type: GET_NUMBER_OF_REGISTERED_COURESES,
       payload: response.data.numberOfRegisteredCourses,
     });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
+export const getRegisteredCourses = (id) => async (dispatch) => {
+  try {
+    const response = await axios.get(`/course/showregisteredcourses/${id}`);
+    dispatch({
+      type: GET_REGISTERED_COURSES,
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
+export const registerCourse = (courseId) => async (dispatch) => {
+  try {
+    await axios.post('/course/registercourse', { courseId: courseId });
   } catch (error) {
     console.log(error.response.data);
   }

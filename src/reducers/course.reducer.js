@@ -3,12 +3,10 @@ import {
   GET_COURSE,
   COURSE_LOADING,
   GET_NUMBER_OF_COURSES,
-  GET_NUMBER_OF_USERS_WHOSE_REGISTERED_COURSES,
-} from '../actions/types';
-import {
   GET_COURSES_CATEGORY,
   GET_NUMBER_OF_REGISTERED_COURESES,
-} from './../actions/types';
+  GET_REGISTERED_COURSES,
+} from '../actions/types';
 
 const initialState = {
   loading: false,
@@ -17,6 +15,7 @@ const initialState = {
   coursesByCategory: null,
   numberOfCourses: null,
   numberOfUsersWholeRegisteredCourses: null,
+  registeredCourses: null,
 };
 
 export default function (state = initialState, action) {
@@ -56,6 +55,12 @@ export default function (state = initialState, action) {
         ...state,
         loading: false,
         numberOfRegisteredCourses: action.payload,
+      };
+    case GET_REGISTERED_COURSES:
+      return {
+        ...state,
+        loading: false,
+        registeredCourses: action.payload,
       };
     default:
       return state;

@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from '../../../css/Layout/ReadMore/Readmore.module.css';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Images
 import firstPhoto from '../../../images/IELTS.jpg';
@@ -38,6 +41,11 @@ const ReadMore = (props) => {
     phone: '',
     email: '',
   });
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const onInputChange = (e) => {
     const value = e.target.value;
     setForm({
@@ -147,27 +155,26 @@ const ReadMore = (props) => {
                   boxHeader="What is the IELTS test?"
                   boxContent={whatIs}
                 />
-                <div className="col-lg-6 col-md-12">
-                  <div className={`${style.box} card`}>
-                    <div className={`${style.box_body} card-body`}>
-                      <div className="row">
-                        <div className="col-lg-6">
-                          <img
-                            src={`/course/image/${courseId}`}
-                            alt="first-photo"
-                          />
-                        </div>
-                        <div className="col-lg-6">
-                          <img
-                            src={`/course/image/${courseId}`}
-                            alt="second-photo"
-                          />
-                        </div>
-                        <div className="col-lg-6">
-                          <img
-                            src={`/course/image/${courseId}`}
-                            alt="third-photo"
-                          />
+                <div
+                  className="col-lg-6 col-md-12"
+                  data-aos="fade-left"
+                  data-aos-offset="300"
+                  data-aos-easing="ease-in-sine"
+                  data-aos-duration="800"
+                >
+                  <div className={style.box_container}>
+                    <div className={`${style.box} card`}>
+                      <div className={`${style.box_body} card-body`}>
+                        <div className="row">
+                          <div className="col-lg-12">
+                            <img src={firstPhoto} alt="first-photo" />
+                          </div>
+                          <div className="col-lg-6">
+                            <img src={secondPhoto} alt="second-photo" />
+                          </div>
+                          <div className="col-lg-6">
+                            <img src={thirdPhoto} alt="third-photo" />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -223,7 +230,13 @@ const ReadMore = (props) => {
           {/* Start Register form */}
           {/* <div className={style.read_more_fourth_section}>
             <div className="container">
-              <div className={style.register_now}>
+              <div
+                className={style.register_now}
+                data-aos="zoom-in-up"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="800"
+              >
                 <div className={style.read_more_header}>
                   <h5>Register with us now</h5>
                 </div>
