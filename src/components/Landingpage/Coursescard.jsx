@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../css/Layout/Landing.module.css';
+import style from '../../css/Landing/Landing.module.css';
 
 const CoursesCard = (props) => {
   return (

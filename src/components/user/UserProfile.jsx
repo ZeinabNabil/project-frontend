@@ -11,6 +11,7 @@ import {
     faInstagram,
     faLinkedinIn,
   } from '@fortawesome/free-brands-svg-icons';
+import LandingPicArea from "../LandingPicArea";
 
 const UserProfile =(props) =>{
     const [errors, setErrors] = useState({});
@@ -59,24 +60,11 @@ const UserProfile =(props) =>{
     //    checked.includes(item) ? "checked-item" : "not-checked-item";
   
     return <div>
-                {/* ---------------------------------welcome area-----------------------------------*/}
-          <div className={style.welcomeArea}>
-        <div className={style.welcomequote}>
-          <div className="container">
-            <div className="row">
-              <div className=" col-lg-12 col-md-12 col-sm-12">
-                <h1>
-                  Hello Donia
-                </h1>
-                <p>
-                     This is your profile page. You can see and update your information.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     {/* ---------------------- end welcome area---------------------------- */}
+      <LandingPicArea
+        header=" Hello Donia "
+        text="This is your profile page. You can see and update your information."
+      />
+          
      {/* --------------------------------start info card------------------------- */}
       <div className={style.profilecardcontainer}>
         <div className="card">

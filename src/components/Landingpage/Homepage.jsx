@@ -1,6 +1,6 @@
 import React from 'react';
 import Landing from './Landing';
-import style from '../../css/Layout/Landing.module.css';
+import style from '../../css/Landing/Landing.module.css';
 
 const Homepage = () => {
   return (

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import style from "../../css/Layout/Contactus.module.css"
-import Cards from "./Cards";
+import style from "../../css/Layout/ContactUs/Contactus.module.css"
 import {
   faFileLines,
   faLightbulb,
   faUserGraduate,
 } from "@fortawesome/free-solid-svg-icons";
 import { Accordion, Form } from "react-bootstrap";
+import Cards from '../Landingpage/Cards';
 import InquriyInput from './InquiryInput';
+import LandingPicArea from '../Layout/LandingPicArea';
 
 
 const Contactus = (props) =>{
@@ -28,26 +29,11 @@ const Contactus = (props) =>{
   
 
     return <div style={{backgroundColor: "rgba(128, 128, 128, 0.092)"}}>
-              {/* --------------------------start help area--------------------------*/}
-          <div className={style.helpArea}>
-            <div className="col-lg-6 col-md-6 col-sm-6">
-        <div className={style.helpInstruction}>
-          <div className="container">
-            <div className="row">
-              <div className=" col-lg-12 col-md-12 col-sm-12">
-                <h1>
-                Need help?
-                </h1>
-                <p>
-                For more information about our services and the courses we offer, you can contact our educational consultants and get a free consultation, you can also contact us via phone number or email, or you can visit us at any time you want during the business hours shown below
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-          {/* --------------------------end help instruction--------------------------*/}
+
+      <LandingPicArea 
+        header="Need help?"
+        text="For more information about our services and the courses we offer, you can contact our educational consultants and get a free consultation, you can also contact us via phone number or email, or you can visit us at any time you want during the business hours shown below"
+      />
        {/* ----------------------------Start Cards Section------------------------------- */}
        <div className={style.contactcards}>
        <section className={style.cardsSection}>
@@ -56,33 +42,21 @@ const Contactus = (props) =>{
             <div className="col-lg-12">
               <div className="row">
                 {/* <-------------------------------start calling card-----------------------------*/}
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
                     <Cards
                       icon={faUserGraduate}
                       title="Specialized Lectures"
                       text="In all areas, whether in language education, preparation for the Emsat exam or developing computer skills."
                     />
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
                     <Cards
                       icon={faFileLines}
                       title="Placement Tests"
                       text="To first determine the level of the trainee and then evaluate his progress periodically during the levels of the training course"
                     />
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
                     <Cards
                       icon={faLightbulb}
                       title="Interactive Courses"
                       text="It aims to develop the capabilities of the trainees and direct them to the right path"
                     />
-                  </div>
-                </div>
                 {/* <-------------------------------end calling card-----------------------------*/}
               </div>
             </div>

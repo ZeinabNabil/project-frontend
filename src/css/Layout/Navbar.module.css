@@ -163,6 +163,19 @@
   border-width: 4px 0px 4px 0;
   border-color: var(--secondary-color);
 }
+.nav .navbar{
+  width: 75%;
+  margin: auto;
+}
+.nav .navbar_nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nav .navbar_nav .nav_link{
+  color: white;
+  font-weight: bold;
+}
 .nav .navbtns {
   display: flex;
   justify-content: space-between;

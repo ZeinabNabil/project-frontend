@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import style from "../../css/Layout/Landing.module.css";
+import style from "../../css/Landing/Landing.module.css";
 import Cards from "./Cards";
 import {
   faFileLines,
@@ -12,6 +12,7 @@ import ReviewsCard from "./ReviewsCard";
 import { Accordion } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getAllCourses } from "../../actions/course.action";
+import LandingPicArea from "../Layout/LandingPicArea";
 const Landing = (props) => {
   useEffect(() => {
     props.getAllCourses();
@@ -38,62 +39,33 @@ const Landing = (props) => {
   return (
     <div>
       {/* ------------------------------Start landing area---------------------------- */}
-      <div className={style.landingArea}>
-        {/* ---------------------------------Website name-----------------------------------*/}
-        <div className={style.siteName}>
-          <div className="container">
-            <div className="row">
-              <div className=" col-lg-12 col-md-12 col-sm-12">
-                <h1>
-                  Innovation language institute for Training and Development
-                </h1>
-                <p>
-                  Accredited Institute for Languages, Vocational Training and
-                  Computer
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <LandingPicArea
+        header="Innovation language institute for Training and Development"
+        text="Accredited Institute for Languages, Vocational Training and
+        Computer"
+      />
       {/* ----------------------------Start Cards Section------------------------------- */}
       <section className={style.cardsSection}>
-        <div className="container">
+        <div className="container" style={{ width: "100%" }}>
           <div className="row">
-            <div className="col-lg-12">
-              <div className="row">
-                {/* <-------------------------------start calling card-----------------------------*/}
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
-                    <Cards
-                      icon={faUserGraduate}
-                      title="Specialized Lectures"
-                      text="In all areas, whether in language education, preparation for the Emsat exam or developing computer skills."
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
-                    <Cards
-                      icon={faFileLines}
-                      title="Placement Tests"
-                      text="To first determine the level of the trainee and then evaluate his progress periodically during the levels of the training course"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
-                    <Cards
-                      icon={faLightbulb}
-                      title="Interactive Courses"
-                      text="It aims to develop the capabilities of the trainees and direct them to the right path"
-                    />
-                  </div>
-                </div>
-                {/* <-------------------------------end calling card-----------------------------*/}
-              </div>
-            </div>
+            {/* <-------------------------------start calling card-----------------------------*/}
+            <Cards
+              icon={faUserGraduate}
+              title="Specialized Lectures"
+              text="In all areas, whether in language education, preparation for the Emsat exam or developing computer skills."
+            />
+            <Cards
+              icon={faFileLines}
+              title="Placement Tests"
+              text="To first determine the level of the trainee and then evaluate his progress periodically during the levels of the training course"
+            />
+            <Cards
+              icon={faLightbulb}
+              title="Interactive Courses"
+              text="It aims to develop the capabilities of the trainees and direct them to the right path"
+            />
           </div>
+          {/* <-------------------------------end calling card-----------------------------*/}
         </div>
       </section>
       {/* -------------------------------------------End Cards section--------------------------------------------  */}

@@ -53,8 +53,7 @@ const Navbar = (props) => {
       <>
         <li className="nav-item">
           <Link
-            className="nav-link active"
-            style={{ color: 'white', fontWeight: 'bold' }}
+              className={`nav-link active ${style.nav_link}`}
             aria-current="page"
             to="/profile"
           >
@@ -63,8 +62,7 @@ const Navbar = (props) => {
         </li>
         <li className="nav-item">
           <Link
-            className="nav-link active"
-            style={{ color: 'white', fontWeight: 'bold' }}
+              className={`nav-link active ${style.nav_link}`}
             aria-current="page"
             to="/"
             onClick={onLogoutClick}
@@ -132,8 +130,7 @@ const Navbar = (props) => {
       <div className={style.nav}>
         <div className="col-lg-12 col-md-12 col-sm-12">
           <nav
-            className="navbar navbar-expand-lg "
-            style={{ width: '75%', margin: 'auto' }}
+            className={`navbar navbar-expand-lg ${style.navbar}`}
           >
             <div className="container-fluid">
               <button
@@ -150,18 +147,12 @@ const Navbar = (props) => {
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 {!isAuthenticated ? guest() : ''}
                 <ul
-                  className="navbar-nav"
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent: 'center',
-                  }}
+                  className={`navbar-nav ${style.navbar_nav}`}
                 >
                   {navItems.map((item, index) => (
                     <li className="nav-item" key={index}>
                       <Link
-                        className="nav-link active"
-                        style={{ color: 'white', fontWeight: 'bold' }}
+                        className={`nav-link active ${style.nav_link}`}
                         aria-current="page"
                         to={item.link}
                       >

@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import MainAuthPage from "./Authentication/MainAuthPage";
 import Login from "./Authentication/Login";
 import Register from "./Authentication/Register";
-import Homepage from "./Layout/Homepage";
+import Homepage from "./Landingpage/Homepage";
 import AddCourse from "./Admin/course/AddCourse";
 import setAuthToken from "./../utilis/setAuthToken";
 import jwt_decode from "jwt-decode";
@@ -27,8 +27,8 @@ import CourseInfo from "./Admin/course/CourseInfo";
 import ViewUsers from "./Admin/user/ViewUsers";
 import Dashboard from "./Admin/layout/Dashboard";
 import UserProfile from "./Layout/user/UserProfile";
-import Contactus from "./Layout/Contactus";
-import ReadMore from "./Layout/ReadMore/ReadMore";
+import ReadMore from "./ReadMore/ReadMore";
+import Contactus from "./ContactUs/Contactus";
 
 if (localStorage.token) {
   //set auth token header auth

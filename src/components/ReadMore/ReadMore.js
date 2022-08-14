@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import style from "../../../css/Layout/ReadMore/Readmore.module.css";
+import style from "../../css/Layout/ReadMore/Readmore.module.css";
 
 // Images
-import firstPhoto from "../../../images/IELTS.jpg";
-import secondPhoto from "../../../images/IELTS.jpg";
-import thirdPhoto from "../../../images/IELTS.jpg";
+import firstPhoto from "../../images/IELTS.jpg";
+import secondPhoto from "../../images/IELTS.jpg";
+import thirdPhoto from "../../images/IELTS.jpg";
 
 // Icons
 import { faSlideshare } from "@fortawesome/free-brands-svg-icons";
@@ -22,8 +22,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Components
 import ReadMoreBox from "./ReadMoreBox";
 import ReadMoreCard from "./ReadMoreCard";
-import CourseTypeCard from "./CourseTypeCard";
-import Input from "../../Admin/Input";
+import CourseTypeCard from "././CourseTypeCard";
+import Input from "../Admin/Input";
 
 const ReadMore = () => {
   const [form, setForm] = useState({
