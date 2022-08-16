@@ -29,6 +29,7 @@ import Dashboard from "./Admin/layout/Dashboard";
 import UserProfile from "./user/UserProfile";
 import ReadMore from "./ReadMore/ReadMore";
 import Contactus from "./ContactUs/Contactus";
+import InquiryView from "./Admin/Inquiry/InquiryView";
 
 if (localStorage.token) {
   //set auth token header auth
@@ -51,11 +52,7 @@ const App = () => {
           </Route>
           <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
-        <Navbar />
         <Routes>
-          <Route exact path="/" element={<Homepage />} />
-          <Route exact path="/readmore" element={<ReadMore />} />
-          <Route exact path="/contact" element={<Contactus />} />
           <Route exact path="/admin">
             <Route exact path="addcourse" element={<AddCourse />} />
             <Route exact path="viewcourse" element={<ViewCourses />} />
@@ -66,12 +63,19 @@ const App = () => {
             />
             <Route exact path="adduser" element={<AddUser />} />
             <Route exact path="viewusers" element={<ViewUsers />} />
+            <Route exact path="inquiry" element={<InquiryView />} />
           </Route>
+        </Routes>
+        {/* <Navbar /> */}
+        <Routes>
+          <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/readmore" element={<ReadMore />} />
+          <Route exact path="/contact" element={<Contactus />} />
           <Route exact path="/user">
             <Route exact path="userprofile" element={<UserProfile />} />
           </Route>
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </Provider>
   );
