@@ -2,6 +2,7 @@ import React from 'react';
 import AdminHome from './AdminHome';
 import AdminNavbar from './AdminNavbar';
 import AdminSidebar from './AdminSidebar';
+import { Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
@@ -12,7 +13,7 @@ const Dashboard = () => {
           <AdminSidebar />
         </div>
         <div className="col-lg-10">
-          <AdminHome />
+          <Outlet />
         </div>
       </div>
     </>

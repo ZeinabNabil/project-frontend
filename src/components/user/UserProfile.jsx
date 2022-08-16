@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import style from '../../../css/user/UserProfile.module.css';
+import style from '../../css/user/UserProfile.module.css';
 import ProfileEditInput from './ProfileEditInput';
 import UserCourseCard from './UserCourseCard';
-import IELTS from '../../../images/IELTS.jpg';
-import TOEFL from '../../../images/TOEFL_Logo.jpg';
+import { getRegisteredCourses } from '../../actions/course.action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb, faUser } from '@fortawesome/free-solid-svg-icons';
 import Switch from 'react-switch';
-import { getRegisteredCourses } from '../../../actions/course.action';
+
 import { connect } from 'react-redux';
 const UserProfile = (props) => {
   const [edit, setEdit] = useState(false);

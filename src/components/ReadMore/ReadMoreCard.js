@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../../css/Layout/ReadMore/Readmore.module.css";
+import style from "../../css/ReadMore/Readmore.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ReadMoreCard = ({ cardIcon, cardTilte, cardSubtitle, cardText }) => {

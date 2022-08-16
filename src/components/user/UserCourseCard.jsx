@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../../css/user/UserProfile.module.css';
+import style from '../../css/user/UserProfile.module.css';
 
 const UserCourseCard = ({ course }) => {
   return (

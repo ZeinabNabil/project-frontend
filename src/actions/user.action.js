@@ -7,6 +7,8 @@ import {
   GET_NUMBER_OF_USERS,
   GET_NUMBER_OF_USERS_WHOSE_REGISTERED_COURSES,
   CURRENT_PROFILE,
+  GET_LAST_FIVE_USERS,
+  USER_LOADING,
 } from './types';
 import { toast } from 'react-toastify';
 import setAuthToken from './../utilis/setAuthToken';
@@ -44,7 +46,7 @@ export const loginUser = (userData, navigate) => async (dispatch) => {
     dispatch(setCurrentUser(decoded));
     setTimeout(() => {
       if (user.role == 1) {
-        navigate('/admin');
+        navigate('/dashboard');
       } else {
         navigate('/');
       }
@@ -84,6 +86,8 @@ export const logoutUser = () => async (dispatch) => {
 
 export const currentProfile = (id) => async (dispatch) => {
   try {
+    dispatch(loading);
+
     const response = await axios.get('/user/profile/me');
     dispatch({
       type: CURRENT_PROFILE,
@@ -96,6 +100,8 @@ export const currentProfile = (id) => async (dispatch) => {
 
 export const getUsers = () => async (dispatch) => {
   try {
+    dispatch(loading);
+
     const response = await axios.get('/user');
     dispatch({
       type: GET_USERS,
@@ -108,6 +114,8 @@ export const getUsers = () => async (dispatch) => {
 
 export const numberOfUsers = () => async (dispatch) => {
   try {
+    dispatch(loading);
+
     const response = await axios.get('/user/count');
     dispatch({
       type: GET_NUMBER_OF_USERS,
@@ -119,6 +127,8 @@ export const numberOfUsers = () => async (dispatch) => {
 };
 export const numberOfUsersWhoseRegisterCourses = () => async (dispatch) => {
   try {
+    dispatch(loading);
+
     const response = await axios.get(
       '/user/count/numberOfUsersWhoseRegisteredCourses'
     );
@@ -129,4 +139,22 @@ export const numberOfUsersWhoseRegisterCourses = () => async (dispatch) => {
   } catch (error) {
     console.log(error.response.data);
   }
+};
+export const getLastFiveUsers = () => async (dispatch) => {
+  try {
+    dispatch(loading);
+    const response = await axios.get('/user/lastfive');
+    dispatch({
+      type: GET_LAST_FIVE_USERS,
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
+
+const loading = () => {
+  return {
+    type: USER_LOADING,
+  };
 };

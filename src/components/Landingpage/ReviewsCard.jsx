@@ -1,6 +1,6 @@
 import React from "react";
 import "../../css/App.css"
-import style from "../../css/Layout/Landing.module.css"
+import style from "../../css/Landing/Landing.module.css"
 
 
 const ReviewsCard = (props) =>{

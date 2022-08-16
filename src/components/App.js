@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import MainAuthPage from './Authentication/MainAuthPage';
 import Login from './Authentication/Login';
 import Register from './Authentication/Register';
-import Homepage from './Layout/Homepage';
+import Homepage from './Landingpage/Homepage';
 import AddCourse from './Admin/course/AddCourse';
 import setAuthToken from './../utilis/setAuthToken';
 import jwt_decode from 'jwt-decode';
@@ -26,10 +26,13 @@ import AddUser from './Admin/user/AddUser';
 import CourseInfo from './Admin/course/CourseInfo';
 import ViewUsers from './Admin/user/ViewUsers';
 import Dashboard from './Admin/layout/Dashboard';
-import UserProfile from './Layout/user/UserProfile';
-import Contactus from './Layout/Contactus';
+import UserProfile from './user/UserProfile';
+import ReadMore from './ReadMore/ReadMore';
+import Contactus from './ContactUs/Contactus';
 import CoursesByCategory from './courses/CoursesByCategory';
-import ReadMore from './Layout/ReadMore/ReadMore';
+import AdminHome from './Admin/layout/AdminHome';
+import Landing from './Landingpage/Landing';
+import WithNavbarAndFooter from '../WithNavbarAndFooter';
 
 if (localStorage.token) {
   //set auth token header auth
@@ -46,37 +49,27 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/auth" element={<MainAuthPage />}>
+          <Route exact path="auth" element={<MainAuthPage />}>
             <Route exact path="login" element={<Login />} />
             <Route exact path="register" element={<Register />} />
           </Route>
-        </Routes>
-        <Navbar />
-        <Routes>
-          <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route exact path="/readmore/:id" element={<ReadMore />} />
-          <Route exact path="/" element={<Homepage />} />
-          <Route exact path="/readmore" element={<ReadMore />} />
-          <Route exact path="/contact" element={<Contactus />} />
-          <Route
-            exact
-            path="/courses/:category"
-            element={<CoursesByCategory />}
-          />
-          <Route exact path="/admin">
-            <Route exact path="addcourse" element={<AddCourse />} />
-            <Route exact path="viewcourse" element={<ViewCourses />} />
-            <Route
-              exact
-              path="viewcourse/course/:id"
-              element={<CourseInfo />}
-            />
-            <Route exact path="adduser" element={<AddUser />} />
-            <Route exact path="viewusers" element={<ViewUsers />} />
+          <Route exact element={<WithNavbarAndFooter />}>
+            <Route index element={<Homepage />} />
+            <Route exact path="/readmore/:id" element={<ReadMore />} />
+            <Route exact path="/readmore" element={<ReadMore />} />
+            <Route exact path="/contact" element={<Contactus />} />
+            <Route exact path="/:category" element={<CoursesByCategory />} />
+            <Route exact path="/profile" element={<UserProfile />} />
           </Route>
-          <Route exact path="/profile" element={<UserProfile />} />
+          <Route exact path="dashboard" element={<Dashboard />}>
+            <Route exact path="home" element={<AdminHome />} />
+            <Route exact path="course/add" element={<AddCourse />} />
+            <Route exact path="courses/view" element={<ViewCourses />} />
+            <Route exact path="course/view/:id" element={<CourseInfo />} />
+            <Route exact path="user/add" element={<AddUser />} />
+            <Route exact path="users/view" element={<ViewUsers />} />
+          </Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
     </Provider>
   );

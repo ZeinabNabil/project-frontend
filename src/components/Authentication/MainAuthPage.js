@@ -1,45 +1,33 @@
-import React from "react";
-import style from "../../css/Authentication/Authentication.module.css";
-import { Outlet } from "react-router-dom";
-import authImage from "../../images/login-register1.png";
-
-const MainAuthPage = () => {
+import React, { useEffect } from 'react';
+import style from '../../css/Authentication/Authentication.module.css';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+import authImage from '../../images/login-register1.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
+toast.configure();
+const MainAuthPage = (props) => {
+  const navigate = useNavigate();
+  const { isAuthenticated } = props.user;
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, []);
   return (
     <div className={style.main_auth_page}>
       <div className={style.auth_container}>
         <div className="row">
           <div className="col-lg-6 col-md-6 col-sm-12">
+            <span className={style.return}>
+              <Link to="/">
+                <FontAwesomeIcon icon={faCircleArrowLeft} /> Back To Home Page
+              </Link>
+            </span>
+
             <div className={style.form_container}>
-              {/* <Login /> */}
-              {/* <Register /> */}
               <Outlet />
-              {/* <div className="row">
-                <div className="col-lg-12">
-                  <div className={style.form_header}>
-                    <h3>Login</h3>
-                  </div>
-                </div>
-                <div className="col-lg-12">
-                  <div className={style.form_content}>
-                    <form>
-                      <FormComponent
-                        isHasIcon="no"
-                        icon={faEnvelope}
-                        name="Email"
-                        type="text"
-                        placeholder="Enter your Email"
-                      />
-                      <FormComponent
-                        isHasIcon="no"
-                        icon={faEnvelope}
-                        name="Password"
-                        type="password"
-                        placeholder="Enter your Password"
-                      />
-                    </form>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">
@@ -52,5 +40,7 @@ const MainAuthPage = () => {
     </div>
   );
 };
-
-export default MainAuthPage;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+export default connect(mapStateToProps)(MainAuthPage);

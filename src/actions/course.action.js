@@ -21,7 +21,6 @@ const toastify = (message) => {
 export const addCourse = (courseData) => async (dispatch) => {
   try {
     const response = await axios.post('/course/add', courseData);
-    console.log(response.data);
     toastify(response.data.message);
   } catch (error) {
     dispatch({

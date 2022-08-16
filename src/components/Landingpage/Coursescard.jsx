@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../css/Layout/Landing.module.css';
+import style from '../../css/Landing/Landing.module.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux/es/exports';
 import { registerCourse } from '../../actions/course.action';

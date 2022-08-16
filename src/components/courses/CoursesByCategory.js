@@ -18,8 +18,6 @@ const CoursesByCategory = (props) => {
       renderContent = coursesByCategory.map((course) => (
         <div className="col-lg-3 col-md-4 col-sm-12">
           <CourseCard course={course} />
-          <CourseCard course={course} />
-          <CourseCard course={course} />
         </div>
       ));
   }

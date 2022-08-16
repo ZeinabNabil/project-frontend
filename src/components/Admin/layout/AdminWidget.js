@@ -1,9 +1,11 @@
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from '../../../css/Admin/Dashboard.module.css';
 import profilePic from '../../../images/profile-circle.png';
-const AdminWidget = () => {
+import { connect } from 'react-redux';
+import { getLastFiveUsers } from '../../../actions/user.action';
+const AdminWidget = (props) => {
   const widgets = [
     {
       imgSrc: profilePic,
@@ -68,34 +70,40 @@ const AdminWidget = () => {
       status: 'Approved',
     },
   ];
+  const { lastFiveUsers, loading } = props.user;
+  var renderContent;
+  if (lastFiveUsers === null || loading) {
+    renderContent = 'Loading';
+  } else {
+    renderContent = lastFiveUsers.lastFiveUsers.map((widget, index) => {
+      return (
+        <li className={style.widget_list_item} key={index}>
+          <div className={style.widget_list_item_img}>
+            <img src={profilePic} alt="profile picture" />
+          </div>
+          <div className={style.widget_list_item_user}>
+            <span className={style.widget_list_item_username}>
+              {widget.name}
+            </span>
+            <span className={style.widget_list_item_title}>{widget.email}</span>
+          </div>
+          <button className={style.widget_button}>
+            <FontAwesomeIcon icon={faEye} /> Display
+          </button>
+        </li>
+      );
+    });
+  }
+  useEffect(() => {
+    props.getLastFiveUsers();
+  }, []);
   return (
     <div className="col-lg-12">
       <div className="row">
         <div className="col-lg-4 .col-md-12">
           <div className={style.widget}>
             <span className={style.widget_title}>New Join Members</span>
-            <ul className={style.widget_list}>
-              {widgets.map((widget, index) => {
-                return (
-                  <li className={style.widget_list_item} key={index}>
-                    <div className={style.widget_list_item_img}>
-                      <img src={widget.imgSrc} alt="profile picture" />
-                    </div>
-                    <div className={style.widget_list_item_user}>
-                      <span className={style.widget_list_item_username}>
-                        {widget.username}
-                      </span>
-                      <span className={style.widget_list_item_title}>
-                        {widget.title}
-                      </span>
-                    </div>
-                    <button className={style.widget_button}>
-                      <FontAwesomeIcon icon={faEye} /> Display
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+            <ul className={style.widget_list}>{renderContent}</ul>
           </div>
         </div>
         <div className="col-lg-8 .col-md-12">
@@ -138,5 +146,7 @@ const AdminWidget = () => {
     </div>
   );
 };
-
-export default AdminWidget;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+export default connect(mapStateToProps, { getLastFiveUsers })(AdminWidget);

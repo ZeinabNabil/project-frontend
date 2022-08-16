@@ -1,22 +1,21 @@
 import React from 'react';
 import classnames from 'classnames';
-import style from "../../../css/user/UserProfile.module.css"
+import style from '../../css/ContactUs/Contactus.module.css';
 
-const Input = ({
+const InquriyInput = ({
   labelName,
   type,
   placeholder,
   name,
   value,
-  edit,
   err,
   onChange,
   rows,
 }) => {
   return (
-    <div className={style.inputcontainer} >
+    <div className={style.input}>
       <div className="col-lg-12 col-md-12 col-sm-12">
-        <label className={style.formlabel} style={{padding:"4px" , color:"#3c99dc" , fontWeight:"bold"}}>{labelName}</label>
+        <label className={style.formlabel} style={{padding:"4px" , color:"black" , fontWeight:"bold"}}>{labelName}</label>
       </div>
       <input
         value={value}
@@ -27,7 +26,6 @@ const Input = ({
         })}
         type={type}
         rows={rows}
-        disabled={edit === false ? true : ""}
         placeholder={placeholder}
       />
       {err && (
@@ -37,4 +35,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default InquriyInput;

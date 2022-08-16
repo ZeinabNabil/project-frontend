@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import store from './../../../store';
 import BackToList from '../BackToList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 const AddCourse = (props) => {
   const checkList = ['VIP1', 'VIP2', 'Group'];
   const categories = [
@@ -91,12 +93,13 @@ const AddCourse = (props) => {
   return (
     <div className={style.addcourse}>
       <div className={style.title}>
-        <h1>Add Course</h1>
+        <span>
+          <FontAwesomeIcon icon={faPlus} />
+          Add Course
+        </span>
       </div>
       <div className={style.form}>
         <div className={style.formcontainer}>
-          <BackToList linkTo="/admin/viewcourse" />
-
           <form
             enctype="application/json"
             className="form-group"

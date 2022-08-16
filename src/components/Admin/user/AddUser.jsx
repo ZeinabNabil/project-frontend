@@ -6,6 +6,8 @@ import Input from '../Input';
 import { connect } from 'react-redux';
 import { createUser } from '../../../actions/user.action';
 import BackToList from '../BackToList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const AddUser = (props) => {
   const navigate = useNavigate();
@@ -52,11 +54,12 @@ const AddUser = (props) => {
   return (
     <div className={style.adduser}>
       <div className={style.title}>
-        <h1>Add User</h1>
+        <span>
+          <FontAwesomeIcon icon={faPlus} />
+          Add User
+        </span>
       </div>
       <div className={style.formcontainer}>
-        <BackToList linkTo="/admin/viewusers" />
-
         <form className="form-group" onSubmit={onFormSubmit}>
           <Input
             onChange={onInputChange}

@@ -1,6 +1,6 @@
 import React from 'react';
 import CoursesCard from './Coursescard';
-import style from '../../css/Layout/Landing.module.css';
+import style from '../../css/Landing/Landing.module.css';
 import { faGripLines } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

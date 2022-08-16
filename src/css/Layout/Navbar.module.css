@@ -1,15 +1,13 @@
-
-
 /* responsive */
 
 @media screen and(max-width: 1200px) {
-  .topbar .contactInfo{
+  .topbar .contactInfo {
     width: 95% !important;
   }
 }
 
 @media screen and(max-width: 1256px) {
-  .topbar .contactInfo{
+  .topbar .contactInfo {
     width: 95% !important;
   }
 }
@@ -122,8 +120,10 @@
 
 .address .icon {
   color: var(--secondary-color);
-  font-size: 35px;
-  position: relative;
+  font-size: 20px;
+  top: 2px;
+  right: -20px;
+  position: absolute;
 }
 .mail {
   position: relative;
@@ -133,9 +133,10 @@
 
 .mail .icon {
   color: var(--secondary-color);
-  font-size: 25px;
-  position: relative;
-  left: 10px;
+  font-size: 18px;
+  top: 2px;
+  right: -25px;
+  position: absolute;
 }
 
 .phone {
@@ -146,9 +147,10 @@
 
 .phone .icon {
   color: var(--secondary-color);
-  font-size: 25px;
-  position: relative;
-  left: 10px;
+  font-size: 18px;
+  top: 2px;
+  right: -20px;
+  position: absolute;
 }
 
 .contactInfo .sitelogo img {
@@ -162,6 +164,19 @@
   border-style: solid;
   border-width: 4px 0px 4px 0;
   border-color: var(--secondary-color);
+}
+.nav .navbar {
+  width: 75%;
+  margin: auto;
+}
+.nav .navbar_nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nav .navbar_nav .nav_link {
+  color: white;
+  font-weight: bold;
 }
 .nav .navbtns {
   display: flex;

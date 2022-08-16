@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
-import style from "../../css/Layout/Landing.module.css";
-import Cards from "./Cards";
+import React, { useEffect } from 'react';
+import style from '../../css/Landing/Landing.module.css';
+import Cards from './Cards';
 import {
   faFileLines,
   faLightbulb,
   faUserGraduate,
-} from "@fortawesome/free-solid-svg-icons";
-import Section from "./Section";
-import logo from "../../images/logo.png";
-import ReviewsCard from "./ReviewsCard";
-import { Accordion } from "react-bootstrap";
-import { connect } from "react-redux";
-import { getAllCourses } from "../../actions/course.action";
+} from '@fortawesome/free-solid-svg-icons';
+import Section from './Section';
+import logo from '../../images/logo.png';
+import ReviewsCard from './ReviewsCard';
+import { Accordion } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { getAllCourses } from '../../actions/course.action';
+import LandingPicArea from '../Layout/LandingPicArea';
+import aos from 'aos';
 const Landing = (props) => {
   useEffect(() => {
+    aos.init();
     props.getAllCourses();
   }, []);
   var renderContent;
@@ -22,10 +25,10 @@ const Landing = (props) => {
     renderContent = `<h1>Loading</h1>`;
   } else {
     const ICDL = courses.courses.filter((course) => {
-      return course.category === "icdl";
+      return course.category === 'icdl';
     });
     const IELTS = courses.courses.filter((course) => {
-      return course.category === "ielts";
+      return course.category === 'ielts';
     });
     const EMSAT = courses.courses.filter((course) => {
       return course.category === 'emsat';
@@ -39,7 +42,6 @@ const Landing = (props) => {
     const language = courses.courses.filter((course) => {
       return course.category === 'language';
     });
-    console.log(ICDL);
     renderContent = (
       <>
         <Section title="EMSAT" courses={EMSAT} />
@@ -54,62 +56,39 @@ const Landing = (props) => {
   return (
     <div>
       {/* ------------------------------Start landing area---------------------------- */}
-      <div className={style.landingArea}>
-        {/* ---------------------------------Website name-----------------------------------*/}
-        <div className={style.siteName}>
-          <div className="container">
-            <div className="row">
-              <div className=" col-lg-12 col-md-12 col-sm-12">
-                <h1>
-                  Innovation language institute for Training and Development
-                </h1>
-                <p>
-                  Accredited Institute for Languages, Vocational Training and
-                  Computer
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <LandingPicArea
+        header="Innovation language institute for Training and Development"
+        text="Accredited Institute for Languages, Vocational Training and
+        Computer"
+      />
       {/* ----------------------------Start Cards Section------------------------------- */}
       <section className={style.cardsSection}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="row">
-                {/* <-------------------------------start calling card-----------------------------*/}
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
-                    <Cards
-                      icon={faUserGraduate}
-                      title="Specialized Lectures"
-                      text="In all areas, whether in language education, preparation for the Emsat exam or developing computer skills."
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
-                    <Cards
-                      icon={faFileLines}
-                      title="Placement Tests"
-                      text="To first determine the level of the trainee and then evaluate his progress periodically during the levels of the training course"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-                  <div className={style.card}>
-                    <Cards
-                      icon={faLightbulb}
-                      title="Interactive Courses"
-                      text="It aims to develop the capabilities of the trainees and direct them to the right path"
-                    />
-                  </div>
-                </div>
-                {/* <-------------------------------end calling card-----------------------------*/}
-              </div>
-            </div>
+        <div className="container" style={{ width: '100%' }}>
+          <div
+            className="row"
+            data-aos="fade-up"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="800"
+          >
+            {/* <-------------------------------start calling card-----------------------------*/}
+            <Cards
+              icon={faUserGraduate}
+              title="Specialized Lectures"
+              text="In all areas, whether in language education, preparation for the Emsat exam or developing computer skills."
+            />
+            <Cards
+              icon={faFileLines}
+              title="Placement Tests"
+              text="To first determine the level of the trainee and then evaluate his progress periodically during the levels of the training course"
+            />
+            <Cards
+              icon={faLightbulb}
+              title="Interactive Courses"
+              text="It aims to develop the capabilities of the trainees and direct them to the right path"
+            />
           </div>
+          {/* <-------------------------------end calling card-----------------------------*/}
         </div>
       </section>
       {/* -------------------------------------------End Cards section--------------------------------------------  */}
@@ -127,7 +106,7 @@ const Landing = (props) => {
                 <div className="row">
                   <div
                     className="col-lg-6 col-md-12 col-sm-12 section-accordian "
-                    style={{ display: "flex", alignItems: "center" }}
+                    style={{ display: 'flex', alignItems: 'center' }}
                   >
                     <Accordion className={style.accordian}>
                       <Accordion.Item
@@ -245,7 +224,7 @@ const Landing = (props) => {
                   <div className="col-lg-9 col-md-12 col-sm-12 section-pics">
                     <div
                       className={style.clientlogos}
-                      style={{ borderRight: " solid 2px #DDDDDD" }}
+                      style={{ borderRight: ' solid 2px #DDDDDD' }}
                     >
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className={style.imgs}>
@@ -291,24 +270,6 @@ const Landing = (props) => {
         </div>
         <div className={style.reviewscards}>
           <div className="row">
-            <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
-              img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
-            />
-            <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
-              img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
-            />
-            <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
-              img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
-            />
             <ReviewsCard
               text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
               img={logo}

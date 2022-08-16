@@ -21,7 +21,7 @@ const ViewCourses = (props) => {
     renderContent = (
       <Table
         btnName="Add new course"
-        btnLink="addcourse"
+        btnLink="course/add"
         columns={columns}
         data={courses.courses}
       />
