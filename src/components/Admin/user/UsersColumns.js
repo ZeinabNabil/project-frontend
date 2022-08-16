@@ -1,46 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ListGroup } from 'react-bootstrap';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ListGroup } from "react-bootstrap";
 
 // Icons
-import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // CSS
-import style from '../../../css/Admin/View.module.css';
+import style from "../../../css/Admin/View.module.css";
 
 const UsersColumns = [
   {
-    name: 'Name',
+    name: "Name",
     selector: (row) => row.name,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Email',
+    name: "Email",
     selector: (row) => row.email,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Phone',
+    name: "Phone",
     selector: (row) => row.phone,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Role',
+    name: "Role",
     selector: (row) => {
       if (row.role == 0) {
-        return 'User';
+        return "User";
       }
-      return 'Admin';
+      return "Admin";
     },
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Action',
+    name: "Action",
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,
@@ -48,9 +48,11 @@ const UsersColumns = [
       return (
         <div className={style.edit_delete_btns}>
           <div className={style.edit_btn}>
-            <button type="button" className="btn">
-              <FontAwesomeIcon icon={faEdit} />
-            </button>
+            <Link to={`/dashboard/user/update/${row._id}`}>
+              <button type="button" className="btn">
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
+            </Link>
           </div>
           <div className={style.delete_btn}>
             <button type="button" className="btn">

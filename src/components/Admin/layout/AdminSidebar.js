@@ -8,36 +8,36 @@ import {
   faMessage,
   faQuestionCircle,
   faUser,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import style from '../../../css/Admin/Dashboard.module.css';
-import { Link } from 'react-router-dom';
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import style from "../../../css/Admin/Dashboard.module.css";
+import { Link } from "react-router-dom";
 
 const AdminSidebar = () => {
   const menus = [
     {
-      header: 'Dashboard',
-      items: [{ itemName: 'Home', itemIcon: faHouse, link: './home' }],
+      header: "Dashboard",
+      items: [{ itemName: "Home", itemIcon: faHouse, link: "./home" }],
     },
     {
-      header: 'Quich Menus',
+      header: "Quich Menus",
       items: [
-        { itemName: 'Users', itemIcon: faUser, link: './users/view' },
+        { itemName: "Users", itemIcon: faUser, link: "./users/view" },
         {
-          itemName: 'Courses',
+          itemName: "Courses",
           itemIcon: faChalkboardUser,
-          link: './courses/view',
+          link: "./courses/view",
         },
       ],
     },
     {
-      header: 'Notifications',
+      header: "Notifications",
       items: [
         {
-          itemName: 'Inquiries',
+          itemName: "Inquiries",
           itemIcon: faQuestionCircle,
-          link: './inquiries/view',
+          link: "./inquiries/view",
         },
       ],
     },
