@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.header h1{
+    box-shadow: 0px 0px 3px 0px var(--main-color);
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--main-color);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.inquires{
+    padding: 20px;
+}
+.inquires .accordion{
+    padding: 15px;
+}
+.inquires .accordion .accordionHeader{
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--main-color);
+    padding: 5px;
+}

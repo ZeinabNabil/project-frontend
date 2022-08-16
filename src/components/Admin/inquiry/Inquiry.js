@@ -1,13 +1,32 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { showInquiries } from '../../../actions/inquiry.action';
-const Inquiry = (props) => {
-  useEffect(() => {
-    props.showInquiries();
-  }, []);
-  return <div></div>;
+import React, { useState } from 'react';
+import style from '../../../css/Admin/Inquiry/Inquiry.module.css';
+import InquiryAccordian from './InquiryAccordian';
+
+const Inquiry = () => {
+  return (
+    <div className={style.inquires}>
+      <div className="row">
+        <InquiryAccordian
+          eventKey="1"
+          data={{
+            name: 'Hussein',
+            email: 'asdas',
+            phone: 'asdsa',
+            body: 'asdsadddas',
+          }}
+        />
+        <InquiryAccordian
+          eventKey="1"
+          data={{
+            name: 'Hussein',
+            email: 'asdas',
+            phone: 'asdsa',
+            body: 'asdsadddas',
+          }}
+        />
+      </div>
+    </div>
+  );
 };
-const mapStateToProps = (state) => ({
-  inquiry: state.inquiry,
-});
-export default connect(mapStateToProps, { showInquiries })(Inquiry);
+
+export default Inquiry;
