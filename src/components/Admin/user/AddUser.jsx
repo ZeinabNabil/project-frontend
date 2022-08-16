@@ -40,7 +40,7 @@ const AddUser = (props) => {
     const result = await props.createUser(userData);
     if (result) {
       setTimeout(() => {
-        navigate('/admin/viewusers');
+        navigate('/dashboard/users/view');
       }, 800);
     }
   };

@@ -43,7 +43,6 @@ const CourseInfo = (props) => {
     <div className={style.course_info}>
       <div className={style.card_container}>
         <div className="row">
-          <BackToList linkTo="/admin/viewcourse" />
           <div class={style.course_name}>
             <h1>
               {course === null ? 'Loading' : course.name}

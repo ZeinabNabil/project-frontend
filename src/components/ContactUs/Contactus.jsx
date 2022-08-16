@@ -7,26 +7,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Accordion, Form } from 'react-bootstrap';
 import Cards from '../Landingpage/Cards';
-import InquriyInput from './InquiryInput';
 import LandingPicArea from '../Layout/LandingPicArea';
-import { connect } from 'react-redux';
-import { createInquiry } from '../../actions/inquiry.action';
-const Contactus = (props) => {
-  const [form, setForm] = useState({
-    name: '',
-    mobilenumber: '',
-    email: '',
-    inquiries: '',
-  });
-  const onInputChange = (e) => {
-    const value = e.target.value;
-    setForm({
-      ...form,
-      [e.target.name]: value,
-    });
-  };
-  // const { errors } = props.error;
+import InquiryForm from './InquiryForm';
+import QuestionAccordian from './QuestionAccordian';
 
+const Contactus = (props) => {
   return (
     <div style={{ backgroundColor: 'rgba(128, 128, 128, 0.092)' }}>
       <LandingPicArea
@@ -266,65 +251,7 @@ const Contactus = (props) => {
             <div className={style.inquiries}>
               <div className={style.title}>Send us your inquiries</div>
               <div className={style.formContainer}>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    props.createInquiry({ name: 'sad' });
-                  }}
-                >
-                  <InquriyInput
-                    name="name"
-                    onChange={onInputChange}
-                    value={form.name}
-                    labelName="Full name"
-                    type="text"
-                    placeholder=""
-                  />
-                  <InquriyInput
-                    name="mobilenumber"
-                    onChange={onInputChange}
-                    value={form.mobilenumber}
-                    labelName="Mobile Number"
-                    type="text"
-                    placeholder=""
-                  />
-                  <InquriyInput
-                    name="email"
-                    onChange={onInputChange}
-                    value={form.email}
-                    labelName="Email"
-                    type="email"
-                    placeholder=""
-                  />
-                  <div>
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                      <label
-                        className={style.formlabel}
-                        style={{
-                          color: 'black',
-                          padding: '4px',
-                          fontWeight: 'bold',
-                        }}
-                      >
-                        Inquiries
-                      </label>
-                    </div>
-                    <textarea
-                      className="form-control"
-                      style={{ width: '100%', marginTop: '5px' }}
-                      rows={4}
-                      onChange={onInputChange}
-                      value={form.inquiries}
-                      s
-                      name="inquiries"
-                      type="text"
-                      placeholder=""
-                    ></textarea>
-                  </div>
-                  <div className={style.sendmsg_btn}>
-                    <button className="btn btn-primary">Send Message</button>
-                  </div>
-                </form>
+                <InquiryForm />
               </div>
             </div>
           </div>
@@ -335,4 +262,4 @@ const Contactus = (props) => {
   );
 };
 
-export default connect(null, { createInquiry })(Contactus);
+export default Contactus;

@@ -21,28 +21,17 @@ const AdminHome = (props) => {
   }, []);
   const { numberOfUsers, loading, numberOfUsersWholeRegisteredCourses } =
     props.user;
+  console.log(numberOfUsersWholeRegisteredCourses);
   const { numberOfCourses, numberOfRegisteredCourses } = props.course;
-  var renderNumberOfUsers;
-  var renderNumberOfCourses;
-  var renderNumberOfRegisteredCourses;
-  var renderNumberOfUsersWholeRegisteredCourses;
-  if (numberOfUsers === null || loading) {
-    renderNumberOfUsers = 'Loading';
-    renderNumberOfUsersWholeRegisteredCourses = 'Loading';
+  var renderContent;
+
+  if (
+    (numberOfUsers === null || loading) &&
+    (numberOfCourses === null || props.course.loading)
+  ) {
+    renderContent = 'Loading';
   } else {
-    renderNumberOfUsers = numberOfUsers;
-    renderNumberOfUsersWholeRegisteredCourses =
-      numberOfUsersWholeRegisteredCourses;
-  }
-  if (numberOfCourses === null || props.course.loading) {
-    renderNumberOfCourses = 'Loading';
-    renderNumberOfRegisteredCourses = 'Loading';
-  } else {
-    renderNumberOfCourses = numberOfCourses;
-    renderNumberOfRegisteredCourses = numberOfRegisteredCourses;
-  }
-  return (
-    <div className={style.home}>
+    renderContent = (
       <div className="row">
         <div className="col-lg-12">
           <div className={style.feature}>
@@ -51,9 +40,7 @@ const AdminHome = (props) => {
                 <div className={style.feature_item}>
                   <div className={style.feature_title}>Number of users</div>
                   <div className={style.feature_container}>
-                    <div className={style.feature_count}>
-                      {renderNumberOfUsers}
-                    </div>
+                    <div className={style.feature_count}>{numberOfUsers}</div>
                   </div>
                 </div>
               </div>
@@ -61,9 +48,7 @@ const AdminHome = (props) => {
                 <div className={style.feature_item}>
                   <div className={style.feature_title}>Number of Courses</div>
                   <div className={style.feature_container}>
-                    <div className={style.feature_count}>
-                      {renderNumberOfCourses}
-                    </div>
+                    <div className={style.feature_count}>{numberOfCourses}</div>
                   </div>
                 </div>
               </div>
@@ -72,7 +57,7 @@ const AdminHome = (props) => {
                   <div className={style.feature_title}>Registered courses</div>
                   <div className={style.feature_container}>
                     <div className={style.feature_count}>
-                      {renderNumberOfRegisteredCourses}
+                      {numberOfRegisteredCourses}
                     </div>
                   </div>
                 </div>
@@ -82,7 +67,7 @@ const AdminHome = (props) => {
                   <div className={style.feature_title}>Whose Assigned</div>
                   <div className={style.feature_container}>
                     <div className={style.feature_count}>
-                      {renderNumberOfRegisteredCourses}
+                      {numberOfUsersWholeRegisteredCourses}
                     </div>
                   </div>
                 </div>
@@ -93,8 +78,10 @@ const AdminHome = (props) => {
         <AdminChart />
         <AdminWidget />
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <div className={style.home}>{renderContent}</div>;
 };
 const mapStateToProps = (state) => ({
   user: state.user,

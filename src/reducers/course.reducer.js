@@ -6,6 +6,7 @@ import {
   GET_COURSES_CATEGORY,
   GET_NUMBER_OF_REGISTERED_COURESES,
   GET_REGISTERED_COURSES,
+  GET_LAST_FIVE_REGISTERED_COURSES,
 } from '../actions/types';
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   numberOfCourses: null,
   numberOfUsersWholeRegisteredCourses: null,
   registeredCourses: null,
+  lastFiveRegisteredCourses: null,
 };
 
 export default function (state = initialState, action) {
@@ -61,6 +63,12 @@ export default function (state = initialState, action) {
         ...state,
         loading: false,
         registeredCourses: action.payload,
+      };
+    case GET_LAST_FIVE_REGISTERED_COURSES:
+      return {
+        ...state,
+        loading: false,
+        lastFiveRegisteredCourses: action.payload,
       };
     default:
       return state;

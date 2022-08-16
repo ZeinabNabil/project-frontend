@@ -7,6 +7,7 @@ import {
   GET_NUMBER_OF_COURSES,
   GET_NUMBER_OF_REGISTERED_COURESES,
   GET_REGISTERED_COURSES,
+  GET_LAST_FIVE_REGISTERED_COURSES,
 } from './types';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -109,4 +110,16 @@ export const registerCourse = (courseId) => async (dispatch) => {
   } catch (error) {
     console.log(error.response.data);
   }
+};
+export const lastFiveRegisteredCourses = () => async (dispatch) => {
+  dispatch({
+    type: COURSE_LOADING,
+  });
+  try {
+    const response = await axios.get('/course/lastfive');
+    dispatch({
+      type: GET_LAST_FIVE_REGISTERED_COURSES,
+      payload: response.data,
+    });
+  } catch (error) {}
 };

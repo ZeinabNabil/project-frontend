@@ -33,6 +33,8 @@ import CoursesByCategory from './courses/CoursesByCategory';
 import AdminHome from './Admin/layout/AdminHome';
 import Landing from './Landingpage/Landing';
 import WithNavbarAndFooter from '../WithNavbarAndFooter';
+import Inquiry from './Admin/inquiry/Inquiry';
+import UpdateCourse from './Admin/course/UpdateCourse';
 
 if (localStorage.token) {
   //set auth token header auth
@@ -63,9 +65,11 @@ const App = () => {
           </Route>
           <Route exact path="dashboard" element={<Dashboard />}>
             <Route exact path="home" element={<AdminHome />} />
+            <Route exact path="inquiries/view" element={<Inquiry />} />
             <Route exact path="course/add" element={<AddCourse />} />
             <Route exact path="courses/view" element={<ViewCourses />} />
             <Route exact path="course/view/:id" element={<CourseInfo />} />
+            <Route exact path="course/update/:id" element={<UpdateCourse />} />
             <Route exact path="user/add" element={<AddUser />} />
             <Route exact path="users/view" element={<ViewUsers />} />
           </Route>

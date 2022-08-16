@@ -154,6 +154,7 @@
 
 .widget .widget_list .widget_list_item_img {
   width: 12%;
+  margin-right: 10px;
 }
 .widget .widget_list .widget_list_item img {
   width: 100%;
@@ -168,7 +169,6 @@
 .widget .widget_list .widget_list_item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin: 20px 0px;
 }
 

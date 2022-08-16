@@ -6,6 +6,7 @@ import {
   faEnvelope,
   faHouse,
   faMessage,
+  faQuestionCircle,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -33,8 +34,11 @@ const AdminSidebar = () => {
     {
       header: 'Notifications',
       items: [
-        { itemName: 'Feedback', itemIcon: faComment, link: '#' },
-        { itemName: 'Messages', itemIcon: faMessage, link: '#' },
+        {
+          itemName: 'Inquiries',
+          itemIcon: faQuestionCircle,
+          link: './inquiries/view',
+        },
       ],
     },
   ];
