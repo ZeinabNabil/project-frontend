@@ -7,7 +7,11 @@ import classnames from 'classnames';
 import store from './../../../store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useParams } from 'react-router-dom';
 const AddCourse = (props) => {
+  const { courseId } = useParams();
+  // const { courseDetail } = props.course;
+  // const [error, setError] = useState({});
   const checkList = ['VIP1', 'VIP2', 'Group'];
   const categories = [
     'IELTS',
@@ -54,6 +58,13 @@ const AddCourse = (props) => {
     course.append('image', form.image);
     console.log(course.get('category'));
     props.addCourse(course);
+
+    // if (courseDetail && courseId) {
+    //   props.updateCourse(courseId, data, navigate);
+    // } else {
+    //   console.log(data);
+    //   props.addCourse(data, navigate);
+    // }
   };
 
   const onFileChange = (e) => {
@@ -87,13 +98,42 @@ const AddCourse = (props) => {
       payload: {},
     });
   }, []);
+
+  // useEffect(() => {
+  //   setError({});
+  //   setError(props.error);
+  // }, [props.error]);
+
+  // useEffect(() => {
+  //   setError({});
+  //   props.getCourseeDetailById(courseId);
+  // }, []);
+
+  // useEffect(() => {
+  //   if (courseDetail && courseId) {
+  //     setForm({
+  //       name: courseDetail.name,
+  //       category: courseDetail.category,
+  //       description: courseDetail.description,
+  //       attends: courseDetail.attends,
+  //       classes: courseDetail.classes,
+  //       whatis: courseDetail.whatis,
+  //       whatWillStudentsLearn: courseDetail.whatWillStudentsLearn,
+  //       image: courseDetail.image,
+  //       typesOfCourse: courseDetail.typesOfCourse,
+  //       numbersOfHours: courseDetail.numbersOfHours,
+  //       duration: courseDetail.duration,
+  //     });
+  //   }
+  // }, [courseDetail]);
+
   const { errors } = props.error;
   return (
     <div className={style.addcourse}>
       <div className={style.title}>
         <span>
           <FontAwesomeIcon icon={faPlus} />
-          Add Course
+          {props.header}
         </span>
       </div>
       <div className={style.form}>

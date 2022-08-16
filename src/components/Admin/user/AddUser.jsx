@@ -8,6 +8,7 @@ import { createUser } from '../../../actions/user.action';
 import BackToList from '../BackToList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useParams } from 'react-router-dom';
 
 const AddUser = (props) => {
   const navigate = useNavigate();
@@ -27,6 +28,9 @@ const AddUser = (props) => {
     });
   };
   const { errors } = props.error;
+  const { userId } = useParams();
+  // const { userDetail } = props.user;
+  // const [error, setError] = useState({});
 
   const onFormSubmit = async (evt) => {
     evt.preventDefault();
@@ -43,6 +47,13 @@ const AddUser = (props) => {
         navigate('/dashboard/users/view');
       }, 800);
     }
+
+    // if (userDetail && userId) {
+    //   props.updateUser(userId, data, navigate);
+    // } else {
+    //   console.log(data);
+    //   props.addUser(data, navigate);
+    // }
   };
   useEffect(() => {
     store.dispatch({
@@ -51,12 +62,34 @@ const AddUser = (props) => {
     });
   }, []);
 
+  // useEffect(() => {
+  //   setError({});
+  //   setError(props.error);
+  // }, [props.error]);
+
+  // useEffect(() => {
+  //   setError({});
+  //   props.getUserDetailById(userId);
+  // }, []);
+
+  // useEffect(() => {
+  //   if (userDetail && userId) {
+  //     setForm({
+  //       name: userDetail.name,
+  //       phone: userDetail.phone,
+  //       email: userDetail.email,
+  //       password: userDetail.password,
+  //       confirmPassword: userDetail.confirmPassword,
+  //     });
+  //   }
+  // }, [userDetail]);
+
   return (
     <div className={style.adduser}>
       <div className={style.title}>
         <span>
           <FontAwesomeIcon icon={faPlus} />
-          Add User
+          {props.header}
         </span>
       </div>
       <div className={style.formcontainer}>
