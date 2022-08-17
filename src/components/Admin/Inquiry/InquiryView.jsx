@@ -6,12 +6,25 @@ import Inquiry from "./Inquiry";
 import { Accordion } from "react-bootstrap";
 
 const InquiryView = (props) =>{
-    const [ inquires,setInquires] = useState({
+    const [ inquires,setInquires] = useState([{
         name:"Donia" ,
         email:"doniawalig@gmail.com" ,
         phone:"01022695119" ,
         body:"inquiryy"
-    })
+    },
+        { name:"Donia" ,
+        email:"doniawalig@gmail.com" ,
+        phone:"01022695119" ,
+        body:"inquiryy"},
+        { name:"Donia" ,
+        email:"doniawalig@gmail.com" ,
+        phone:"01022695119" ,
+        body:"inquiryy"},
+        { name:"Donia" ,
+        email:"doniawalig@gmail.com" ,
+        phone:"01022695119" ,
+        body:"inquiryy"},
+    ])
     // const inquires = {name:"Donia" , email:"doniawalig@gmail.com" ,phone:"01022695119" , body:"dkvhdjdhddjdhfhf"}
     console.log(inquires)
     return <div>
@@ -52,7 +65,15 @@ const InquiryView = (props) =>{
                                         phone = "01022695119"
                                         body = "bla bla bla" 
                                     />  */}
-                                    <Inquiry data={inquires} />
+                                   
+                                    {inquires.map((inquiry) =>{
+                                        return(
+                                            <Inquiry 
+                                            data={inquiry}
+                                            />
+                                        );
+                                    })
+                                }
                                     {/* <Inquiry data={inquires} />
                                     <Inquiry data={inquires} />
                                     <Inquiry data={inquires} />
