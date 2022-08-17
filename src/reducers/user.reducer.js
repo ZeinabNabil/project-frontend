@@ -6,6 +6,7 @@ import {
   GET_NUMBER_OF_USERS_WHOSE_REGISTERED_COURSES,
   GET_NUMBER_OF_USERS,
   GET_LAST_FIVE_USERS,
+  GET_USER,
 } from '../actions/types';
 import isEmpty from './../utilis/isEmpty';
 
@@ -17,6 +18,7 @@ const initialState = {
   numberOfUsers: null,
   numberOfRegisteredCourses: null,
   lastFiveUsers: null,
+  profile: null,
 };
 
 export default function (state = initialState, action) {
@@ -63,6 +65,12 @@ export default function (state = initialState, action) {
         ...state,
         loading: false,
         lastFiveUsers: action.payload,
+      };
+    case GET_USER:
+      return {
+        ...state,
+        loading: false,
+        profile: action.payload,
       };
     default:
       return state;

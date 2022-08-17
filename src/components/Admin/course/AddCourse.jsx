@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import style from '../../../css/Admin/Addcourse.module.css';
 import Input from '../../Admin/Input';
-import { addCourse } from '../../../actions/course.action';
+import { addCourse, getCourseById } from '../../../actions/course.action';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import store from './../../../store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { updateCourse } from './../../../actions/course.action';
 const AddCourse = (props) => {
   const { courseId } = useParams();
-  // const { courseDetail } = props.course;
-  // const [error, setError] = useState({});
+  const navigate = useNavigate();
+
   const checkList = ['VIP1', 'VIP2', 'Group'];
   const categories = [
     'IELTS',
@@ -42,6 +43,27 @@ const AddCourse = (props) => {
       [e.target.name]: value,
     });
   };
+  const { course } = props.course;
+  useEffect(() => {
+    props.getCourseById(courseId);
+  }, []);
+  useEffect(() => {
+    if (course && courseId) {
+      setForm({
+        name: course.name,
+        category: course.category,
+        description: course.description,
+        attends: course.attends,
+        classes: course.classes,
+        whatis: course.whatis,
+        whatWillStudentsLearn: course.whatWillStudentsLearn,
+        image: course.image,
+        typesOfCourse: course.typesOfCourse,
+        numbersOfHours: course.numbersOfHours,
+        duration: course.duration,
+      });
+    }
+  }, [course]);
   const onFormSubmit = (e) => {
     e.preventDefault();
     const course = new FormData();
@@ -56,20 +78,15 @@ const AddCourse = (props) => {
     course.append('numbersOfHours', form.numbersOfHours);
     course.append('duration', form.duration);
     course.append('image', form.image);
-    console.log(course.get('category'));
-    props.addCourse(course);
-
-    // if (courseDetail && courseId) {
-    //   props.updateCourse(courseId, data, navigate);
-    // } else {
-    //   console.log(data);
-    //   props.addCourse(data, navigate);
-    // }
+    if (course && courseId) {
+      props.updateCourse(course, courseId, navigate);
+    } else {
+      props.addCourse(course, navigate);
+    }
   };
 
   const onFileChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.files[0] });
-    console.log(e.target.files[0]);
   };
   // Add/Remove checked item from list
   const handleCheck = (event) => {
@@ -81,14 +98,12 @@ const AddCourse = (props) => {
     }
     setChecked(updatedList);
   };
-
   // Generate string of checked items
   const checkedItems = checked.length
     ? checked.reduce((total, item) => {
         return total + ', ' + item;
       })
     : '';
-
   // Return classes based on whether item is checked
   var isChecked = (item) =>
     checked.includes(item) ? 'checked-item' : 'not-checked-item';
@@ -98,34 +113,6 @@ const AddCourse = (props) => {
       payload: {},
     });
   }, []);
-
-  // useEffect(() => {
-  //   setError({});
-  //   setError(props.error);
-  // }, [props.error]);
-
-  // useEffect(() => {
-  //   setError({});
-  //   props.getCourseeDetailById(courseId);
-  // }, []);
-
-  // useEffect(() => {
-  //   if (courseDetail && courseId) {
-  //     setForm({
-  //       name: courseDetail.name,
-  //       category: courseDetail.category,
-  //       description: courseDetail.description,
-  //       attends: courseDetail.attends,
-  //       classes: courseDetail.classes,
-  //       whatis: courseDetail.whatis,
-  //       whatWillStudentsLearn: courseDetail.whatWillStudentsLearn,
-  //       image: courseDetail.image,
-  //       typesOfCourse: courseDetail.typesOfCourse,
-  //       numbersOfHours: courseDetail.numbersOfHours,
-  //       duration: courseDetail.duration,
-  //     });
-  //   }
-  // }, [courseDetail]);
 
   const { errors } = props.error;
   return (
@@ -323,5 +310,10 @@ const AddCourse = (props) => {
 
 const mapStateToProps = (state) => ({
   error: state.error,
+  course: state.course,
 });
-export default connect(mapStateToProps, { addCourse })(AddCourse);
+export default connect(mapStateToProps, {
+  addCourse,
+  getCourseById,
+  updateCourse,
+})(AddCourse);
