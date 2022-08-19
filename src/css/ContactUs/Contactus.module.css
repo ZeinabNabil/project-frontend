@@ -14,14 +14,17 @@
   width: 85%;
   margin: auto;
   padding-bottom: 60px;
+  
 }
 .qusestion_inquiry .questions{
   margin: 15px;
+  direction: rtl;
 }
 .qusestion_inquiry .questions .accordian{
   background-color: white;
   padding: 30px;
-  border-radius: 5px
+  border-radius: 5px;
+  direction: rtl;
 }
 .qusestion_inquiry .questions .accordian .accordianHeader{
   color: black;
@@ -48,6 +51,7 @@
 }
 .qusestion_inquiry .inquiries{
   margin: 15px;
+  direction: rtl;
 }
 .qusestion_inquiry .inquiries .formContainer{
   padding: 30px;

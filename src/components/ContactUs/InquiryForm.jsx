@@ -48,7 +48,7 @@ const InquiryForm = (props) => {
         name="name"
         onChange={onInputChange}
         value={form.name}
-        labelName="Full name"
+        labelName="الاسم الكامل"
         type="text"
         placeholder=""
         err={errors ? errors.name : ''}
@@ -57,7 +57,7 @@ const InquiryForm = (props) => {
         name="phone"
         onChange={onInputChange}
         value={form.phone}
-        labelName="Mobile Number"
+        labelName="رقم الموبايل"
         type="text"
         placeholder=""
         err={errors ? errors.phone : ''}
@@ -66,7 +66,7 @@ const InquiryForm = (props) => {
         name="email"
         onChange={onInputChange}
         value={form.email}
-        labelName="Email"
+        labelName="الايميل (البريد الالكترونى)"
         type="email"
         placeholder=""
         err={errors ? errors.email : ''}
@@ -77,7 +77,7 @@ const InquiryForm = (props) => {
             className={style.formlabel}
             style={{ color: 'black', padding: '4px', fontWeight: 'bold' }}
           >
-            Inquiries
+            الاستفسارات
           </label>
         </div>
         <textarea
