@@ -22,7 +22,7 @@
   .landingArea .landing_header {
     position: absolute;
     direction: rtl;
-    top: 50%;
+    top: 70%;
     transform: translateY(-55%);
     text-align: center;
     width: 100%;

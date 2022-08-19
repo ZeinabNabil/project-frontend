@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import style from '../../css/ContactUs/Contactus.module.css';
 import {
+  faClock,
   faFileLines,
   faLightbulb,
+  faMailBulk,
+  faMailReply,
+  faPhone,
   faUserGraduate,
 } from '@fortawesome/free-solid-svg-icons';
 import { Accordion, Form } from 'react-bootstrap';
@@ -10,13 +14,14 @@ import Cards from '../Landingpage/Cards';
 import LandingPicArea from '../Layout/LandingPicArea';
 import InquiryForm from './InquiryForm';
 import QuestionAccordian from './QuestionAccordian';
+import { faMailchimp } from '@fortawesome/free-brands-svg-icons';
 
 const Contactus = (props) => {
   return (
     <div style={{ backgroundColor: 'rgba(128, 128, 128, 0.092)' }}>
       <LandingPicArea
-        header="Need help?"
-        text="For more information about our services and the courses we offer, you can contact our educational consultants and get a free consultation, you can also contact us via phone number or email, or you can visit us at any time you want during the business hours shown below"
+        header="تحتاج إلى مساعدة؟"
+        text="لمزيد من المعلومات حول خدماتنا والدورات التي نقدمها ، يمكنك الاتصال بمستشارينا التعليميين والحصول على استشارة مجانية، كما يمكنك الاتصال بنا عبر رقم الهاتف أو البريد الإلكتروني ، أو يمكنك زيارتنا في أي وقت تريده خلال ساعات العمل الموضحة أدناه        "
       />
       {/* ----------------------------Start Cards Section------------------------------- */}
       <div className={style.contactcards}>
@@ -27,19 +32,21 @@ const Contactus = (props) => {
                 <div className="row">
                   {/* <-------------------------------start calling card-----------------------------*/}
                   <Cards
-                    icon={faUserGraduate}
-                    title="Specialized Lectures"
-                    text="In all areas, whether in language education, preparation for the Emsat exam or developing computer skills."
+                    icon={faClock}
+                    title="ساعات العمل"
+                    text="من يوم الأحد وحتى يوم الخميس
+                    من التاسعة صباحاً وحتى الخامسة مساءً
+                    "
                   />
                   <Cards
-                    icon={faFileLines}
-                    title="Placement Tests"
-                    text="To first determine the level of the trainee and then evaluate his progress periodically during the levels of the training course"
+                    icon={faMailBulk}
+                    title="راسلنا عبر الإيميل"
+                    text="info@innovationinstituteuae.com"
                   />
                   <Cards
-                    icon={faLightbulb}
-                    title="Interactive Courses"
-                    text="It aims to develop the capabilities of the trainees and direct them to the right path"
+                    icon={faPhone}
+                    title="اتصل بنا في أي وقت تريده "
+                    text="(+971) 58 674 7427"
                   />
                   {/* <-------------------------------end calling card-----------------------------*/}
                 </div>
@@ -49,15 +56,12 @@ const Contactus = (props) => {
         </section>
       </div>
       {/* -------------------------------------------End Cards section--------------------------------------------  */}
-      {/* ---------------------------------start visit us section------------------------------- */}
-      <div className={style.visitus}>visit us</div>
-      {/* -------------------------------------end visit us section--------------------------- */}
       {/* -----------------------------------start questions & inquiries section------------------------------- */}
       <div className={style.qusestion_inquiry}>
         <div className="row" style={{ margin: '0' }}>
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className={style.questions}>
-              <div className={style.title}>Common questions</div>
+              <div className={style.title}>الأسئلة الشائعة</div>
               <Accordion className={style.accordian}>
                 <Accordion.Item eventKey="0" className={style.accordianitem}>
                   <Accordion.Header>
@@ -249,7 +253,7 @@ const Contactus = (props) => {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className={style.inquiries}>
-              <div className={style.title}>Send us your inquiries</div>
+              <div className={style.title}>ارسل لنا استفساراتك</div>
               <div className={style.formContainer}>
                 <InquiryForm />
               </div>
