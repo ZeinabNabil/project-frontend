@@ -1,66 +1,82 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ListGroup } from "react-bootstrap";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ListGroup } from 'react-bootstrap';
 
 // Icons
-import { faEdit, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // CSS
-import style from "../../../css/Admin/View.module.css";
+import style from '../../../css/Admin/View.module.css';
 
-const UsersColumns = [
+const UsersColumns = (onDeletClick, role) => [
   {
-    name: "Name",
+    name: 'الاسم',
     selector: (row) => row.name,
     sortable: true,
     wrap: true,
   },
   {
-    name: "Email",
+    name: 'البريد الالكتروني',
     selector: (row) => row.email,
     sortable: true,
     wrap: true,
   },
   {
-    name: "Phone",
+    name: 'رقم الهاتف',
     selector: (row) => row.phone,
     sortable: true,
     wrap: true,
   },
   {
-    name: "Role",
+    name: 'دور',
     selector: (row) => {
       if (row.role == 0) {
-        return "User";
+        return 'طالب';
       }
-      return "Admin";
+      if (row.role == 1) {
+        return 'المشرف';
+      }
+      if (row.role == 2) {
+        return 'مساعد';
+      }
+      if (row.role == 3) {
+        return 'وسيط';
+      }
     },
     sortable: true,
     wrap: true,
   },
   {
-    name: "Action",
+    name: 'فعل',
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,
     cell: (row) => {
-      return (
-        <div className={style.edit_delete_btns}>
-          <div className={style.edit_btn}>
-            <Link to={`/dashboard/user/update/${row._id}`}>
+      console.log('he', role);
+      if (role == 1) {
+        return (
+          <div className={style.edit_delete_btns}>
+            <div className={style.edit_btn}>
+              <Link to={`/dashboard/user/update/${row._id}`}>
+                <button type="button" className="btn">
+                  <FontAwesomeIcon icon={faEdit} />
+                </button>
+              </Link>
+            </div>
+            <div
+              className={style.delete_btn}
+              onClick={() => onDeletClick(row._id, row.name)}
+            >
               <button type="button" className="btn">
-                <FontAwesomeIcon icon={faEdit} />
+                <FontAwesomeIcon icon={faXmark} />
               </button>
-            </Link>
+            </div>
           </div>
-          <div className={style.delete_btn}>
-            <button type="button" className="btn">
-              <FontAwesomeIcon icon={faXmark} />
-            </button>
-          </div>
-        </div>
-      );
+        );
+      } else {
+        return 'غير مصرح';
+      }
     },
   },
 ];

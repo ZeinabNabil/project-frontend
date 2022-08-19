@@ -33,9 +33,8 @@ import CoursesByCategory from './courses/CoursesByCategory';
 import AdminHome from './Admin/layout/AdminHome';
 import Landing from './Landingpage/Landing';
 import WithNavbarAndFooter from '../WithNavbarAndFooter';
-// import Inquiry from "./Admin/inquiry/Inquiry";
+import Inquiry from './Admin/inquiry/Inquiry';
 import UpdateCourse from './Admin/course/UpdateCourse';
-import Inquiry from './Admin/Inquiry/Inquiry';
 import UpdateUser from './Admin/user/Updateuser';
 
 if (localStorage.token) {
@@ -71,21 +70,17 @@ const App = () => {
             <Route
               exact
               path="course/add"
-              element={<AddCourse header="Add Course" />}
+              element={<AddCourse header=" اضــافة دورة جــديـدة" />}
             />
             <Route
               exact
               path="course/update/:courseId"
-              element={<AddCourse header="Update Course" />}
+              element={<AddCourse header="تعديل الدورة" />}
             />
             <Route exact path="courses/view" element={<ViewCourses />} />
             <Route exact path="course/view/:id" element={<CourseInfo />} />
             <Route exact path="user/add" element={<AddUser />} />
-            <Route
-              exact
-              path="user/update"
-              element={<UpdateUser header="Update User" />}
-            />
+            <Route exact path="user/update/:id" element={<UpdateUser />} />
             <Route exact path="users/view" element={<ViewUsers />} />
           </Route>
         </Routes>

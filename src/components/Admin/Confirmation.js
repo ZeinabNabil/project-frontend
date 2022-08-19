@@ -5,9 +5,9 @@ import Button from 'react-bootstrap/Button';
 import { confirmable, createConfirmation } from 'react-confirm';
 
 const Confirmation = ({
-  okLabel = 'OK',
-  cancelLabel = 'Cancel',
-  title = 'Confirmation',
+  okLabel = 'نعم',
+  cancelLabel = 'الغاء',
+  title = 'تـــــأكيد',
   confirmation,
   show,
   proceed,

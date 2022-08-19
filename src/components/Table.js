@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 // CSS

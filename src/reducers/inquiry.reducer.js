@@ -1,5 +1,4 @@
-import { GET_ERRORS, GET_INQUIRIES, INQ_LOADING } from "../actions/types";
-import Inquiry from "../components/Admin/Inquiry/Inquiry";
+import { GET_ERRORS, GET_INQUIRIES, INQ_LOADING } from '../actions/types';
 const initialState = {
   loading: false,
   Inquiries: null,
