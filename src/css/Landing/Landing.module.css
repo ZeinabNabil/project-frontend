@@ -21,7 +21,6 @@
   }
 }
 
-
 .cardsSection {
   width: 70%;
   margin-left: 15%;
@@ -34,8 +33,8 @@
 /* ----------------------Start sections------------------------ */
 .Section {
   margin-top: 70px;
-  font-family: 'Bahij', Sans-serif;
   margin-bottom: 70px;
+  direction: rtl;
 }
 .Section .card {
   cursor: pointer;
@@ -65,8 +64,15 @@
   padding: 10px 0;
 }
 .Section .card .image img {
-  width: 90%;
+  width: 95%;
   height: 300px;
+  border-radius: 10px;
+  opacity: 0.8;
+  transition: all 500ms;
+}
+.Section .card .image img:hover {
+  opacity: 1;
+  transform: rotate(2deg);
 }
 .card .cardtitle {
   text-align: center;
@@ -80,11 +86,10 @@
 
 .Section .card span {
   text-transform: none;
-  font-size: 1.2em;
-  font-weight: normal;
-  font-style: italic;
-  font-family: 'Playfair Display', 'Bookman', serif;
-  letter-spacing: -0.005em;
+  font-size: 1.3em;
+}
+.Section .card .line_through {
+  text-decoration: line-through;
 }
 .Section .card .cardbtns {
   padding: 10px;
@@ -93,6 +98,10 @@
   display: block;
   margin: auto;
   margin-top: 10px;
+}
+.Section .card .price_offer {
+  margin-top: 25px;
+  font-size: 12px;
 }
 
 /* -----------------------------End Sections--------------------------- */
@@ -118,7 +127,7 @@
   background-color: white;
   box-shadow: 0px 5px 30px 5px rgb(0 0 0 / 6%);
 }
-.features .accordian_body{
+.features .accordian_body {
   background-color: rgba(128, 128, 128, 0.092);
   color: #6a6a6a;
   font-weight: bold;

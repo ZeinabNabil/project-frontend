@@ -15,19 +15,20 @@ import {
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/user.action';
 import Topbar from './Topbar';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = (props) => {
+  const navigate = useNavigate();
   const { isAuthenticated, currentUser } = props.user;
   const navItems = [
     { name: 'الرئيسية', link: '/' },
-    { name: 'من نحن', link: '/aboutus' },
-    { name: 'تواصل معنا', link: '/contact' },
-    { name: 'دورات ادارية', link: '/management', cat: true },
     { name: 'دورات الكمبيوتر', link: '/computer', cat: true },
     { name: 'دورات اللغات', link: '/language', cat: true },
+    { name: 'من نحن', link: '/aboutus' },
+    { name: 'تواصل معنا', link: '/contact' },
   ];
   const onLogoutClick = () => {
-    props.logoutUser();
+    props.logoutUser(navigate);
   };
   const guest = () => {
     return (
@@ -52,7 +53,7 @@ const Navbar = (props) => {
             aria-current="page"
             to="/profile"
           >
-            PROFILE
+            الملف الشخصي
           </Link>
         </li>
         <li className="nav-item">
@@ -62,7 +63,7 @@ const Navbar = (props) => {
             to="/"
             onClick={onLogoutClick}
           >
-            LOGOUT
+            تسجيل الخروج
           </Link>
         </li>
       </>
@@ -96,7 +97,7 @@ const Navbar = (props) => {
               >
                 <span className="navbar-toggler-icon"></span>
               </button>
-              
+
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className={`navbar-nav ${style.navbar_nav}`}>
                   {navItems.map((item, index) => (
@@ -114,7 +115,6 @@ const Navbar = (props) => {
                 </ul>
                 {!isAuthenticated ? guest() : ''}
               </div>
-
             </div>
           </nav>
         </div>

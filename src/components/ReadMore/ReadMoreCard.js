@@ -1,11 +1,11 @@
-import React from "react";
-import style from "../../css/ReadMore/Readmore.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import style from '../../css/ReadMore/Readmore.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ReadMoreCard = ({ cardIcon, cardTilte, cardSubtitle, cardText }) => {
   return (
     <div
-      className="col-lg-3 col-md-6 col-sm-6"
+      className="col-lg-4 col-md-6 col-sm-6"
       data-aos="fade-up"
       data-aos-offset="300"
       data-aos-easing="ease-in-sine"

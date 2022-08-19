@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
-import style from "../../css/Landing/Landing.module.css";
-import Cards from "./Cards";
+import React, { useEffect } from 'react';
+import style from '../../css/Landing/Landing.module.css';
+import Cards from './Cards';
 import {
   faFileLines,
   faLightbulb,
   faUserGraduate,
-} from "@fortawesome/free-solid-svg-icons";
-import Section from "./Section";
-import logo from "../../images/logo.png";
-import ReviewsCard from "./ReviewsCard";
-import { Accordion } from "react-bootstrap";
-import { connect } from "react-redux";
-import { getAllCourses } from "../../actions/course.action";
-import LandingPicArea from "../Layout/LandingPicArea";
-import aos from "aos";
+} from '@fortawesome/free-solid-svg-icons';
+import Section from './Section';
+import logo from '../../images/logo.png';
+import ReviewsCard from './ReviewsCard';
+import { Accordion } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { getAllCourses } from '../../actions/course.action';
+import LandingPicArea from '../Layout/LandingPicArea';
+import aos from 'aos';
+import Wave from '../../Wave';
 const Landing = (props) => {
   useEffect(() => {
     aos.init();
@@ -24,32 +25,16 @@ const Landing = (props) => {
   if (courses === null || loading) {
     renderContent = `<h1>Loading</h1>`;
   } else {
-    const ICDL = courses.courses.filter((course) => {
-      return course.category === "icdl";
-    });
-    const IELTS = courses.courses.filter((course) => {
-      return course.category === "ielts";
-    });
-    const EMSAT = courses.courses.filter((course) => {
-      return course.category === "emsat";
-    });
-    const management = courses.courses.filter((course) => {
-      return course.category === "management";
-    });
     const computer = courses.courses.filter((course) => {
-      return course.category === "computer";
+      return course.category === 'دورات حاسوب';
     });
     const language = courses.courses.filter((course) => {
-      return course.category === "language";
+      return course.category === 'دورات لغة';
     });
     renderContent = (
       <>
-        <Section title="EMSAT" courses={EMSAT} />
-        <Section title="IELTS" courses={IELTS} />
-        <Section title="ICDL" courses={ICDL} />
-        <Section title="MANAGEMENT" courses={management} />
-        <Section title="COMPUTER" courses={computer} />
-        <Section title="LANGUAGE" courses={language} />
+        <Section title="دورات الحـــــاسوب" courses={computer} />
+        <Section title="دورات اللغـــــــــة" courses={language} />
       </>
     );
   }
@@ -62,7 +47,7 @@ const Landing = (props) => {
       />
       {/* ----------------------------Start Cards Section------------------------------- */}
       <section className={style.cardsSection}>
-        <div className="container" style={{ width: "100%" }}>
+        <div className="container" style={{ width: '100%' }}>
           <div
             className="row"
             data-aos="fade-up"
@@ -91,7 +76,6 @@ const Landing = (props) => {
         </div>
       </section>
       {/* -------------------------------------------End Cards section--------------------------------------------  */}
-
       {/* --------------------------start similar sections (calling array of sections)---------------------------  */}
       <div className={style.viewcourses}>{renderContent}</div>
       {/*------------------------------end similar sections---------------------------------------*/}
@@ -105,7 +89,7 @@ const Landing = (props) => {
                 <div className="row">
                   <div
                     className="col-lg-6 col-md-12 col-sm-12 section-accordian "
-                    style={{ display: "flex", alignItems: "center" }}
+                    style={{ display: 'flex', alignItems: 'center' }}
                   >
                     <Accordion className={style.accordian}>
                       <Accordion.Item
@@ -213,7 +197,7 @@ const Landing = (props) => {
                   <div className="col-lg-9 col-md-12 col-sm-12 section-pics">
                     <div
                       className={style.clientlogos}
-                      style={{ borderRight: " solid 2px #DDDDDD" }}
+                      style={{ borderRight: ' solid 2px #DDDDDD' }}
                     >
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className={style.imgs}>
