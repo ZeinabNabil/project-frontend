@@ -2,13 +2,33 @@ import {
   faBell,
   faBible,
   faHouseChimney,
+  faSignOut,
   faUser,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import style from "../../../css/Admin/Dashboard.module.css";
-
-const AdminNavbar = () => {
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import style from '../../../css/Admin/Dashboard.module.css';
+import { connect } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { logoutUser } from '../../../actions/user.action';
+const AdminNavbar = (props) => {
+  const navigate = useNavigate();
+  const { currentUser, loading } = props.user;
+  var role;
+  if (currentUser === null || loading) {
+    role = 'Loading';
+  } else {
+    if (currentUser.role == 1) {
+      role = 'اهلا, مشـــرف';
+    } else if (currentUser.role == 2) {
+      role = 'اهلا, مســـاعد';
+    } else if (currentUser.role == 3) {
+      role = 'اهلا, وسيـــط';
+    }
+  }
+  const onLogoutClick = () => {
+    props.logoutUser(navigate);
+  };
   return (
     <div className={style.navbar}>
       <div className="row">
@@ -17,21 +37,19 @@ const AdminNavbar = () => {
         </div>
         <div className="col-lg-8 col-md-6 col-sm-6">
           <div className={style.top_right}>
-            <div className={style.navbar_icons}>
-              <FontAwesomeIcon icon={faHouseChimney} />
-            </div>
-            <div className={style.navbar_icons}>
-              <FontAwesomeIcon icon={faBell} />
-              <span>2</span>
-            </div>
-            <div className={style.navbar_icons}>
-              <FontAwesomeIcon icon={faUser} />
-            </div>
+            <div className={style.navbar_icons}>{role}</div>
+            <Link to="#" onClick={onLogoutClick}>
+              <div className={style.navbar_icons}>
+                الخروج <FontAwesomeIcon icon={faSignOut} />
+              </div>
+            </Link>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
-export default AdminNavbar;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+export default connect(mapStateToProps, { logoutUser })(AdminNavbar);

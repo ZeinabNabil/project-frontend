@@ -15,10 +15,13 @@ const ViewCourses = (props) => {
     props.getAllCourses();
   }, []);
   var renderContent;
-
+  var role = -1;
+  const { currentUser } = props.user;
+  if (currentUser !== null) {
+    role = currentUser.role;
+  }
   const handleOnClick = async (id, courseName) => {
-    console.log('hoge!');
-    if (await confirm(`Are you sure you want to delete`)) {
+    if (await confirm(`هل انت متأكد انك تريد حذف هذه الدورة`)) {
       props.deleteCourse(id);
       window.location.reload();
     } else {
@@ -26,15 +29,14 @@ const ViewCourses = (props) => {
     }
   };
   const { courses, loading } = props.course;
-  console.log(courses, loading);
   if (courses === null || loading) {
     renderContent = <Loading loading={true} />;
   } else {
     renderContent = (
       <Table
-        btnName="Add new course"
+        btnName="اضافة دورة جديدة"
         btnLink="course/add"
-        columns={columns(handleOnClick)}
+        columns={columns(handleOnClick, role)}
         data={courses.courses}
       />
     );
@@ -44,6 +46,7 @@ const ViewCourses = (props) => {
 
 const mapStateToProps = (state) => ({
   course: state.course,
+  user: state.user,
 });
 export default connect(mapStateToProps, { getAllCourses, deleteCourse })(
   ViewCourses

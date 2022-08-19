@@ -4,7 +4,9 @@
 }
 
 /* ---------------start add course form----------------- */
-
+.addcourse {
+  direction: rtl;
+}
 .addcourse .title {
   text-align: center;
   position: relative;
@@ -76,4 +78,22 @@
   font-size: 20px;
   padding-bottom: 3px;
   padding-right: 3px;
+}
+
+.addcourse .select {
+  margin-top: 5px;
+}
+
+.addcourse .formlabel {
+  margin-bottom: 2px;
+}
+
+.addcourse .checkbox {
+  margin-top: 18px;
+  color: white;
+  font-size: 16px;
+  direction: ltr;
+}
+.text_area {
+  margin-top: 5px;
 }

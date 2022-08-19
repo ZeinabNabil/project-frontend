@@ -4,10 +4,11 @@ import ProfileEditInput from './ProfileEditInput';
 import UserCourseCard from './UserCourseCard';
 import { getRegisteredCourses } from '../../actions/course.action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Switch from 'react-switch';
-
 import { connect } from 'react-redux';
+import { updateUser, getCurrentProfile } from './../../actions/user.action';
+import { useNavigate } from 'react-router-dom';
 const UserProfile = (props) => {
   const [edit, setEdit] = useState(false);
   const [form, setForm] = useState({
@@ -25,34 +26,44 @@ const UserProfile = (props) => {
     });
   };
 
-  const { currentUser } = props.user;
+  const { profile, currentUser } = props.user;
   useEffect(() => {
-    props.getRegisteredCourses(currentUser._id);
+    if (profile !== null) {
+      props.getRegisteredCourses(currentUser._id);
+    }
+    props.getCurrentProfile();
   }, []);
+  console.log(props.user);
   useEffect(() => {
-    setForm({
-      name: currentUser.name,
-      email: currentUser.email,
-      phone: currentUser.phone,
-    });
-  }, [currentUser]);
-
+    if (profile !== null) {
+      setForm({
+        name: profile.profile.name,
+        email: profile.profile.email,
+        phone: profile.profile.phone,
+      });
+    }
+  }, [profile]);
+  const navigate = useNavigate();
   const onFormSubmit = (e) => {
     e.preventDefault();
-    const user = new FormData();
-    user.append('name', form.name);
-    user.append('phone', form.phone);
-    user.append('email', form.email);
+    const userData = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+    };
+
+    props.updateUser('me', userData, navigate, '/profile');
   };
   const { registeredCourses, loading } = props.course;
   var renderContent;
+  var courseLength;
   if (registeredCourses === null || loading) {
     renderContent = 'Loading';
   } else {
+    courseLength = registeredCourses.courses.length;
     renderContent = registeredCourses.courses.map((course) => {
       return (
         <div className="col-lg-3 col-md-4 col-sm-6">
-          {console.log(course)}
           <UserCourseCard course={course} />
         </div>
       );
@@ -71,10 +82,10 @@ const UserProfile = (props) => {
           <div className="container">
             <div className="row">
               <div className=" col-lg-12 col-md-12 col-sm-12">
-                <h1>Hello {form.name}</h1>
+                <h1>{form.name} اهلا </h1>
                 <p>
-                  This is your profile page. You can see and update your
-                  information.
+                  يمكنك رؤية بياناتك الشخصيـــة و ايضا الـــدورات التي قمت
+                  بتسجيلها
                 </p>
               </div>
             </div>
@@ -88,7 +99,7 @@ const UserProfile = (props) => {
         <div className="card">
           <div className={`card-header ${style.card_header}`}>
             <h5>
-              <FontAwesomeIcon icon={faUser} /> Personal Information
+              <FontAwesomeIcon icon={faUser} /> البيـــــانات الشخصيـــة
             </h5>
             <label>
               <Switch
@@ -106,18 +117,18 @@ const UserProfile = (props) => {
                   onChange={onInputChange}
                   name="name"
                   value={form.name}
-                  labelName="Name"
+                  labelName="اسم المستخدم"
                   type="text"
                   edit={edit}
                   className="form-control"
-                  placeholder="Name"
+                  placeholder="الاسم"
                 />
 
                 <ProfileEditInput
                   onChange={onInputChange}
                   name="email"
                   value={form.email}
-                  labelName="Email"
+                  labelName="البريد الالكتروني"
                   edit={edit}
                   type="email"
                   placeholder="Example : username @example.com"
@@ -126,13 +137,19 @@ const UserProfile = (props) => {
                   onChange={onInputChange}
                   name="phone"
                   value={form.phone}
-                  labelName="Phone"
+                  labelName="رقم الهاتف"
                   type="text"
                   edit={edit}
                   className="form-control"
                   placeholder="phone number"
                 />
               </div>
+              <button
+                className="btn btn-primary"
+                disabled={toggleChecked ? false : true}
+              >
+                حفظ البيـــــانات
+              </button>
             </form>
           </div>
         </div>
@@ -141,13 +158,17 @@ const UserProfile = (props) => {
 
       <div className="container">
         <div className={style.coursesHeader}>
-          <span>Your Registered Courses</span>
+          <span>الدورات التي قمت بتسجيلها </span>
         </div>
-        <div className={style.course_card_container}>
-          <div className={style.courses}>
-            <div className="row">{renderContent}</div>
+        {courseLength !== 0 ? (
+          <div className={style.course_card_container}>
+            <div className={style.courses}>
+              <div className="row">{renderContent}</div>
+            </div>
           </div>
-        </div>
+        ) : (
+          ''
+        )}
       </div>
       {/* ----------------------------end courses------------------ */}
 
@@ -159,4 +180,8 @@ const mapStateToProps = (state) => ({
   user: state.user,
   course: state.course,
 });
-export default connect(mapStateToProps, { getRegisteredCourses })(UserProfile);
+export default connect(mapStateToProps, {
+  getRegisteredCourses,
+  updateUser,
+  getCurrentProfile,
+})(UserProfile);

@@ -53,6 +53,7 @@
   margin-top: -100px;
   margin-bottom: 70px;
   box-shadow: 0px 0px 3px 0px var(--main-color);
+  direction: rtl;
 }
 .profilecardcontainer .card_header {
   display: flex;
@@ -73,7 +74,8 @@
   color: lightgray;
 }
 .profilecardcontainer button {
-  width: 10%;
+  margin-top: 15px;
+  width: 100%;
   border-radius: 5px;
   border: navajowhite;
   background-color: var(--main-color);

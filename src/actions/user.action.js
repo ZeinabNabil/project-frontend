@@ -69,13 +69,13 @@ export const setCurrentUser = (decoded) => {
   };
 };
 
-export const logoutUser = () => async (dispatch) => {
+export const logoutUser = (navigate) => async (dispatch) => {
   try {
     const response = await axios.post('/user/logout');
     toastify('Good Bye :( , We will be waiting for you');
 
     setTimeout(() => {
-      window.location.reload();
+      navigate('/auth/login');
       dispatch({
         type: LOGOUT,
         payload: {},
@@ -163,7 +163,37 @@ export const getUserById = (id) => async (dispatch) => {
     });
   } catch (error) {}
 };
+export const updateUser =
+  (id, userData, navigate, link) => async (dispatch) => {
+    try {
+      await axios.patch(`/user/update/${id}`, userData);
+      toastify('تم تعديل بيانات المستخدم بنجاح');
 
+      setTimeout(() => {
+        navigate(link);
+      }, 800);
+    } catch (error) {
+      dispatch({
+        type: GET_ERRORS,
+        payload: error.response.data,
+      });
+    }
+  };
+export const getCurrentProfile = () => async (dispatch) => {
+  dispatch(loading());
+  try {
+    const response = await axios.get('/user/profile/me');
+    dispatch({
+      type: GET_USER,
+      payload: response.data,
+    });
+  } catch (error) {}
+};
+export const deleteUser = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`/user/delete/${id}`);
+  } catch (error) {}
+};
 const loading = () => {
   return {
     type: USER_LOADING,
