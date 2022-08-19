@@ -174,7 +174,7 @@
   justify-content: space-between;
   position: relative;
   height: 50px;
-  margin-right: 20px;
+  margin-right: 150px;
 }
 .nav .navbtns .join_login {
   background-color: var(--secondary-color);
