@@ -1,13 +1,9 @@
-import React,{useState} from "react";
-import { useNavigate } from 'react-router-dom';
-import style from "../../../css/Admin/Updateuser.module.css"
-import Input from "../Input";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import style from "../../../css/Admin/updateuser.module.css"
+import Input from "../../user/ProfileEditInput";
 
 
-const UpdateUser = (props) =>{
-    const navigate = useNavigate();
+const UpdateUser = () =>{
     const [form, setForm] = useState({
         name: '',
         phone: '',
@@ -20,7 +16,8 @@ const UpdateUser = (props) =>{
           [e.target.name]: value,
         });
       };
-    //   const { errors } = props.error;
+      const { errors } = props.error;
+      const { userId } = useParams();
     
       const onFormSubmit = async (evt) => {
         evt.preventDefault();
@@ -29,18 +26,12 @@ const UpdateUser = (props) =>{
           email: form.email,
           phone: form.phone,
         };
-        const result = await props.createUser(userData);
-        if (result) {
-          setTimeout(() => {
-            navigate('/dashboard/users/view');
-          }, 800);
-        }
     }
     return (
         <div className={style.updateuser}>
             <div className={style.title}>
             <span>
-                <FontAwesomeIcon icon={faPenToSquare} />
+                <FontAwesomeIcon icon={faPlus} />
                 {props.header}
             </span>
             </div>
@@ -54,7 +45,7 @@ const UpdateUser = (props) =>{
                     type="text"
                     class="form-control"
                     placeholder="Username"
-                    // err={errors ? errors.name : ''}
+                    err={errors ? errors.name : ''}
                 />
                 <Input
                     onChange={onInputChange}
@@ -63,7 +54,7 @@ const UpdateUser = (props) =>{
                     labelName="Email"
                     type="email"
                     placeholder="Example : username @example.com"
-                    // err={errors ? errors.email : ''}
+                    err={errors ? errors.email : ''}
                 />
                 <Input
                     onChange={onInputChange}
@@ -73,7 +64,7 @@ const UpdateUser = (props) =>{
                     type="text"
                     class="form-control"
                     placeholder="phone number"
-                    // err={errors ? errors.phone : ''}
+                    err={errors ? errors.phone : ''}
                 />
                 <div className={style.save_btn}>
                     <button className="btn">Save</button>
