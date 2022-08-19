@@ -1,9 +1,11 @@
-import React from "react";
-import style from "../../../css/Admin/updateuser.module.css"
+import React,{useState} from "react";
+import style from "../../../css/Admin/Updateuser.module.css"
 import Input from "../../user/ProfileEditInput";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
-const UpdateUser = () =>{
+const UpdateUser = (props) =>{
     const [form, setForm] = useState({
         name: '',
         phone: '',
@@ -17,7 +19,7 @@ const UpdateUser = () =>{
         });
       };
       const { errors } = props.error;
-      const { userId } = useParams();
+      // const { userId } = useParams();
     
       const onFormSubmit = async (evt) => {
         evt.preventDefault();
