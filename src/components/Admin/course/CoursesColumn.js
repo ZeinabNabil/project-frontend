@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ListGroup } from 'react-bootstrap';
 
 // Icons
 import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -8,51 +7,81 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // CSS
 import style from '../../../css/Admin/View.module.css';
+import moment from 'moment';
+function daysBetween(date1String, date2String) {
+  var d1 = new Date(date1String);
+  var d2 = new Date(date2String);
+  return (d2 - d1) / (1000 * 3600 * 24);
+}
 
-const CourseColumn = (onDeletClick) => [
+const CourseColumn = (onDeletClick, role) => [
   {
-    name: 'Name',
+    name: 'اسم الدورة',
     selector: (row) => row.name,
     sortable: true,
     wrap: true,
   },
 
   {
-    name: 'Category',
+    name: 'نوع الدورة',
     selector: (row) => row.category.toUpperCase(),
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Attends',
+    name: 'عدد المسجلين',
     selector: (row) => row.attends,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Course Hours',
-    selector: (row) => `${row.numbersOfHours} Hours`,
+    name: 'الساعات',
+    selector: (row) => `${row.hours} ساعــة`,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'Classes',
-    selector: (row) => `${row.classes} Classes`,
+    name: 'الحصص',
+    selector: (row) => `${row.classes} حـــصة`,
     wrap: true,
   },
   {
-    name: 'duration',
+    name: 'المدة',
     selector: (row) => row.duration,
     wrap: true,
   },
-
   {
-    name: 'Types',
-    selector: (row) => row.typesOfCourse.map((type) => <span>{type}, </span>),
+    name: 'السعر',
+    selector: (row) => row.price,
+    sortable: true,
     wrap: true,
   },
   {
-    name: 'Detail',
+    name: 'التخفيض',
+    selector: (row) => (row.isHasOffer ? row.offer : 'لا يوجد'),
+    sortable: true,
+    wrap: true,
+  },
+  {
+    name: 'مدة التخفيض',
+    selector: (row) =>
+      row.isHasOffer
+        ? `باقي ${daysBetween(
+            moment().format('l'),
+            moment(row.endOfferDate).format('l')
+          )} ايام`
+        : 'لا يوجد',
+
+    sortable: true,
+    wrap: true,
+  },
+  {
+    name: 'تم الاضافة بواسطة',
+    selector: (row) => row.userId.name,
+    wrap: true,
+  },
+  {
+    name: 'تفاصيل اكــثر',
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,
@@ -64,38 +93,56 @@ const CourseColumn = (onDeletClick) => [
               to={`/dashboard/course/view/${row._id}`}
               className={style.View_more_btn}
             >
-              View more
+              رؤيـــة المزيــد
             </Link>
           </div>
         </div>
       );
     },
   },
+
   {
-    name: 'Action',
+    name: 'فعل',
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,
     cell: (row) => {
-      return (
-        <div className={style.edit_delete_btns}>
-          <div className={style.edit_btn}>
-            <Link to={`/dashboard/course/update/${row._id}`}>
+      if (role == 1) {
+        return (
+          <div className={style.edit_delete_btns}>
+            <div className={style.edit_btn}>
+              <Link to={`/dashboard/course/update/${row._id}`}>
+                <button type="button" className="btn">
+                  <FontAwesomeIcon icon={faEdit} />
+                </button>
+              </Link>
+            </div>
+            <div
+              className={style.delete_btn}
+              onClick={() => onDeletClick(row._id, row.name)}
+            >
               <button type="button" className="btn">
-                <FontAwesomeIcon icon={faEdit} />
+                <FontAwesomeIcon icon={faXmark} />
               </button>
-            </Link>
+            </div>
           </div>
-          <div
-            className={style.delete_btn}
-            onClick={() => onDeletClick(row._id, row.name)}
-          >
-            <button type="button" className="btn">
-              <FontAwesomeIcon icon={faXmark} />
-            </button>
+        );
+      } else if (role === 2) {
+        // assistant cant delete
+        return (
+          <div className={style.edit_delete_btns}>
+            <div className={style.edit_btn}>
+              <Link to={`/dashboard/course/update/${row._id}`}>
+                <button type="button" className="btn">
+                  <FontAwesomeIcon icon={faEdit} />
+                </button>
+              </Link>
+            </div>
           </div>
-        </div>
-      );
+        );
+      }
+
+      return `غير مصرح`;
     },
   },
 ];

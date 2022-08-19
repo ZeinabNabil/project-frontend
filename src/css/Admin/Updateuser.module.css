@@ -1,53 +1,52 @@
 /* ---------------start updateuser form----------------- */
 
 .updateuser {
-    padding-bottom: 150px;
-  }
-  .updateuser .title {
-    text-align: center;
-    position: relative;
-    top: 60px;
-    color: var(--main-color);
-  }
-  .updateuser .formcontainer {
-    margin: auto;
-    width: 40%;
-    padding: 40px;
-    position: relative;
-    top: 80px;
-    background-color: var(--main-color);
-    border-radius: 6px;
-    box-shadow: 0px 1px 6px var(--main-color);
-  }
-  .input_course {
-    margin-top: 5px;
-  }
-  .updateuser .save_btn button {
-    background-color: var(--secondary-color);
-    width: 100%;
-    margin-top: 12px;
-  }
-  
-  .updateuser .save_btn button:hover {
-    border-color: white;
-  }
-  
-  .updateuser .error_text {
-    color: var(--secondary-color);
-    font-weight: bold;
-  }
-  .title span {
-    display: inline-block;
-    font-size: 28px;
-    font-weight: bold;
-    padding: 10px;
-    width: 20%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    box-shadow: 0px 0px 4px;
-  }
-  .title span svg {
-    font-size: 22px;
-    padding-bottom: 3px;
-    padding-right: 10px;
-  }
-  
+  direction: rtl;
+}
+.updateuser .title {
+  text-align: center;
+  position: relative;
+  top: 60px;
+  color: var(--main-color);
+}
+.updateuser .formcontainer {
+  margin: auto;
+  width: 40%;
+  padding: 40px;
+  position: relative;
+  top: 80px;
+  background-color: var(--main-color);
+  border-radius: 6px;
+  box-shadow: 0px 1px 6px var(--main-color);
+}
+.input_course {
+  margin-top: 5px;
+}
+.updateuser .save_btn button {
+  background-color: var(--secondary-color);
+  width: 100%;
+  margin-top: 12px;
+}
+
+.updateuser .save_btn button:hover {
+  border-color: white;
+}
+
+.updateuser .error_text {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+.title span {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px;
+  width: 20%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-shadow: 0px 0px 4px;
+}
+.title span svg {
+  font-size: 22px;
+  padding-bottom: 3px;
+  padding-right: 10px;
+}

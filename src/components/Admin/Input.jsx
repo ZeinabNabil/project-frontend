@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import style from '../../css/Admin/Addcourse.module.css';
+import moment from 'moment';
 
 const Input = ({
   labelName,
@@ -15,7 +16,12 @@ const Input = ({
   return (
     <div className={style.input}>
       <div className="col-lg-12 col-md-12 col-sm-12">
-        <label className={style.formlabel} style={{padding:"4px" , color:"white"}}>{labelName}</label>
+        <label
+          className={style.formlabel}
+          style={{ padding: '4px', color: 'white' }}
+        >
+          {labelName}
+        </label>
       </div>
       <input
         value={value}
@@ -25,7 +31,7 @@ const Input = ({
           'is-invalid': err,
         })}
         type={type}
-        rows={rows}
+        min={type === 'date' ? moment().format('yyyy-MM-DD') : null}
         placeholder={placeholder}
       />
       {err && (

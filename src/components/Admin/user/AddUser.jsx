@@ -7,8 +7,22 @@ import { connect } from 'react-redux';
 import { createUser } from '../../../actions/user.action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-
+import Select from './Select';
 const AddUser = (props) => {
+  const roles = [
+    {
+      name: 'مشرف',
+      value: 1,
+    },
+    {
+      name: 'مســاعد',
+      value: 2,
+    },
+    {
+      name: 'وســـيط',
+      value: 3,
+    },
+  ];
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: '',
@@ -16,6 +30,7 @@ const AddUser = (props) => {
     email: '',
     password: '',
     confirmPassword: '',
+    role: '',
   });
   const { errors } = props.error;
   const onInputChange = (e) => {
@@ -33,6 +48,7 @@ const AddUser = (props) => {
       password: form.password,
       phone: form.phone,
       confirmPassword: form.confirmPassword,
+      role: form.role,
     };
     const result = await props.createUser(userData);
     if (result) {
@@ -54,7 +70,7 @@ const AddUser = (props) => {
       <div className={style.title}>
         <span>
           <FontAwesomeIcon icon={faPlus} />
-          Add User
+          اضــافة مستخدم جــديـد
         </span>
       </div>
       <div className={style.formcontainer}>
@@ -63,51 +79,58 @@ const AddUser = (props) => {
             onChange={onInputChange}
             value={form.name}
             name="name"
-            labelName="User Name"
+            labelName="اسم المستخدم"
             type="text"
             class="form-control"
-            placeholder="Username"
+            placeholder="الاسم"
             err={errors ? errors.name : ''}
           />
           <Input
             onChange={onInputChange}
             value={form.email}
             name="email"
-            labelName="Email"
+            labelName="البريد الالكتروني"
             type="email"
-            placeholder="Example : username @example.com"
+            placeholder="قم بكتابة البريد الالكتروني هنا"
             err={errors ? errors.email : ''}
           />
           <Input
             onChange={onInputChange}
             value={form.password}
-            labelName="Password"
+            labelName="كلمة السر"
             name="password"
             type="password"
-            placeholder="Enter your password"
+            placeholder="ادخل كلمة السر الخاصة بك"
             err={errors ? errors.password : ''}
           />
           <Input
             onChange={onInputChange}
             value={form.confirmPassword}
             name="confirmPassword"
-            labelName="Confirm password"
+            labelName="تــأكيد كلمة السر"
             type="password"
-            placeholder="Confirm your password"
+            placeholder="قم بكتابة كلمة السر مرة اخري"
             err={errors ? errors.confirmPassword : ''}
           />
           <Input
             onChange={onInputChange}
             value={form.phone}
-            labelName="Phone"
+            labelName="رقم الهاتف"
             name="phone"
             type="text"
             class="form-control"
-            placeholder="phone number"
+            placeholder="رقم الهاتف الخاص بك"
             err={errors ? errors.phone : ''}
           />
+          <Select
+            items={roles}
+            labelName="دور المستخدم"
+            value={form.role}
+            onChange={onInputChange}
+            name="role"
+          />
           <div className={style.save_btn}>
-            <button className="btn">Save</button>
+            <button className="btn">حفظ البـــيانات</button>
           </div>
         </form>
       </div>

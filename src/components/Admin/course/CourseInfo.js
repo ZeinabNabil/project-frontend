@@ -6,37 +6,30 @@ import { getCourseById } from '../../../actions/course.action';
 import { useParams, Link } from 'react-router-dom';
 
 import BackToList from '../BackToList';
+import moment from 'moment';
 
 const CourseInfo = (props) => {
   const { id } = useParams();
-  console.log(id);
   const { course, loading } = props.course;
   console.log(course, loading);
   useEffect(() => {
     props.getCourseById(id);
   }, []);
-  var whatIsContent;
-  var featureContent;
+  var about;
   if (course === null || loading) {
-    whatIsContent = 'Loading';
-    featureContent = 'Loading';
+    about = 'Loading';
   } else {
-    whatIsContent = course.whatis.split('.').map((what, index) => {
+    about = course.about.map((item, index) => {
       return (
-        <ul class="list-group" key={index}>
-          <li class="list-group-item" style={{ border: 'none' }}>
-            {what}
-          </li>
-        </ul>
+        <>
+          <ul class="list-group" key={index}>
+            <li class="list-group-item" style={{ border: 'none' }}>
+              {item}
+            </li>
+          </ul>
+        </>
       );
     });
-    featureContent = course.whatWillStudentsLearn.map((feature, index) => (
-      <ul class="list-group" key={index}>
-        <li class="list-group-item" style={{ border: 'none' }}>
-          {feature}
-        </li>
-      </ul>
-    ));
   }
 
   return (
@@ -46,14 +39,20 @@ const CourseInfo = (props) => {
           <div class={style.course_name}>
             <h1>
               {course === null ? 'Loading' : course.name}
-              <span> {course === null ? 'Loading' : course.description}</span>
+              <span>
+                {course === null ? 'Loading' : course.description} <br />
+                {course === null
+                  ? 'loading'
+                  : `تم اضـــافة الدورة ${moment(course.date).format('l')}`}
+              </span>
             </h1>
           </div>
         </div>
-        <div className="row">
-          <CourseInfoCard cardTitle="What Is" cardText={whatIsContent} />
-          <CourseInfoCard cardTitle="Features" cardText={featureContent} />
-        </div>
+        <CourseInfoCard
+          cardTitle="معلومات عن الدورة"
+          cardText={about}
+          id={id}
+        />
       </div>
     </div>
   );
