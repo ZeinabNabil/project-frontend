@@ -52,7 +52,7 @@ const Login = (props) => {
       {/* Start the header of the form */}
       <div className="col-lg-12">
         <div className={style.form_header}>
-          <h3>Login</h3>
+          <h3>تسجيل الدخول</h3>
         </div>
       </div>
       {/* End the header of the form */}
@@ -68,7 +68,7 @@ const Login = (props) => {
                 icon={faEnvelope}
                 name="email"
                 type="text"
-                placeholder="Enter your Email"
+                placeholder="قم بكتابة البريد الالكتروني هنا"
                 onChange={onInputChange}
                 err={errors ? errors.email : ""}
               />
@@ -78,21 +78,21 @@ const Login = (props) => {
                 icon={faLock}
                 name="password"
                 type="password"
-                placeholder="Enter your Password"
+                placeholder="ادخل كلمة السر الخاصة بك"
                 onChange={onInputChange}
                 err={errors ? errors.password : ""}
               />
-              <div className="col-lg-12">
+              {/* <div className="col-lg-12">
                 <div className={style.important_link}>
                   <Link to="/">Sign in Now!</Link>
                 </div>
-              </div>
-              <MainButton buttonName="Submit" />
+              </div> */}
+              <MainButton buttonName="تسجيل الدخول" />
               <div className="col-lg-12">
                 <div className={style.register_link}>
-                  Don't have an account?
+                  ليس لديك حساب؟
                   <span className={style.important_link}>
-                    <Link to="/auth/register">Sign up Now!</Link>
+                    <Link to="/auth/register">قم بإنشاء حساب الان!</Link>
                   </span>
                 </div>
               </div>

@@ -1,9 +1,12 @@
-import React from "react";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import style from "../../../css/Admin/updateuser.module.css"
 import Input from "../../user/ProfileEditInput";
 
 
-const UpdateUser = () =>{
+const UpdateUser = (props) =>{
     const [form, setForm] = useState({
         name: '',
         phone: '',

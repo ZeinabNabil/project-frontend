@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import style from '../../css/ReadMore/Readmore.module.css';
+import React, { useEffect, useState } from "react";
+import style from "../../css/ReadMore/Readmore.module.css";
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Images
-import firstPhoto from '../../images/IELTS.jpg';
-import secondPhoto from '../../images/IELTS.jpg';
-import thirdPhoto from '../../images/IELTS.jpg';
+import firstPhoto from "../../images/IELTS.jpg";
+import secondPhoto from "../../images/IELTS.jpg";
+import thirdPhoto from "../../images/IELTS.jpg";
 
 // Icons
-import { faSlideshare } from '@fortawesome/free-brands-svg-icons';
+import { faSlideshare } from "@fortawesome/free-brands-svg-icons";
 import {
   faBookOpen,
   faCalendarDays,
@@ -19,26 +19,28 @@ import {
   faCrown,
   faPhone,
   faUserGroup,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Components
-import ReadMoreBox from './ReadMoreBox';
-import ReadMoreCard from './ReadMoreCard';
-import CourseTypeCard from './CourseTypeCard';
+import ReadMoreBox from "./ReadMoreBox";
+import ReadMoreCard from "./ReadMoreCard";
+import CourseTypeCard from "./CourseTypeCard";
 // Redux
-import { useParams } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getCourseById } from './../../actions/course.action';
+import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
+import { getCourseById } from "./../../actions/course.action";
+import SvgDownWaves from "../SvgDownWaves";
+import SvgUpWaves from "../SvgUpWaves";
 const ReadMore = (props) => {
   const { id } = useParams();
   useEffect(() => {
     props.getCourseById(id);
   }, []);
   const [form, setForm] = useState({
-    name: '',
-    phone: '',
-    email: '',
+    name: "",
+    phone: "",
+    email: "",
   });
 
   useEffect(() => {
@@ -77,14 +79,14 @@ const ReadMore = (props) => {
   console.log(course);
   var renderCourseInfo;
   if (course === null || loading) {
-    renderCourseInfo = 'Loading';
+    renderCourseInfo = "Loading";
   } else {
     features = course.whatWillStudentsLearn;
     whatIs = course.whatis;
     attends = course.attends;
-    classes = course.classes + ' Shares';
+    classes = course.classes + " Shares";
     duration = course.duration;
-    numbersOfHours = course.numbersOfHours + 'Hours';
+    numbersOfHours = course.numbersOfHours + "Hours";
     typesOfCourse = course.typesOfCourse;
     courseId = course._id;
     name = course.name;
@@ -92,9 +94,9 @@ const ReadMore = (props) => {
   }
   return (
     <div className={style.read_more}>
-      <div className="row" style={{ marginRight: '0' }}>
+      <div className="row" style={{ marginRight: "0" }}>
         {/* Start First section */}
-        <div className="col-lg-12" style={{ paddingRight: '0' }}>
+        <div className="col-lg-12" style={{ paddingRight: "0" }}>
           <div className={style.read_more_first_section}>
             {/*  Start read more area */}
             <div className={style.read_more_area}>
@@ -144,9 +146,10 @@ const ReadMore = (props) => {
             {/* End read more cards */}
           </div>
         </div>
+        <SvgDownWaves />
         {/* End First section */}
         {/* Start Second section */}
-        <div className="col-lg-12" style={{ paddingRight: '0' }}>
+        <div className="col-lg-12" style={{ paddingRight: "0" }}>
           <div className={style.read_more_second_section}>
             <div className="container">
               <div className="row">
@@ -193,7 +196,8 @@ const ReadMore = (props) => {
         </div>
         {/* End Second section */}
         {/* Start Third section */}
-        <div className="col-lg-12" style={{ paddingRight: '0' }}>
+        <SvgUpWaves />
+        <div className="col-lg-12" style={{ paddingRight: "0" }}>
           {/* Start course type */}
           <div className={style.read_more_third_section}>
             <div className="container">
@@ -202,18 +206,18 @@ const ReadMore = (props) => {
               </div>
               <div className="row">
                 {!course
-                  ? 'Loading'
+                  ? "Loading"
                   : typesOfCourse.sort().map((type) => {
                       return (
                         <CourseTypeCard
                           typeIcon={faCrown}
                           typeTitle={type}
                           typeText={
-                            type === 'VIP1'
-                              ? 'The course includes only one trainee with the lecturer'
-                              : type === 'VIP2'
-                              ? 'The course includes only trainees with the lecturer'
-                              : 'The course includes a group of trainees with the lecturer'
+                            type === "VIP1"
+                              ? "The course includes only one trainee with the lecturer"
+                              : type === "VIP2"
+                              ? "The course includes only trainees with the lecturer"
+                              : "The course includes a group of trainees with the lecturer"
                           }
                         />
                       );
@@ -223,9 +227,10 @@ const ReadMore = (props) => {
           </div>
           {/* End course type */}
         </div>
+        <SvgDownWaves />
         {/* End Third section */}
         {/* Start Forth section */}
-        <div className="col-lg-12" style={{ paddingRight: '0' }}>
+        <div className="col-lg-12" style={{ paddingRight: "0" }}>
           {/* Start Register form */}
           {/* <div className={style.read_more_fourth_section}>
             <div className="container">
