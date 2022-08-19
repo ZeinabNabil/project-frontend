@@ -29,7 +29,13 @@ import Dashboard from "./Admin/layout/Dashboard";
 import UserProfile from "./user/UserProfile";
 import ReadMore from "./ReadMore/ReadMore";
 import Contactus from "./ContactUs/Contactus";
-import InquiryView from "./Admin/Inquiry/InquiryView";
+import CoursesByCategory from "./courses/CoursesByCategory";
+import AdminHome from "./Admin/layout/AdminHome";
+import Landing from "./Landingpage/Landing";
+import WithNavbarAndFooter from "../WithNavbarAndFooter";
+// import Inquiry from "./Admin/inquiry/Inquiry";
+import UpdateCourse from "./Admin/course/UpdateCourse";
+import Inquiry from "./Admin/Inquiry/Inquiry";
 
 if (localStorage.token) {
   //set auth token header auth
@@ -46,36 +52,46 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/auth" element={<MainAuthPage />}>
+          <Route exact path="auth" element={<MainAuthPage />}>
             <Route exact path="login" element={<Login />} />
             <Route exact path="register" element={<Register />} />
           </Route>
-          <Route exact path="/dashboard" element={<Dashboard />} />
-        </Routes>
-        <Routes>
-          <Route exact path="/admin">
-            <Route exact path="addcourse" element={<AddCourse />} />
-            <Route exact path="viewcourse" element={<ViewCourses />} />
+          <Route exact element={<WithNavbarAndFooter />}>
+            <Route index element={<Homepage />} />
+            <Route exact path="/readmore/:id" element={<ReadMore />} />
+            <Route exact path="/readmore" element={<ReadMore />} />
+            <Route exact path="/contact" element={<Contactus />} />
+            <Route exact path="/:category" element={<CoursesByCategory />} />
+            <Route exact path="/profile" element={<UserProfile />} />
+          </Route>
+          <Route exact path="dashboard" element={<Dashboard />}>
+            <Route exact path="home" element={<AdminHome />} />
+            <Route exact path="inquiries/view" element={<Inquiry />} />
             <Route
               exact
-              path="viewcourse/course/:id"
-              element={<CourseInfo />}
+              path="course/add"
+              element={<AddCourse header="Add Course" />}
             />
-            <Route exact path="adduser" element={<AddUser />} />
-            <Route exact path="viewusers" element={<ViewUsers />} />
-            <Route exact path="inquiry" element={<InquiryView />} />
+            <Route
+              exact
+              path="course/update/:courseId"
+              element={<AddCourse header="Update Course" />}
+            />
+            <Route exact path="courses/view" element={<ViewCourses />} />
+            <Route exact path="course/view/:id" element={<CourseInfo />} />
+            <Route
+              exact
+              path="user/add"
+              element={<AddUser header="Add User" />}
+            />
+            <Route
+              exact
+              path="user/update/:userId"
+              element={<AddUser header="Update User" />}
+            />
+            <Route exact path="users/view" element={<ViewUsers />} />
           </Route>
         </Routes>
-        {/* <Navbar /> */}
-        <Routes>
-          <Route exact path="/" element={<Homepage />} />
-          <Route exact path="/readmore" element={<ReadMore />} />
-          <Route exact path="/contact" element={<Contactus />} />
-          <Route exact path="/user">
-            <Route exact path="userprofile" element={<UserProfile />} />
-          </Route>
-        </Routes>
-        {/* <Footer /> */}
       </BrowserRouter>
     </Provider>
   );

@@ -103,16 +103,18 @@
 }
 .features {
   padding-top: 70px;
-  text-align: center;
+  /* text-align: center; */
 }
 .features .title {
   font-weight: bold;
   font-family: 'Bahij', Sans-serif;
   font-size: 20px;
+  text-align: center;
 }
 
 .features .accordian {
   width: 100% !important;
+  direction: rtl;
   background-color: white;
   box-shadow: 0px 5px 30px 5px rgb(0 0 0 / 6%);
 }
@@ -121,6 +123,7 @@
   color: #6a6a6a;
   font-weight: bold;
   font-size: 15px;
+  direction: rtl;
 }
 
 .features .accordianHeader {
@@ -168,7 +171,6 @@
 .reviews {
   padding-top: 50px;
   padding-bottom: 50px;
-  text-align: center;
   width: 80%;
   margin: auto;
 }
@@ -177,6 +179,7 @@
   font-weight: bold;
   font-family: 'Bahij', Sans-serif;
   font-size: 20px;
+  text-align: center;
 }
 
 .reviews .reviewscards {
@@ -209,27 +212,22 @@
   width: 60px;
   height: 60px;
   overflow: hidden;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  border-radius: 100px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   margin-left: 25px;
-  float: left;
 }
 .teamitem .userimg img {
   width: 100%;
 }
 
 .teamitem .teamcontent {
-  text-align: left;
+  direction: rtl;
   overflow: hidden;
 }
 
 .teamitem .teamcontent .teaminfo {
-  float: left;
   margin-left: 20px;
   margin-top: 8px;
   -webkit-transition: all 0.3s ease 0s;

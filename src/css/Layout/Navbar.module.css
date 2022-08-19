@@ -1,15 +1,13 @@
-
-
 /* responsive */
 
 @media screen and(max-width: 1200px) {
-  .topbar .contactInfo{
+  .topbar .contactInfo {
     width: 95% !important;
   }
 }
 
 @media screen and(max-width: 1256px) {
-  .topbar .contactInfo{
+  .topbar .contactInfo {
     width: 95% !important;
   }
 }
@@ -66,7 +64,6 @@
   .topbar {
     height: 145px !important;
   }
-  .contactInfo .address,
   .contactInfo .mail,
   .contactInfo .phone {
     display: none !important;
@@ -114,17 +111,7 @@
   padding: 10px;
   font-size: 16px;
 }
-.address {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
 
-.address .icon {
-  color: var(--secondary-color);
-  font-size: 35px;
-  position: relative;
-}
 .mail {
   position: relative;
   right: 10px;
@@ -133,9 +120,10 @@
 
 .mail .icon {
   color: var(--secondary-color);
-  font-size: 25px;
-  position: relative;
-  left: 10px;
+  font-size: 18px;
+  top: 2px;
+  right: -25px;
+  position: absolute;
 }
 
 .phone {
@@ -146,9 +134,10 @@
 
 .phone .icon {
   color: var(--secondary-color);
-  font-size: 25px;
-  position: relative;
-  left: 10px;
+  font-size: 18px;
+  top: 2px;
+  right: -20px;
+  position: absolute;
 }
 
 .contactInfo .sitelogo img {
@@ -163,30 +152,35 @@
   border-width: 4px 0px 4px 0;
   border-color: var(--secondary-color);
 }
-.nav .navbar{
+.nav .navbar {
   width: 75%;
   margin: auto;
+  direction: rtl;
 }
-.nav .navbar_nav{
+.nav .navbar_nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  direction: rtl;
 }
-.nav .navbar_nav .nav_link{
+.nav .navbar_nav .nav_link {
   color: white;
   font-weight: bold;
+  font-size: 15px;
+  padding: 15px;
 }
 .nav .navbtns {
   display: flex;
   justify-content: space-between;
   position: relative;
-  height: 45px;
+  height: 50px;
+  margin-right: 20px;
 }
 .nav .navbtns .join_login {
   background-color: var(--secondary-color);
   color: white;
   font-weight: bold;
-  width: 100px;
+  width: 150px;
   border: none;
   border-radius: 10px;
   position: relative;
@@ -199,16 +193,8 @@
   margin-right: 5px;
 }
 .nav .navbtns .icon {
-  padding-left: 5px;
+  padding-right: 8px;
 }
 
-.nav .loginbutton {
-  background-color: var(--secondary-color);
-  color: white;
-  font-weight: bold;
-  width: 100px;
-  border: none;
-  border-radius: 10px;
-}
 
 /* -------------------end navbar---------------------- */

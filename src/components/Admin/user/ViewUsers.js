@@ -21,7 +21,7 @@ const ViewUsers = (props) => {
     renderContent = (
       <Table
         btnName="Add new user"
-        btnLink="adduser"
+        btnLink="user/add"
         columns={columns}
         data={users.users}
       />

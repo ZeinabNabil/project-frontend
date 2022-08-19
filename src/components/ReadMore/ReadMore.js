@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import style from "../../css/ReadMore/Readmore.module.css";
+import React, { useEffect, useState } from 'react';
+import style from '../../css/ReadMore/Readmore.module.css';
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Images
-import firstPhoto from "../../images/IELTS.jpg";
-import secondPhoto from "../../images/IELTS.jpg";
-import thirdPhoto from "../../images/IELTS.jpg";
+import firstPhoto from '../../images/IELTS.jpg';
+import secondPhoto from '../../images/IELTS.jpg';
+import thirdPhoto from '../../images/IELTS.jpg';
 
 // Icons
-import { faSlideshare } from "@fortawesome/free-brands-svg-icons";
+import { faSlideshare } from '@fortawesome/free-brands-svg-icons';
 import {
   faBookOpen,
   faCalendarDays,
@@ -19,20 +19,26 @@ import {
   faCrown,
   faPhone,
   faUserGroup,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Components
-import ReadMoreBox from "./ReadMoreBox";
-import ReadMoreCard from "./ReadMoreCard";
-import CourseTypeCard from "././CourseTypeCard";
-import Input from "../Admin/Input";
-
-const ReadMore = () => {
+import ReadMoreBox from './ReadMoreBox';
+import ReadMoreCard from './ReadMoreCard';
+import CourseTypeCard from './CourseTypeCard';
+// Redux
+import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getCourseById } from './../../actions/course.action';
+const ReadMore = (props) => {
+  const { id } = useParams();
+  useEffect(() => {
+    props.getCourseById(id);
+  }, []);
   const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
+    name: '',
+    phone: '',
+    email: '',
   });
 
   useEffect(() => {
@@ -57,19 +63,38 @@ const ReadMore = () => {
       confirmPassword: form.confirmPassword,
     };
   };
-  const features = [
-    "Training with certified trainers (the best English language training experts) with a high degree of competence from the best universities and organizations have already been able to help many people to obtain the required scores in the IELTS test.",
-    "A test to assess your current level to determine which level is right for you.",
-    "Practice and develop the four English skills: listening, speaking, reading and writing.",
-    "The flexibility that our institute offers you, as the trainee can choose to attend the course within the institute’s halls or via the Internet from his home or workplace through communication programs such as Zoom.",
-    "Familiarize yourself with all the components of the exam and the different types of questions by training on the IELTS exam model and strategies, and obtaining support and advice, which will help you develop the skills and methods of correct answering to the exam.",
-    "Suitable prices for all classes in the United Arab Emirates.",
-  ];
+  var features,
+    whatIs,
+    attends,
+    classes,
+    duration,
+    numbersOfHours,
+    typesOfCourse,
+    courseId,
+    name;
+
+  const { course, loading } = props.course;
+  console.log(course);
+  var renderCourseInfo;
+  if (course === null || loading) {
+    renderCourseInfo = 'Loading';
+  } else {
+    features = course.whatWillStudentsLearn;
+    whatIs = course.whatis;
+    attends = course.attends;
+    classes = course.classes + ' Shares';
+    duration = course.duration;
+    numbersOfHours = course.numbersOfHours + 'Hours';
+    typesOfCourse = course.typesOfCourse;
+    courseId = course._id;
+    name = course.name;
+    console.log(course.typesOfCourse);
+  }
   return (
     <div className={style.read_more}>
-      <div className="row" style={{ marginRight: "0" }}>
+      <div className="row" style={{ marginRight: '0' }}>
         {/* Start First section */}
-        <div className="col-lg-12" style={{ paddingRight: "0" }}>
+        <div className="col-lg-12" style={{ paddingRight: '0' }}>
           <div className={style.read_more_first_section}>
             {/*  Start read more area */}
             <div className={style.read_more_area}>
@@ -78,7 +103,7 @@ const ReadMore = () => {
                   <div className="col-lg-12">
                     <div className={style.read_more_btns}>
                       <button type="button" className="btn btn-primary">
-                        IELTS preparation course
+                        {name} Course
                       </button>
                       <button type="button" className="btn btn-primary">
                         To register now and get offers, click here
@@ -96,22 +121,22 @@ const ReadMore = () => {
                   <ReadMoreCard
                     cardIcon={faSlideshare}
                     cardTilte="Attendees"
-                    cardSubtitle="institute’s halls or online through communication programs such as Zoom and others"
+                    cardSubtitle={attends}
                   />
                   <ReadMoreCard
                     cardIcon={faChalkboardUser}
                     cardTilte="Classes"
-                    cardSubtitle="12 shares"
+                    cardSubtitle={classes}
                   />
                   <ReadMoreCard
                     cardIcon={faCalendarDays}
                     cardTilte="Duration of the course"
-                    cardSubtitle="month | Two weeks for intensive IELTS"
+                    cardSubtitle={duration}
                   />
                   <ReadMoreCard
                     cardIcon={faClock}
                     cardTilte="The number of hours"
-                    cardSubtitle="24 hours of learning"
+                    cardSubtitle={numbersOfHours}
                   />
                 </div>
               </div>
@@ -121,16 +146,13 @@ const ReadMore = () => {
         </div>
         {/* End First section */}
         {/* Start Second section */}
-        <div className="col-lg-12" style={{ paddingRight: "0" }}>
+        <div className="col-lg-12" style={{ paddingRight: '0' }}>
           <div className={style.read_more_second_section}>
             <div className="container">
               <div className="row">
                 <ReadMoreBox
                   boxHeader="What is the IELTS test?"
-                  boxContent={`It is the
-                  International English Language Testing System, which is categorized to measure your proficiency and communicative ability in the English language, and proves that you have a certain level of English, whether for work or study purposes.
-                  It is an English language test that assesses all four language skills: listening, reading, speaking and writing.
-                  We at Ivan Ilç Institute offer academic IELTS if you want to obtain higher education, professional registration, immigration or study abroad, and we also offer IELTS general to help you improve your English in professional life.`}
+                  boxContent={whatIs}
                 />
                 <div
                   className="col-lg-6 col-md-12"
@@ -165,29 +187,13 @@ const ReadMore = () => {
                   boxHeader="Features of the IELTS preparation course"
                   boxContent={features}
                 />
-                {/* <div className="col-lg-12">
-                  <div className={style.box}>
-                    <div className="row">
-                      <div className="col-lg-6 col-md-12">
-                        <div className={style.box_header}>
-                          <h5>Features of the IELTS preparation course</h5>
-                        </div>
-                      </div>
-                      <div className="col-lg-6 col-md-12">
-                        <div className={style.box_header}>
-                          <h5>important information</h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
         </div>
         {/* End Second section */}
         {/* Start Third section */}
-        <div className="col-lg-12" style={{ paddingRight: "0" }}>
+        <div className="col-lg-12" style={{ paddingRight: '0' }}>
           {/* Start course type */}
           <div className={style.read_more_third_section}>
             <div className="container">
@@ -195,21 +201,23 @@ const ReadMore = () => {
                 <h5>Course types</h5>
               </div>
               <div className="row">
-                <CourseTypeCard
-                  typeIcon={faCrown}
-                  typeTitle="VIP1"
-                  typeText="The course includes only one trainee with the lecturer"
-                />
-                <CourseTypeCard
-                  typeIcon={faCrown}
-                  typeTitle="VIP2"
-                  typeText="The course includes only trainees with the lecturer"
-                />
-                <CourseTypeCard
-                  typeIcon={faUserGroup}
-                  typeTitle="Group"
-                  typeText="The course includes a group of trainees with the lecturer"
-                />
+                {!course
+                  ? 'Loading'
+                  : typesOfCourse.sort().map((type) => {
+                      return (
+                        <CourseTypeCard
+                          typeIcon={faCrown}
+                          typeTitle={type}
+                          typeText={
+                            type === 'VIP1'
+                              ? 'The course includes only one trainee with the lecturer'
+                              : type === 'VIP2'
+                              ? 'The course includes only trainees with the lecturer'
+                              : 'The course includes a group of trainees with the lecturer'
+                          }
+                        />
+                      );
+                    })}
               </div>
             </div>
           </div>
@@ -217,9 +225,9 @@ const ReadMore = () => {
         </div>
         {/* End Third section */}
         {/* Start Forth section */}
-        <div className="col-lg-12" style={{ paddingRight: "0" }}>
+        <div className="col-lg-12" style={{ paddingRight: '0' }}>
           {/* Start Register form */}
-          <div className={style.read_more_fourth_section}>
+          {/* <div className={style.read_more_fourth_section}>
             <div className="container">
               <div
                 className={style.register_now}
@@ -279,7 +287,7 @@ const ReadMore = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* End Register form */}
         </div>
         {/* End Forth section */}
@@ -287,5 +295,7 @@ const ReadMore = () => {
     </div>
   );
 };
-
-export default ReadMore;
+const mapStateToProps = (state) => ({
+  course: state.course,
+});
+export default connect(mapStateToProps, { getCourseById })(ReadMore);

@@ -1,18 +1,20 @@
-import React from "react";
-import style from "../../css/user/UserProfile.module.css"
+import React from 'react';
+import style from '../../css/user/UserProfile.module.css';
 
-const UserCourseCard = ({image,title,text}) =>{
-    return <div>
-        <div class="card" style={{margin:"5px"}}>
-            <div className={style.cardimg}>
-            <img src={image}/>
-            </div>
-            <div class="card-body">
-                <h3 class={style.cardTitle}>{title}</h3>
-                <p class={style.cardtext}>{text}</p>
-            </div>
+const UserCourseCard = ({ course }) => {
+  return (
+    <div className={style.profile_course}>
+      <div className={style.card}>
+        <div className={style.cardimg}>
+          <img src={`/course/image/${course.courseId._id}`} />
         </div>
+        <div className={style.card_body}>
+          <h3 className={style.cardTitle}>{course.courseId.name}</h3>
+          <p className={style.cardtext}>{course.courseId.description}</p>
+        </div>
+      </div>
     </div>
-}
+  );
+};
 
-export default UserCourseCard
+export default UserCourseCard;

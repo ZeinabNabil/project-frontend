@@ -49,7 +49,7 @@ const Table = (props) => {
           <div className="col-lg-12">
             <div className={style.add_btn}>
               <Link
-                to={`/admin/${props.btnLink}`}
+                to={`/dashboard/${props.btnLink}`}
                 type="button"
                 className="btn"
               >

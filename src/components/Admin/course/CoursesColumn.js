@@ -60,7 +60,10 @@ const CourseColumn = [
       return (
         <div className={style.edit_delete_btns}>
           <div className={style.edit_btn}>
-            <Link to={`./course/${row._id}`} className={style.View_more_btn}>
+            <Link
+              to={`/dashboard/course/view/${row._id}`}
+              className={style.View_more_btn}
+            >
               View more
             </Link>
           </div>
@@ -77,9 +80,11 @@ const CourseColumn = [
       return (
         <div className={style.edit_delete_btns}>
           <div className={style.edit_btn}>
-            <button type="button" className="btn">
-              <FontAwesomeIcon icon={faEdit} />
-            </button>
+            <Link to={`/dashboard/course/update/${row._id}`}>
+              <button type="button" className="btn">
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
+            </Link>
           </div>
           <div className={style.delete_btn}>
             <button type="button" className="btn">

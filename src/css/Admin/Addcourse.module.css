@@ -1,13 +1,9 @@
-
 /* responsive */
 
 @media screen and (max-width: 991px) {
-  
 }
 
-
 /* ---------------start add course form----------------- */
-
 
 .addcourse .title {
   text-align: center;
@@ -24,7 +20,7 @@
   border-radius: 6px;
   box-shadow: 0px 1px 6px var(--main-color);
 }
-.addcourse .form{
+.addcourse .form {
   display: flex;
   justify-content: center;
   padding-bottom: 150px;
@@ -66,4 +62,18 @@
 .addcourse .error_text {
   color: var(--secondary-color);
   font-weight: bold;
+}
+.title span {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px;
+  width: 20%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-shadow: 0px 0px 4px;
+}
+.title span svg {
+  font-size: 20px;
+  padding-bottom: 3px;
+  padding-right: 3px;
 }

@@ -6,6 +6,9 @@ import Input from '../Input';
 import { connect } from 'react-redux';
 import { createUser } from '../../../actions/user.action';
 import BackToList from '../BackToList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useParams } from 'react-router-dom';
 
 const AddUser = (props) => {
   const navigate = useNavigate();
@@ -25,6 +28,9 @@ const AddUser = (props) => {
     });
   };
   const { errors } = props.error;
+  const { userId } = useParams();
+  // const { userDetail } = props.user;
+  // const [error, setError] = useState({});
 
   const onFormSubmit = async (evt) => {
     evt.preventDefault();
@@ -38,9 +44,16 @@ const AddUser = (props) => {
     const result = await props.createUser(userData);
     if (result) {
       setTimeout(() => {
-        navigate('/admin/viewusers');
+        navigate('/dashboard/users/view');
       }, 800);
     }
+
+    // if (userDetail && userId) {
+    //   props.updateUser(userId, data, navigate);
+    // } else {
+    //   console.log(data);
+    //   props.addUser(data, navigate);
+    // }
   };
   useEffect(() => {
     store.dispatch({
@@ -49,14 +62,37 @@ const AddUser = (props) => {
     });
   }, []);
 
+  // useEffect(() => {
+  //   setError({});
+  //   setError(props.error);
+  // }, [props.error]);
+
+  // useEffect(() => {
+  //   setError({});
+  //   props.getUserDetailById(userId);
+  // }, []);
+
+  // useEffect(() => {
+  //   if (userDetail && userId) {
+  //     setForm({
+  //       name: userDetail.name,
+  //       phone: userDetail.phone,
+  //       email: userDetail.email,
+  //       password: userDetail.password,
+  //       confirmPassword: userDetail.confirmPassword,
+  //     });
+  //   }
+  // }, [userDetail]);
+
   return (
     <div className={style.adduser}>
       <div className={style.title}>
-        <h1>Add User</h1>
+        <span>
+          <FontAwesomeIcon icon={faPlus} />
+          {props.header}
+        </span>
       </div>
       <div className={style.formcontainer}>
-        <BackToList linkTo="/admin/viewusers" />
-
         <form className="form-group" onSubmit={onFormSubmit}>
           <Input
             onChange={onInputChange}

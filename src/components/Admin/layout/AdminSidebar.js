@@ -6,48 +6,53 @@ import {
   faEnvelope,
   faHouse,
   faMessage,
+  faQuestionCircle,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import style from "../../../css/Admin/Dashboard.module.css";
+import { Link } from "react-router-dom";
 
 const AdminSidebar = () => {
   const menus = [
     {
       header: "Dashboard",
-      items: [
-        { itemName: "Home", itemIcon: faHouse },
-        { itemName: "Analytics", itemIcon: faChartLine },
-        { itemName: "Sales", itemIcon: faArrowTrendUp },
-      ],
+      items: [{ itemName: "Home", itemIcon: faHouse, link: "./home" }],
     },
     {
       header: "Quich Menus",
       items: [
-        { itemName: "Users", itemIcon: faUser },
-        { itemName: "Courses", itemIcon: faChalkboardUser },
-        { itemName: "Sales", itemIcon: faArrowTrendUp },
+        { itemName: "Users", itemIcon: faUser, link: "./users/view" },
+        {
+          itemName: "Courses",
+          itemIcon: faChalkboardUser,
+          link: "./courses/view",
+        },
       ],
     },
     {
       header: "Notifications",
       items: [
-        { itemName: "Mail", itemIcon: faEnvelope },
-        { itemName: "Feedback", itemIcon: faComment },
-        { itemName: "Messages", itemIcon: faMessage },
+        {
+          itemName: "Inquiries",
+          itemIcon: faQuestionCircle,
+          link: "./inquiries/view",
+        },
       ],
     },
   ];
   const RenderedMenu = menus.map((menu) => {
     const renderedItems = menu.items.map((item) => {
       return (
-        <li className={style.sidebar_list_item}>
-          <div className={style.sidebar_icons}>
-            <FontAwesomeIcon icon={item.itemIcon} />
-          </div>
-          {item.itemName}
-        </li>
+        <Link to={item.link}>
+          <li className={style.sidebar_list_item}>
+            <div className={style.sidebar_icons}>
+              <FontAwesomeIcon icon={item.itemIcon} />
+            </div>
+            {item.itemName}
+          </li>
+        </Link>
       );
     });
     return (

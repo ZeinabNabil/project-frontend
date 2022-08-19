@@ -13,8 +13,10 @@ import { Accordion } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getAllCourses } from "../../actions/course.action";
 import LandingPicArea from "../Layout/LandingPicArea";
+import aos from "aos";
 const Landing = (props) => {
   useEffect(() => {
+    aos.init();
     props.getAllCourses();
   }, []);
   var renderContent;
@@ -28,11 +30,26 @@ const Landing = (props) => {
     const IELTS = courses.courses.filter((course) => {
       return course.category === "ielts";
     });
-    console.log(ICDL);
+    const EMSAT = courses.courses.filter((course) => {
+      return course.category === "emsat";
+    });
+    const management = courses.courses.filter((course) => {
+      return course.category === "management";
+    });
+    const computer = courses.courses.filter((course) => {
+      return course.category === "computer";
+    });
+    const language = courses.courses.filter((course) => {
+      return course.category === "language";
+    });
     renderContent = (
       <>
-        <Section title="ICDL" courses={ICDL} />
+        <Section title="EMSAT" courses={EMSAT} />
         <Section title="IELTS" courses={IELTS} />
+        <Section title="ICDL" courses={ICDL} />
+        <Section title="MANAGEMENT" courses={management} />
+        <Section title="COMPUTER" courses={computer} />
+        <Section title="LANGUAGE" courses={language} />
       </>
     );
   }
@@ -40,29 +57,34 @@ const Landing = (props) => {
     <div>
       {/* ------------------------------Start landing area---------------------------- */}
       <LandingPicArea
-        header="Innovation language institute for Training and Development"
-        text="Accredited Institute for Languages, Vocational Training and
-        Computer"
+        header="معهد اينوفيشن للغات للتدريب والتطوير"
+        text="معهد معتمد للغات والتدريب المهنى والحاسوب"
       />
       {/* ----------------------------Start Cards Section------------------------------- */}
       <section className={style.cardsSection}>
         <div className="container" style={{ width: "100%" }}>
-          <div className="row">
+          <div
+            className="row"
+            data-aos="fade-up"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="800"
+          >
             {/* <-------------------------------start calling card-----------------------------*/}
             <Cards
               icon={faUserGraduate}
-              title="Specialized Lectures"
-              text="In all areas, whether in language education, preparation for the Emsat exam or developing computer skills."
+              title="محاضرين مختصين"
+              text="بجميع المجالات سواء في تعليم اللغات، التحضير لامتحان الامسات أوتنمية مهارات الكمبيوتر "
             />
             <Cards
               icon={faFileLines}
-              title="Placement Tests"
-              text="To first determine the level of the trainee and then evaluate his progress periodically during the levels of the training course"
+              title="اختبارات تحديد المستوى"
+              text="ليتم في البداية تحديد مستوى المتدرب ثم تقييم تقدمه بشكل دوري خلال مستويات الدورة التدريبية"
             />
             <Cards
               icon={faLightbulb}
-              title="Interactive Courses"
-              text="It aims to develop the capabilities of the trainees and direct them to the right path"
+              title="كورسات تفاعلية"
+              text="تهدف الى تنمية قدرات المتدربين وتوجيهها الى الطريق الصحيح"
             />
           </div>
           {/* <-------------------------------end calling card-----------------------------*/}
@@ -76,7 +98,7 @@ const Landing = (props) => {
       <div className={style.features_clients_container}>
         {/* ---------------------------------Start featuer section----------------------  */}
         <div className={style.features}>
-          <div className={style.title}>Why you should choose our institute</div>
+          <div className={style.title}>لماذا يجب عليك اختيار معهدنا</div>
           <div className={style.featureselements}>
             <section>
               <div className="container">
@@ -91,12 +113,15 @@ const Landing = (props) => {
                         className={style.accordianitem}
                       >
                         <Accordion.Header>
-                          <div className={style.accordianHeader}>Vission</div>
+                          <div className={style.accordianHeader}>الرؤية</div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
-                          To occupy a leading position in the Gulf region and
-                          the Middle East in the field of continuing education
-                          and professional development.
+                          يسعى معهد اينوفيشن للغات والأبحاث ان يكون من المعاهد
+                          الرائدة والمتميزة فى تقديم الخدمات التعليمية من خلال
+                          جودة المخرجات والسعى المستمر لتحقيق التميز من خلال
+                          الالتزام بتطبيق الجودة التعليمية أن يحظى بالصدارة فى
+                          منطقة الخليج العربى فى مجال التعليم والتطوير المهنى
+                          المستمر
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item
@@ -104,21 +129,16 @@ const Landing = (props) => {
                         className={style.accordianitem}
                       >
                         <Accordion.Header>
-                          <div className={style.accordianHeader}>
-                            The message
-                          </div>
+                          <div className={style.accordianHeader}>الرسالة</div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
-                          Improving the quality of training and capacity
-                          building, enabling individuals, public and private
-                          sector institutions, and various groups of society to
-                          develop positively and helping them to unleash
-                          potential human energies, which leads to raising
-                          competitiveness and achieving the highest levels of
-                          individual and institutional performance through the
-                          creation of knowledge awareness and the consolidation
-                          of a culture of scientific research and innovation to
-                          achieve global leadership
+                          الارتقاء بجودة التدريب وبناء القدرات وتمكين الأفراد
+                          ومؤسسات القطاعين العام والخاص وفئات المجتمع المختلفة
+                          من التطوير الايجابي ومساعدتهم لإطلاق الطاقات البشرية
+                          الكامنة بما يؤدي إلى رفع القدرة التنافسية وتحقيق أعلى
+                          مستويات الأداء الفردي والمؤسسي من خلال صناعة الوعي
+                          المعرفي وترسيخ ثقافة البحث العلمي والابتكار لتحقيق
+                          الريادة العالمية
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item
@@ -127,54 +147,46 @@ const Landing = (props) => {
                       >
                         <Accordion.Header>
                           <div className={style.accordianHeader}>
-                            Strategic goals
+                            الاهداف الاستراتيجية
                           </div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
                           <ul>
                             <li>
-                              Focusing on the application of smart systems to
-                              develop human capital in order to achieve global
-                              leadership
+                              التركيز على تطبيق الأنظمة الذكية لتطوير رأس المال
+                              البشري بهدف تحقيق الريادة العالمية
                             </li>
                             <li>
-                              Working on communicating with contemporary
-                              experiences in the field of training and
-                              benefiting from them in order to best serve
-                              trainees and bodies
+                              العمل على التواصل مع التجارب المعاصرة في مجال
+                              التدريب والاستفادة منها بما يتيح خدمة المتدربين
+                              والهيئات على أفضل وجه
                             </li>
                             <li>
-                              Contribute to raising the efficiency of community
-                              members and developing their knowledge and
-                              capabilities by providing a variety of
-                              high-quality applied training programs
+                              المساهمة في رفع كفاءة أفراد المجتمع وتنمية معارفهم
+                              وقدراتهم من خلال تقديم عدد متنوع من برامج التدريب
+                              التطبيقي ذات الجودة العالية
                             </li>
                             <li>
-                              Raising levels of institutional performance and
-                              competitiveness by providing consulting services
-                              in various disciplines for the public and private
-                              sectors
+                              رفع مستويات الأداء المؤسسي والقدرة على المنافسة من
+                              خلال توفير خدمات الاستشارات في مختلف التخصصات
+                              للقطاعين العام والخاص
                             </li>
                             <li>
-                              Creating a happy and stimulating educational and
-                              training environment characterized by knowledge
-                              and the development of creative and innovative
-                              thought
+                              صناعة بيئة تعليمية وتدريبية سعيدة ومحفزة تتميز
+                              بالمعرفة وتنمية الفكر الإبداعي والابتكاري
                             </li>
                             <li>
-                              Building strategic companies that contribute to
-                              creating an added value that achieves the
-                              objectives of the stakeholders
+                              بناء شركات استراتيجية تسهم في خلق قيمة مضافة تحقق
+                              مستهدفات الجهات المعنية
                             </li>
                             <li>
-                              Raising skills and competencies with the latest
-                              innovations and modern methods of distance
-                              education
+                              رفع المهارات والكفاءات بما استجد من مستحدثات وطرق
+                              تعليم حديثة عن بعد
                             </li>
                             <li>
-                              That the Ivan Ilyich Institute be a pioneer and be
-                              one of the best training and education
-                              institutions at the regional and local levels
+                              أن يتميز معهد اينوفيشن بالريادة وأن يكون واحد من
+                              أفضل مؤسسات التدريب والتعليم على المستوى الإقليمي
+                              والمحلي
                             </li>
                           </ul>
                         </Accordion.Body>
@@ -230,7 +242,7 @@ const Landing = (props) => {
                   {/* <div className="col-lg-1"></div> */}
                   <div className="col-lg-3 col-md-12 col-sm-12 align-self-center">
                     <div className={style.ourclients}>
-                      <h2> Our Clients</h2>
+                      <h2>عملائنا</h2>
                     </div>
                   </div>
                 </div>
@@ -242,64 +254,44 @@ const Landing = (props) => {
       </div>
       {/* ---------------------------start reviews section---------------------  */}
       <div className={style.reviews}>
-        <div className={style.title}>
-          Reviews of trainees and visitors to the institute
-        </div>
+        <div className={style.title}>تقييمات المتدربين وزوار المعهد</div>
         <div className={style.reviewscards}>
           <div className="row">
             <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
+              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
               img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
+              username="حسين صلاح"
+              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
             />
             <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
+              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
               img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
+              username="حسين صلاح"
+              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
             />
             <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
+              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
               img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
+              username="حسين صلاح"
+              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
             />
             <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
+              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
               img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
+              username="حسين صلاح"
+              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
             />
             <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
+              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
               img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
+              username="حسين صلاح"
+              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
             />
             <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
+              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
               img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
-            />
-            <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
-              img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
-            />
-            <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
-              img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
-            />
-            <ReviewsCard
-              text="The course was one of the best steps I took in order to learn the English language, as the trainers at the Ivan Ilyich Institute are specialists and have a great way of communicating information"
-              img={logo}
-              username="Omar Soliman"
-              role="Trainee in an English language course"
+              username="حسين صلاح"
+              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
             />
           </div>
         </div>

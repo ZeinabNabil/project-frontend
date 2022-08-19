@@ -1,6 +1,7 @@
 /* ----------------------start card section---------------------------- */
 
    .card {
+    direction: rtl;
     cursor: pointer;
     text-align: center;
     height: 90%;
