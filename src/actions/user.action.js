@@ -9,6 +9,7 @@ import {
   CURRENT_PROFILE,
   GET_LAST_FIVE_USERS,
   USER_LOADING,
+  GET_USER,
 } from './types';
 import { toast } from 'react-toastify';
 import setAuthToken from './../utilis/setAuthToken';
@@ -151,6 +152,16 @@ export const getLastFiveUsers = () => async (dispatch) => {
   } catch (error) {
     console.log(error.response.data);
   }
+};
+export const getUserById = (id) => async (dispatch) => {
+  dispatch(loading);
+  try {
+    const response = await axios.get(`/user/userprofile/${id}`);
+    dispatch({
+      type: GET_USER,
+      payload: response.data,
+    });
+  } catch (error) {}
 };
 
 const loading = () => {

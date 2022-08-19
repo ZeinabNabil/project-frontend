@@ -123,3 +123,22 @@ export const lastFiveRegisteredCourses = () => async (dispatch) => {
     });
   } catch (error) {}
 };
+export const updateCourse = (courseData, id, navigate) => async (dispatch) => {
+  try {
+    await axios.patch(`/course/update/${id}`, courseData);
+    toastify('Successfully Updated Course');
+    setTimeout(() => {
+      navigate('/dashboard/courses/view');
+    }, 800);
+  } catch (error) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: error.response.data,
+    });
+  }
+};
+export const deleteCourse = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`/course/delete/${id}`);
+  } catch (error) {}
+};

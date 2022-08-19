@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // CSS
 import style from '../../../css/Admin/View.module.css';
 
-const CourseColumn = [
+const CourseColumn = (onDeletClick) => [
   {
     name: 'Name',
     selector: (row) => row.name,
@@ -86,7 +86,10 @@ const CourseColumn = [
               </button>
             </Link>
           </div>
-          <div className={style.delete_btn}>
+          <div
+            className={style.delete_btn}
+            onClick={() => onDeletClick(row._id, row.name)}
+          >
             <button type="button" className="btn">
               <FontAwesomeIcon icon={faXmark} />
             </button>

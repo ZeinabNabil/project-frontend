@@ -29,20 +29,6 @@
 .input_course {
   margin-top: 5px;
 }
-.adduser .inputSpan_container {
-  display: flex;
-}
-.adduser .listContainer span {
-  font-size: 15px;
-  font-weight: bold;
-  color: white;
-  padding: 10px;
-}
-.adduser .itemsChecked {
-  font-size: 15px;
-  font-weight: bold;
-  color: var(--secondary-color);
-}
 .adduser .save_btn button {
   background-color: var(--secondary-color);
   width: 100%;

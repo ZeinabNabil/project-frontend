@@ -36,6 +36,7 @@ import WithNavbarAndFooter from "../WithNavbarAndFooter";
 // import Inquiry from "./Admin/inquiry/Inquiry";
 import UpdateCourse from "./Admin/course/UpdateCourse";
 import Inquiry from "./Admin/Inquiry/Inquiry";
+import UpdateUser from "./Admin/user/Updateuser";
 
 if (localStorage.token) {
   //set auth token header auth
@@ -79,15 +80,11 @@ const App = () => {
             />
             <Route exact path="courses/view" element={<ViewCourses />} />
             <Route exact path="course/view/:id" element={<CourseInfo />} />
+            <Route exact path="user/add" element={<AddUser />} />
             <Route
               exact
-              path="user/add"
-              element={<AddUser header="Add User" />}
-            />
-            <Route
-              exact
-              path="user/update/:userId"
-              element={<AddUser header="Update User" />}
+              path="user/update"
+              element={<UpdateUser header="Update User" />}
             />
             <Route exact path="users/view" element={<ViewUsers />} />
           </Route>
