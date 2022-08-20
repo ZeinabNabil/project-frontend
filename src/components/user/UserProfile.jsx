@@ -28,9 +28,8 @@ const UserProfile = (props) => {
 
   const { profile, currentUser } = props.user;
   useEffect(() => {
-    if (profile !== null) {
-      props.getRegisteredCourses(currentUser._id);
-    }
+    props.getRegisteredCourses(currentUser._id);
+
     props.getCurrentProfile();
   }, []);
   console.log(props.user);

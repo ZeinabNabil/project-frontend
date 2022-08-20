@@ -22,11 +22,7 @@ const Section = ({ title, courses }) => {
             >
               {courses.map((course) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
-                  <CoursesCard
-                    title={course.name}
-                    text={course.description}
-                    id={course._id}
-                  />
+                  <CoursesCard course={course} />
                 </div>
               ))}
             </div>
