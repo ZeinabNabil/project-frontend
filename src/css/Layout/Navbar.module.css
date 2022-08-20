@@ -155,13 +155,11 @@
 .nav .navbar {
   width: 75%;
   margin: auto;
-  direction: rtl;
 }
 .nav .navbar_nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  direction: rtl;
 }
 .nav .navbar_nav .nav_link {
   color: white;
@@ -196,5 +194,8 @@
   padding-right: 8px;
 }
 
-
+.navbar_nav .lang {
+  cursor: pointer;
+  color: white;
+}
 /* -------------------end navbar---------------------- */

@@ -1,0 +1,13 @@
+{
+  "instituteName": "Innovation Languages Institute for Training and Development",
+  "instituteDesc": "Accredited Institute for Languages, Vocational Training and Computer",
+  "navbarItems": [
+    { "name": "Main", "link": "/" },
+    { "name": "Computer Courses", "link": "/computer", "cat": true },
+    { "name": "Language Courses", "link": "/language", "cat": true },
+    { "name": "About Us", "link": "/aboutus" },
+    { "name": "Contact Us", "link": "/contact" }
+  ],
+  "Arabic": "Arabic",
+  "English": "English"
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../store';
 // CSS
@@ -8,16 +8,12 @@ import 'jquery/dist/jquery.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'react-toastify/dist/ReactToastify.css';
 import 'aos/dist/aos.css';
-
 // Components
-
 import setAuthToken from './../utilis/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import { setCurrentUser } from './../actions/user.action';
-
 import Arabic from './Arabic';
 import English from './English';
-
 if (localStorage.token) {
   //set auth token header auth
   setAuthToken(localStorage.token);

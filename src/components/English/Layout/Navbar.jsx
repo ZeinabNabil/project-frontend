@@ -13,13 +13,19 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/user.action';
 import Topbar from './Topbar';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+
 const Navbar = (props) => {
-  const { i18n, t } = useTranslation();
+  document.getElementById('root').dataset.lang = 'en';
+  console.log(document.getElementById('root').dataset.lang);
   const navigate = useNavigate();
   const { isAuthenticated, currentUser } = props.user;
-  const navItems = t('navbarItems', { returnObjects: true });
-
+  const navItems = [
+    { name: 'الرئيسية', link: '/' },
+    { name: 'دورات الكمبيوتر', link: '/computer', cat: true },
+    { name: 'دورات اللغات', link: '/language', cat: true },
+    { name: 'من نحن', link: '/aboutus' },
+    { name: 'تواصل معنا', link: '/contact' },
+  ];
   const onLogoutClick = () => {
     props.logoutUser(navigate);
   };
@@ -69,18 +75,13 @@ const Navbar = (props) => {
 
     return null;
   };
-  console.log();
   return (
     <div className={style.header}>
       {/* ----------------------start topbar----------------- */}
       <Topbar />
       {/* -----------------------end topbar--------------------- */}
       {/* -------------------------start navbar--------------------- */}
-      <div
-        className={`${style.nav} ${
-          i18n.resolvedLanguage === 'ar' ? 'arabic' : 'english'
-        }`}
-      >
+      <div className={style.nav}>
         <div className="col-lg-12 col-md-12 col-sm-12">
           <nav className={`navbar navbar-expand-lg ${style.navbar}`}>
             <div className="container-fluid">
@@ -113,24 +114,6 @@ const Navbar = (props) => {
                 </ul>
                 {!isAuthenticated ? guest() : ''}
               </div>
-              <ul className={`nav justify-content-end ${style.navbar_nav}`}>
-                <li class="nav-item">
-                  <span
-                    className={`nav-link active ${style.lang}`}
-                    onClick={() => i18n.changeLanguage('ar')}
-                  >
-                    {t('Arabic')}
-                  </span>
-                </li>
-                <li class="nav-item">
-                  <span
-                    className={`nav-link active ${style.lang}`}
-                    onClick={() => i18n.changeLanguage('en')}
-                  >
-                    {t('English')}
-                  </span>
-                </li>
-              </ul>
             </div>
           </nav>
         </div>

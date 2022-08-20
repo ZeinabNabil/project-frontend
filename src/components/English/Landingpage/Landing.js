@@ -16,10 +16,8 @@ import LandingPicArea from '../Layout/LandingPicArea';
 import aos from 'aos';
 import SvgDownWaves from '../SvgDownWaves';
 import SvgUpWaves from './../SvgUpWaves';
-import { useTranslation } from 'react-i18next';
+
 const Landing = (props) => {
-  const { t, i18n } = useTranslation();
-  console.log(i18n);
   useEffect(() => {
     aos.init();
     props.getAllCourses();
@@ -45,8 +43,10 @@ const Landing = (props) => {
   return (
     <div>
       {/* ------------------------------Start landing area---------------------------- */}
-      <LandingPicArea header={t('instituteName')} text={t('instituteDesc')} />
-
+      <LandingPicArea
+        header="معهد اينوفيشن للغات للتدريب والتطوير"
+        text="معهد معتمد للغات والتدريب المهنى والحاسوب"
+      />
       {/* ----------------------------Start Cards Section------------------------------- */}
       <section className={style.cardsSection}>
         <div className="container" style={{ width: '100%' }}>

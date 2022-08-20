@@ -65,3 +65,11 @@ input[type='number']::-webkit-inner-spin-button {
   align-items: center;
   height: 100vh;
 }
+
+.arabic {
+  direction: rtl;
+}
+
+.english {
+  direction: ltr;
+}
