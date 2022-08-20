@@ -29,6 +29,8 @@ import CourseTypeCard from './CourseTypeCard';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCourseById } from './../../actions/course.action';
+import SvgDownWaves from '../SvgDownWaves';
+import SvgUpWaves from '../SvgUpWaves';
 const ReadMore = (props) => {
   const { id } = useParams();
   useEffect(() => {
@@ -127,6 +129,7 @@ const ReadMore = (props) => {
             {/* End read more cards */}
           </div>
         </div>
+        <SvgDownWaves />
         {/* End First section */}
         {/* Start Second section */}
         <div className="col-lg-12" style={{ paddingRight: '0' }}>

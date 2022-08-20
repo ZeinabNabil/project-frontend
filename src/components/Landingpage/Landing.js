@@ -14,7 +14,9 @@ import { connect } from 'react-redux';
 import { getAllCourses } from '../../actions/course.action';
 import LandingPicArea from '../Layout/LandingPicArea';
 import aos from 'aos';
-import Wave from '../../Wave';
+import SvgDownWaves from '../SvgDownWaves';
+import SvgUpWaves from './../SvgUpWaves';
+
 const Landing = (props) => {
   useEffect(() => {
     aos.init();
@@ -78,6 +80,7 @@ const Landing = (props) => {
       {/* -------------------------------------------End Cards section--------------------------------------------  */}
       {/* --------------------------start similar sections (calling array of sections)---------------------------  */}
       <div className={style.viewcourses}>{renderContent}</div>
+      <SvgDownWaves />
       {/*------------------------------end similar sections---------------------------------------*/}
       <div className={style.features_clients_container}>
         {/* ---------------------------------Start featuer section----------------------  */}
@@ -237,6 +240,7 @@ const Landing = (props) => {
         {/* --------------------------End client section-----------------------  */}
       </div>
       {/* ---------------------------start reviews section---------------------  */}
+      <SvgUpWaves />
       <div className={style.reviews}>
         <div className={style.title}>تقييمات المتدربين وزوار المعهد</div>
         <div className={style.reviewscards}>

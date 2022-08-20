@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from '../../css/Layout/Navbar.module.css';
 import {
-  faEnvelopeOpenText,
-  faLocationArrow,
-  faMobileScreenButton,
   faRightToBracket,
   faUserGraduate,
 } from '@fortawesome/free-solid-svg-icons';
@@ -18,6 +15,8 @@ import Topbar from './Topbar';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = (props) => {
+  document.getElementById('root').dataset.lang = 'en';
+  console.log(document.getElementById('root').dataset.lang);
   const navigate = useNavigate();
   const { isAuthenticated, currentUser } = props.user;
   const navItems = [

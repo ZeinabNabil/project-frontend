@@ -29,10 +29,9 @@ const UserProfile = (props) => {
   const { profile, currentUser } = props.user;
   useEffect(() => {
     props.getRegisteredCourses(currentUser._id);
-
     props.getCurrentProfile();
   }, []);
-  console.log(props.user);
+
   useEffect(() => {
     if (profile !== null) {
       setForm({

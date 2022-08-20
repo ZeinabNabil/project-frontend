@@ -2,7 +2,8 @@ import React from 'react';
 import style from '../../css/user/UserProfile.module.css';
 
 const UserCourseCard = ({ course }) => {
-  return (
+  console.log(course);
+  return course !== null ? (
     <div className={style.profile_course}>
       <div className={style.card}>
         <div className={style.cardimg}>
@@ -14,6 +15,8 @@ const UserCourseCard = ({ course }) => {
         </div>
       </div>
     </div>
+  ) : (
+    ''
   );
 };
 
