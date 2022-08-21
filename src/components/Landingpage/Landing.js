@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
-import style from '../../css/Landing/Landing.module.css';
-import Cards from './Cards';
+import React, { useEffect } from "react";
+import style from "../../css/Landing/Landing.module.css";
+import Cards from "./Cards";
 import {
   faFileLines,
   faLightbulb,
   faUserGraduate,
-} from '@fortawesome/free-solid-svg-icons';
-import Section from './Section';
-import logo from '../../images/logo.png';
-import ReviewsCard from './ReviewsCard';
-import { Accordion } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { getAllCourses } from '../../actions/course.action';
-import LandingPicArea from '../Layout/LandingPicArea';
-import aos from 'aos';
-import SvgDownWaves from '../SvgDownWaves';
-import SvgUpWaves from './../SvgUpWaves';
-import { useTranslation } from 'react-i18next';
+} from "@fortawesome/free-solid-svg-icons";
+import Section from "./Section";
+import logo from "../../images/logo.png";
+import ReviewsCard from "./ReviewsCard";
+import { Accordion } from "react-bootstrap";
+import { connect } from "react-redux";
+import { getAllCourses } from "../../actions/course.action";
+import LandingPicArea from "../Layout/LandingPicArea";
+import aos from "aos";
+import SvgDownWaves from "../SvgDownWaves";
+import SvgUpWaves from "./../SvgUpWaves";
+import { useTranslation } from "react-i18next";
 const Landing = (props) => {
   const { t, i18n } = useTranslation();
   console.log(i18n);
@@ -30,10 +30,10 @@ const Landing = (props) => {
     renderContent = `<h1>Loading</h1>`;
   } else {
     const computer = courses.courses.filter((course) => {
-      return course.category === 'دورات حاسوب';
+      return course.category === "دورات حاسوب";
     });
     const language = courses.courses.filter((course) => {
-      return course.category === 'دورات لغة';
+      return course.category === "دورات لغة";
     });
     renderContent = (
       <>
@@ -45,11 +45,11 @@ const Landing = (props) => {
   return (
     <div>
       {/* ------------------------------Start landing area---------------------------- */}
-      <LandingPicArea header={t('instituteName')} text={t('instituteDesc')} />
+      <LandingPicArea header={t("instituteName")} text={t("instituteDesc")} />
 
       {/* ----------------------------Start Cards Section------------------------------- */}
       <section className={style.cardsSection}>
-        <div className="container" style={{ width: '100%' }}>
+        <div className="container" style={{ width: "100%" }}>
           <div
             className="row"
             data-aos="fade-up"
@@ -60,18 +60,18 @@ const Landing = (props) => {
             {/* <-------------------------------start calling card-----------------------------*/}
             <Cards
               icon={faUserGraduate}
-              title="محاضرين مختصين"
-              text="بجميع المجالات سواء في تعليم اللغات، التحضير لامتحان الامسات أوتنمية مهارات الكمبيوتر "
+              title={t("Specializedlec_Title")}
+              text={t("Specializedlec_body")}
             />
             <Cards
               icon={faFileLines}
-              title="اختبارات تحديد المستوى"
-              text="ليتم في البداية تحديد مستوى المتدرب ثم تقييم تقدمه بشكل دوري خلال مستويات الدورة التدريبية"
+              title={t("placementtests_Title")}
+              text={t("placementtests_body")}
             />
             <Cards
               icon={faLightbulb}
-              title="كورسات تفاعلية"
-              text="تهدف الى تنمية قدرات المتدربين وتوجيهها الى الطريق الصحيح"
+              title={t("Interactivecourses_Title")}
+              text={t("Interactivecourses_body")}
             />
           </div>
           {/* <-------------------------------end calling card-----------------------------*/}
@@ -85,14 +85,14 @@ const Landing = (props) => {
       <div className={style.features_clients_container}>
         {/* ---------------------------------Start featuer section----------------------  */}
         <div className={style.features}>
-          <div className={style.title}>لماذا يجب عليك اختيار معهدنا</div>
+          <div className={style.title}>{t("features_Title")}</div>
           <div className={style.featureselements}>
             <section>
               <div className="container">
                 <div className="row">
                   <div
                     className="col-lg-6 col-md-12 col-sm-12 section-accordian "
-                    style={{ display: 'flex', alignItems: 'center' }}
+                    style={{ display: "flex", alignItems: "center" }}
                   >
                     <Accordion className={style.accordian}>
                       <Accordion.Item
@@ -100,15 +100,13 @@ const Landing = (props) => {
                         className={style.accordianitem}
                       >
                         <Accordion.Header>
-                          <div className={style.accordianHeader}>الرؤية</div>
+                          <div className={style.accordianHeader}>
+                            {" "}
+                            {t("accordion_vision_header")}
+                          </div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
-                          يسعى معهد اينوفيشن للغات والأبحاث ان يكون من المعاهد
-                          الرائدة والمتميزة فى تقديم الخدمات التعليمية من خلال
-                          جودة المخرجات والسعى المستمر لتحقيق التميز من خلال
-                          الالتزام بتطبيق الجودة التعليمية أن يحظى بالصدارة فى
-                          منطقة الخليج العربى فى مجال التعليم والتطوير المهنى
-                          المستمر
+                          {t("accordion_vision_body")}
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item
@@ -116,16 +114,13 @@ const Landing = (props) => {
                         className={style.accordianitem}
                       >
                         <Accordion.Header>
-                          <div className={style.accordianHeader}>الرسالة</div>
+                          <div className={style.accordianHeader}>
+                            {" "}
+                            {t("accordion_message_header")}
+                          </div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
-                          الارتقاء بجودة التدريب وبناء القدرات وتمكين الأفراد
-                          ومؤسسات القطاعين العام والخاص وفئات المجتمع المختلفة
-                          من التطوير الايجابي ومساعدتهم لإطلاق الطاقات البشرية
-                          الكامنة بما يؤدي إلى رفع القدرة التنافسية وتحقيق أعلى
-                          مستويات الأداء الفردي والمؤسسي من خلال صناعة الوعي
-                          المعرفي وترسيخ ثقافة البحث العلمي والابتكار لتحقيق
-                          الريادة العالمية
+                          {t("accordion_message_body")}
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item
@@ -134,15 +129,12 @@ const Landing = (props) => {
                       >
                         <Accordion.Header>
                           <div className={style.accordianHeader}>
-                            الاهداف الاستراتيجية
+                            {t("accordion_goals_header")}
                           </div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
                           <ul>
-                            <li>
-                              التركيز على تطبيق الأنظمة الذكية لتطوير رأس المال
-                              البشري بهدف تحقيق الريادة العالمية
-                            </li>
+                            <li>{t("accordion_goals_body")}</li>
                             <li>
                               العمل على التواصل مع التجارب المعاصرة في مجال
                               التدريب والاستفادة منها بما يتيح خدمة المتدربين
@@ -200,7 +192,7 @@ const Landing = (props) => {
                   <div className="col-lg-9 col-md-12 col-sm-12 section-pics">
                     <div
                       className={style.clientlogos}
-                      style={{ borderRight: ' solid 2px #DDDDDD' }}
+                      style={{ borderRight: " solid 2px #DDDDDD" }}
                     >
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className={style.imgs}>
@@ -229,7 +221,7 @@ const Landing = (props) => {
                   {/* <div className="col-lg-1"></div> */}
                   <div className="col-lg-3 col-md-12 col-sm-12 align-self-center">
                     <div className={style.ourclients}>
-                      <h2>عملائنا</h2>
+                      <h2>{t("clients")}</h2>
                     </div>
                   </div>
                 </div>
@@ -242,44 +234,44 @@ const Landing = (props) => {
       {/* ---------------------------start reviews section---------------------  */}
       <SvgUpWaves />
       <div className={style.reviews}>
-        <div className={style.title}>تقييمات المتدربين وزوار المعهد</div>
+        <div className={style.title}>{t("reviews_Title")}</div>
         <div className={style.reviewscards}>
           <div className="row">
             <ReviewsCard
-              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
+              text={t("review_body")}
               img={logo}
-              username="حسين صلاح"
-              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
+              username={t("review_username")}
+              role={t("review_role")}
             />
             <ReviewsCard
-              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
+              text={t("review_body")}
               img={logo}
-              username="حسين صلاح"
-              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
+              username={t("review_username")}
+              role={t("review_role")}
             />
             <ReviewsCard
-              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
+              text={t("review_body")}
               img={logo}
-              username="حسين صلاح"
-              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
+              username={t("review_username")}
+              role={t("review_role")}
             />
             <ReviewsCard
-              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
+              text={t("review_body")}
               img={logo}
-              username="حسين صلاح"
-              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
+              username={t("review_username")}
+              role={t("review_role")}
             />
             <ReviewsCard
-              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
+              text={t("review_body")}
               img={logo}
-              username="حسين صلاح"
-              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
+              username={t("review_username")}
+              role={t("review_role")}
             />
             <ReviewsCard
-              text="أنا سعيد جداً بالمستوى الحالي الذي حققته بعد التسجيل ضمن كورس تدريبي لمدة شهرين متواصلين ضمن معهداينوفيشن.              "
+              text={t("review_body")}
               img={logo}
-              username="حسين صلاح"
-              role="متدرب ضمن كورس لتعليم لغات البرمجة              "
+              username={t("review_username")}
+              role={t("review_role")}
             />
           </div>
         </div>

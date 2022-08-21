@@ -152,27 +152,30 @@
   border-width: 4px 0px 4px 0;
   border-color: var(--secondary-color);
 }
-.nav .navbar {
-  width: 75%;
-  margin: auto;
-}
+
 .nav .navbar_nav {
   display: flex;
   flex-wrap: wrap;
+  padding: 0px;
   justify-content: center;
 }
 .nav .navbar_nav .nav_link {
   color: white;
   font-weight: bold;
   font-size: 15px;
-  padding: 15px;
+  padding: 20px;
+}
+.nav .navbar_nav .langs_dropdown{
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 20px;
 }
 .nav .navbtns {
   display: flex;
   justify-content: space-between;
   position: relative;
   height: 50px;
-  margin-right: 150px;
 }
 .nav .navbtns .join_login {
   background-color: var(--secondary-color);
@@ -191,7 +194,7 @@
   margin-right: 5px;
 }
 .nav .navbtns .icon {
-  padding-right: 8px;
+  padding: 10px;
 }
 
 .navbar_nav .lang {

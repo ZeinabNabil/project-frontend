@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { createInquiry } from './../../actions/inquiry.action';
 import store from '../../store';
 import classnames from 'classnames';
+import { useTranslation } from "react-i18next";
 const InquiryForm = (props) => {
+  const { t, i18n } = useTranslation();
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -48,7 +50,7 @@ const InquiryForm = (props) => {
         name="name"
         onChange={onInputChange}
         value={form.name}
-        labelName="الاسم الكامل"
+        labelName={t("inquiry_form_name")}
         type="text"
         placeholder=""
         err={errors ? errors.name : ''}
@@ -57,7 +59,7 @@ const InquiryForm = (props) => {
         name="phone"
         onChange={onInputChange}
         value={form.phone}
-        labelName="رقم الموبايل"
+        labelName={t("inquiry_form_number")}
         type="text"
         placeholder=""
         err={errors ? errors.phone : ''}
@@ -66,7 +68,7 @@ const InquiryForm = (props) => {
         name="email"
         onChange={onInputChange}
         value={form.email}
-        labelName="الايميل (البريد الالكترونى)"
+        labelName={t("inquiry_form_email")}
         type="email"
         placeholder=""
         err={errors ? errors.email : ''}
@@ -77,7 +79,7 @@ const InquiryForm = (props) => {
             className={style.formlabel}
             style={{ color: 'black', padding: '4px', fontWeight: 'bold' }}
           >
-            الاستفسارات
+            {t("inquiry_form_inquiries")}
           </label>
         </div>
         <textarea
@@ -95,7 +97,7 @@ const InquiryForm = (props) => {
         {errors && <div className="invalid-feedback">{errors.inquiries}</div>}
       </div>
       <div className={style.sendmsg_btn}>
-        <button className="btn btn-primary">Send Message</button>
+        <button className="btn btn-primary">{t("inquiry_btn")}</button>
       </div>
     </form>
   );

@@ -15,13 +15,15 @@ import LandingPicArea from '../Layout/LandingPicArea';
 import InquiryForm from './InquiryForm';
 import QuestionAccordian from './QuestionAccordian';
 import { faMailchimp } from '@fortawesome/free-brands-svg-icons';
+import { useTranslation } from "react-i18next";
 
 const Contactus = (props) => {
+  const { t, i18n } = useTranslation();
   return (
     <div style={{ backgroundColor: 'rgba(128, 128, 128, 0.092)' }}>
       <LandingPicArea
-        header="تحتاج إلى مساعدة؟"
-        text="لمزيد من المعلومات حول خدماتنا والدورات التي نقدمها ، يمكنك الاتصال بمستشارينا التعليميين والحصول على استشارة مجانية، كما يمكنك الاتصال بنا عبر رقم الهاتف أو البريد الإلكتروني ، أو يمكنك زيارتنا في أي وقت تريده خلال ساعات العمل الموضحة أدناه        "
+        header={t('contact_header')}
+        text={t('contact_text')}
       />
       {/* ----------------------------Start Cards Section------------------------------- */}
       <div className={style.contactcards}>
@@ -33,20 +35,18 @@ const Contactus = (props) => {
                   {/* <-------------------------------start calling card-----------------------------*/}
                   <Cards
                     icon={faClock}
-                    title="ساعات العمل"
-                    text="من يوم الأحد وحتى يوم الخميس
-                    من التاسعة صباحاً وحتى الخامسة مساءً
-                    "
+                    title={t('contact_workhours_header')}
+                    text={t('contact_workhours_body')}
                   />
                   <Cards
                     icon={faMailBulk}
-                    title="راسلنا عبر الإيميل"
-                    text="info@innovationinstituteuae.com"
+                    title={t('contact_email_header')}
+                    text={t('contact_email_body')}
                   />
                   <Cards
                     icon={faPhone}
-                    title="اتصل بنا في أي وقت تريده "
-                    text="(+971) 58 674 7427"
+                    title={t('contact_call_header')}
+                    text={t('contact_call_body')}
                   />
                   {/* <-------------------------------end calling card-----------------------------*/}
                 </div>
@@ -253,7 +253,7 @@ const Contactus = (props) => {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className={style.inquiries}>
-              <div className={style.title}>ارسل لنا استفساراتك</div>
+              <div className={style.title}>{t('inquiries_title')}</div>
               <div className={style.formContainer}>
                 <InquiryForm />
               </div>
