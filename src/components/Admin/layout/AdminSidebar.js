@@ -5,6 +5,7 @@ import {
   faComment,
   faEnvelope,
   faHouse,
+  faLanguage,
   faMessage,
   faQuestionCircle,
   faUser,

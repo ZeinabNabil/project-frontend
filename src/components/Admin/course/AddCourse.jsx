@@ -3,8 +3,6 @@ import style from '../../../css/Admin/Addcourse.module.css';
 import Input from '../../Admin/Input';
 import { addCourse, getCourseById } from '../../../actions/course.action';
 import { connect } from 'react-redux';
-import classnames from 'classnames';
-import store from './../../../store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -12,10 +10,12 @@ import { updateCourse } from './../../../actions/course.action';
 import Select from './Select';
 import CheckBox from './CheckBox';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 const AddCourse = (props) => {
+  const { t, i18n } = useTranslation();
   const { courseId } = useParams();
   const navigate = useNavigate();
-  const categories = ['دورات حاسوب', 'دورات لغة'];
+  const categories = t('categories', { returnObjects: true });
   const [form, setForm] = useState({
     name: '',
     description: '',
@@ -96,7 +96,11 @@ const AddCourse = (props) => {
 
   const { errors } = props.error;
   return (
-    <div className={style.addcourse}>
+    <div
+      className={`${style.addcourse} ${
+        i18n.resolvedLanguage === 'ar' ? 'arabic' : 'english'
+      }`}
+    >
       <div className={style.title}>
         <span>
           <FontAwesomeIcon icon={faPlus} />
@@ -116,7 +120,7 @@ const AddCourse = (props) => {
                   onChange={onInputChange}
                   value={form.name}
                   name="name"
-                  labelName="الاسم"
+                  labelName={t('name')}
                   type="text"
                   className="form-control"
                   err={errors ? errors.name : ''}
@@ -127,7 +131,7 @@ const AddCourse = (props) => {
                   onChange={onInputChange}
                   value={form.description}
                   name="description"
-                  labelName="الــوصف"
+                  labelName={t('description')}
                   type="text"
                   err={errors ? errors.description : ''}
                 />
@@ -139,7 +143,7 @@ const AddCourse = (props) => {
                   onChange={onInputChange}
                   value={form.hours}
                   name="hours"
-                  labelName="عدد ساعات الدورة"
+                  labelName={t('hours')}
                   type="number"
                   err={errors ? errors.hours : ''}
                 />
@@ -149,7 +153,7 @@ const AddCourse = (props) => {
                   onChange={onInputChange}
                   value={form.duration}
                   name="duration"
-                  labelName="مدة الدورة"
+                  labelName={t('duration')}
                   type="text"
                   err={errors ? errors.duration : ''}
                 />
@@ -161,7 +165,7 @@ const AddCourse = (props) => {
                   onChange={onInputChange}
                   value={form.price}
                   name="price"
-                  labelName="سعر الدورة"
+                  labelName={t('price')}
                   type="text"
                   err={errors ? errors.price : ''}
                 />
@@ -169,7 +173,7 @@ const AddCourse = (props) => {
               <div className="col-lg-6">
                 <Input
                   onChange={onFileChange}
-                  labelName="صــوررة الدورة"
+                  labelName={t('image')}
                   type="file"
                   file="yes"
                   name="image"
@@ -184,7 +188,7 @@ const AddCourse = (props) => {
                   list={categories}
                   value={form.category}
                   onChange={onInputChange}
-                  labelName="نــوع الدورة"
+                  labelName={t('category')}
                   err={errors ? errors.category : ''}
                 />
               </div>
@@ -193,7 +197,7 @@ const AddCourse = (props) => {
                   onChange={onInputChange}
                   value={form.classes}
                   name="classes"
-                  labelName="حصص الدورة"
+                  labelName={t('classes')}
                   type="text"
                   err={errors ? errors.classes : ''}
                 />
@@ -202,7 +206,7 @@ const AddCourse = (props) => {
             <div className="row">
               <div className="col-lg-6">
                 <CheckBox
-                  labelName="يوجد تخفيض للدورة ؟"
+                  labelName={t('isHasOffer')}
                   onChange={onHandleCheck}
                   checked={form.isHasOffer}
                   value={form.isHasOffer}
@@ -211,7 +215,7 @@ const AddCourse = (props) => {
               <div className="col-lg-6">
                 <div className={style.text_area}>
                   <label className={style.formlabel} style={{ color: 'white' }}>
-                    معلومات عن الدورة
+                    {t('about')}
                   </label>
                   <textarea
                     className="form-control"
@@ -221,7 +225,7 @@ const AddCourse = (props) => {
                     onChange={onInputChange}
                     rows="4"
                     cols="50"
-                    placeholder="المستوي الاول : عن المستوي الاول@المستوي التاني : عن المستوي التاني...وهكذا"
+                    placeholder={t('aboutPlaceholder')}
                   ></textarea>
                 </div>
               </div>
@@ -233,7 +237,7 @@ const AddCourse = (props) => {
                     onChange={onInputChange}
                     value={form.offer}
                     name="offer"
-                    labelName="سعر التخفيض"
+                    labelName={t('offerPrice')}
                     type="text"
                     err={errors ? errors.price : ''}
                   />
@@ -243,7 +247,7 @@ const AddCourse = (props) => {
                     onChange={onInputChange}
                     value={form.endOfferDate}
                     name="endOfferDate"
-                    labelName="موعد نهاية التخفيض "
+                    labelName={t('endOfferDate')}
                     type="date"
                     err={errors ? errors.endOfferDate : ''}
                   />
@@ -254,7 +258,7 @@ const AddCourse = (props) => {
             )}
 
             <div className={style.save_btn}>
-              <button className="btn"> حــــفــــظ </button>
+              <button className="btn"> {t('Save')} </button>
             </div>
           </form>
         </div>

@@ -13,9 +13,12 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/user.action';
 import Topbar from './Topbar';
 import { useNavigate } from 'react-router-dom';
+
 import { useTranslation } from 'react-i18next';
+
 const Navbar = (props) => {
   const { i18n, t } = useTranslation();
+
   const navigate = useNavigate();
   const { isAuthenticated, currentUser } = props.user;
   const navItems = t('navbarItems', { returnObjects: true });
@@ -69,18 +72,13 @@ const Navbar = (props) => {
 
     return null;
   };
-  console.log();
   return (
     <div className={style.header}>
       {/* ----------------------start topbar----------------- */}
       <Topbar />
       {/* -----------------------end topbar--------------------- */}
       {/* -------------------------start navbar--------------------- */}
-      <div
-        className={`${style.nav} ${
-          i18n.resolvedLanguage === 'ar' ? 'arabic' : 'english'
-        }`}
-      >
+      <div className={`${style.nav} `}>
         <div className="col-lg-12 col-md-12 col-sm-12">
           <nav className={`navbar navbar-expand-lg ${style.navbar}`}>
             <div className="container-fluid">

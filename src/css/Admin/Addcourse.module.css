@@ -4,9 +4,7 @@
 }
 
 /* ---------------start add course form----------------- */
-.addcourse {
-  direction: rtl;
-}
+
 .addcourse .title {
   text-align: center;
   position: relative;

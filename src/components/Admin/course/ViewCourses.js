@@ -9,8 +9,23 @@ import columns from './CoursesColumn';
 import Table from '../../Table';
 import Loading from '../../../Loading';
 import { confirm } from '../Confirmation';
-
+import { useTranslation } from 'react-i18next';
 const ViewCourses = (props) => {
+  const { t } = useTranslation();
+  const columnsName = {
+    col_course_name: t('col_course_name'),
+    col_course_category: t('col_course_category'),
+    col_course_attends: t('col_course_attends'),
+    col_course_hours: t('col_course_hours'),
+    col_course_classes: t('col_course_classes'),
+    col_course_duration: t('col_course_duration'),
+    col_course_price: t('col_course_price'),
+    col_course_offer: t('col_course_offer'),
+    col_course_offerDuration: t('col_course_offerDuration'),
+    col_course_addedBy: t('col_course_addedBy'),
+    col_course_seeMore: t('col_course_seeMore'),
+    col_course_action: t('col_course_action'),
+  };
   useEffect(() => {
     props.getAllCourses();
   }, []);

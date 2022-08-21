@@ -1,7 +1,10 @@
 /* Start Dashboard CSS */
 
 /* Start Navbar CSS */
-
+.lang span {
+  display: inline-block;
+  margin: 5px;
+}
 .navbar {
   background-color: var(--main-color);
   color: var(--secondary-color);

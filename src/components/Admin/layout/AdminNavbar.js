@@ -1,17 +1,13 @@
-import {
-  faBell,
-  faBible,
-  faHouseChimney,
-  faSignOut,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import style from '../../../css/Admin/Dashboard.module.css';
 import { connect } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logoutUser } from '../../../actions/user.action';
+import { useTranslation } from 'react-i18next';
 const AdminNavbar = (props) => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { currentUser, loading } = props.user;
   var role;
@@ -19,11 +15,11 @@ const AdminNavbar = (props) => {
     role = 'Loading';
   } else {
     if (currentUser.role == 1) {
-      role = 'اهلا, مشـــرف';
+      role = t('WelcomeAdmin');
     } else if (currentUser.role == 2) {
-      role = 'اهلا, مســـاعد';
+      role = t('WelcomeAssistant');
     } else if (currentUser.role == 3) {
-      role = 'اهلا, وسيـــط';
+      role = t('WelcomeModerator');
     }
   }
   const onLogoutClick = () => {
@@ -40,7 +36,7 @@ const AdminNavbar = (props) => {
             <div className={style.navbar_icons}>{role}</div>
             <Link to="#" onClick={onLogoutClick}>
               <div className={style.navbar_icons}>
-                الخروج <FontAwesomeIcon icon={faSignOut} />
+                {t('logout')} <FontAwesomeIcon icon={faSignOut} />
               </div>
             </Link>
           </div>

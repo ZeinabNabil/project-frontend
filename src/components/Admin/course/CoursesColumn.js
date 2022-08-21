@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 // Icons
 import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 // CSS
 import style from '../../../css/Admin/View.module.css';
 import moment from 'moment';
@@ -13,7 +12,6 @@ function daysBetween(date1String, date2String) {
   var d2 = new Date(date2String);
   return (d2 - d1) / (1000 * 3600 * 24);
 }
-
 const CourseColumn = (onDeletClick, role) => [
   {
     name: 'اسم الدورة',
