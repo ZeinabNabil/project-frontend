@@ -1,37 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import style from '../../css/ReadMore/Readmore.module.css';
-
 import AOS from 'aos';
-
-// Images
-import firstPhoto from '../../images/IELTS.jpg';
-import secondPhoto from '../../images/IELTS.jpg';
-import thirdPhoto from '../../images/IELTS.jpg';
-
 // Icons
-import { faSlideshare } from '@fortawesome/free-brands-svg-icons';
 import {
-  faBookOpen,
   faCalendarDays,
   faChalkboardUser,
   faClock,
-  faCrown,
-  faPhone,
-  faUserGroup,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Components
 import ReadMoreBox from './ReadMoreBox';
 import ReadMoreCard from './ReadMoreCard';
-import CourseTypeCard from './CourseTypeCard';
 // Redux
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCourseById } from './../../actions/course.action';
 import SvgDownWaves from '../SvgDownWaves';
-import SvgUpWaves from '../SvgUpWaves';
+import { useTranslation } from 'react-i18next';
 const ReadMore = (props) => {
+  const { t } = useTranslation();
   const { id } = useParams();
   useEffect(() => {
     props.getCourseById(id);
@@ -46,24 +33,6 @@ const ReadMore = (props) => {
     AOS.init();
   }, []);
 
-  const onInputChange = (e) => {
-    const value = e.target.value;
-    setForm({
-      ...form,
-      [e.target.name]: value,
-    });
-  };
-
-  const onFormSubmit = async (evt) => {
-    evt.preventDefault();
-    const userData = {
-      name: form.name,
-      email: form.email,
-      password: form.password,
-      phone: form.phone,
-      confirmPassword: form.confirmPassword,
-    };
-  };
   var attends, classes, duration, hours, courseId, name, about;
 
   const { course, loading } = props.course;
@@ -75,7 +44,7 @@ const ReadMore = (props) => {
     attends = course.attends;
     classes = course.classes;
     duration = course.duration;
-    hours = course.hours + 'ساعات';
+    hours = course.hours + ' ' + t('numberOfHourse');
     courseId = course._id;
     name = course.name;
     about = course.about;
@@ -96,7 +65,7 @@ const ReadMore = (props) => {
                         {name}
                       </button>
                       <button type="button" className="btn btn-primary">
-                        لتسجيل هذه الدوره اضغط هنا
+                        {t('clickHereForRegister')}
                       </button>
                     </div>
                   </div>
@@ -110,17 +79,17 @@ const ReadMore = (props) => {
                 <div className="row">
                   <ReadMoreCard
                     cardIcon={faChalkboardUser}
-                    cardTilte="عدد الحصص"
+                    cardTilte={t('classes')}
                     cardSubtitle={classes}
                   />
                   <ReadMoreCard
                     cardIcon={faCalendarDays}
-                    cardTilte="مدة الدورة"
+                    cardTilte={t('duration')}
                     cardSubtitle={duration}
                   />
                   <ReadMoreCard
                     cardIcon={faClock}
-                    cardTilte="عدد ساعات الدورة"
+                    cardTilte={t('hours')}
                     cardSubtitle={hours}
                   />
                 </div>
@@ -171,7 +140,7 @@ const ReadMore = (props) => {
                   </div>
                 </div>
                 <ReadMoreBox
-                  boxHeader={`معلومات عن ${name}`}
+                  boxHeader={t('seeMoreAbout') + name}
                   boxContent={about}
                 />
               </div>

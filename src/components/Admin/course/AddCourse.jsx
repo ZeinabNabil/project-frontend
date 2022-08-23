@@ -30,6 +30,7 @@ const AddCourse = (props) => {
     offer: '',
     endOfferDate: new Date(),
     image: '',
+    lang: '',
   });
   const onInputChange = (e) => {
     const value = e.target.value;
@@ -83,6 +84,11 @@ const AddCourse = (props) => {
     course.append('offer', form.offer);
     course.append('endOfferDate', form.endOfferDate);
     course.append('image', form.image);
+    if (i18n.resolvedLanguage === 'en') {
+      course.append('lang', 'en');
+    } else {
+      course.append('lang', 'ar');
+    }
     if (course && courseId) {
       props.updateCourse(course, courseId, navigate);
     } else {
@@ -204,15 +210,7 @@ const AddCourse = (props) => {
               </div>
             </div>
             <div className="row">
-              <div className="col-lg-6">
-                <CheckBox
-                  labelName={t('isHasOffer')}
-                  onChange={onHandleCheck}
-                  checked={form.isHasOffer}
-                  value={form.isHasOffer}
-                />
-              </div>
-              <div className="col-lg-6">
+              <div className="col-lg-12">
                 <div className={style.text_area}>
                   <label className={style.formlabel} style={{ color: 'white' }}>
                     {t('about')}
@@ -228,6 +226,16 @@ const AddCourse = (props) => {
                     placeholder={t('aboutPlaceholder')}
                   ></textarea>
                 </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-lg-6">
+                <CheckBox
+                  labelName={t('isHasOffer')}
+                  onChange={onHandleCheck}
+                  checked={form.isHasOffer}
+                  value={form.isHasOffer}
+                />
               </div>
             </div>
             {form.isHasOffer ? (

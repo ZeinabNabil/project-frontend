@@ -12,74 +12,74 @@ function daysBetween(date1String, date2String) {
   var d2 = new Date(date2String);
   return (d2 - d1) / (1000 * 3600 * 24);
 }
-const CourseColumn = (onDeletClick, role) => [
+const CourseColumn = (onDeletClick, role, columnsName) => [
   {
-    name: 'اسم الدورة',
+    name: columnsName.col_course_name,
     selector: (row) => row.name,
     sortable: true,
     wrap: true,
   },
 
   {
-    name: 'نوع الدورة',
+    name: columnsName.col_course_category,
     selector: (row) => row.category.toUpperCase(),
     sortable: true,
     wrap: true,
   },
   {
-    name: 'عدد المسجلين',
+    name: columnsName.col_course_attends,
     selector: (row) => row.attends,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'الساعات',
-    selector: (row) => `${row.hours} ساعــة`,
+    name: columnsName.col_course_hours,
+    selector: (row) => `${row.hours} ${columnsName.numberOfHourse}`,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'الحصص',
-    selector: (row) => `${row.classes} حـــصة`,
+    name: columnsName.col_course_classes,
+    selector: (row) => `${row.classes}`,
     wrap: true,
   },
   {
-    name: 'المدة',
+    name: columnsName.col_course_duration,
     selector: (row) => row.duration,
     wrap: true,
   },
   {
-    name: 'السعر',
+    name: columnsName.col_course_price,
     selector: (row) => row.price,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'التخفيض',
-    selector: (row) => (row.isHasOffer ? row.offer : 'لا يوجد'),
+    name: columnsName.col_course_offer,
+    selector: (row) => (row.isHasOffer ? row.offer : columnsName.empty),
     sortable: true,
     wrap: true,
   },
   {
-    name: 'مدة التخفيض',
+    name: columnsName.col_course_offerDuration,
     selector: (row) =>
       row.isHasOffer
         ? `باقي ${daysBetween(
             moment().format('l'),
             moment(row.endOfferDate).format('l')
           )} ايام`
-        : 'لا يوجد',
+        : columnsName.empty,
 
     sortable: true,
     wrap: true,
   },
   {
-    name: 'تم الاضافة بواسطة',
+    name: columnsName.col_course_addedBy,
     selector: (row) => row.userId.name,
     wrap: true,
   },
   {
-    name: 'تفاصيل اكــثر',
+    name: columnsName.col_course_seeMore,
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,
@@ -91,7 +91,7 @@ const CourseColumn = (onDeletClick, role) => [
               to={`/dashboard/course/view/${row._id}`}
               className={style.View_more_btn}
             >
-              رؤيـــة المزيــد
+              {columnsName.col_course_SeeMore_Button}
             </Link>
           </div>
         </div>
@@ -100,7 +100,7 @@ const CourseColumn = (onDeletClick, role) => [
   },
 
   {
-    name: 'فعل',
+    name: columnsName.col_course_action,
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,

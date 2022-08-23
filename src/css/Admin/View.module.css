@@ -47,6 +47,7 @@
 }
 .filter_button button {
   margin-right: 5px;
+  margin-left: 5px;
 }
 .filter_button button,
 .filter_button button:hover {
@@ -71,6 +72,7 @@
   color: white;
 
   margin-left: 5px;
+  margin-right: 5px;
 }
 .edit_delete_btns button:focus {
   border-color: var(--shadow-color);
@@ -87,7 +89,6 @@
 
 .view {
   margin-top: 20px;
-  direction: rtl;
 }
 
 .view_data {

@@ -30,7 +30,7 @@ const Navbar = (props) => {
     return (
       <div className={style.navbtns}>
         <Link to="/auth/register" className={style.join_login}>
-         {t('join_btn')}
+          {t('join_btn')}
           <FontAwesomeIcon className={style.icon} icon={faUserGraduate} />
         </Link>
         <Link to="/auth/login" className={style.join_login}>
@@ -49,7 +49,7 @@ const Navbar = (props) => {
             aria-current="page"
             to="/profile"
           >
-            الملف الشخصي
+            {t('profile')}
           </Link>
         </li>
         <li className="nav-item">
@@ -59,7 +59,7 @@ const Navbar = (props) => {
             to="/"
             onClick={onLogoutClick}
           >
-            تسجيل الخروج
+            {t('logout')}
           </Link>
         </li>
       </>
@@ -94,7 +94,11 @@ const Navbar = (props) => {
                 <span className="navbar-toggler-icon"></span>
               </button>
 
-              <div className="collapse navbar-collapse" id="navbarNavDropdown" style={{justifyContent:"space-around"}}>
+              <div
+                className="collapse navbar-collapse"
+                id="navbarNavDropdown"
+                style={{ justifyContent: 'space-around' }}
+              >
                 <ul className={`navbar-nav ${style.navbar_nav}`}>
                   {navItems.map((item, index) => (
                     <li className="nav-item" key={index}>
@@ -109,26 +113,30 @@ const Navbar = (props) => {
                   ))}
                   {isAuthenticated ? renderItems() : null}
                   <li className="nav-item dropdown">
-                  <a
-                    className={`nav-link dropdown-toggle ${style.langs_dropdown}`}
-                    role="button"
-                    id="languages"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                   {t('langs')}
-                  </a>
-                  <ul className="dropdown-menu" aria-labelledby="langs">
-                    <li className={`nav-link ${style.lang}`} 
-                    onClick={() => i18n.changeLanguage('ar')} >
-                         {t('Arabic')}
-                    </li>
-                    <li  className={`nav-link active ${style.lang}`}
-                     onClick={() => i18n.changeLanguage('en')}> 
-                        {t('English')}  
-                    </li>
-                  </ul>
-                </li> 
+                    <a
+                      className={`nav-link dropdown-toggle ${style.langs_dropdown}`}
+                      role="button"
+                      id="languages"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      {t('langs')}
+                    </a>
+                    <ul className="dropdown-menu" aria-labelledby="langs">
+                      <li
+                        className={`nav-link ${style.lang}`}
+                        onClick={() => i18n.changeLanguage('ar')}
+                      >
+                        {t('Arabic')}
+                      </li>
+                      <li
+                        className={`nav-link active ${style.lang}`}
+                        onClick={() => i18n.changeLanguage('en')}
+                      >
+                        {t('English')}
+                      </li>
+                    </ul>
+                  </li>
                 </ul>
                 {!isAuthenticated ? guest() : ''}
               </div>

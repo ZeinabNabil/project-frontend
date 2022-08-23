@@ -39,8 +39,13 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
-        currentUser: {},
+        currentUser: null,
         loading: false,
+        users: null,
+        numberOfUsers: null,
+        numberOfRegisteredCourses: null,
+        lastFiveUsers: null,
+        profile: null,
       };
     case GET_USERS:
       return {

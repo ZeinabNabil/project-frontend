@@ -34,7 +34,7 @@ export const getAllCourses = () => async (dispatch) => {
   dispatch(Loading);
 
   try {
-    const response = await axios.get('/course');
+    const response = await axios.get(`/course`);
     dispatch({
       type: GET_COURSES,
       payload: response.data,
@@ -104,13 +104,18 @@ export const getRegisteredCourses = (id) => async (dispatch) => {
     console.log(error.response.data);
   }
 };
-export const registerCourse = (courseId) => async (dispatch) => {
-  try {
-    await axios.post('/course/registercourse', { courseId: courseId });
-  } catch (error) {
-    console.log(error.response.data);
-  }
-};
+export const registerCourse =
+  (courseId, successMsg, navigate) => async (dispatch) => {
+    try {
+      await axios.post('/course/registercourse', {
+        courseId: courseId,
+      });
+      toastify(successMsg);
+      navigate(0);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
 export const lastFiveRegisteredCourses = () => async (dispatch) => {
   dispatch({
     type: COURSE_LOADING,

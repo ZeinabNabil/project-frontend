@@ -39,6 +39,7 @@
   cursor: pointer;
   text-align: center;
   height: 100%;
+  width: 90%;
   display: block;
   background: #ffffff;
   box-shadow: 0px 0px 3px 0px rgb(152, 151, 151);
@@ -63,8 +64,7 @@
   padding: 10px 0;
 }
 .Section .card .image img {
-  width: 95%;
-  height: 300px;
+  width: 60%;
   border-radius: 10px;
   opacity: 0.8;
   transition: all 500ms;
@@ -76,7 +76,7 @@
 .card .cardtitle {
   text-align: center;
   color: #222;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 400;
   text-transform: uppercase;
   color: black;
@@ -85,7 +85,9 @@
 
 .Section .card span {
   text-transform: none;
-  font-size: 1.3em;
+  font-size: 1em;
+  display: inline-block;
+  width: 70%;
 }
 .Section .card .line_through {
   text-decoration: line-through;
@@ -101,6 +103,8 @@
 .Section .card .price_offer {
   margin-top: 25px;
   font-size: 12px;
+  padding: 0px 0px;
+  text-align: center;
 }
 
 /* -----------------------------End Sections--------------------------- */

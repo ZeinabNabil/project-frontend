@@ -9,7 +9,9 @@ import Switch from 'react-switch';
 import { connect } from 'react-redux';
 import { updateUser, getCurrentProfile } from './../../actions/user.action';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 const UserProfile = (props) => {
+  const { t } = useTranslation();
   const [edit, setEdit] = useState(false);
   const [form, setForm] = useState({
     name: '',
@@ -80,11 +82,8 @@ const UserProfile = (props) => {
           <div className="container">
             <div className="row">
               <div className=" col-lg-12 col-md-12 col-sm-12">
-                <h1>{form.name} اهلا </h1>
-                <p>
-                  يمكنك رؤية بياناتك الشخصيـــة و ايضا الـــدورات التي قمت
-                  بتسجيلها
-                </p>
+                <h1>{form.name} </h1>
+                <p>{t('profileParagraph')}</p>
               </div>
             </div>
           </div>
@@ -97,7 +96,7 @@ const UserProfile = (props) => {
         <div className="card">
           <div className={`card-header ${style.card_header}`}>
             <h5>
-              <FontAwesomeIcon icon={faUser} /> البيـــــانات الشخصيـــة
+              <FontAwesomeIcon icon={faUser} /> {t('personalInformation')}
             </h5>
             <label>
               <Switch
@@ -115,7 +114,7 @@ const UserProfile = (props) => {
                   onChange={onInputChange}
                   name="name"
                   value={form.name}
-                  labelName="اسم المستخدم"
+                  labelName={t('UserName')}
                   type="text"
                   edit={edit}
                   className="form-control"
@@ -126,7 +125,7 @@ const UserProfile = (props) => {
                   onChange={onInputChange}
                   name="email"
                   value={form.email}
-                  labelName="البريد الالكتروني"
+                  labelName={t('UserEmail')}
                   edit={edit}
                   type="email"
                   placeholder="Example : username @example.com"
@@ -135,7 +134,7 @@ const UserProfile = (props) => {
                   onChange={onInputChange}
                   name="phone"
                   value={form.phone}
-                  labelName="رقم الهاتف"
+                  labelName={t('UserPhone')}
                   type="text"
                   edit={edit}
                   className="form-control"
@@ -146,7 +145,7 @@ const UserProfile = (props) => {
                 className="btn btn-primary"
                 disabled={toggleChecked ? false : true}
               >
-                حفظ البيـــــانات
+                {t('Save')}
               </button>
             </form>
           </div>
@@ -156,7 +155,7 @@ const UserProfile = (props) => {
 
       <div className="container">
         <div className={style.coursesHeader}>
-          <span>الدورات التي قمت بتسجيلها </span>
+          <span>{t('yourRegisteredCourses')}</span>
         </div>
         {courseLength !== 0 ? (
           <div className={style.course_card_container}>

@@ -1,21 +1,22 @@
-import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import style from "../../css/Authentication/Authentication.module.css";
-import { Link } from "react-router-dom";
-import FormComponent from "./FormComponents";
-import MainButton from "./MainButton";
-import { loginUser } from "../../actions/user.action";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import store from "../../store";
-import { useNavigate } from "react-router-dom";
-
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import style from '../../css/Authentication/Authentication.module.css';
+import { Link } from 'react-router-dom';
+import FormComponent from './FormComponents';
+import MainButton from './MainButton';
+import { loginUser } from '../../actions/user.action';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import store from '../../store';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 const Login = (props) => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const Login = (props) => {
   };
   useEffect(() => {
     store.dispatch({
-      type: "GET_ERRORS",
+      type: 'GET_ERRORS',
       payload: {},
     });
   }, []);
@@ -68,9 +69,9 @@ const Login = (props) => {
                 icon={faEnvelope}
                 name="email"
                 type="text"
-                placeholder="قم بكتابة البريد الالكتروني هنا"
+                placeholder={t('UserEmailPlaceholder')}
                 onChange={onInputChange}
-                err={errors ? errors.email : ""}
+                err={errors ? errors.email : ''}
               />
               <FormComponent
                 value={form.password}
@@ -78,9 +79,9 @@ const Login = (props) => {
                 icon={faLock}
                 name="password"
                 type="password"
-                placeholder="ادخل كلمة السر الخاصة بك"
+                placeholder={t('UserPasswordPlaceholder')}
                 onChange={onInputChange}
-                err={errors ? errors.password : ""}
+                err={errors ? errors.password : ''}
               />
               {/* <div className="col-lg-12">
                 <div className={style.important_link}>

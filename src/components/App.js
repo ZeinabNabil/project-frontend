@@ -1,36 +1,36 @@
-import React from "react";
-import { Provider } from "react-redux";
-import store from "../store";
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from '../store';
 // CSS
-import "bootstrap/dist/css/bootstrap.min.css";
-import "jquery/dist/jquery.min.js";
-import "bootstrap/dist/js/bootstrap.min.js";
-import "react-toastify/dist/ReactToastify.css";
-import "aos/dist/aos.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'react-toastify/dist/ReactToastify.css';
+import 'aos/dist/aos.css';
 // Components
-import setAuthToken from "./../utilis/setAuthToken";
-import jwt_decode from "jwt-decode";
-import { setCurrentUser } from "./../actions/user.action";
-import ViewCourses from "./Admin/course/ViewCourses";
-import AddUser from "./Admin/user/AddUser";
-import CourseInfo from "./Admin/course/CourseInfo";
-import ViewUsers from "./Admin/user/ViewUsers";
-import Dashboard from "./Admin/layout/Dashboard";
-import UserProfile from "./user/UserProfile";
-import ReadMore from "./ReadMore/ReadMore";
-import Contactus from "./ContactUs/Contactus";
-import CoursesByCategory from "./courses/CoursesByCategory";
-import AdminHome from "./Admin/layout/AdminHome";
-import WithNavbarAndFooter from "../WithNavbarAndFooter";
-import Inquiry from "./Admin/inquiry/Inquiry";
-import UpdateUser from "./Admin/user/Updateuser";
-import MainAuthPage from "./Authentication/MainAuthPage";
-import Login from "./Authentication/Login";
-import Register from "./Authentication/Register";
-import Homepage from "./Landingpage/Homepage";
-import AddCourse from "./Admin/course/AddCourse";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import setAuthToken from './../utilis/setAuthToken';
+import jwt_decode from 'jwt-decode';
+import { setCurrentUser } from './../actions/user.action';
+import ViewCourses from './Admin/course/ViewCourses';
+import AddUser from './Admin/user/AddUser';
+import CourseInfo from './Admin/course/CourseInfo';
+import ViewUsers from './Admin/user/ViewUsers';
+import Dashboard from './Admin/layout/Dashboard';
+import UserProfile from './user/UserProfile';
+import ReadMore from './ReadMore/ReadMore';
+import Contactus from './ContactUs/Contactus';
+import CoursesByCategory from './courses/CoursesByCategory';
+import AdminHome from './Admin/layout/AdminHome';
+import WithNavbarAndFooter from '../WithNavbarAndFooter';
+import Inquiry from './Admin/inquiry/Inquiry';
+import UpdateUser from './Admin/user/Updateuser';
+import MainAuthPage from './Authentication/MainAuthPage';
+import Login from './Authentication/Login';
+import Register from './Authentication/Register';
+import Homepage from './Landingpage/Homepage';
+import AddCourse from './Admin/course/AddCourse';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 if (localStorage.token) {
   //set auth token header auth
   setAuthToken(localStorage.token);
@@ -44,7 +44,7 @@ if (localStorage.token) {
 const App = ({ lang }) => {
   const { t, i18n } = useTranslation();
   return (
-    <div className={i18n.resolvedLanguage === "ar" ? "arabic" : "english"}>
+    <div className={i18n.resolvedLanguage === 'ar' ? 'arabic' : 'english'}>
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
@@ -57,7 +57,11 @@ const App = ({ lang }) => {
               <Route exact path="/readmore/:id" element={<ReadMore />} />
               <Route exact path="/readmore" element={<ReadMore />} />
               <Route exact path="/contact" element={<Contactus />} />
-              <Route exact path="/:category" element={<CoursesByCategory />} />
+              <Route
+                exact
+                path="/category/:category"
+                element={<CoursesByCategory />}
+              />
               <Route exact path="/profile" element={<UserProfile />} />
             </Route>
             <Route exact path="dashboard" element={<Dashboard />}>
@@ -66,7 +70,7 @@ const App = ({ lang }) => {
               <Route
                 exact
                 path="course/add"
-                element={<AddCourse header={t("addNewCourse")} />}
+                element={<AddCourse header={t('addNewCourse')} />}
               />
               <Route
                 exact

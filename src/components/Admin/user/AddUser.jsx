@@ -8,21 +8,10 @@ import { createUser } from '../../../actions/user.action';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Select from './Select';
+import { useTranslation } from 'react-i18next';
 const AddUser = (props) => {
-  const roles = [
-    {
-      name: 'مشرف',
-      value: 1,
-    },
-    {
-      name: 'مســاعد',
-      value: 2,
-    },
-    {
-      name: 'وســـيط',
-      value: 3,
-    },
-  ];
+  const { t, i18n } = useTranslation();
+  const roles = t('UserRoles', { returnObjects: true });
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: '',
@@ -70,7 +59,7 @@ const AddUser = (props) => {
       <div className={style.title}>
         <span>
           <FontAwesomeIcon icon={faPlus} />
-          اضــافة مستخدم جــديـد
+          {t('addNewUser')}
         </span>
       </div>
       <div className={style.formcontainer}>
@@ -79,58 +68,58 @@ const AddUser = (props) => {
             onChange={onInputChange}
             value={form.name}
             name="name"
-            labelName="اسم المستخدم"
+            labelName={t('UserName')}
             type="text"
             class="form-control"
-            placeholder="الاسم"
+            placeholder={t('UserNamePlaceholder')}
             err={errors ? errors.name : ''}
           />
           <Input
             onChange={onInputChange}
             value={form.email}
             name="email"
-            labelName="البريد الالكتروني"
+            labelName={t('UserEmail')}
             type="email"
-            placeholder="قم بكتابة البريد الالكتروني هنا"
+            placeholder={t('UserEmailPlaceholder')}
             err={errors ? errors.email : ''}
           />
           <Input
             onChange={onInputChange}
             value={form.password}
-            labelName="كلمة السر"
+            labelName={t('UserPassword')}
             name="password"
             type="password"
-            placeholder="ادخل كلمة السر الخاصة بك"
+            placeholder={t('UserPasswordPlaceholder')}
             err={errors ? errors.password : ''}
           />
           <Input
             onChange={onInputChange}
             value={form.confirmPassword}
             name="confirmPassword"
-            labelName="تــأكيد كلمة السر"
+            labelName={t('UserConfirmPassword')}
             type="password"
-            placeholder="قم بكتابة كلمة السر مرة اخري"
+            placeholder={t('UserConfirmPasswordPlaceholder')}
             err={errors ? errors.confirmPassword : ''}
           />
           <Input
             onChange={onInputChange}
             value={form.phone}
-            labelName="رقم الهاتف"
+            labelName={t('UserPhone')}
             name="phone"
             type="text"
             class="form-control"
-            placeholder="رقم الهاتف الخاص بك"
+            placeholder={t('UserPhonePlaceholder')}
             err={errors ? errors.phone : ''}
           />
           <Select
             items={roles}
-            labelName="دور المستخدم"
+            labelName={t('UserRole')}
             value={form.role}
             onChange={onInputChange}
             name="role"
           />
           <div className={style.save_btn}>
-            <button className="btn">حفظ البـــيانات</button>
+            <button className="btn">{t('Save')}</button>
           </div>
         </form>
       </div>

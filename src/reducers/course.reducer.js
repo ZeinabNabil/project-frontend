@@ -7,6 +7,7 @@ import {
   GET_NUMBER_OF_REGISTERED_COURESES,
   GET_REGISTERED_COURSES,
   GET_LAST_FIVE_REGISTERED_COURSES,
+  LOGOUT,
 } from '../actions/types';
 
 const initialState = {
@@ -69,6 +70,18 @@ export default function (state = initialState, action) {
         ...state,
         loading: false,
         lastFiveRegisteredCourses: action.payload,
+      };
+
+    case LOGOUT:
+      return {
+        ...state,
+        courses: null,
+        course: null,
+        coursesByCategory: null,
+        numberOfCourses: null,
+        numberOfUsersWholeRegisteredCourses: null,
+        registeredCourses: null,
+        lastFiveRegisteredCourses: null,
       };
     default:
       return state;

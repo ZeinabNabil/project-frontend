@@ -9,51 +9,50 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // CSS
 import style from '../../../css/Admin/View.module.css';
 
-const UsersColumns = (onDeletClick, role) => [
+const UsersColumns = (onDeletClick, role, ColumnsName) => [
   {
-    name: 'الاسم',
+    name: ColumnsName.name,
     selector: (row) => row.name,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'البريد الالكتروني',
+    name: ColumnsName.email,
     selector: (row) => row.email,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'رقم الهاتف',
+    name: ColumnsName.phone,
     selector: (row) => row.phone,
     sortable: true,
     wrap: true,
   },
   {
-    name: 'دور',
+    name: ColumnsName.role,
     selector: (row) => {
       if (row.role == 0) {
-        return 'طالب';
+        return ColumnsName.user;
       }
       if (row.role == 1) {
-        return 'المشرف';
+        return ColumnsName.roles[0].name;
       }
       if (row.role == 2) {
-        return 'مساعد';
+        return ColumnsName.roles[1].name;
       }
       if (row.role == 3) {
-        return 'وسيط';
+        return ColumnsName.roles[2].name;
       }
     },
     sortable: true,
     wrap: true,
   },
   {
-    name: 'فعل',
+    name: ColumnsName.action,
     button: true,
     ignoreRowClick: true,
     allowOverflow: true,
     cell: (row) => {
-      console.log('he', role);
       if (role == 1) {
         return (
           <div className={style.edit_delete_btns}>

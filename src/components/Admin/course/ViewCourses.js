@@ -11,7 +11,7 @@ import Loading from '../../../Loading';
 import { confirm } from '../Confirmation';
 import { useTranslation } from 'react-i18next';
 const ViewCourses = (props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const columnsName = {
     col_course_name: t('col_course_name'),
     col_course_category: t('col_course_category'),
@@ -24,10 +24,13 @@ const ViewCourses = (props) => {
     col_course_offerDuration: t('col_course_offerDuration'),
     col_course_addedBy: t('col_course_addedBy'),
     col_course_seeMore: t('col_course_seeMore'),
-    col_course_action: t('col_course_action'),
+    col_course_action: t('action'),
+    col_course_SeeMore_Button: t('col_course_SeeMore_Button'),
+    empty: t('empty'),
+    numberOfHourse: t('numberOfHourse'),
   };
   useEffect(() => {
-    props.getAllCourses();
+    props.getAllCourses(i18n.resolvedLanguage);
   }, []);
   var renderContent;
   var role = -1;
@@ -36,7 +39,7 @@ const ViewCourses = (props) => {
     role = currentUser.role;
   }
   const handleOnClick = async (id, courseName) => {
-    if (await confirm(`هل انت متأكد انك تريد حذف هذه الدورة`)) {
+    if (await confirm(t('DeleteButtonMessage'))) {
       props.deleteCourse(id);
       window.location.reload();
     } else {
@@ -49,9 +52,9 @@ const ViewCourses = (props) => {
   } else {
     renderContent = (
       <Table
-        btnName="اضافة دورة جديدة"
+        btnName={t('addNewCourse')}
         btnLink="course/add"
-        columns={columns(handleOnClick, role)}
+        columns={columns(handleOnClick, role, columnsName)}
         data={courses.courses}
       />
     );

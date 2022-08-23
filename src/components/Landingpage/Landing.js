@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import style from "../../css/Landing/Landing.module.css";
-import Cards from "./Cards";
+import React, { useEffect } from 'react';
+import style from '../../css/Landing/Landing.module.css';
+import Cards from './Cards';
 import {
   faFileLines,
   faLightbulb,
   faUserGraduate,
-} from "@fortawesome/free-solid-svg-icons";
-import Section from "./Section";
-import logo from "../../images/logo.png";
-import ReviewsCard from "./ReviewsCard";
-import { Accordion } from "react-bootstrap";
-import { connect } from "react-redux";
-import { getAllCourses } from "../../actions/course.action";
-import LandingPicArea from "../Layout/LandingPicArea";
-import aos from "aos";
-import SvgDownWaves from "../SvgDownWaves";
-import SvgUpWaves from "./../SvgUpWaves";
-import { useTranslation } from "react-i18next";
+} from '@fortawesome/free-solid-svg-icons';
+import Section from './Section';
+import logo from '../../images/logo.png';
+import ReviewsCard from './ReviewsCard';
+import { Accordion } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { getAllCourses } from '../../actions/course.action';
+import LandingPicArea from '../Layout/LandingPicArea';
+import aos from 'aos';
+import SvgDownWaves from '../SvgDownWaves';
+import SvgUpWaves from './../SvgUpWaves';
+import { useTranslation } from 'react-i18next';
 const Landing = (props) => {
   const { t, i18n } = useTranslation();
   console.log(i18n);
@@ -29,27 +29,34 @@ const Landing = (props) => {
   if (courses === null || loading) {
     renderContent = `<h1>Loading</h1>`;
   } else {
+    console.log(t('categories', { returnObjects: true })[0]);
     const computer = courses.courses.filter((course) => {
-      return course.category === "دورات حاسوب";
+      return course.category === 'computer courses';
     });
     const language = courses.courses.filter((course) => {
-      return course.category === "دورات لغة";
+      return course.category === 'language courses';
     });
     renderContent = (
       <>
-        <Section title="دورات الحـــــاسوب" courses={computer} />
-        <Section title="دورات اللغـــــــــة" courses={language} />
+        <Section
+          title={t('categories', { returnObjects: true })[0]}
+          courses={computer}
+        />
+        <Section
+          title={t('categories', { returnObjects: true })[1]}
+          courses={language}
+        />
       </>
     );
   }
   return (
     <div>
       {/* ------------------------------Start landing area---------------------------- */}
-      <LandingPicArea header={t("instituteName")} text={t("instituteDesc")} />
+      <LandingPicArea header={t('instituteName')} text={t('instituteDesc')} />
 
       {/* ----------------------------Start Cards Section------------------------------- */}
       <section className={style.cardsSection}>
-        <div className="container" style={{ width: "100%" }}>
+        <div className="container" style={{ width: '100%' }}>
           <div
             className="row"
             data-aos="fade-up"
@@ -60,18 +67,18 @@ const Landing = (props) => {
             {/* <-------------------------------start calling card-----------------------------*/}
             <Cards
               icon={faUserGraduate}
-              title={t("Specializedlec_Title")}
-              text={t("Specializedlec_body")}
+              title={t('Specializedlec_Title')}
+              text={t('Specializedlec_body')}
             />
             <Cards
               icon={faFileLines}
-              title={t("placementtests_Title")}
-              text={t("placementtests_body")}
+              title={t('placementtests_Title')}
+              text={t('placementtests_body')}
             />
             <Cards
               icon={faLightbulb}
-              title={t("Interactivecourses_Title")}
-              text={t("Interactivecourses_body")}
+              title={t('Interactivecourses_Title')}
+              text={t('Interactivecourses_body')}
             />
           </div>
           {/* <-------------------------------end calling card-----------------------------*/}
@@ -85,14 +92,14 @@ const Landing = (props) => {
       <div className={style.features_clients_container}>
         {/* ---------------------------------Start featuer section----------------------  */}
         <div className={style.features}>
-          <div className={style.title}>{t("features_Title")}</div>
+          <div className={style.title}>{t('features_Title')}</div>
           <div className={style.featureselements}>
             <section>
               <div className="container">
                 <div className="row">
                   <div
                     className="col-lg-6 col-md-12 col-sm-12 section-accordian "
-                    style={{ display: "flex", alignItems: "center" }}
+                    style={{ display: 'flex', alignItems: 'center' }}
                   >
                     <Accordion className={style.accordian}>
                       <Accordion.Item
@@ -101,12 +108,12 @@ const Landing = (props) => {
                       >
                         <Accordion.Header>
                           <div className={style.accordianHeader}>
-                            {" "}
-                            {t("accordion_vision_header")}
+                            {' '}
+                            {t('accordion_vision_header')}
                           </div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
-                          {t("accordion_vision_body")}
+                          {t('accordion_vision_body')}
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item
@@ -115,12 +122,12 @@ const Landing = (props) => {
                       >
                         <Accordion.Header>
                           <div className={style.accordianHeader}>
-                            {" "}
-                            {t("accordion_message_header")}
+                            {' '}
+                            {t('accordion_message_header')}
                           </div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
-                          {t("accordion_message_body")}
+                          {t('accordion_message_body')}
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item
@@ -129,12 +136,12 @@ const Landing = (props) => {
                       >
                         <Accordion.Header>
                           <div className={style.accordianHeader}>
-                            {t("accordion_goals_header")}
+                            {t('accordion_goals_header')}
                           </div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
                           <ul>
-                            <li>{t("accordion_goals_body")}</li>
+                            <li>{t('accordion_goals_body')}</li>
                             <li>
                               العمل على التواصل مع التجارب المعاصرة في مجال
                               التدريب والاستفادة منها بما يتيح خدمة المتدربين
@@ -192,7 +199,7 @@ const Landing = (props) => {
                   <div className="col-lg-9 col-md-12 col-sm-12 section-pics">
                     <div
                       className={style.clientlogos}
-                      style={{ borderRight: " solid 2px #DDDDDD" }}
+                      style={{ borderRight: ' solid 2px #DDDDDD' }}
                     >
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className={style.imgs}>
@@ -221,7 +228,7 @@ const Landing = (props) => {
                   {/* <div className="col-lg-1"></div> */}
                   <div className="col-lg-3 col-md-12 col-sm-12 align-self-center">
                     <div className={style.ourclients}>
-                      <h2>{t("clients")}</h2>
+                      <h2>{t('clients')}</h2>
                     </div>
                   </div>
                 </div>
@@ -234,44 +241,44 @@ const Landing = (props) => {
       {/* ---------------------------start reviews section---------------------  */}
       <SvgUpWaves />
       <div className={style.reviews}>
-        <div className={style.title}>{t("reviews_Title")}</div>
+        <div className={style.title}>{t('reviews_Title')}</div>
         <div className={style.reviewscards}>
           <div className="row">
             <ReviewsCard
-              text={t("review_body")}
+              text={t('review_body')}
               img={logo}
-              username={t("review_username")}
-              role={t("review_role")}
+              username={t('review_username')}
+              role={t('review_role')}
             />
             <ReviewsCard
-              text={t("review_body")}
+              text={t('review_body')}
               img={logo}
-              username={t("review_username")}
-              role={t("review_role")}
+              username={t('review_username')}
+              role={t('review_role')}
             />
             <ReviewsCard
-              text={t("review_body")}
+              text={t('review_body')}
               img={logo}
-              username={t("review_username")}
-              role={t("review_role")}
+              username={t('review_username')}
+              role={t('review_role')}
             />
             <ReviewsCard
-              text={t("review_body")}
+              text={t('review_body')}
               img={logo}
-              username={t("review_username")}
-              role={t("review_role")}
+              username={t('review_username')}
+              role={t('review_role')}
             />
             <ReviewsCard
-              text={t("review_body")}
+              text={t('review_body')}
               img={logo}
-              username={t("review_username")}
-              role={t("review_role")}
+              username={t('review_username')}
+              role={t('review_role')}
             />
             <ReviewsCard
-              text={t("review_body")}
+              text={t('review_body')}
               img={logo}
-              username={t("review_username")}
-              role={t("review_role")}
+              username={t('review_username')}
+              role={t('review_role')}
             />
           </div>
         </div>
