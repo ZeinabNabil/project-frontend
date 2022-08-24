@@ -3,8 +3,8 @@ import { Tree, TreeNode } from "react-organizational-chart";
 
 // style
 import style from "../../css/AboutUs/Aboutus.module.css";
-import SvgDownWaves from "../SvgDownWaves";
-import SvgUpWaves from "../SvgUpWaves";
+import "swiper/css";
+import "swiper/css/pagination";
 
 // Icons
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +13,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Images
 import founderImg from "../../images/login-register.png";
 import rootIcon from "../../images/gm.png";
-import TeamNode from "./TeamNode";
 import businessDevIcom from "../../images/Business-Development.png";
 import departmentsIcon from "../../images/Departments.png";
 import trainingIcon from "../../images/Training.png";
@@ -21,10 +20,19 @@ import qualityIcon from "../../images/Quality.png";
 import marketingIcon from "../../images/Marketing.png";
 import hrIcon from "../../images/hr.png";
 import financialIcon from "../../images/Financial.png";
+import womanImg from "../../images/woman.png";
+import manImg from "../../images/man.png";
 
 // Components
 import AboutUsCard from "./AboutUsCard";
 import CardContent from "./CardContent";
+import TeamNode from "./TeamNode";
+import Clients from "./Clients";
+import SvgDownWaves from "../SvgDownWaves";
+import SvgUpWaves from "../SvgUpWaves";
+import Carousel from "react-bootstrap/Carousel";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, A11y } from "swiper";
 
 const AboutUs = () => {
   const cards = [
@@ -124,6 +132,48 @@ const AboutUs = () => {
       subHeader: "Financial Affairs",
     },
   ];
+
+  const opinions = [
+    {
+      img: manImg,
+      text: "I recommended this institute for vocational training, as after i finished the secretarial course, i signed up for another course in the same field.",
+      name: "Mahmoud Mohammed",
+      trainingName:
+        "Trainee in a training course for adminstrative and secretarial tasks",
+    },
+    {
+      img: womanImg,
+      text: "Even Bary Institute is considered one of the best current institutes in terms of training and teaching different languages, especially as it includes a selection of specialists in training different languages",
+      name: "Fatima Al Shamsi",
+      trainingName: "Trainee in turkish language course",
+    },
+    {
+      img: manImg,
+      text: "The course is very useful, and the lecturer has a lot of experience in this field, as i passed the IELTS exam and got the degree required for me continue my university studies",
+      name: "Ahmed Al Kaabi",
+      trainingName: "Trainee in IELTS preparation course",
+    },
+    {
+      img: womanImg,
+      text: "One of the best institutes in the UAE, the treatment is very classy, and all the teachers stay with the students.",
+      name: "Shahd Ibrahim",
+      trainingName: "Trainee in a preparatory course for the EMSAT exam",
+    },
+  ];
+
+  const clients = [
+    founderImg,
+    rootIcon,
+    businessDevIcom,
+    departmentsIcon,
+    trainingIcon,
+    qualityIcon,
+    marketingIcon,
+    hrIcon,
+    financialIcon,
+    womanImg,
+    manImg,
+  ];
   return (
     <div className={style.about_us}>
       {/* Start first section */}
@@ -136,7 +186,7 @@ const AboutUs = () => {
       {/* Start second section */}
       <div className={`${style.section_container} container`}>
         <div className="row">
-          <div className="col-lg-3">
+          <div className="col-lg-3 col-md-6 col-sm-12">
             <div className={style.img_container}>
               <img
                 className={style.founder_img}
@@ -145,7 +195,7 @@ const AboutUs = () => {
               />
             </div>
           </div>
-          <div className="col-lg-9">
+          <div className="col-lg-9 col-md-6 col-sm-12">
             <div className={style.founder_content}>
               <h3>Founder's word</h3>
               <span>
@@ -237,7 +287,7 @@ const AboutUs = () => {
       <div className={style.gray_section}>
         <div className={`container`}>
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6 col-md-12">
               <AboutUsCard cards={cards} />
             </div>
             <div className="col-lg-6">
@@ -270,7 +320,7 @@ const AboutUs = () => {
         </div>
         <div className="row">
           {detailsAboutInst.map((detail, index) => (
-            <div key={index} className="col-lg-3">
+            <div key={index} className="col-lg-3 col-md-6 col-sm-12">
               <div className={style.section_content}>
                 <span>{detail.number}</span>
                 <span>{detail.name}</span>
@@ -361,10 +411,57 @@ const AboutUs = () => {
       {/* Start seventh section */}
       <SvgUpWaves />
       <div className={style.gray_section}>
-        <div className={`container`}></div>
+        <div className={`container`}>
+          <div className={style.section_title} style={{ marginBottom: "0" }}>
+            <h2>The opinions of students and visitors to the institute</h2>
+          </div>
+          {/* Start carousel */}
+          <Carousel variant="dark">
+            {opinions.map((opinion) => (
+              <Carousel.Item>
+                <div className={style.carousel_container}>
+                  <div className={style.carousel_img}>
+                    <img src={opinion.img} alt="carousel img" />
+                  </div>
+                  <div className={style.carousel_text}>
+                    <p>{opinion.text}</p>
+                  </div>
+                </div>
+
+                <Carousel.Caption>
+                  <h3>{opinion.name}</h3>
+                  <p>T{opinion.trainingName}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+          {/* End carousel */}
+        </div>
       </div>
-      <SvgDownWaves />
       {/* End seventh section */}
+      {/* Start eighth section */}
+      <div className={style.gray_section}>
+        <div className={`${style.clients_container} container`}>
+          <div className={style.section_title}>
+            <h2>our clients</h2>
+          </div>
+          {/* Start swiper */}
+          <Swiper
+            modules={[Pagination, A11y]}
+            spaceBetween={10}
+            slidesPerView={5}
+            pagination={{ clickable: true }}
+          >
+            {clients.map((client) => (
+              <SwiperSlide>
+                <Clients imgSrc={client} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          {/* End swiper */}
+        </div>
+      </div>
+      {/* End eighth section */}
     </div>
   );
 };
