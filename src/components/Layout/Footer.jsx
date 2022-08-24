@@ -62,11 +62,13 @@ const Footer = () => {
             <div className={style.main_links}>
               <h3 className="text-center">{t('mainLinks')}</h3>
               <ul>
-                {t('navbarItems', { returnObjects: true }).map((item) => (
-                  <li>
-                    <Link to={item.link}>{item.name}</Link>
-                  </li>
-                ))}
+                {t('navbarItems', { returnObjects: true }).map(
+                  (item, index) => (
+                    <li key={index}>
+                      <Link to={item.link}>{item.name}</Link>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           </div>

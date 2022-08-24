@@ -6,7 +6,7 @@
     { "name": "Computer Courses", "link": "/category/computer", "cat": true },
     {
       "name": "Language Courses",
-      "link": "/category/language courses",
+      "link": "/category/language",
       "cat": true
     },
     { "name": "ICDL", "link": "/category/icdl", "cat": true },
@@ -69,13 +69,7 @@
   "isHasOffer": "Is Has Offer ?",
   "offerPrice": "Offer Price",
   "endOfferDate": "End Offer Date",
-  "categories": [
-    "Computer Courses",
-    "Language Courses",
-    "emsat",
-    "ielts",
-    "icdl"
-  ],
+  "categories": ["computer", "language", "emsat", "ielts", "icdl"],
   "Save": "Save",
   "addNewCourse": "Add New Course",
   "aboutPlaceholder": "First Level : about first level @ Second Level : about second level",
@@ -128,7 +122,7 @@
   "numberOfHourse": "Hours",
   "RegisterSuccessfully": "Registered Successfully",
   "RegisterNow": "Register Now",
-  "SeeMore": "More about this course",
+  "SeeMore": "Read More",
   "alreadyRegistered": "You have already registered this course",
   "loginForRegistereCourse": "Login first to register for the course",
   "profileParagraph": "You can see your personal data and also the courses you have registered",
@@ -153,5 +147,13 @@
   ],
   "mainLinks": "Main Links",
   "contactUs": "Contact Us",
-  "socialContactus": "Contact us in any of this socail links"
+  "socialContactus": "Contact us in any of this socail links",
+  "registeraccount": "Create an account now!",
+  "donthaveaccount": " Don't have account ?",
+  "haveanaccount": "Have you an account ?",
+  "loginNow": "Login Now",
+  "login": "Login",
+  "createNewAccount": "Create an account",
+  "catLang": "language",
+  "catComp": "computer"
 }

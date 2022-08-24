@@ -7,11 +7,11 @@ const UserCourseCard = ({ course }) => {
     <div className={style.profile_course}>
       <div className={style.card}>
         <div className={style.cardimg}>
-          <img src={`/course/image/${course.courseId._id}`} />
+          <img src={`/course/image/${course._id}`} />
         </div>
         <div className={style.card_body}>
-          <h3 className={style.cardTitle}>{course.courseId.name}</h3>
-          <p className={style.cardtext}>{course.courseId.description}</p>
+          <h3 className={style.cardTitle}>{course.name}</h3>
+          <p className={style.cardtext}>{course.description}</p>
         </div>
       </div>
     </div>

@@ -9,6 +9,11 @@ import {
 import Aos from 'aos';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faMagnifyingGlass,
+  faFileSignature,
+} from '@fortawesome/free-solid-svg-icons';
 function daysBetween(date1String, date2String) {
   var d1 = new Date(date1String);
   var d2 = new Date(date2String);
@@ -20,27 +25,24 @@ const CoursesCard = ({
   user,
   getRegisteredCourses,
   course,
+  registeredCourses,
 }) => {
   const { t, i18n } = useTranslation();
   const { isAuthenticated, currentUser } = user;
 
   useEffect(() => {
     Aos.init();
-    if (currentUser !== null) {
-      getRegisteredCourses(currentUser._id);
-    }
   }, []);
-  const { registeredCourses } = course;
 
   const Regbtn = () => {
     if (isAuthenticated) {
       return (
         <Link
           to="./"
-          onClick={() => onClick(courseObject._id)}
-          className="btn btn-primary 2"
+          onClick={() => onClick(courseObject._id, courseObject.courseCode)}
+          className="btn"
         >
-          {t('RegisterNow')}
+          <FontAwesomeIcon icon={faFileSignature} /> {t('RegisterNow')}
         </Link>
       );
     } else {
@@ -48,7 +50,7 @@ const CoursesCard = ({
         <Link
           to="/auth/login"
           onClick={() => onClick(courseObject._id)}
-          className="btn btn-primary 2"
+          className="btn"
         >
           {t('loginForRegistereCourse')}
         </Link>
@@ -56,11 +58,7 @@ const CoursesCard = ({
     }
   };
   var search;
-  if (registeredCourses !== null) {
-    search = registeredCourses.courses.find(
-      (item) => item.courseId._id == courseObject._id
-    );
-  }
+
   const alreadyRegistered = () => {
     if (search) {
       return t('alreadyRegistered');
@@ -98,30 +96,23 @@ const CoursesCard = ({
               <div className="col-lg-6">
                 <span className={style.offer}>
                   {t('price')} {courseObject.offer}
+                  <p className={style.endoffer}>
+                    end after{' '}
+                    {daysBetween(
+                      moment().format('l'),
+                      moment(courseObject.endOfferDate).format('l')
+                    )}{' '}
+                    days
+                  </p>
                 </span>
               </div>
             )}
           </div>
-          {courseObject.isHasOffer ? (
-            <p>
-              Offer Will be end after{' '}
-              {daysBetween(
-                moment().format('l'),
-                moment(courseObject.endOfferDate).format('l')
-              )}{' '}
-              days
-            </p>
-          ) : (
-            ''
-          )}
         </div>
 
         <div className={style.cardbtns}>
-          <Link
-            className="btn btn-primary"
-            to={`/readmore/${courseObject._id}`}
-          >
-            {t('SeeMore')}
+          <Link className="btn" to={`/readmore/${courseObject._id}`}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} /> {t('SeeMore')}
           </Link>
           {alreadyRegistered()}
         </div>
@@ -135,5 +126,4 @@ const mapStateToProps = (state) => ({
 });
 export default connect(mapStateToProps, {
   registerCourse,
-  getRegisteredCourses,
 })(CoursesCard);

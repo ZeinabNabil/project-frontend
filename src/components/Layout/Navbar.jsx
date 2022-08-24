@@ -125,13 +125,19 @@ const Navbar = (props) => {
                     <ul className="dropdown-menu" aria-labelledby="langs">
                       <li
                         className={`nav-link ${style.lang}`}
-                        onClick={() => i18n.changeLanguage('ar')}
+                        onClick={() => {
+                          i18n.changeLanguage('ar');
+                          navigate('/');
+                        }}
                       >
                         {t('Arabic')}
                       </li>
                       <li
                         className={`nav-link active ${style.lang}`}
-                        onClick={() => i18n.changeLanguage('en')}
+                        onClick={() => {
+                          i18n.changeLanguage('en');
+                          navigate('/');
+                        }}
                       >
                         {t('English')}
                       </li>

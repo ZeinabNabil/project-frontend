@@ -11,7 +11,7 @@ import { updateUser, getCurrentProfile } from './../../actions/user.action';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const UserProfile = (props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [edit, setEdit] = useState(false);
   const [form, setForm] = useState({
     name: '',
@@ -30,7 +30,7 @@ const UserProfile = (props) => {
 
   const { profile, currentUser } = props.user;
   useEffect(() => {
-    props.getRegisteredCourses(currentUser._id);
+    props.getRegisteredCourses(currentUser._id, i18n.resolvedLanguage);
     props.getCurrentProfile();
   }, []);
 

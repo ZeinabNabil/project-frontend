@@ -118,22 +118,21 @@
   display: block;
   margin: auto;
   margin-top: 10px;
+  background-color: var(--main-color);
+  color: white;
+  transition: all 0.2s ease-in;
+}
+.Section .card .cardbtns a:hover {
+  background-color: white;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  transform: scale(0.9);
 }
 .Section .card .price_offer {
   margin-top: 25px;
   font-size: 12px;
   margin-left: 15px;
   margin-right: 15px;
-  position: relative;
-}
-.Section .card .price_offer p {
-  position: absolute;
-  display: block;
-  margin: 15px;
-  text-align: right;
-  bottom: -85%;
-  right: -5%;
-  width: 100%;
 }
 
 .Section .card .price_offer span {
@@ -145,6 +144,42 @@
   border-radius: 5px;
   box-shadow: 1px 1px 0px 1px #ccc;
   margin-top: 10px;
+  position: relative;
+}
+.endoffer {
+  position: absolute;
+  background-color: red;
+  padding: 0px 15px;
+  top: -100%;
+  right: 0;
+  border-radius: 10px;
+}
+.svgUnderline {
+  margin-bottom: 60px !important;
+  position: relative;
+}
+.svgUnderline svg {
+  position: absolute;
+  top: 60%;
+  height: calc(100% + 80px);
+  transform: translate(-50%, -50%);
+  transition: all 00.1s;
+  animation: 0.5s ease-in forwards line;
+
+  fill: var(--main-color);
+}
+@keyframes line {
+  from {
+    width: 1%;
+    left: 40%;
+    fill: var(--secondary-color);
+  }
+  to {
+    width: 20%;
+
+    left: 50%;
+    fill: var(--main-color);
+  }
 }
 
 /* -----------------------------End Sections--------------------------- */

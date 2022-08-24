@@ -31,6 +31,7 @@ const AddCourse = (props) => {
     endOfferDate: new Date(),
     image: '',
     lang: '',
+    courseCode: '',
   });
   const onInputChange = (e) => {
     const value = e.target.value;
@@ -84,6 +85,7 @@ const AddCourse = (props) => {
     course.append('offer', form.offer);
     course.append('endOfferDate', form.endOfferDate);
     course.append('image', form.image);
+    course.append('courseCode', form.courseCode);
     if (i18n.resolvedLanguage === 'en') {
       course.append('lang', 'en');
     } else {
@@ -227,6 +229,16 @@ const AddCourse = (props) => {
                   ></textarea>
                 </div>
               </div>
+            </div>
+            <div className="col-lg-3">
+              <Input
+                onChange={onInputChange}
+                value={form.courseCode}
+                name="courseCode"
+                labelName={t('courseCode')}
+                type="text"
+                err={errors ? errors.courseCode : ''}
+              />
             </div>
             <div className="row">
               <div className="col-lg-6">

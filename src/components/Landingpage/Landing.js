@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from '../../css/Landing/Landing.module.css';
 import Cards from './Cards';
 import {
@@ -11,7 +11,10 @@ import logo from '../../images/logo.png';
 import ReviewsCard from './ReviewsCard';
 import { Accordion } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { getAllCourses } from '../../actions/course.action';
+import {
+  getAllCourses,
+  getRegisteredCourses,
+} from '../../actions/course.action';
 import LandingPicArea from '../Layout/LandingPicArea';
 import aos from 'aos';
 import SvgDownWaves from '../SvgDownWaves';
@@ -20,11 +23,19 @@ import { useTranslation } from 'react-i18next';
 import LoadingData from '../../LoadingData';
 const Landing = (props) => {
   const { t, i18n } = useTranslation();
-  console.log(i18n);
+  const { currentUser } = props.user;
+  const [render, setRender] = useState(true);
   useEffect(() => {
     aos.init();
-    props.getAllCourses();
-  }, []);
+    if (render === true) {
+      props.getAllCourses(i18n.resolvedLanguage);
+      if (currentUser !== null) {
+        props.getRegisteredCourses(currentUser._id, i18n.resolvedLanguage);
+      }
+    }
+    setRender(false);
+  }, [render]);
+
   var renderContent;
   const { courses, loading } = props.course;
   if (courses === null || loading) {
@@ -35,12 +46,11 @@ const Landing = (props) => {
       </h3>
     );
   } else {
-    console.log(t('categories', { returnObjects: true })[0]);
     const computer = courses.courses.filter((course) => {
-      return course.category === 'computer courses';
+      return course.category === t('catComp');
     });
     const language = courses.courses.filter((course) => {
-      return course.category === 'language courses';
+      return course.category === t('catLang');
     });
     const emsat = courses.courses.filter((course) => {
       return course.category === 'emsat';
@@ -225,7 +235,16 @@ const Landing = (props) => {
           <div className="row">
             <ReviewsCard
               text={t('review_body')}
-              img={logo}
+              username={t('review_username')}
+              role={t('review_role')}
+            />
+            <ReviewsCard
+              text={t('review_body')}
+              username={t('review_username')}
+              role={t('review_role')}
+            />{' '}
+            <ReviewsCard
+              text={t('review_body')}
               username={t('review_username')}
               role={t('review_role')}
             />
@@ -239,5 +258,9 @@ const Landing = (props) => {
 };
 const mapStateToProps = (state) => ({
   course: state.course,
+  user: state.user,
 });
-export default connect(mapStateToProps, { getAllCourses })(Landing);
+export default connect(mapStateToProps, {
+  getAllCourses,
+  getRegisteredCourses,
+})(Landing);

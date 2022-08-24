@@ -18,6 +18,7 @@ import { getCourseById } from './../../actions/course.action';
 import SvgDownWaves from '../SvgDownWaves';
 import { useTranslation } from 'react-i18next';
 import SvgUpWaves from './../SvgUpWaves';
+import LoadingData from './../../LoadingData';
 const ReadMore = (props) => {
   const { t } = useTranslation();
   const { id } = useParams();
@@ -40,7 +41,15 @@ const ReadMore = (props) => {
   console.log(course);
   var renderCourseInfo;
   if (course === null || loading) {
-    renderCourseInfo = 'Loading';
+    renderCourseInfo = (
+      <h3
+        className="text-center"
+        style={{ marginBottom: '40rem', marginTop: '180px' }}
+      >
+        <LoadingData />
+        Loading...
+      </h3>
+    );
   } else {
     attends = course.attends;
     classes = course.classes;
@@ -49,9 +58,7 @@ const ReadMore = (props) => {
     courseId = course._id;
     name = course.name;
     about = course.about;
-  }
-  return (
-    <div className={style.read_more}>
+    renderCourseInfo = (
       <div className="row" style={{ marginRight: '0' }}>
         {/* Start First section */}
         <div className="col-lg-12" style={{ paddingRight: '0' }}>
@@ -148,8 +155,9 @@ const ReadMore = (props) => {
 
         {/* End Second section */}
       </div>
-    </div>
-  );
+    );
+  }
+  return <div className={style.read_more}>{renderCourseInfo}</div>;
 };
 const mapStateToProps = (state) => ({
   course: state.course,

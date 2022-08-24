@@ -7,7 +7,7 @@ import './i18n';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const lang = document.getElementById('root').dataset.lang;
 root.render(
-  <React.StrictMode>
+  <>
     <App lang={lang} />
-  </React.StrictMode>
+  </>
 );

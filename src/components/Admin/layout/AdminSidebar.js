@@ -64,7 +64,7 @@ const AdminSidebar = () => {
     );
   });
   return (
-    <div className={style.sidebar}>
+    <div className={style.sidebar} style={{ direction: 'ltr' }}>
       <div className={style.sidebar_container}>
         <div className={style.sidebar_menu}>{RenderedMenu}</div>
       </div>

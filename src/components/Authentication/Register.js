@@ -1,29 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import FormComponent from "./FormComponents";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import FormComponent from './FormComponents';
 import {
   faUser,
   faPhone,
   faEnvelope,
   faLock,
-} from "@fortawesome/free-solid-svg-icons";
-import MainButton from "./MainButton";
-import style from "../../css/Authentication/Authentication.module.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { createUser } from "../../actions/user.action";
-import store from "../../store";
-import { useNavigate } from "react-router-dom";
+} from '@fortawesome/free-solid-svg-icons';
+import MainButton from './MainButton';
+import style from '../../css/Authentication/Authentication.module.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { createUser } from '../../actions/user.action';
+import store from '../../store';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 const Register = (props) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    phone: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
   useEffect(() => {
     AOS.init();
@@ -48,13 +50,13 @@ const Register = (props) => {
     const result = await props.createUser(userData);
     if (result) {
       setTimeout(() => {
-        navigate("/auth/login");
+        navigate('/auth/login');
       }, 800);
     }
   };
   useEffect(() => {
     store.dispatch({
-      type: "GET_ERRORS",
+      type: 'GET_ERRORS',
       payload: {},
     });
   }, []);
@@ -63,7 +65,7 @@ const Register = (props) => {
     <div className="row" data-aos="fade-right" data-aos-duration="1000">
       <div className="col-lg-12">
         <div className={style.form_header}>
-          <h3>انشاء حساب جديد</h3>
+          <h3>{t('createNewAccount')}</h3>
         </div>
       </div>
       <div className="col-lg-12">
@@ -77,8 +79,8 @@ const Register = (props) => {
                 icon={faUser}
                 name="name"
                 type="text"
-                placeholder="قم بكتابة اسمك هنا"
-                err={errors ? errors.name : ""}
+                placeholder={t('UserNamePlaceholder')}
+                err={errors ? errors.name : ''}
               />
               <FormComponent
                 value={form.email}
@@ -87,8 +89,8 @@ const Register = (props) => {
                 icon={faEnvelope}
                 name="email"
                 type="email"
-                placeholder="قم بكتابة البريد الالكتروني هنا"
-                err={errors ? errors.email : ""}
+                placeholder={t('UserEmailPlaceholder')}
+                err={errors ? errors.email : ''}
               />
               <FormComponent
                 value={form.password}
@@ -97,8 +99,8 @@ const Register = (props) => {
                 icon={faLock}
                 name="password"
                 type="password"
-                placeholder="ادخل كلمة السر الخاصة بك"
-                err={errors ? errors.password : ""}
+                placeholder={t('UserPasswordPlaceholder')}
+                err={errors ? errors.password : ''}
               />
               <FormComponent
                 value={form.confirmPassword}
@@ -107,8 +109,8 @@ const Register = (props) => {
                 icon={faLock}
                 name="confirmPassword"
                 type="password"
-                placeholder="قم بكتابة كلمة السر مرة اخرى"
-                err={errors ? errors.confirmPassword : ""}
+                placeholder={t('UserConfirmPasswordPlaceholder')}
+                err={errors ? errors.confirmPassword : ''}
               />
               <FormComponent
                 value={form.phone}
@@ -117,15 +119,15 @@ const Register = (props) => {
                 icon={faPhone}
                 name="phone"
                 type="text"
-                placeholder="رقم الهاتف الخاص بك"
-                err={errors ? errors.phone : ""}
+                placeholder={t('UserPhonePlaceholder')}
+                err={errors ? errors.phone : ''}
               />
-              <MainButton buttonName="إنشاء حساب" />
+              <MainButton buttonName={t('createNewAccount')} />
               <div className="col-lg-12">
                 <div className={style.register_link}>
-                  لديك حساب بالفعل؟
+                  {t('haveanaccount')}
                   <span className={style.important_link}>
-                    <Link to="/auth/login">قم بتسجيل الدخول!</Link>
+                    <Link to="/auth/login">{t('loginNow')}</Link>
                   </span>
                 </div>
               </div>

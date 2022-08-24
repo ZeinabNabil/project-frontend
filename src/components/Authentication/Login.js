@@ -53,7 +53,7 @@ const Login = (props) => {
       {/* Start the header of the form */}
       <div className="col-lg-12">
         <div className={style.form_header}>
-          <h3>تسجيل الدخول</h3>
+          <h3>{t('login')}</h3>
         </div>
       </div>
       {/* End the header of the form */}
@@ -88,12 +88,12 @@ const Login = (props) => {
                   <Link to="/">Sign in Now!</Link>
                 </div>
               </div> */}
-              <MainButton buttonName="تسجيل الدخول" />
+              <MainButton buttonName={t('login')} />
               <div className="col-lg-12">
                 <div className={style.register_link}>
-                  ليس لديك حساب؟
+                  {t('donthaveaccount')}
                   <span className={style.important_link}>
-                    <Link to="/auth/register">قم بإنشاء حساب الان!</Link>
+                    <Link to="/auth/register">{t('registeraccount')}</Link>
                   </span>
                 </div>
               </div>

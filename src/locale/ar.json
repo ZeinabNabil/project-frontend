@@ -3,10 +3,10 @@
   "instituteDesc": "معهد معتمد للغات والتدريب المهنى والحاسوب",
   "navbarItems": [
     { "name": "الرئيسية", "link": "/" },
-    { "name": "دورات الكمبيوتر", "link": "/category/computer", "cat": true },
+    { "name": "دورات الكمبيوتر", "link": "/category/حاسوب", "cat": true },
     {
       "name": "دورات اللغات",
-      "link": "/category/language courses",
+      "link": "/category/لغات",
       "cat": true
     },
     { "name": "ICDL", "link": "/category/icdl", "cat": true },
@@ -69,7 +69,7 @@
   "isHasOffer": "يوجد تخفيض للدورة ؟",
   "offerPrice": "سعر التخفيض",
   "endOfferDate": "موعد نهاية التخفيض",
-  "categories": ["دورات الحاسوب", "دورات اللغات", "emsat", "ielts", "icdl"],
+  "categories": ["الحاسوب", "لغات", "emsat", "ielts", "icdl"],
   "Save": "حفـــظ",
   "addNewCourse": " اضــافة دورة جــديـدة",
   "aboutPlaceholder": "المستوي الاول : عن المستوي الاول@المستوي التاني : عن المستوي التاني...وهكذا",
@@ -148,5 +148,13 @@
   ],
   "mainLinks": "الــروابط الرئيسية",
   "contactUs": "تـــواصل معـــــنا",
-  "socialContactus": "تواصل معنا عبر مواقع التواصل الاتية"
+  "socialContactus": "تواصل معنا عبر مواقع التواصل الاتية",
+  "registeraccount": "قم بإنشاء حساب الان !",
+  "donthaveaccount": "  ليس لديك حساب ؟  ",
+  "haveanaccount": "هل لديك حساب بالفعل ؟",
+  "loginNow": "قم بتسجيل الدخول",
+  "login": "تسجيل الدخول",
+  "createNewAccount": "انشاء حساب جديد",
+  "catLang": "لغات",
+  "catComp": "حاسوب"
 }

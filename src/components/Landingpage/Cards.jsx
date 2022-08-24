@@ -6,7 +6,6 @@ const Cards = ({ icon, title, text, aos = {} }) => {
   useEffect(() => {
     Aos.init();
   }, []);
-  console.log(aos);
   return (
     <div
       className="col-lg-4 col-md-6 col-sm-12 col-12"

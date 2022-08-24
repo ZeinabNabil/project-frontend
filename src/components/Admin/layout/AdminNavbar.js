@@ -33,6 +33,35 @@ const AdminNavbar = (props) => {
         </div>
         <div className="col-lg-8 col-md-6 col-sm-6">
           <div className={style.top_right}>
+            <div className={style.lang}>
+              <ul className="navbar-nav">
+                <li className="nav-item dropdown">
+                  <a
+                    className={`nav-link dropdown-toggle ${style.langs_dropdown}`}
+                    role="button"
+                    id="languages"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {t('langs')}
+                  </a>
+                  <ul className="dropdown-menu" aria-labelledby="langs">
+                    <li
+                      className={`nav-link ${style.lang}`}
+                      onClick={() => i18n.changeLanguage('ar')}
+                    >
+                      {t('Arabic')}
+                    </li>
+                    <li
+                      className={`nav-link active ${style.lang}`}
+                      onClick={() => i18n.changeLanguage('en')}
+                    >
+                      {t('English')}
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
             <div className={style.navbar_icons}>{role}</div>
             <Link to="#" onClick={onLogoutClick}>
               <div className={style.navbar_icons}>

@@ -30,11 +30,12 @@ export const addCourse = (courseData) => async (dispatch) => {
     });
   }
 };
-export const getAllCourses = () => async (dispatch) => {
-  dispatch(Loading);
-
+export const getAllCourses = (lang) => async (dispatch) => {
   try {
-    const response = await axios.get(`/course`);
+    dispatch({
+      type: COURSE_LOADING,
+    });
+    const response = await axios.get(`/course?lang=${lang}`);
     dispatch({
       type: GET_COURSES,
       payload: response.data,
@@ -58,10 +59,14 @@ export const getCourseById = (id) => async (dispatch) => {
 export const Loading = () => ({
   type: COURSE_LOADING,
 });
-export const getCoursesByCategory = (category) => async (dispatch) => {
-  dispatch(Loading);
+export const getCoursesByCategory = (category, lang) => async (dispatch) => {
   try {
-    const response = await axios.get(`/course/category/${category}`);
+    dispatch({
+      type: COURSE_LOADING,
+    });
+    const response = await axios.get(
+      `/course/category/${category}?lang=${lang}`
+    );
     dispatch({
       type: GET_COURSES_CATEGORY,
       payload: response.data.courses,
@@ -93,9 +98,11 @@ export const numberOfRegisteredCourses = () => async (dispatch) => {
     console.log(error.response.data);
   }
 };
-export const getRegisteredCourses = (id) => async (dispatch) => {
+export const getRegisteredCourses = (id, lang) => async (dispatch) => {
   try {
-    const response = await axios.get(`/course/showregisteredcourses/${id}`);
+    const response = await axios.get(
+      `/course/showregisteredcourses/${id}?lang=${lang}`
+    );
     dispatch({
       type: GET_REGISTERED_COURSES,
       payload: response.data,
@@ -105,11 +112,13 @@ export const getRegisteredCourses = (id) => async (dispatch) => {
   }
 };
 export const registerCourse =
-  (courseId, successMsg, navigate) => async (dispatch) => {
+  (courseId, courseCode, successMsg, navigate) => async (dispatch) => {
     try {
       await axios.post('/course/registercourse', {
         courseId: courseId,
+        courseCode: courseCode,
       });
+      console.log(courseCode);
       toastify(successMsg);
       navigate(0);
     } catch (error) {
@@ -145,5 +154,14 @@ export const updateCourse = (courseData, id, navigate) => async (dispatch) => {
 export const deleteCourse = (id) => async (dispatch) => {
   try {
     await axios.delete(`/course/delete/${id}`);
+  } catch (error) {}
+};
+
+export const image = (courseId) => async (dispatch) => {
+  try {
+    dispatch({
+      type: COURSE_LOADING,
+    });
+    await axios.get(`/course/image/${courseId}`);
   } catch (error) {}
 };
