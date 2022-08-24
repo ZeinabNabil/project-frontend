@@ -5,6 +5,11 @@
   /* background-Color: rgba(128, 128, 128, 0.092); */
 }
 
+@media screen and (max-width: 575px) {
+  .carousel-caption p {font-size: 16px !important;}
+  .carousel-caption h3 {font-size: 20px !important;}
+}
+
 * {
   box-sizing: border-box;
 }
@@ -73,3 +78,9 @@ input[type='number']::-webkit-inner-spin-button {
 .english {
   direction: ltr;
 }
+
+.carousel-caption h3, .carousel-caption p {
+  text-transform: uppercase;
+}
+.carousel-caption p {opacity: 40%;}
+.carousel-caption h3 {font-size: 26px;}
