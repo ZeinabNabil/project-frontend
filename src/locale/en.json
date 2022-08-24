@@ -9,6 +9,9 @@
       "link": "/category/language courses",
       "cat": true
     },
+    { "name": "ICDL", "link": "/category/icdl", "cat": true },
+    { "name": "EMSAT", "link": "/category/emsat", "cat": true },
+    { "name": "IELTS", "link": "/category/ielts", "cat": true },
     { "name": "About Us", "link": "/aboutus" },
     { "name": "Contact Us", "link": "/contact" }
   ],
@@ -66,7 +69,13 @@
   "isHasOffer": "Is Has Offer ?",
   "offerPrice": "Offer Price",
   "endOfferDate": "End Offer Date",
-  "categories": ["Computer Courses", "Language Courses"],
+  "categories": [
+    "Computer Courses",
+    "Language Courses",
+    "emsat",
+    "ielts",
+    "icdl"
+  ],
   "Save": "Save",
   "addNewCourse": "Add New Course",
   "aboutPlaceholder": "First Level : about first level @ Second Level : about second level",
@@ -126,5 +135,23 @@
   "personalInformation": "Personal Information",
   "yourRegisteredCourses": "Your Registered Courses",
   "clickHereForRegister": "To register for this course, Click here",
-  "seeMoreAbout": "More About "
+  "seeMoreAbout": "More About ",
+  "messageInstitute": [
+    "Work on preparing the educational staff through distinguished educational programs and continuous rehabilitation and rehabilitation in line with the expanded plan, as well as raising efficiency",
+    "Providing support, advisory services and training services to various institutions and achieving this through the design and implementation of training programs and distinguished advisory services.",
+    "Developing the technical skills of teachers to provide high quality educational outcomes to ensure the continuity of customer satisfaction.",
+    "Providing educational services that fit the needs of the labor market to ensure the continuity of success and excellence."
+  ],
+  "goalStratgic": [
+    "Working on communicating with contemporary experiences in the field of training and benefiting from them in order to best serve trainees and bodies",
+    "Contribute to raising the efficiency of community members and developing their knowledge and capabilities by providing a variety of high-quality applied training programs",
+    "Raising levels of institutional performance and competitiveness by providing consulting services in various disciplines for the public and private sectors",
+    "Creating a happy and stimulating educational and training environment characterized by knowledge and the development of creative and innovative thought",
+    "Building strategic companies that contribute to creating an added value that achieves the objectives of the stakeholders",
+    "Raising skills and competencies with the latest innovations and modern methods of distance education",
+    "The Innovation Institute is characterized by leadership and to be one of the best training and education institutions at the regional and local levels"
+  ],
+  "mainLinks": "Main Links",
+  "contactUs": "Contact Us",
+  "socialContactus": "Contact us in any of this socail links"
 }

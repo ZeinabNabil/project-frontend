@@ -1,10 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from '../../css/Landing/Cards.module.css';
-
-const Cards = ({ icon, title, text }) => {
+import Aos from 'aos';
+const Cards = ({ icon, title, text, aos = {} }) => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+  console.log(aos);
   return (
-    <div className="col-lg-4 col-md-6 col-sm-12 col-12">
+    <div
+      className="col-lg-4 col-md-6 col-sm-12 col-12"
+      data-aos={aos.aos}
+      data-aos-offset={aos.offset}
+      data-aos-easing={aos.easing}
+      data-aos-duration={aos.duration}
+      data-aos-delay={aos.delay}
+    >
       <div className={`card ${style.card}`}>
         <div className={style.cardicon}>
           <FontAwesomeIcon

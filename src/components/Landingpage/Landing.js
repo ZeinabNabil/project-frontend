@@ -17,6 +17,7 @@ import aos from 'aos';
 import SvgDownWaves from '../SvgDownWaves';
 import SvgUpWaves from './../SvgUpWaves';
 import { useTranslation } from 'react-i18next';
+import LoadingData from '../../LoadingData';
 const Landing = (props) => {
   const { t, i18n } = useTranslation();
   console.log(i18n);
@@ -27,7 +28,12 @@ const Landing = (props) => {
   var renderContent;
   const { courses, loading } = props.course;
   if (courses === null || loading) {
-    renderContent = `<h1>Loading</h1>`;
+    renderContent = (
+      <h3 className="text-center">
+        <LoadingData />
+        Loading..
+      </h3>
+    );
   } else {
     console.log(t('categories', { returnObjects: true })[0]);
     const computer = courses.courses.filter((course) => {
@@ -36,15 +42,36 @@ const Landing = (props) => {
     const language = courses.courses.filter((course) => {
       return course.category === 'language courses';
     });
+    const emsat = courses.courses.filter((course) => {
+      return course.category === 'emsat';
+    });
+    const icdl = courses.courses.filter((course) => {
+      return course.category === 'icdl';
+    });
+    const ielts = courses.courses.filter((course) => {
+      return course.category === 'ielts';
+    });
     renderContent = (
       <>
         <Section
-          title={t('categories', { returnObjects: true })[0]}
+          title={t('categories', { returnObjects: true })[0].toUpperCase()}
           courses={computer}
         />
         <Section
-          title={t('categories', { returnObjects: true })[1]}
+          title={t('categories', { returnObjects: true })[1].toUpperCase()}
           courses={language}
+        />
+        <Section
+          title={t('categories', { returnObjects: true })[2].toUpperCase()}
+          courses={emsat}
+        />
+        <Section
+          title={t('categories', { returnObjects: true })[3].toUpperCase()}
+          courses={ielts}
+        />
+        <Section
+          title={t('categories', { returnObjects: true })[4].toUpperCase()}
+          courses={icdl}
         />
       </>
     );
@@ -57,13 +84,7 @@ const Landing = (props) => {
       {/* ----------------------------Start Cards Section------------------------------- */}
       <section className={style.cardsSection}>
         <div className="container" style={{ width: '100%' }}>
-          <div
-            className="row"
-            data-aos="fade-up"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="800"
-          >
+          <div className="row">
             {/* <-------------------------------start calling card-----------------------------*/}
             <Cards
               icon={faUserGraduate}
@@ -108,7 +129,6 @@ const Landing = (props) => {
                       >
                         <Accordion.Header>
                           <div className={style.accordianHeader}>
-                            {' '}
                             {t('accordion_vision_header')}
                           </div>
                         </Accordion.Header>
@@ -122,12 +142,17 @@ const Landing = (props) => {
                       >
                         <Accordion.Header>
                           <div className={style.accordianHeader}>
-                            {' '}
                             {t('accordion_message_header')}
                           </div>
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
-                          {t('accordion_message_body')}
+                          <ul>
+                            {t('messageInstitute', { returnObjects: true }).map(
+                              (message) => {
+                                return <li>{message}</li>;
+                              }
+                            )}
+                          </ul>
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item
@@ -141,39 +166,11 @@ const Landing = (props) => {
                         </Accordion.Header>
                         <Accordion.Body className={style.accordian_body}>
                           <ul>
-                            <li>{t('accordion_goals_body')}</li>
-                            <li>
-                              العمل على التواصل مع التجارب المعاصرة في مجال
-                              التدريب والاستفادة منها بما يتيح خدمة المتدربين
-                              والهيئات على أفضل وجه
-                            </li>
-                            <li>
-                              المساهمة في رفع كفاءة أفراد المجتمع وتنمية معارفهم
-                              وقدراتهم من خلال تقديم عدد متنوع من برامج التدريب
-                              التطبيقي ذات الجودة العالية
-                            </li>
-                            <li>
-                              رفع مستويات الأداء المؤسسي والقدرة على المنافسة من
-                              خلال توفير خدمات الاستشارات في مختلف التخصصات
-                              للقطاعين العام والخاص
-                            </li>
-                            <li>
-                              صناعة بيئة تعليمية وتدريبية سعيدة ومحفزة تتميز
-                              بالمعرفة وتنمية الفكر الإبداعي والابتكاري
-                            </li>
-                            <li>
-                              بناء شركات استراتيجية تسهم في خلق قيمة مضافة تحقق
-                              مستهدفات الجهات المعنية
-                            </li>
-                            <li>
-                              رفع المهارات والكفاءات بما استجد من مستحدثات وطرق
-                              تعليم حديثة عن بعد
-                            </li>
-                            <li>
-                              أن يتميز معهد اينوفيشن بالريادة وأن يكون واحد من
-                              أفضل مؤسسات التدريب والتعليم على المستوى الإقليمي
-                              والمحلي
-                            </li>
+                            {t('goalStratgic', { returnObjects: true }).map(
+                              (goal) => {
+                                return <li>{goal}</li>;
+                              }
+                            )}
                           </ul>
                         </Accordion.Body>
                       </Accordion.Item>
@@ -204,28 +201,10 @@ const Landing = (props) => {
                       <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className={style.imgs}>
                           <img src={logo} />
-                          <img src={logo} />
-                          <img src={logo} />
-                          <img src={logo} />
-                          <img src={logo} />
-                          <img src={logo} />
-                          <img src={logo} />
-                        </div>
-                        <div className="col-lg-12 col-md-12 col-sm-12">
-                          <div className={style.imgs}>
-                            <img src={logo} />
-                            <img src={logo} />
-                            <img src={logo} />
-                            <img src={logo} />
-                            <img src={logo} />
-                            <img src={logo} />
-                            <img src={logo} />
-                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  {/* <div className="col-lg-1"></div> */}
                   <div className="col-lg-3 col-md-12 col-sm-12 align-self-center">
                     <div className={style.ourclients}>
                       <h2>{t('clients')}</h2>
@@ -244,36 +223,6 @@ const Landing = (props) => {
         <div className={style.title}>{t('reviews_Title')}</div>
         <div className={style.reviewscards}>
           <div className="row">
-            <ReviewsCard
-              text={t('review_body')}
-              img={logo}
-              username={t('review_username')}
-              role={t('review_role')}
-            />
-            <ReviewsCard
-              text={t('review_body')}
-              img={logo}
-              username={t('review_username')}
-              role={t('review_role')}
-            />
-            <ReviewsCard
-              text={t('review_body')}
-              img={logo}
-              username={t('review_username')}
-              role={t('review_role')}
-            />
-            <ReviewsCard
-              text={t('review_body')}
-              img={logo}
-              username={t('review_username')}
-              role={t('review_role')}
-            />
-            <ReviewsCard
-              text={t('review_body')}
-              img={logo}
-              username={t('review_username')}
-              role={t('review_role')}
-            />
             <ReviewsCard
               text={t('review_body')}
               img={logo}

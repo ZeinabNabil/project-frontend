@@ -8,6 +8,12 @@ import {
 } from '../../actions/course.action';
 import Aos from 'aos';
 import { useTranslation } from 'react-i18next';
+import moment from 'moment';
+function daysBetween(date1String, date2String) {
+  var d1 = new Date(date1String);
+  var d2 = new Date(date2String);
+  return (d2 - d1) / (1000 * 3600 * 24);
+}
 const CoursesCard = ({
   courseObject,
   onClick,
@@ -91,12 +97,25 @@ const CoursesCard = ({
             ) : (
               <div className="col-lg-6">
                 <span className={style.offer}>
-                  {t('offerPrice')} {courseObject.offer}
+                  {t('price')} {courseObject.offer}
                 </span>
               </div>
             )}
           </div>
+          {courseObject.isHasOffer ? (
+            <p>
+              Offer Will be end after{' '}
+              {daysBetween(
+                moment().format('l'),
+                moment(courseObject.endOfferDate).format('l')
+              )}{' '}
+              days
+            </p>
+          ) : (
+            ''
+          )}
         </div>
+
         <div className={style.cardbtns}>
           <Link
             className="btn btn-primary"

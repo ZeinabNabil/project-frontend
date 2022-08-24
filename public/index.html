@@ -12,6 +12,10 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=DynaPuff"
+    />
 
     <title>React App</title>
   </head>
@@ -19,4 +23,15 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root" data-lang="ar"></div>
   </body>
+  <script>
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function () {
+        var current = document.getElementsByClassName('active');
+
+        current[0].className = current[0].className.replace(' active', '');
+
+        this.className += ' active';
+      });
+    }
+  </script>
 </html>

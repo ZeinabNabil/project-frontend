@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/earlyaccess/amiri.css);
 :root {
   --main-color: #3c99dc;
   --secondary-color: #facc5a;
@@ -68,8 +69,10 @@ input[type='number']::-webkit-inner-spin-button {
 
 .arabic {
   direction: rtl;
+  font-family: 'Amiri', serif;
 }
 
 .english {
   direction: ltr;
+  font-family: 'DynaPuff', sans-serif !important;
 }

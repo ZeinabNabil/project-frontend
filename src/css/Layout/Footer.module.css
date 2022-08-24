@@ -1,198 +1,39 @@
+/* -------------------------------End Footer----------------------------- */
 
-:root{
-  --main-color: #3C99DC;
-  --secondary-color: #FACC5A;
-}
-/* responsive */
-/* @media screen and (max-width: 601px) {
-  .footer .lastelement .info{
-    display: none;
-  }
-  .footer .lastelement{
-    justify-content: center !important;
-    right: 40px !important;
-  }
-}
-@media screen and (max-width: 768px) {
-  .footer {
-   height: 110vh !important;
-  }
-  .footer .footerelements .title{
-    display: none !important;
-  }
-  .footer .footerelements .links{
-    display: none !important;
-  }
-
-   .footer .lastelement{
-    width: 90%;
-    margin: auto;
-    position: relative !important;
-    top: 55px;
-  } 
-
-}
-@media screen and (max-width: 992px) {
-    .footer {
-     height: 110vh !important;
-    }
-    .footer .footerelements{
-      padding-top: 190px !important;
-    }
-    .footer .lastelement{
-      justify-content: center !important;
-    }
-    .footer .lastelement .info{
-      position: relative !important;
-      right: 50px !important;
-    }
-  }
-@media screen and (max-width: 1092px) {
-  .footer .footerelements{
-    padding-top: 77px;
-  }
-  
-}
-@media screen and (max-width: 1058px) {
-  .footer .footerelements{
-    width: 90%;
-  } 
-}
-@media screen and (max-width: 1058px) {
-  .footer .footerelements{
-    width: 88%;
-    padding-top: 56px;
-  } 
-} */
-  
-
-/* -------------------------Start Footer---------------------------  */
-/* .footer {
-    position: relative;
-    height: 65vh;
-    z-index: 1;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--main-color);
-}
-  
-
-.footerelements{
-  width: 85%;
-  margin: auto;
-  padding-top: 120px;
+.footer {
+  text-align: center;
+  background-color: var(--main-color);
+  padding: 20px 1px;
+  color: var(--secondary-color) !important;
 }
 
-.footer .footerelements .title{
-  margin-bottom: 13px;
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--secondary-color);
+.footer .main_links ul li {
+  list-style: none;
+  text-decoration: none;
 }
 
-.footer form input{
-  border-radius: 0;
-    padding: 10px;
-    box-shadow: none !important;
-}
-
-.footer form button{
-  padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 0;
-    width: 100%;
-    color: white;
-    background-color: var(--secondary-color);
-    font-weight: bold;
-    padding-bottom: 15px;
-    align-items: center;
-}
-
-.footer form button:hover{
-  background-color:  black !important;
-  box-shadow: none !important;
-  border: none;
-}
-
-.footer .links a{
-  display: block;
+.footer a {
   text-decoration: none;
   color: white;
-  font-size: 18px;
-}
-.footer .links a:hover{
-  color: var(--secondary-color);
-  border:solid #55595c !important;
-}
-.footer .phone , .footer .address , .footer .mail{
-  display: flex;
-}
-.footer  .icon{
-  position: relative;
-  left: 20px;
-  color: var(--secondary-color);
-  font-size: 25px;
-}
-.footer  p{
-  color: white;
-  font-weight: bold;
 }
 
-.footer .lastelement {
-  display: flex;
+.main_links ul li a:hover {
+  color: black;
+  text-decoration: underline;
 }
-.footer .footerelements .logo img{
-  width: 150px;
-  position: relative;
-  left: 35px;
+.main_links ul li a:active {
+  background-color: yellow;
 }
-
-.footer .icons{
-  display: flex;
-  position: relative;
-  margin-top: 30px;
-  left: 30px;
+.footer .social {
+  margin-top: 50px;
 }
-.footer .icons .icon{
-  color: white;
-  background-color: var(--secondary-color);
-  padding: 10px;
-  border-radius: 30px;
-  margin-right: 10px;
-} */
-.footer {
-  position: relative;
-  z-index: 1;
-  bottom: 0;
-  width: 100%;
-  background-color: var(--main-color);
-  direction: rtl;
-  /* margin-top: 115px; */
-}
-.footer .footerelements{
-  width: 75%;
-  margin: auto;
-}
-.footer_left,
-.footer_right {
+.footer .social span {
   display: inline-block;
+  margin: 15px;
   color: white;
-  padding: 15px 10px;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 24px;
 }
 
-.footer_content {
-  display: flex;
-  justify-content: center;
+.footer .logo img {
+  width: 50%;
 }
-.footer .footer_content .social{
-  margin-right: 30px;
-}
-.footer .icon {
-  margin-top: 4px;
-  font-size: 20px;
-  padding-left: 15px;
-  color: white
-}
-  /* -------------------------------End Footer----------------------------- */

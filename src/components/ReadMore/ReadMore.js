@@ -17,6 +17,7 @@ import { connect } from 'react-redux';
 import { getCourseById } from './../../actions/course.action';
 import SvgDownWaves from '../SvgDownWaves';
 import { useTranslation } from 'react-i18next';
+import SvgUpWaves from './../SvgUpWaves';
 const ReadMore = (props) => {
   const { t } = useTranslation();
   const { id } = useParams();
@@ -64,9 +65,6 @@ const ReadMore = (props) => {
                       <button type="button" className="btn btn-primary">
                         {name}
                       </button>
-                      <button type="button" className="btn btn-primary">
-                        {t('clickHereForRegister')}
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -98,7 +96,6 @@ const ReadMore = (props) => {
             {/* End read more cards */}
           </div>
         </div>
-        <SvgDownWaves />
         {/* End First section */}
         {/* Start Second section */}
         <div className="col-lg-12" style={{ paddingRight: '0' }}>
@@ -147,6 +144,8 @@ const ReadMore = (props) => {
             </div>
           </div>
         </div>
+        <SvgUpWaves />
+
         {/* End Second section */}
       </div>
     </div>

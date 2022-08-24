@@ -15,16 +15,13 @@ import LandingPicArea from '../Layout/LandingPicArea';
 import InquiryForm from './InquiryForm';
 import QuestionAccordian from './QuestionAccordian';
 import { faMailchimp } from '@fortawesome/free-brands-svg-icons';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 const Contactus = (props) => {
   const { t, i18n } = useTranslation();
   return (
     <div style={{ backgroundColor: 'rgba(128, 128, 128, 0.092)' }}>
-      <LandingPicArea
-        header={t('contact_header')}
-        text={t('contact_text')}
-      />
+      <LandingPicArea header={t('contact_header')} text={t('contact_text')} />
       {/* ----------------------------Start Cards Section------------------------------- */}
       <div className={style.contactcards}>
         <section className={style.cardsSection}>
@@ -37,16 +34,36 @@ const Contactus = (props) => {
                     icon={faClock}
                     title={t('contact_workhours_header')}
                     text={t('contact_workhours_body')}
+                    aos={{
+                      aos: 'fade-right',
+                      offset: '300',
+                      easing: 'ease-in-sine',
+                      duration: '800',
+                    }}
                   />
                   <Cards
                     icon={faMailBulk}
                     title={t('contact_email_header')}
                     text={t('contact_email_body')}
+                    aos={{
+                      aos: 'fade-down',
+                      offset: '300',
+                      easing: 'ease-in-sine',
+                      duration: '1000',
+                      delay: '300',
+                    }}
                   />
                   <Cards
                     icon={faPhone}
                     title={t('contact_call_header')}
                     text={t('contact_call_body')}
+                    aos={{
+                      aos: 'fade-left',
+                      offset: '300',
+                      easing: 'ease-in-sine',
+                      duration: '1000',
+                      delay: '600',
+                    }}
                   />
                   {/* <-------------------------------end calling card-----------------------------*/}
                 </div>

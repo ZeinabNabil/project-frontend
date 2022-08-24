@@ -14,10 +14,27 @@
   .cardsSection .card {
     margin: 20px !important;
   }
+  .Section .card .price_offer p {
+    position: absolute;
+    display: block;
+    margin: 15px;
+    text-align: right;
+    bottom: -45% !important;
+    right: 0%;
+    width: 100%;
+  }
 }
 @media screen and (max-width: 798px) {
   .siteName {
     top: 70% !important;
+  }
+  .Section .card .price_offer p {
+    position: absolute;
+    display: block;
+    margin: 15px;
+    text-align: right;
+    bottom: -45% !important;
+    width: 100%;
   }
 }
 
@@ -32,21 +49,21 @@
 
 /* ----------------------Start sections------------------------ */
 .Section {
-  margin-top: 70px;
-  margin-bottom: 70px;
+  text-align: -webkit-center;
+  margin-top: 50px;
 }
 .Section .card {
-  cursor: pointer;
+  margin: 5px;
   text-align: center;
-  height: 100%;
   width: 90%;
   display: block;
   background: #ffffff;
   box-shadow: 0px 0px 3px 0px rgb(152, 151, 151);
   border-radius: 5px !important;
   position: relative;
-  transition: all 0.3s ease 0s;
+  transition: all 0.1s ease 0s;
 }
+
 .Section .sectiontitle {
   text-align: center;
   font-weight: bold;
@@ -64,7 +81,7 @@
   padding: 10px 0;
 }
 .Section .card .image img {
-  width: 60%;
+  width: 80%;
   border-radius: 10px;
   opacity: 0.8;
   transition: all 500ms;
@@ -72,6 +89,7 @@
 .Section .card .image img:hover {
   opacity: 1;
   transform: rotate(2deg);
+  transform: scale(1.07);
 }
 .card .cardtitle {
   text-align: center;
@@ -80,17 +98,18 @@
   font-weight: 400;
   text-transform: uppercase;
   color: black;
-  font-family: 'Playfair Display', 'Bookman', serif;
 }
 
 .Section .card span {
   text-transform: none;
-  font-size: 1em;
+  font-size: 0.9em;
   display: inline-block;
-  width: 70%;
+  width: 100%;
 }
 .Section .card .line_through {
   text-decoration: line-through;
+  text-decoration-color: black;
+  text-decoration-thickness: 2px;
 }
 .Section .card .cardbtns {
   padding: 10px;
@@ -103,8 +122,29 @@
 .Section .card .price_offer {
   margin-top: 25px;
   font-size: 12px;
-  padding: 0px 0px;
-  text-align: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  position: relative;
+}
+.Section .card .price_offer p {
+  position: absolute;
+  display: block;
+  margin: 15px;
+  text-align: right;
+  bottom: -85%;
+  right: -5%;
+  width: 100%;
+}
+
+.Section .card .price_offer span {
+  background-color: var(--secondary-color);
+  color: white;
+  width: 100%;
+  padding: 5px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 0px 1px #ccc;
+  margin-top: 10px;
 }
 
 /* -----------------------------End Sections--------------------------- */
@@ -119,7 +159,6 @@
 }
 .features .title {
   font-weight: bold;
-  font-family: 'Bahij', Sans-serif;
   font-size: 20px;
   text-align: center;
 }
@@ -140,7 +179,6 @@
   color: #7e7e7e;
   font-weight: bold;
   font-size: 20px;
-  font-family: 'Bahij', Sans-serif;
   padding: 20px 10px 20px 10px;
 }
 .features img {
@@ -171,7 +209,6 @@
   justify-content: center;
 }
 .ourclients h2 {
-  font-family: 'Bahij', Sans-serif;
   font-size: 20px;
   font-weight: bold;
 }
@@ -187,7 +224,6 @@
 
 .reviews .title {
   font-weight: bold;
-  font-family: 'Bahij', Sans-serif;
   font-size: 20px;
   text-align: center;
 }
@@ -276,64 +312,3 @@
 }
 
 /* ----------------------------End reviews section--------------------- */
-/* -------------------------------- old Card css------------------------ */
-
-/* .langCourses{
-            margin-top: 70px;
-            font-family: "Bahij", Sans-serif;
-        
-        } */
-
-/* .langCourses .title{
-        text-align: center;
-        font-weight: bold;
-        font-size: 25px;
-     
-    }
-  */
-
-/* .langCourses .card{
-        width: 20% ;
-        margin: auto;
-        padding-bottom: 80px;
-        top: 30px;
-        background-color: transparent !important;
-        align-items: center;
-        align-content: center;
-    } */
-
-/* .langCourses .card img{
-        max-width: 80%;
-        border-radius: 10px;
-        transition-duration: 0.3s;
-    } */
-
-/* .langCourses .card .cardtitle{
-        top: 20px;
-        position: relative;
-        font-weight: bold;
-    } */
-
-/* .langCourses .card p{
-        position: relative;
-        top: 20px;
-        font-weight: 700;
-        font-size: 12px;
-        color: #000000;
-        line-height: 1.7em;
-    } */
-
-/* .langCourses .cardbtns {
-        position: relative;
-        top: 30px;
-    
-    } */
-
-/* .langCourses .cardbtns a{
-        display: block;
-        margin: auto;
-        height: 50%;
-        margin-top: 10px;
-    } */
-
-/* ------------------------------------------------------------------------------- */

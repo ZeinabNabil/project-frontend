@@ -38,7 +38,6 @@ const Section = ({ title, courses, registerCourse }) => {
                 </div>
               ))}
             </div>
-            ;
           </div>
         </div>
       );

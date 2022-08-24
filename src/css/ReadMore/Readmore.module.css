@@ -53,7 +53,6 @@
 
 /* Start Read More First Section CSS */
 .read_more {
-  background-image: url('https://static.vecteezy.com/system/resources/previews/003/557/257/original/abstract-blue-and-gray-wave-background-free-vector.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -182,6 +181,9 @@
     width: 75%;
     margin: auto;
 }  */
+.read_more_second_section {
+  margin-top: 80px;
+}
 .box_container {
   height: 100%;
   margin-bottom: 20px;

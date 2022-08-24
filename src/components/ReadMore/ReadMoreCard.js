@@ -4,13 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ReadMoreCard = ({ cardIcon, cardTilte, cardSubtitle, cardText }) => {
   return (
-    <div
-      className="col-lg-4 col-md-6 col-sm-6"
-      data-aos="fade-up"
-      data-aos-offset="300"
-      data-aos-easing="ease-in-sine"
-      data-aos-duration="800"
-    >
+    <div className="col-lg-4 col-md-6 col-sm-6">
       <div className={`${style.card} card`}>
         <div className={`${style.card_body} card-body`}>
           <FontAwesomeIcon icon={cardIcon} />

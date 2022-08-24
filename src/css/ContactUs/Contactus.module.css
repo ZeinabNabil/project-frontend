@@ -1,6 +1,5 @@
-
-  /* ----------------------start card section---------------------------- */
- .cardsSection {
+/* ----------------------start card section---------------------------- */
+.cardsSection {
   width: 90% !important;
   margin: auto !important;
   padding-bottom: 90px;
@@ -10,38 +9,36 @@
 
 /* -----------------------------------start questions & inquiries section------------------------------- */
 
-.qusestion_inquiry{
+.qusestion_inquiry {
   width: 85%;
   margin: auto;
   padding-bottom: 60px;
-  
 }
-.qusestion_inquiry .questions{
+.qusestion_inquiry .questions {
   margin: 15px;
   direction: rtl;
 }
-.qusestion_inquiry .questions .accordian{
+.qusestion_inquiry .questions .accordian {
   background-color: white;
   padding: 30px;
   border-radius: 5px;
   direction: rtl;
 }
-.qusestion_inquiry .questions .accordian .accordianHeader{
+.qusestion_inquiry .questions .accordian .accordianHeader {
   color: black;
   font-weight: bold;
   font-size: 15px;
-  font-family: 'Bahij', Sans-serif;
   padding: 20px 10px 20px 10px;
 }
-.qusestion_inquiry .questions .accordian .accordian_body{
+.qusestion_inquiry .questions .accordian .accordian_body {
   background-color: rgba(128, 128, 128, 0.092);
 }
-.qusestion_inquiry .questions .accordian h1{
+.qusestion_inquiry .questions .accordian h1 {
   font-size: 18px;
   font-weight: bold;
   padding-bottom: 10px;
 }
-.qusestion_inquiry .questions .title{
+.qusestion_inquiry .questions .title {
   display: flex;
   justify-content: center;
   color: black;
@@ -49,33 +46,34 @@
   font-size: 20px;
   padding: 25px;
 }
-.qusestion_inquiry .inquiries{
+.qusestion_inquiry .inquiries {
   margin: 15px;
   direction: rtl;
 }
-.qusestion_inquiry .inquiries .formContainer{
+.qusestion_inquiry .inquiries .formContainer {
   padding: 30px;
   background-color: white;
   border-radius: 5px;
 }
-.qusestion_inquiry .inquiries .title{
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 25px;
+.qusestion_inquiry .inquiries .title {
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 25px;
 }
-.qusestion_inquiry .inquiries .input{
+.qusestion_inquiry .inquiries .input {
   padding-bottom: 20px;
 }
-.qusestion_inquiry form input , .qusestion_inquiry form textarea{
+.qusestion_inquiry form input,
+.qusestion_inquiry form textarea {
   background-color: #f9f9f9;
 }
-.qusestion_inquiry .inquiries .sendmsg_btn{
+.qusestion_inquiry .inquiries .sendmsg_btn {
   padding-top: 20px;
 }
-.qusestion_inquiry .inquiries form button{
+.qusestion_inquiry .inquiries form button {
   border-radius: 10px;
   width: 50%;
   height: 50px;
