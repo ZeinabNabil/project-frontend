@@ -39,7 +39,7 @@
 }
 
 .cardsSection {
-  width: 70%;
+  width: 80%;
   padding-bottom: 80px;
   padding-top: 130px;
   margin: auto;
@@ -188,11 +188,9 @@
 .features_clients_container {
   background-color: white;
 }
-.features {
-  padding-top: 70px;
-  /* text-align: center; */
-}
+
 .features .title {
+  margin-bottom: 35px;
   font-weight: bold;
   font-size: 20px;
   text-align: center;
@@ -214,10 +212,12 @@
   color: #7e7e7e;
   font-weight: bold;
   font-size: 20px;
-  padding: 20px 10px 20px 10px;
+  padding: 10px 10px 10px 10px;
 }
-.features img {
+
+.vms {
   width: 70%;
+  margin: auto;
 }
 
 /* -----------------------start client section------------------ */
@@ -259,7 +259,6 @@
 
 .reviews .title {
   font-weight: bold;
-  font-size: 20px;
   text-align: center;
 }
 

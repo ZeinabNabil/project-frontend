@@ -38,7 +38,6 @@ const ReadMore = (props) => {
   var attends, classes, duration, hours, courseId, name, about;
 
   const { course, loading } = props.course;
-  console.log(course);
   var renderCourseInfo;
   if (course === null || loading) {
     renderCourseInfo = (
@@ -47,10 +46,11 @@ const ReadMore = (props) => {
         style={{ marginBottom: '40rem', marginTop: '180px' }}
       >
         <LoadingData />
-        Loading...
+        {t('loading')}
       </h3>
     );
   } else {
+    document.title = course.name; // TITLE
     attends = course.attends;
     classes = course.classes;
     duration = course.duration;

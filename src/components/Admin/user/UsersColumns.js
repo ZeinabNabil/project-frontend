@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ListGroup } from 'react-bootstrap';
-
 // Icons
 import { faEdit, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 // CSS
 import style from '../../../css/Admin/View.module.css';
 
@@ -48,6 +45,28 @@ const UsersColumns = (onDeletClick, role, ColumnsName) => [
     wrap: true,
   },
   {
+    name: 'courses',
+    button: true,
+    ignoreRowClick: true,
+    allowOverflow: true,
+    cell: (row) => {
+      return row.role != 0 ? (
+        '-'
+      ) : (
+        <div className={style.edit_delete_btns}>
+          <div className={style.edit_btn}>
+            <Link
+              to={`/dashboard/courses/user/${row._id}`}
+              className={style.View_more_btn}
+            >
+              {ColumnsName.courses}
+            </Link>
+          </div>
+        </div>
+      );
+    },
+  },
+  {
     name: ColumnsName.action,
     button: true,
     ignoreRowClick: true,
@@ -74,7 +93,7 @@ const UsersColumns = (onDeletClick, role, ColumnsName) => [
           </div>
         );
       } else {
-        return 'غير مصرح';
+        return ColumnsName.notAuth;
       }
     },
   },

@@ -6,11 +6,20 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import store from '../../../store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { getCourseById } from '../../../actions/course.action';
 import { useParams } from 'react-router-dom';
 const UpdateCourse = (props) => {
   const { id } = useParams();
+  const { currentUser, isAuthenticated } = props.user;
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth/login');
+    }
+    if (currentUser.role != 1 || currentUser.role != 2) {
+      navigate('/notAuth');
+    }
+  }, []);
   const checkList = ['VIP1', 'VIP2', 'Group'];
   const categories = [
     'IELTS',
@@ -80,11 +89,9 @@ const UpdateCourse = (props) => {
     course.append('numbersOfHours', form.numbersOfHours);
     course.append('duration', form.duration);
     course.append('image', form.image);
-    console.log(course.get('duration'));
   };
   const onFileChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.files[0] });
-    console.log(e.target.files[0]);
   };
   const handleCheck = (event) => {
     var updatedList = [...checked];

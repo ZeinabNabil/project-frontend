@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Landing from './Landing';
 import style from '../../css/Landing/Landing.module.css';
+import Login from './../Authentication/Login';
 
 const Homepage = () => {
+  useEffect(() => {}, []);
   return (
     <div
       className={style.Homepage}

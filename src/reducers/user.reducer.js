@@ -7,6 +7,7 @@ import {
   GET_NUMBER_OF_USERS,
   GET_LAST_FIVE_USERS,
   GET_USER,
+  GET_ANALYSIS_USERS,
 } from '../actions/types';
 import isEmpty from './../utilis/isEmpty';
 
@@ -19,6 +20,7 @@ const initialState = {
   numberOfRegisteredCourses: null,
   lastFiveUsers: null,
   profile: null,
+  analysis: null,
 };
 
 export default function (state = initialState, action) {
@@ -76,6 +78,12 @@ export default function (state = initialState, action) {
         ...state,
         loading: false,
         profile: action.payload,
+      };
+    case GET_ANALYSIS_USERS:
+      return {
+        ...state,
+        loading: false,
+        analysis: action.payload,
       };
     default:
       return state;

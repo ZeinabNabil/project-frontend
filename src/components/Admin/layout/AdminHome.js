@@ -11,17 +11,17 @@ import {
   numberOfCourses,
   numberOfRegisteredCourses,
 } from './../../../actions/course.action';
-
+import { useTranslation } from 'react-i18next';
 const AdminHome = (props) => {
+  const { i18n, t } = useTranslation();
   useEffect(() => {
     props.numberOfUsers();
-    props.numberOfCourses();
+    props.numberOfCourses(i18n.resolvedLanguage);
     props.numberOfRegisteredCourses();
     props.numberOfUsersWhoseRegisterCourses();
   }, []);
   const { numberOfUsers, loading, numberOfUsersWholeRegisteredCourses } =
     props.user;
-  console.log(numberOfUsersWholeRegisteredCourses);
   const { numberOfCourses, numberOfRegisteredCourses } = props.course;
   var renderContent;
 
@@ -38,7 +38,7 @@ const AdminHome = (props) => {
             <div className="row">
               <div className="col-lg-3 col-md-6 col-sm-12">
                 <div className={style.feature_item}>
-                  <div className={style.feature_title}>Number of users</div>
+                  <div className={style.feature_title}>{t('usersNumber')}</div>
                   <div className={style.feature_container}>
                     <div className={style.feature_count}>{numberOfUsers}</div>
                   </div>
@@ -46,7 +46,9 @@ const AdminHome = (props) => {
               </div>
               <div className="col-lg-3 col-md-6 col-sm-12">
                 <div className={style.feature_item}>
-                  <div className={style.feature_title}>Number of Courses</div>
+                  <div className={style.feature_title}>
+                    {t('coursesNumber')}
+                  </div>
                   <div className={style.feature_container}>
                     <div className={style.feature_count}>{numberOfCourses}</div>
                   </div>
@@ -54,7 +56,9 @@ const AdminHome = (props) => {
               </div>
               <div className="col-lg-3 col-md-6 col-sm-12">
                 <div className={style.feature_item}>
-                  <div className={style.feature_title}>Registered courses</div>
+                  <div className={style.feature_title}>
+                    {t('registeredCourses')}
+                  </div>
                   <div className={style.feature_container}>
                     <div className={style.feature_count}>
                       {numberOfRegisteredCourses}
@@ -64,7 +68,9 @@ const AdminHome = (props) => {
               </div>
               <div className="col-lg-3 col-md-6 col-sm-12">
                 <div className={style.feature_item}>
-                  <div className={style.feature_title}>Whose Assigned</div>
+                  <div className={style.feature_title}>
+                    {t('UsersHasCourses')}
+                  </div>
                   <div className={style.feature_container}>
                     <div className={style.feature_count}>
                       {numberOfUsersWholeRegisteredCourses}

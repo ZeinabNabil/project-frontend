@@ -29,8 +29,6 @@ const Login = (props) => {
       ...form,
       [evt.target.name]: value,
     });
-
-    console.log(form);
   };
   const onFormSubmit = async (evt) => {
     evt.preventDefault();
@@ -38,7 +36,7 @@ const Login = (props) => {
       email: form.email,
       password: form.password,
     };
-    props.loginUser(userData, navigate);
+    props.loginUser(userData, navigate, t('loginMessageSuccess'));
   };
   useEffect(() => {
     store.dispatch({

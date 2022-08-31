@@ -5,6 +5,7 @@
   background-color: var(--main-color);
   padding: 20px 1px;
   color: var(--secondary-color) !important;
+  direction: ltr;
 }
 
 .footer .main_links ul li {
@@ -18,7 +19,7 @@
 }
 
 .main_links ul li a:hover {
-  color: black;
+  color: var(--secondary-color);
   text-decoration: underline;
 }
 .main_links ul li a:active {
@@ -35,5 +36,15 @@
 }
 
 .footer .logo img {
-  width: 50%;
+  width: 250px;
+}
+
+.copyRights {
+  color: white;
+  font-size: larger;
+}
+
+.whatsapp {
+  color: white;
+  display: block;
 }

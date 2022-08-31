@@ -10,7 +10,10 @@ import Table from '../../Table';
 import Loading from '../../../Loading';
 import { confirm } from '../Confirmation';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const ViewCourses = (props) => {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const columnsName = {
     col_course_name: t('col_course_name'),
@@ -28,22 +31,31 @@ const ViewCourses = (props) => {
     col_course_SeeMore_Button: t('col_course_SeeMore_Button'),
     empty: t('empty'),
     numberOfHourse: t('numberOfHourse'),
+    notAuth: t('notAuth'),
   };
+
   useEffect(() => {
     props.getAllCourses(i18n.resolvedLanguage);
   }, []);
   var renderContent;
   var role = -1;
-  const { currentUser } = props.user;
+  const { currentUser, isAuthenticated } = props.user;
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth/login');
+    }
+    if (currentUser.role == 0) {
+      navigate('/notAuth');
+    }
+  }, []);
   if (currentUser !== null) {
     role = currentUser.role;
   }
-  const handleOnClick = async (id, courseName) => {
+  const handleOnClick = async (id) => {
     if (await confirm(t('DeleteButtonMessage'))) {
       props.deleteCourse(id);
       window.location.reload();
     } else {
-      console.log('Not ');
     }
   };
   const { courses, loading } = props.course;

@@ -8,6 +8,7 @@ import {
   GET_NUMBER_OF_REGISTERED_COURESES,
   GET_REGISTERED_COURSES,
   GET_LAST_FIVE_REGISTERED_COURSES,
+  COURSE_WHOSE_REGISTERED,
 } from './types';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -45,8 +46,8 @@ export const getAllCourses = (lang) => async (dispatch) => {
   }
 };
 export const getCourseById = (id) => async (dispatch) => {
-  dispatch(Loading);
   try {
+    dispatch({ type: COURSE_LOADING });
     const response = await axios.get(`/course/${id}`);
     dispatch({
       type: GET_COURSE,
@@ -75,9 +76,9 @@ export const getCoursesByCategory = (category, lang) => async (dispatch) => {
     // console.log(error.response.data);
   }
 };
-export const numberOfCourses = () => async (dispatch) => {
+export const numberOfCourses = (lang) => async (dispatch) => {
   try {
-    const response = await axios.get('/course/count');
+    const response = await axios.get(`/course/count?lang=${lang}`);
     dispatch({
       type: GET_NUMBER_OF_COURSES,
       payload: response.data.numberOfCourses,
@@ -118,9 +119,10 @@ export const registerCourse =
         courseId: courseId,
         courseCode: courseCode,
       });
-      console.log(courseCode);
       toastify(successMsg);
-      navigate(0);
+      setTimeout(() => {
+        navigate('/feedback');
+      }, 1200);
     } catch (error) {
       console.log(error.response.data);
     }
@@ -163,5 +165,26 @@ export const image = (courseId) => async (dispatch) => {
       type: COURSE_LOADING,
     });
     await axios.get(`/course/image/${courseId}`);
+  } catch (error) {}
+};
+
+export const usersWhoAssignedCourse = (courseCode) => async (dispatch) => {
+  dispatch({
+    type: COURSE_LOADING,
+  });
+  try {
+    const response = await axios.get(`/registeredcourse/course/${courseCode}`);
+    dispatch({
+      type: COURSE_WHOSE_REGISTERED,
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const CancelCourse = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`/course/cancelregisteredcourse?courseId=${id}`);
   } catch (error) {}
 };

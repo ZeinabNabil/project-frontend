@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import style from '../../../css/user/UserProfile.module.css';
+import style from '../../../css/Admin/Adduser.module.css';
 import Input from '../Input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +23,15 @@ const UpdateUser = (props) => {
       value: 3,
     },
   ];
+  const { currentUser, isAuthenticated } = props.user;
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth/login');
+    }
+    if (currentUser.role != 1 || currentUser.role != 2) {
+      navigate('/notAuth');
+    }
+  }, []);
   const { id } = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -32,7 +41,6 @@ const UpdateUser = (props) => {
     role: '',
   });
   const { profile } = props.user;
-  console.log(profile);
   useEffect(() => {
     if (profile && id) {
       setForm({
@@ -72,7 +80,7 @@ const UpdateUser = (props) => {
     props.updateUser(id, userData, navigate, '/dashboard/users/view');
   };
   return (
-    <div className={style.updateuser}>
+    <div className={style.adduser}>
       <div className={style.title}>
         <span>
           <FontAwesomeIcon icon={faPenToSquare} /> تعديل المستخدم

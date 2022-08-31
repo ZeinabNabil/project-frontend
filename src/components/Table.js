@@ -52,7 +52,7 @@ const Table = (props) => {
                 type="button"
                 className="btn"
               >
-                <FontAwesomeIcon icon={faPlus} /> {props.btnName}
+                {props.btnName}
               </Link>
             </div>
           </div>

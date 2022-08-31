@@ -1,12 +1,19 @@
-import React from "react";
-import style from "../../css/AboutUs/Aboutus.module.css";
-import { Carousel } from "@trendyol-js/react-carousel";
+import React from 'react';
+import style from '../../css/AboutUs/Aboutus.module.css';
 
-const Clients = ({ imgSrc }) => {
+const Clients = ({ imgSrc, name }) => {
   return (
     <div className={style.Clients}>
       <div className={style.img_client}>
-        <img src={imgSrc} alt="client img" />
+        <img
+          src={imgSrc}
+          alt="client img"
+          style={{
+            height: '150px',
+            width: '80%',
+          }}
+        />
+        <p className="text-center">{name}</p>
       </div>
     </div>
   );

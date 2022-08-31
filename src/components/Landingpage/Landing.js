@@ -7,7 +7,6 @@ import {
   faUserGraduate,
 } from '@fortawesome/free-solid-svg-icons';
 import Section from './Section';
-import logo from '../../images/logo.png';
 import ReviewsCard from './ReviewsCard';
 import { Accordion } from 'react-bootstrap';
 import { connect } from 'react-redux';
@@ -21,21 +20,30 @@ import SvgDownWaves from '../SvgDownWaves';
 import SvgUpWaves from './../SvgUpWaves';
 import { useTranslation } from 'react-i18next';
 import LoadingData from '../../LoadingData';
+import { showReviews } from '../../actions/review.action';
 const Landing = (props) => {
   const { t, i18n } = useTranslation();
   const { currentUser } = props.user;
-  const [render, setRender] = useState(true);
   useEffect(() => {
     aos.init();
-    if (render === true) {
-      props.getAllCourses(i18n.resolvedLanguage);
-      if (currentUser !== null) {
-        props.getRegisteredCourses(currentUser._id, i18n.resolvedLanguage);
-      }
-    }
-    setRender(false);
-  }, [render]);
+    props.getAllCourses(i18n.resolvedLanguage);
+  }, [i18n.resolvedLanguage]);
+  useEffect(() => {
+    props.showReviews();
+    document.title = 'Innovation Language Institute';
+  }, []);
+  var reviewsArr = [];
+  const { reviews } = props.review;
+  if (reviews !== null) {
+    reviewsArr = [...reviews.reviews];
+  }
+  const { registeredCourses } = props.course;
 
+  useEffect(() => {
+    if (currentUser !== null) {
+      props.getRegisteredCourses(currentUser._id, i18n.resolvedLanguage);
+    }
+  }, []);
   var renderContent;
   const { courses, loading } = props.course;
   if (courses === null || loading) {
@@ -66,22 +74,37 @@ const Landing = (props) => {
         <Section
           title={t('categories', { returnObjects: true })[0].toUpperCase()}
           courses={computer}
+          registeredCourses={
+            registeredCourses !== null ? registeredCourses : null
+          }
         />
         <Section
           title={t('categories', { returnObjects: true })[1].toUpperCase()}
           courses={language}
+          registeredCourses={
+            registeredCourses !== null ? registeredCourses : null
+          }
         />
         <Section
           title={t('categories', { returnObjects: true })[2].toUpperCase()}
           courses={emsat}
+          registeredCourses={
+            registeredCourses !== null ? registeredCourses : null
+          }
         />
         <Section
           title={t('categories', { returnObjects: true })[3].toUpperCase()}
           courses={ielts}
+          registeredCourses={
+            registeredCourses !== null ? registeredCourses : null
+          }
         />
         <Section
           title={t('categories', { returnObjects: true })[4].toUpperCase()}
           courses={icdl}
+          registeredCourses={
+            registeredCourses !== null ? registeredCourses : null
+          }
         />
       </>
     );
@@ -128,68 +151,61 @@ const Landing = (props) => {
             <section>
               <div className="container">
                 <div className="row">
-                  <div
-                    className="col-lg-6 col-md-12 col-sm-12 section-accordian "
-                    style={{ display: 'flex', alignItems: 'center' }}
-                  >
-                    <Accordion className={style.accordian}>
-                      <Accordion.Item
-                        eventKey="0"
-                        className={style.accordianitem}
-                      >
-                        <Accordion.Header>
-                          <div className={style.accordianHeader}>
-                            {t('accordion_vision_header')}
-                          </div>
-                        </Accordion.Header>
-                        <Accordion.Body className={style.accordian_body}>
-                          {t('accordion_vision_body')}
-                        </Accordion.Body>
-                      </Accordion.Item>
-                      <Accordion.Item
-                        eventKey="1"
-                        className={style.accordianitem}
-                      >
-                        <Accordion.Header>
-                          <div className={style.accordianHeader}>
-                            {t('accordion_message_header')}
-                          </div>
-                        </Accordion.Header>
-                        <Accordion.Body className={style.accordian_body}>
-                          <ul>
-                            {t('messageInstitute', { returnObjects: true }).map(
-                              (message) => {
-                                return <li>{message}</li>;
-                              }
-                            )}
-                          </ul>
-                        </Accordion.Body>
-                      </Accordion.Item>
-                      <Accordion.Item
-                        eventKey="2"
-                        className={style.accordianitem}
-                      >
-                        <Accordion.Header>
-                          <div className={style.accordianHeader}>
-                            {t('accordion_goals_header')}
-                          </div>
-                        </Accordion.Header>
-                        <Accordion.Body className={style.accordian_body}>
-                          <ul>
-                            {t('goalStratgic', { returnObjects: true }).map(
-                              (goal) => {
-                                return <li>{goal}</li>;
-                              }
-                            )}
-                          </ul>
-                        </Accordion.Body>
-                      </Accordion.Item>
-                    </Accordion>
-                  </div>
-                  <div className="col-lg-1"></div>
-                  <div className="col-lg-5 col-md-12 col-sm-12 align-self-center">
-                    <div className={style.logo}>
-                      <img src={logo} />
+                  <div className="col-lg-12 col-md-12 col-sm-12 section-accordian ">
+                    <div className={style.vms}>
+                      <Accordion className={style.accordian}>
+                        <Accordion.Item
+                          eventKey="0"
+                          className={style.accordianitem}
+                        >
+                          <Accordion.Header>
+                            <div className={style.accordianHeader}>
+                              {t('accordion_vision_header')}
+                            </div>
+                          </Accordion.Header>
+                          <Accordion.Body className={style.accordian_body}>
+                            {t('accordion_vision_body')}
+                          </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item
+                          eventKey="1"
+                          className={style.accordianitem}
+                        >
+                          <Accordion.Header>
+                            <div className={style.accordianHeader}>
+                              {t('accordion_message_header')}
+                            </div>
+                          </Accordion.Header>
+                          <Accordion.Body className={style.accordian_body}>
+                            <ul>
+                              {t('messageInstitute', {
+                                returnObjects: true,
+                              }).map((message, index) => {
+                                return <li key={index}>{message}</li>;
+                              })}
+                            </ul>
+                          </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item
+                          eventKey="2"
+                          className={style.accordianitem}
+                        >
+                          <Accordion.Header>
+                            <div className={style.accordianHeader}>
+                              {t('accordion_goals_header')}
+                            </div>
+                          </Accordion.Header>
+                          <Accordion.Body className={style.accordian_body}>
+                            <ul>
+                              {t('goalStratgic', { returnObjects: true }).map(
+                                (goal, index) => {
+                                  return <li key={index}>{goal}</li>;
+                                }
+                              )}
+                            </ul>
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </Accordion>
                     </div>
                   </div>
                 </div>
@@ -197,35 +213,6 @@ const Landing = (props) => {
             </section>
           </div>
         </div>
-        {/* --------------------------start client section-----------------------  */}
-        <div className={style.clients}>
-          <div className={style.clientelement}>
-            <section>
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-9 col-md-12 col-sm-12 section-pics">
-                    <div
-                      className={style.clientlogos}
-                      style={{ borderRight: ' solid 2px #DDDDDD' }}
-                    >
-                      <div className="col-lg-12 col-md-12 col-sm-12">
-                        <div className={style.imgs}>
-                          <img src={logo} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-3 col-md-12 col-sm-12 align-self-center">
-                    <div className={style.ourclients}>
-                      <h2>{t('clients')}</h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-        {/* --------------------------End client section-----------------------  */}
       </div>
       {/* ---------------------------start reviews section---------------------  */}
       <SvgUpWaves />
@@ -233,21 +220,15 @@ const Landing = (props) => {
         <div className={style.title}>{t('reviews_Title')}</div>
         <div className={style.reviewscards}>
           <div className="row">
-            <ReviewsCard
-              text={t('review_body')}
-              username={t('review_username')}
-              role={t('review_role')}
-            />
-            <ReviewsCard
-              text={t('review_body')}
-              username={t('review_username')}
-              role={t('review_role')}
-            />{' '}
-            <ReviewsCard
-              text={t('review_body')}
-              username={t('review_username')}
-              role={t('review_role')}
-            />
+            {reviewsArr.map((review) => {
+              if (review.show === true) {
+                return (
+                  <div className="col-lg-4 col-md-6 col-sm-12" key={review._id}>
+                    <ReviewsCard review={review} />
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
       </div>
@@ -259,8 +240,10 @@ const Landing = (props) => {
 const mapStateToProps = (state) => ({
   course: state.course,
   user: state.user,
+  review: state.review,
 });
 export default connect(mapStateToProps, {
   getAllCourses,
   getRegisteredCourses,
+  showReviews,
 })(Landing);

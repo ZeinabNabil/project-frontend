@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Social = ({ to, className, icon }) => {
   return (
-    <Link to={to}>
+    <Link to={to} target="_blank" rel="noopener noreferrer">
       <FontAwesomeIcon
         className={className}
         icon={icon}

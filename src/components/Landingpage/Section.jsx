@@ -1,13 +1,11 @@
 import React from 'react';
 import CoursesCard from './Coursescard';
 import style from '../../css/Landing/Landing.module.css';
-import { faGripLines } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 import { registerCourse } from './../../actions/course.action';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-const Section = ({ title, courses, registerCourse }) => {
+const Section = ({ title, courses, registerCourse, registeredCourses }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const onRegisterClick = (courseId, code) => {
@@ -50,6 +48,7 @@ const Section = ({ title, courses, registerCourse }) => {
                   <CoursesCard
                     courseObject={course}
                     onClick={onRegisterClick}
+                    registeredCourses={registeredCourses}
                   />
                 </div>
               ))}

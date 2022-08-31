@@ -98,7 +98,26 @@ const CourseColumn = (onDeletClick, role, columnsName) => [
       );
     },
   },
-
+  {
+    name: 'users',
+    button: true,
+    ignoreRowClick: true,
+    allowOverflow: true,
+    cell: (row) => {
+      return (
+        <div className={style.edit_delete_btns}>
+          <div className={style.edit_btn}>
+            <Link
+              to={`/dashboard/users/course/${row.courseCode}`}
+              className={style.View_more_btn}
+            >
+              Users
+            </Link>
+          </div>
+        </div>
+      );
+    },
+  },
   {
     name: columnsName.col_course_action,
     button: true,
@@ -117,7 +136,7 @@ const CourseColumn = (onDeletClick, role, columnsName) => [
             </div>
             <div
               className={style.delete_btn}
-              onClick={() => onDeletClick(row._id, row.name)}
+              onClick={() => onDeletClick(row.courseCode, row.name)}
             >
               <button type="button" className="btn">
                 <FontAwesomeIcon icon={faXmark} />
@@ -140,7 +159,7 @@ const CourseColumn = (onDeletClick, role, columnsName) => [
         );
       }
 
-      return `غير مصرح`;
+      return columnsName.notAuth;
     },
   },
 ];

@@ -8,6 +8,7 @@ import {
   GET_REGISTERED_COURSES,
   GET_LAST_FIVE_REGISTERED_COURSES,
   LOGOUT,
+  COURSE_WHOSE_REGISTERED,
 } from '../actions/types';
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
   numberOfUsersWholeRegisteredCourses: null,
   registeredCourses: null,
   lastFiveRegisteredCourses: null,
+  whoseRegistereCourse: null,
 };
 
 export default function (state = initialState, action) {
@@ -71,7 +73,12 @@ export default function (state = initialState, action) {
         loading: false,
         lastFiveRegisteredCourses: action.payload,
       };
-
+    case COURSE_WHOSE_REGISTERED:
+      return {
+        ...state,
+        loading: false,
+        whoseRegistereCourse: action.payload,
+      };
     case LOGOUT:
       return {
         ...state,
@@ -82,6 +89,7 @@ export default function (state = initialState, action) {
         numberOfUsersWholeRegisteredCourses: null,
         registeredCourses: null,
         lastFiveRegisteredCourses: null,
+        whoseRegistereCourse: null,
       };
     default:
       return state;

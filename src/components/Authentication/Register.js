@@ -47,7 +47,7 @@ const Register = (props) => {
       phone: form.phone,
       confirmPassword: form.confirmPassword,
     };
-    const result = await props.createUser(userData);
+    const result = await props.createUser(userData, t('createdUserMessage'));
     if (result) {
       setTimeout(() => {
         navigate('/auth/login');

@@ -25,11 +25,10 @@ const CoursesCard = ({
   user,
   getRegisteredCourses,
   course,
-  registeredCourses,
+  registeredCourses = null,
 }) => {
   const { t, i18n } = useTranslation();
   const { isAuthenticated, currentUser } = user;
-
   useEffect(() => {
     Aos.init();
   }, []);
@@ -58,7 +57,11 @@ const CoursesCard = ({
     }
   };
   var search;
-
+  if (registeredCourses !== null) {
+    search = registeredCourses.courses.find(
+      (item) => item.courseCode == courseObject.courseCode
+    );
+  }
   const alreadyRegistered = () => {
     if (search) {
       return t('alreadyRegistered');
@@ -81,15 +84,19 @@ const CoursesCard = ({
         <span className={style.text}>{courseObject.description}</span>
         <div className={style.price_offer}>
           <div className="row">
-            <div className="col-lg-6">
-              <span
-                className={`${style.price} ${
-                  courseObject.isHasOffer ? style.line_through : ''
-                }`}
-              >
-                {t('price')} {courseObject.price}
-              </span>
-            </div>
+            {courseObject.price != 0 ? (
+              <div className="col-lg-6">
+                <span
+                  className={`${style.price} ${
+                    courseObject.isHasOffer ? style.line_through : ''
+                  }`}
+                >
+                  {t('price')} {courseObject.price}
+                </span>
+              </div>
+            ) : (
+              ''
+            )}
             {!courseObject.isHasOffer ? (
               ''
             ) : (

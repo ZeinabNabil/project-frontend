@@ -1,37 +1,42 @@
-import React from "react";
-import { Provider } from "react-redux";
-import store from "../store";
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from '../store';
 // CSS
-import "bootstrap/dist/css/bootstrap.min.css";
-import "jquery/dist/jquery.min.js";
-import "bootstrap/dist/js/bootstrap.min.js";
-import "react-toastify/dist/ReactToastify.css";
-import "aos/dist/aos.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'react-toastify/dist/ReactToastify.css';
+import 'aos/dist/aos.css';
 // Components
-import setAuthToken from "./../utilis/setAuthToken";
-import jwt_decode from "jwt-decode";
-import { setCurrentUser } from "./../actions/user.action";
-import ViewCourses from "./Admin/course/ViewCourses";
-import AddUser from "./Admin/user/AddUser";
-import CourseInfo from "./Admin/course/CourseInfo";
-import ViewUsers from "./Admin/user/ViewUsers";
-import Dashboard from "./Admin/layout/Dashboard";
-import UserProfile from "./user/UserProfile";
-import ReadMore from "./ReadMore/ReadMore";
-import Contactus from "./ContactUs/Contactus";
-import CoursesByCategory from "./courses/CoursesByCategory";
-import AdminHome from "./Admin/layout/AdminHome";
-import WithNavbarAndFooter from "../WithNavbarAndFooter";
-import Inquiry from "./Admin/inquiry/Inquiry";
-import UpdateUser from "./Admin/user/Updateuser";
-import MainAuthPage from "./Authentication/MainAuthPage";
-import Login from "./Authentication/Login";
-import Register from "./Authentication/Register";
-import Homepage from "./Landingpage/Homepage";
-import AddCourse from "./Admin/course/AddCourse";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import AboutUs from "./AboutUs/AboutUs";
+import setAuthToken from './../utilis/setAuthToken';
+import jwt_decode from 'jwt-decode';
+import { setCurrentUser } from './../actions/user.action';
+import ViewCourses from './Admin/course/ViewCourses';
+import AddUser from './Admin/user/AddUser';
+import CourseInfo from './Admin/course/CourseInfo';
+import ViewUsers from './Admin/user/ViewUsers';
+import Dashboard from './Admin/layout/Dashboard';
+import UserProfile from './user/UserProfile';
+import ReadMore from './ReadMore/ReadMore';
+import Contactus from './ContactUs/Contactus';
+import CoursesByCategory from './courses/CoursesByCategory';
+import AdminHome from './Admin/layout/AdminHome';
+import WithNavbarAndFooter from '../WithNavbarAndFooter';
+import Inquiry from './Admin/inquiry/Inquiry';
+import UpdateUser from './Admin/user/Updateuser';
+import MainAuthPage from './Authentication/MainAuthPage';
+import Login from './Authentication/Login';
+import Register from './Authentication/Register';
+import Homepage from './Landingpage/Homepage';
+import AddCourse from './Admin/course/AddCourse';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import AboutUs from './AboutUs/AboutUs';
+import UsersWhoseRegistered from './Admin/course/usersWhoRegistered/UsersWhoseRegistered';
+import Feedback from './feedback/Feedback';
+import UsersCourses from './Admin/user/registeredcourses/UsersCourses';
+import NotAuthorized from './NotAuthorized';
+import Reviews from './Admin/reviews/Reviews';
 if (localStorage.token) {
   //set auth token header auth
   setAuthToken(localStorage.token);
@@ -45,10 +50,12 @@ if (localStorage.token) {
 const App = ({ lang }) => {
   const { t, i18n } = useTranslation();
   return (
-    <div className={i18n.resolvedLanguage === "ar" ? "arabic" : "english"}>
+    <div className={i18n.resolvedLanguage === 'ar' ? 'arabic' : 'english'}>
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
+            <Route exact path="/notAuth" element={<NotAuthorized />} />
+
             <Route exact path="auth" element={<MainAuthPage />}>
               <Route exact path="login" element={<Login />} />
               <Route exact path="register" element={<Register />} />
@@ -63,21 +70,43 @@ const App = ({ lang }) => {
                 path="/category/:category"
                 element={<CoursesByCategory />}
               />
-              <Route exact path="/profile" element={<UserProfile />} />
+              <Route
+                exact
+                path="/profile"
+                element={<UserProfile imagebackground={true} />}
+              />
+              <Route exact path="/feedback" element={<Feedback />} />
               <Route exact path="/aboutus" element={<AboutUs />} />
             </Route>
             <Route exact path="dashboard" element={<Dashboard />}>
               <Route exact path="home" element={<AdminHome />} />
+              <Route exact path="reviews/view" element={<Reviews />} />
+              <Route
+                exact
+                path="users/course/:courseCode"
+                element={<UsersWhoseRegistered />}
+              />
+              <Route
+                exact
+                path="courses/user/:userId"
+                element={<UsersCourses />}
+              />
               <Route exact path="inquiries/view" element={<Inquiry />} />
               <Route
                 exact
                 path="course/add"
-                element={<AddCourse header={t("addNewCourse")} />}
+                element={<AddCourse header={t('addNewCourse')} />}
               />
               <Route
                 exact
                 path="course/update/:courseId"
                 element={<AddCourse header="تعديل الدورة" />}
+              />
+
+              <Route
+                exact
+                path="profile"
+                element={<UserProfile imagebackground={false} />}
               />
               <Route exact path="courses/view" element={<ViewCourses />} />
               <Route exact path="course/view/:id" element={<CourseInfo />} />

@@ -13,7 +13,8 @@
     { "name": "EMSAT", "link": "/category/emsat", "cat": true },
     { "name": "IELTS", "link": "/category/ielts", "cat": true },
     { "name": "About Us", "link": "/aboutus" },
-    { "name": "Contact Us", "link": "/contact" }
+    { "name": "Contact Us", "link": "/contact" },
+    { "name": "Feedback", "link": "/feedback" }
   ],
   "langs": "Languages",
   "join_btn": "Join Us",
@@ -66,7 +67,7 @@
   "category": "Category",
   "classes": "Classes",
   "about": "About This",
-  "isHasOffer": "Is Has Offer ?",
+  "isHasOffer": "does it have offer ?",
   "offerPrice": "Offer Price",
   "endOfferDate": "End Offer Date",
   "categories": ["computer", "language", "emsat", "ielts", "icdl"],
@@ -137,13 +138,10 @@
     "Providing educational services that fit the needs of the labor market to ensure the continuity of success and excellence."
   ],
   "goalStratgic": [
-    "Working on communicating with contemporary experiences in the field of training and benefiting from them in order to best serve trainees and bodies",
-    "Contribute to raising the efficiency of community members and developing their knowledge and capabilities by providing a variety of high-quality applied training programs",
-    "Raising levels of institutional performance and competitiveness by providing consulting services in various disciplines for the public and private sectors",
-    "Creating a happy and stimulating educational and training environment characterized by knowledge and the development of creative and innovative thought",
-    "Building strategic companies that contribute to creating an added value that achieves the objectives of the stakeholders",
-    "Raising skills and competencies with the latest innovations and modern methods of distance education",
-    "The Innovation Institute is characterized by leadership and to be one of the best training and education institutions at the regional and local levels"
+    "Work on preparing the educational staff through distinguished educational programs, continuous rehabilitation, and rehabilitation in accordance with the encyclopaed plan, as well as raising efficiency.",
+    "Providing support, consulting services, and training services to various institutions and achieving this through the design and implementation of training programs and distinguished consulting services.",
+    "Develop the technical skills of teachers to provide high-quality educational outputs to ensure the continuity of customer satisfaction.",
+    "Provide educational services that suit the needs of the labour market to ensure continuity of success and excellence.  "
   ],
   "mainLinks": "Main Links",
   "contactUs": "Contact Us",
@@ -155,5 +153,162 @@
   "login": "Login",
   "createNewAccount": "Create an account",
   "catLang": "language",
-  "catComp": "computer"
+  "catComp": "computer",
+  "courses": "courses",
+  "founderWord": "The Innovation Institute for Studies and Languages ​​seeks to keep pace with urgent global challenges and changes, which have the greatest impact on the educational process. The Institute's management is committed to all quality standards of the United Arab Emirates. In terms of the vision, mission and strategic goals that are the positive driver and scientific return of the Innovation Institute plan, the Institute’s management also seeks to develop the educational academic cadres by activating the best professional training and adopting advanced educational methods. The Innovation Institute also seeks to meet the needs of the UAE labor market, which includes all government and private institutions, in order to advance Their technical and scientific capabilities keep pace with the changes of the times. Therefore, the Innovation Institute was keen to work on providing all programs and training courses to develop these skills in an appropriate and distinguished manner that suits the customer’s satisfaction. Therefore, the Institute periodically provides all the distinguished academic cadres. The courses of the Institute are distinguished, diverse, and have credibility, which are provided according to the actual needs of the community. As the Institute does all this, it seeks to achieve leadership and excellence on both levels, the internal and external community at the same time. In the end, we ask the Lord for payment, success and success Your satisfaction is the actual balance of success",
+  "detailsaboutinstitute": "Details about the institute",
+  "aboutuscards": [
+    {
+      "title": "Vision",
+      "text": "Innovation Institute for Languages and Research seeks to be one of the leading and distinguished institutes in providing educational services through the quality of outputs and the continuous pursuit of excellence through commitment to the application of educational quality to be at the lead in the Arabian Gulf region in the field of education and continuing professional development."
+    },
+    {
+      "title": "The Mission",
+      "text": "Work on preparing the educational staff through distinguished educational programs, continuous rehabilitation, and rehabilitation in accordance with the encyclopaed plan, as well as raising efficiency. Providing support, consulting services, and training services to various institutions and achieving this through the design and implementation of training programs and distinguished consulting services.Develop the technical skills of teachers to provide high-quality educational outputs to ensure the continuity of customer satisfaction.Provide educational services that suit the needs of the labour market to ensure continuity of success and excellence."
+    }
+  ],
+  "aboutusgoal": [
+    {
+      "title": "strategic goals",
+      "text": [
+        "Work on preparing the educational staff through distinguished educational programs, continuous rehabilitation, and rehabilitation in accordance with the encyclopaed plan, as well as raising efficiency.",
+        "Providing support, consulting services, and training services to various institutions and achieving this through the design and implementation of training programs and distinguished consulting services.",
+        "Develop the technical skills of teachers to provide high-quality educational outputs to ensure the continuity of customer satisfaction.",
+        "Provide educational services that suit the needs of the labour market to ensure continuity of success and excellence."
+      ],
+      "colLg": 12
+    },
+    {
+      "title": "Value",
+      "text": [
+        "Happy customers | Strengthening partnerships.",
+        "Scientific Passion | Knowledge and innovation.",
+        "Respect and tolerance | Perseverance and perseverance.",
+        "Global Leadership | Professional transparency.",
+        "Loyalty and belonging."
+      ],
+      "colLg": 6
+    },
+    {
+      "title": "Consulting Services",
+      "text": [
+        "Qualifying individuals and institutions to obtain the ISO certificate.",
+        "Analysis, evaluation, classification and description of jobs.",
+        "Preparing organizational structures for companies and institutions and formulating strategies.",
+        "Evaluate current strategies and develop new ones.",
+        "Measuring the capabilities and competencies of employees and identifying areas for development.",
+        "Setting and developing institutional performance appraisal programs."
+      ],
+      "colLg": 6
+    }
+  ],
+  "detailsAboutInst": [
+    {
+      "number": "+7K",
+      "name": "Site visitors"
+    },
+    {
+      "number": "+12",
+      "name": "Training course"
+    },
+    {
+      "number": "+400",
+      "name": "trainee"
+    },
+    {
+      "number": "+15",
+      "name": "lecturer"
+    }
+  ],
+  "whoarewe": "Who are we ?",
+  "downloadIso": "Download the institute's profile and ISO certificate to view",
+  "opinionTitle": "The opinions of students and visitors to the institute",
+  "isoCertification": "ISO Certification",
+  "op1": {
+    "text": "I recommended this institute for vocational training, as after i finished the secretarial course, i signed up for another course in the same field.",
+    "name": "Mahmoud Mohammed",
+    "trainingName": "Trainee in a training course for adminstrative and secretarial tasks"
+  },
+  "op2": {
+    "text": "Even Bary Institute is considered one of the best current institutes in terms of training and teaching different languages, especially as it includes a selection of specialists in training different languages",
+    "name": "Fatima Al Shamsi",
+    "trainingName": "Trainee in turkish language course"
+  },
+  "op3": {
+    "text": "The course is very useful, and the lecturer has a lot of experience in this field, as i passed the IELTS exam and got the degree required for me continue my university studies",
+    "name": "Ahmed Al Kaabi",
+    "trainingName": "Trainee in IELTS preparation course"
+  },
+
+  "employeesName": [
+    "Nadine Ahmed Al Kilani",
+    "Amira Syed Hassanein",
+    "Nada Raafat Nasr",
+    "Ali Mohamed Ahmed",
+    "Nourhan Nasser"
+  ],
+  "founder": "Training and Development Manager / Nesma Ramadan",
+  "founderM": "General Manager / Nasser Jalal",
+  "employees": "Our Employees",
+  "dashboardItem": "Dashboard",
+  "homeDashboard": "Home",
+  "profileDashboard": "Profile",
+  "QuickMenus": "Quich Menus",
+  "qMenusUsers": "Users",
+  "qMenusCourses": "Courses",
+  "Notifications": "Notifications",
+  "notifyInq": "Inquiries",
+  "notifyReview": "reviews",
+  "usersNumber": "Users Number",
+  "coursesNumber": "Courses Number",
+  "registeredCourses": "Registered Courses",
+  "UsersHasCourses": "Whose Assigned",
+  "newJoinMembers": "New Join Members",
+  "latestRegisteredCourses": "Latest Registered Courses",
+  "student": "Student",
+  "email": "Email",
+  "courseName": "Course Name",
+  "registerationDate": "Registeration Date",
+  "phoneNumber1": " (+971) 50 457 9490",
+  "phoneNumber2": " (+971) 56 782 7006",
+  "loading": "Loading...",
+  "date": "Course added in ",
+  "aboutCourse": "About Course",
+  "commonsQuestions": [
+    {
+      "question": "Where is the Institute's website in the United Arab Emirates?",
+      "answer": "The Institute is located in Al Ain - Abu Dhabi"
+    },
+    {
+      "question": "Is the institute accredited by the United Arab Emirates?",
+      "answer": "Yes, The institute is accredited by the United Arab Emirates"
+    },
+    {
+      "question": "What are the services and courses offered by the Innovation institute?",
+      "answer": "The institute offers many different courses as well as services that leave you totally satisfied with them. You can check in our displayed offers and services on the website. "
+    },
+    {
+      "question": "What are the details and study system at the institute?",
+      "answer": "The institute will set you up , fully professional and ready for the exam with the highest marks. For this reason , the institute has many programs will raise the learner's level."
+    },
+    {
+      "question": "How to book and register?",
+      "answer": "You can book through our website or you can communicate with one of the staff to facilitate your booking."
+    },
+    {
+      "question": "How to book IELTS, TOEFL and EMSAT tests?",
+      "answer": "You can book IELTS,  TOEFL or EMSAT by one of our staff."
+    },
+    {
+      "question": "What are the costs of training courses?",
+      "answer": "The costs of the training courses varies depending on the number of sessions being taken and the kind of program you apply for."
+    }
+  ],
+  "titleInquires": "Common Questions",
+  "foundersWord": "Founders Word",
+  "team": "Team",
+  "createdUserMessage": "Successfully created an account",
+  "loginMessageSuccess": "Successfully Logged In",
+  "logoutMessage": "Good Bye",
+  "updatedProfileMessage": "Successfully Updated Your Profile"
 }

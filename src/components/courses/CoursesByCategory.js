@@ -1,31 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   getCoursesByCategory,
   getRegisteredCourses,
 } from './../../actions/course.action';
-import CourseCard from './CourseCard';
 import style from '../../css/course/CourseCard.module.css';
 import Section from '../Landingpage/Section';
 import LoadingData from './../../LoadingData';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 const CoursesByCategory = (props) => {
-  const navigate = useNavigate();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { category } = useParams();
   const { coursesByCategory, loading } = props.course;
   const { currentUser } = props.user;
   const { registeredCourses } = props.course;
   useEffect(() => {
     props.getCoursesByCategory(category, i18n.resolvedLanguage);
+    document.title = category.toUpperCase(); // TITLE
   }, [category]);
   useEffect(() => {
     if (currentUser !== null) {
       props.getRegisteredCourses(currentUser._id, i18n.resolvedLanguage);
     }
   }, []);
+
   var renderContent = [];
   if (coursesByCategory === null || loading) {
     renderContent = (
@@ -34,18 +33,27 @@ const CoursesByCategory = (props) => {
         style={{ marginBottom: '40rem', marginTop: '180px' }}
       >
         <LoadingData />
-        Loading...
+        {t('loading')}
       </h3>
     );
   } else {
     if (coursesByCategory.length === 0) {
-      renderContent = 'There is no courses yet';
+      renderContent = (
+        <h3
+          className="text-center"
+          style={{ marginBottom: '40rem', marginTop: '180px' }}
+        >
+          'There is no courses yet'
+        </h3>
+      );
     } else
       renderContent = (
         <Section
-          title={category}
+          title={category.toUpperCase()}
           courses={coursesByCategory}
-          registeredCourses={registeredCourses}
+          registeredCourses={
+            registeredCourses !== null ? registeredCourses : null
+          }
         />
       );
   }

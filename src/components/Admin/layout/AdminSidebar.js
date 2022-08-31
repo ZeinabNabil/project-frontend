@@ -1,44 +1,53 @@
 import {
-  faArrowTrendUp,
   faChalkboardUser,
-  faChartLine,
-  faComment,
-  faEnvelope,
   faHouse,
-  faLanguage,
-  faMessage,
   faQuestionCircle,
   faUser,
+  faFaceSmileBeam,
+  faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import style from '../../../css/Admin/Dashboard.module.css';
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 const AdminSidebar = () => {
+  const { t } = useTranslation();
   const menus = [
     {
-      header: 'Dashboard',
-      items: [{ itemName: 'Home', itemIcon: faHouse, link: './home' }],
+      header: t('dashboardItem'),
+      items: [
+        { itemName: t('homeDashboard'), itemIcon: faHouse, link: './home' },
+        {
+          itemName: t('profileDashboard'),
+          itemIcon: faUser,
+          link: './profile',
+        },
+      ],
     },
     {
-      header: 'Quich Menus',
+      header: t('QuickMenus'),
       items: [
-        { itemName: 'Users', itemIcon: faUser, link: './users/view' },
+        { itemName: t('qMenusUsers'), itemIcon: faUsers, link: './users/view' },
         {
-          itemName: 'Courses',
+          itemName: t('qMenusCourses'),
           itemIcon: faChalkboardUser,
           link: './courses/view',
         },
       ],
     },
     {
-      header: 'Notifications',
+      header: t('Notifications'),
       items: [
         {
-          itemName: 'Inquiries',
+          itemName: t('notifyInq'),
           itemIcon: faQuestionCircle,
           link: './inquiries/view',
+        },
+        {
+          itemName: t('notifyReview'),
+          itemIcon: faFaceSmileBeam,
+          link: './reviews/view',
         },
       ],
     },
@@ -64,7 +73,7 @@ const AdminSidebar = () => {
     );
   });
   return (
-    <div className={style.sidebar} style={{ direction: 'ltr' }}>
+    <div className={style.sidebar}>
       <div className={style.sidebar_container}>
         <div className={style.sidebar_menu}>{RenderedMenu}</div>
       </div>

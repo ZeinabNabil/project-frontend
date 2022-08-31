@@ -21,6 +21,15 @@ const AddUser = (props) => {
     confirmPassword: '',
     role: '',
   });
+  const { currentUser, isAuthenticated } = props.user;
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth/login');
+    }
+    if (currentUser.role != 1) {
+      navigate('/notAuth');
+    }
+  }, []);
   const { errors } = props.error;
   const onInputChange = (e) => {
     const value = e.target.value;
@@ -39,7 +48,7 @@ const AddUser = (props) => {
       confirmPassword: form.confirmPassword,
       role: form.role,
     };
-    const result = await props.createUser(userData);
+    const result = await props.createUser(userData, t('createdUserMessage'));
     if (result) {
       setTimeout(() => {
         navigate('/dashboard/users/view');
@@ -128,5 +137,6 @@ const AddUser = (props) => {
 };
 const mapStateToProps = (state) => ({
   error: state.error,
+  user: state.user,
 });
 export default connect(mapStateToProps, { createUser })(AddUser);

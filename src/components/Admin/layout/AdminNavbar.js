@@ -26,10 +26,10 @@ const AdminNavbar = (props) => {
     props.logoutUser(navigate);
   };
   return (
-    <div className={style.navbar}>
+    <div className={style.navbar} style={{ direction: 'ltr' }}>
       <div className="row">
         <div className="col-lg-4 col-md-6 col-sm-6">
-          <div className={style.top_left}>Admin Dashboard</div>
+          <div className={style.top_left}>{t('dashboardItem')}</div>
         </div>
         <div className="col-lg-8 col-md-6 col-sm-6">
           <div className={style.top_right}>
@@ -48,13 +48,19 @@ const AdminNavbar = (props) => {
                   <ul className="dropdown-menu" aria-labelledby="langs">
                     <li
                       className={`nav-link ${style.lang}`}
-                      onClick={() => i18n.changeLanguage('ar')}
+                      onClick={() => {
+                        i18n.changeLanguage('ar');
+                        navigate('/dashboard/home');
+                      }}
                     >
                       {t('Arabic')}
                     </li>
                     <li
                       className={`nav-link active ${style.lang}`}
-                      onClick={() => i18n.changeLanguage('en')}
+                      onClick={() => {
+                        i18n.changeLanguage('en');
+                        navigate('/dashboard/home');
+                      }}
                     >
                       {t('English')}
                     </li>

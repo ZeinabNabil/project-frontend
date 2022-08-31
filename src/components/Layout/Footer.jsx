@@ -1,11 +1,11 @@
 import React from 'react';
 import style from '../../css/Layout/Footer.module.css';
-import logo from '../../images/logo.png';
-
+import logo from '../../images/logo/logo.png';
 import {
   faInstagram,
   faTwitter,
   faFacebook,
+  faLinkedinIn,
   faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,47 +14,6 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   const { t, i18n } = useTranslation();
   return (
-    // --------------------start footer------------------
-    // <div className={style.footer}>
-    //   <div className={style.footerelements}>
-    //     <div className="row">
-    //       <div className="col-lg-6 col-md-9 col-sm-9">
-    //         <div className={style.footer_left}>
-    //           <div className={style.footer_content}>
-    //             &copy; {t('footer_copyrights')}
-    //           </div>
-    //         </div>
-    //       </div>
-    //       <div className="col-lg-6 col-md-3 col-sm-3">
-    //         <div className={style.footer_right}>
-    //           <div className={style.footer_content}>
-    //             {t('footer_contact')}
-    //             <div className={style.social}>
-    //               <a href="#">
-    //                 <FontAwesomeIcon
-    //                   className={style.icon}
-    //                   icon={faFacebookF}
-    //                 />
-    //               </a>
-    //               <a href="#">
-    //                 <FontAwesomeIcon
-    //                   className={style.icon}
-    //                   icon={faInstagram}
-    //                 />
-    //               </a>
-    //               <a href="#">
-    //                 <FontAwesomeIcon
-    //                   className={style.icon}
-    //                   icon={faLinkedinIn}
-    //                 />
-    //               </a>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
     <div className={style.footer}>
       <div className="container">
         <div className="row">
@@ -76,31 +35,43 @@ const Footer = () => {
             <h3 className="text-center">{t('contactUs')}</h3>
             <div className={style.social}>
               <span>
-                <Link to="#">
+                <Link to="//www.facebook.com/innovation.languages">
                   <FontAwesomeIcon icon={faFacebook} />
                 </Link>
               </span>
               <span>
-                <Link to="#">
+                <Link to="//www.instagram.com/innovation.languages.institute/">
                   <FontAwesomeIcon icon={faInstagram} />
                 </Link>
               </span>
               <span>
-                <Link to="#">
+                <Link to="//twitter.com/languagues">
                   <FontAwesomeIcon icon={faTwitter} />
                 </Link>
               </span>
               <span>
-                <Link to="#">
-                  <FontAwesomeIcon icon={faWhatsapp} />
+                <Link to="//www.linkedin.com/in/innovation-languagues-b93a97249/">
+                  <FontAwesomeIcon icon={faLinkedinIn} />
                 </Link>
               </span>
             </div>
+            <span className={style.whatsapp}>
+              <FontAwesomeIcon icon={faWhatsapp} /> {t('phoneNumber1')}
+            </span>
+            <span className={style.whatsapp}>
+              <FontAwesomeIcon icon={faWhatsapp} /> {t('phoneNumber2')}
+            </span>
             <p>{t('socialContactus')}</p>
           </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
+          <div className="col-lg-4 col-md-12 col-sm-12">
             <div className={style.logo}>
               <img src={logo} />
+            </div>
+          </div>
+          <hr />
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <div className={style.copyRights}>
+              &copy; {t('footer_copyrights')}
             </div>
           </div>
         </div>

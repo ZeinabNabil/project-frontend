@@ -17,7 +17,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(4, 108, 244, 0.7);
+  background-color: hsl(227deg 53% 23% / 79%);
 }
 .landingArea .landing_header {
   position: absolute;

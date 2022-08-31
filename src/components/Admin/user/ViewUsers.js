@@ -10,8 +10,11 @@ import columns from './UsersColumns';
 import Table from './../../Table';
 import { confirm } from '../Confirmation';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 const ViewUsers = (props) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { isAuthenticated } = props.user;
 
   const ColumnsName = {
     name: t('UserName'),
@@ -21,7 +24,17 @@ const ViewUsers = (props) => {
     roles: t('UserRoles', { returnObjects: true }),
     user: t('user'),
     action: t('action'),
+    notAuth: t('notAuth'),
+    courses: t('courses'),
   };
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth/login');
+    }
+    if (currentUser.role == 0) {
+      navigate('/notAuth');
+    }
+  }, []);
   useEffect(() => {
     props.getUsers();
   }, []);
@@ -35,7 +48,6 @@ const ViewUsers = (props) => {
       props.deleteUser(id);
       window.location.reload();
     } else {
-      console.log('Not ');
     }
   };
   var renderContent;

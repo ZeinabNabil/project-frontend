@@ -10,6 +10,7 @@ import {
   GET_LAST_FIVE_USERS,
   USER_LOADING,
   GET_USER,
+  GET_ANALYSIS_USERS,
 } from './types';
 import { toast } from 'react-toastify';
 import setAuthToken from './../utilis/setAuthToken';
@@ -22,10 +23,10 @@ const toastify = (message) => {
     autoClose: 1000,
   });
 };
-export const createUser = (userData) => async (dispatch) => {
+export const createUser = (userData, messageSuccess) => async (dispatch) => {
   try {
     await axios.post('/user/create', userData);
-    toastify('Successfully created an account');
+    toastify(messageSuccess);
     return true;
   } catch (error) {
     dispatch({
@@ -36,7 +37,7 @@ export const createUser = (userData) => async (dispatch) => {
   }
 };
 
-export const loginUser = (userData, navigate) => async (dispatch) => {
+export const loginUser = (userData, navigate, message) => async (dispatch) => {
   try {
     const response = await axios.post('/user/login', userData);
     const { user, token } = response.data;
@@ -46,14 +47,14 @@ export const loginUser = (userData, navigate) => async (dispatch) => {
     const decoded = jwt_decode(token);
     dispatch(setCurrentUser(decoded));
     setTimeout(() => {
-      if (user.role == 1) {
-        navigate('/dashboard');
+      if (user.role != 0) {
+        navigate('/dashboard/home');
       } else {
         navigate('/');
       }
     }, 800);
 
-    toastify('Successfully Logged In');
+    toastify(message);
   } catch (error) {
     dispatch({
       type: GET_ERRORS,
@@ -69,10 +70,10 @@ export const setCurrentUser = (decoded) => {
   };
 };
 
-export const logoutUser = (navigate) => async (dispatch) => {
+export const logoutUser = (navigate, message) => async (dispatch) => {
   try {
     const response = await axios.post('/user/logout');
-    toastify('Good Bye :( , We will be waiting for you');
+    toastify(message);
 
     setTimeout(() => {
       navigate('/auth/login');
@@ -164,10 +165,10 @@ export const getUserById = (id) => async (dispatch) => {
   } catch (error) {}
 };
 export const updateUser =
-  (id, userData, navigate, link) => async (dispatch) => {
+  (id, userData, navigate, link, message) => async (dispatch) => {
     try {
       await axios.patch(`/user/update/${id}`, userData);
-      toastify('تم تعديل بيانات المستخدم بنجاح');
+      toastify(message);
 
       setTimeout(() => {
         navigate(link);
@@ -192,6 +193,16 @@ export const getCurrentProfile = () => async (dispatch) => {
 export const deleteUser = (id) => async (dispatch) => {
   try {
     await axios.delete(`/user/delete/${id}`);
+  } catch (error) {}
+};
+export const groupUserByDate = () => async (dispatch) => {
+  try {
+    // http://localhost:5000/user/test
+    const response = await axios.get('/user/analysis');
+    dispatch({
+      type: GET_ANALYSIS_USERS,
+      payload: response.data,
+    });
   } catch (error) {}
 };
 const loading = () => {

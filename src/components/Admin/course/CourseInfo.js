@@ -1,23 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from '../../../css/Admin/View.module.css';
 import CourseInfoCard from './CourseInfoCard';
 import { connect } from 'react-redux';
 import { getCourseById } from '../../../actions/course.action';
-import { useParams, Link } from 'react-router-dom';
-
-import BackToList from '../BackToList';
+import { useParams } from 'react-router-dom';
 import moment from 'moment';
-
+import { useTranslation } from 'react-i18next';
+import LoadingData from './../../../LoadingData';
 const CourseInfo = (props) => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const { course, loading } = props.course;
-  console.log(course, loading);
+  const [load, setLoad] = useState(false);
   useEffect(() => {
     props.getCourseById(id);
-  }, []);
+    setLoad(true);
+  }, [id]);
   var about;
+  var renderContent;
   if (course === null || loading) {
-    about = 'Loading';
+    renderContent = (
+      <div style={{ marginTop: '80px', width: '100%' }}>
+        <h3 className="text-center">
+          <LoadingData load={load} />
+          {t('loading')}
+        </h3>
+      </div>
+    );
   } else {
     about = course.about.map((item, index) => {
       return (
@@ -30,10 +39,7 @@ const CourseInfo = (props) => {
         </>
       );
     });
-  }
-
-  return (
-    <div className={style.course_info}>
+    renderContent = (
       <div className={style.card_container}>
         <div className="row">
           <div class={style.course_name}>
@@ -43,19 +49,17 @@ const CourseInfo = (props) => {
                 {course === null ? 'Loading' : course.description} <br />
                 {course === null
                   ? 'loading'
-                  : `تم اضـــافة الدورة ${moment(course.date).format('l')}`}
+                  : `${t('date')} ${moment(course.date).format('l')}`}
               </span>
             </h1>
           </div>
         </div>
-        <CourseInfoCard
-          cardTitle="معلومات عن الدورة"
-          cardText={about}
-          id={id}
-        />
+        <CourseInfoCard cardTitle={t('aboutCourse')} cardText={about} id={id} />
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <div className={style.course_info}>{renderContent}</div>;
 };
 const mapStateToProps = (state) => ({
   course: state.course,

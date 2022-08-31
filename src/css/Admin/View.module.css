@@ -109,7 +109,6 @@
 .course_info .card_container {
   width: 95%;
   margin: auto;
-  direction: rtl;
 }
 .course_info img {
   width: 85%;
@@ -128,7 +127,7 @@
   content: '';
   position: absolute;
   height: 5px;
-  width: 60%;
+  width: 100%;
   background-color: var(--main-color);
   right: 0;
   bottom: -35%;

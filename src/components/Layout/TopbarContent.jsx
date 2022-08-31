@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const TopbarContent = ({ text, className, icon }) => {
   return (
     <div className={className}>
-      <p>{text}</p>
-      <FontAwesomeIcon className={style.icon} icon={icon} />
+      <span>
+        <FontAwesomeIcon className={style.icon} icon={icon} />
+        {text}
+      </span>
     </div>
   );
 };

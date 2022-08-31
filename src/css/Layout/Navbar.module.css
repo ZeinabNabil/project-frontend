@@ -1,151 +1,62 @@
-/* responsive */
-
-@media screen and(max-width: 1200px) {
-  .topbar .contactInfo {
-    width: 95% !important;
-  }
-}
-
-@media screen and(max-width: 1256px) {
-  .topbar .contactInfo {
-    width: 95% !important;
-  }
-}
-
-@media screen and (max-width: 1235px) {
-  .topbar .contactInfo {
-    width: 85% !important;
-  }
-  .nav nav {
-    width: 96% !important;
-  }
-}
-
-@media screen and (max-width: 1135px) {
-  .topbar .contactInfo {
-    width: 90% !important;
-  }
-}
-@media screen and (max-width: 1101px) {
-  .topbar .contactInfo {
-    width: 95% !important;
-  }
-}
-@media screen and (max-width: 1005px) {
-  .topbar .contactInfo {
-    width: 97% !important;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  .nav .navbtns {
-    /* position: absolute !important; */
-    right: 0 !important;
-  }
-  .contactInfo {
-    font-size: 13px !important;
-    width: 98% !important;
-  }
-}
-@media screen and (min-width: 798px) and (max-width: 900px) {
-  .contactInfo {
-    width: 98% !important;
-    font-size: 11px !important;
-  }
-}
-@media screen and (max-width: 798px) {
-  .contactInfo {
-    width: 100% !important;
-    font-size: 10px !important;
-    padding: 0px 10px 0px 10px !important;
-  }
-}
-@media screen and (max-width: 765px) {
-  .topbar {
-    height: 145px !important;
-  }
-  .contactInfo .mail,
-  .contactInfo .phone {
-    display: none !important;
-  }
-  .contactInfo {
-    justify-content: center;
-    flex-direction: column-reverse;
-  }
-  .contactInfo img {
-    width: 75%;
-  }
-  .socialLinks {
-    top: 8px !important;
-    font-size: 15px;
-  }
-}
-
 /* ----------------------start topbar------------------------ */
 .topbar {
   background-color: var(--main-color);
-  height: 100px;
+  color: white;
+}
+.sitelogo,
+.socialLinks {
+  text-align: center;
 }
 .contactInfo {
-  position: relative;
-  top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  margin: auto;
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
+  padding: 25px;
+  padding-left: 25px;
 }
-
+.topbar img {
+  width: 100px;
+}
 .socialLinks {
   display: flex;
-  position: relative;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
 }
 .socialLinks .icon {
-  color: white;
+  display: inline-block;
+  color: var(--secondary-color);
+  border-radius: 50%;
+  padding: 8px;
+  margin: 0px 5px;
   background-color: var(--secondary-color);
-  border-radius: 30px;
-  margin: 3px;
-  padding: 10px;
-  font-size: 16px;
+  color: var(--main-color);
 }
-
-.mail {
-  position: relative;
-  right: 10px;
-  display: flex;
+.topbarContent {
+  height: 100%;
+  align-items: center;
 }
-
-.mail .icon {
-  color: var(--secondary-color);
-  font-size: 18px;
-  top: 2px;
-  right: -25px;
-  position: absolute;
+.topbar .icon {
+  padding-right: 5px;
+  padding-left: 5px;
+  display: inline;
 }
-
-.phone {
-  position: relative;
-  right: 10px;
-  display: flex;
+.topbarContent {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
-
-.phone .icon {
-  color: var(--secondary-color);
-  font-size: 18px;
-  top: 2px;
-  right: -20px;
-  position: absolute;
-}
-
-.contactInfo .sitelogo img {
-  width: 65px;
+.topbarContent div {
+  display: inline-block;
+  text-align: center;
+  margin: 0px 15px;
+  margin-top: 3%;
 }
 /* --------------------------end topbar--------------------- */
 
 /* ----------------start navbar ------------------ */
+.navbar {
+  width: 90%;
+  margin: auto;
+}
 .nav {
   background-color: var(--main-color);
   border-style: solid;
@@ -162,44 +73,41 @@
 .nav .navbar_nav .nav_link {
   color: white;
   font-weight: bold;
-  font-size: 15px;
   padding: 20px;
+  font-size: smaller;
 }
 .nav .navbar_nav .langs_dropdown {
   color: white;
   font-weight: bold;
-  font-size: 15px;
   padding: 20px;
+  font-size: smaller;
 }
+
 .nav .navbtns {
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  position: relative;
-  height: 50px;
+  align-items: center;
 }
 .nav .navbtns .join_login {
   background-color: var(--secondary-color);
   color: white;
-  font-weight: bold;
-  width: 120px;
   border: none;
   border-radius: 10px;
-  position: relative;
-  right: 10px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-decoration: none;
   margin-left: 5px;
   margin-right: 5px;
-  box-shadow: 1px 1px 9px 1px rgb(82, 80, 80);
+  padding: 10px;
+  box-shadow: 1px 1px 3px 1px rgb(82, 80, 80);
   transition: all 0.6s;
 }
 .nav .navbtns .join_login:hover {
-  transform: scale(1.1);
+  transform: scale(0.9);
 }
-.nav .navbtns .icon {
-  padding: 10px;
+.join_login .icon {
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: smaller;
 }
 
 .navbar_nav .lang {

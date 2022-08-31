@@ -17,10 +17,7 @@ const Cards = ({ icon, title, text, aos = {} }) => {
     >
       <div className={`card ${style.card}`}>
         <div className={style.cardicon}>
-          <FontAwesomeIcon
-            icon={icon}
-            style={{ fontSize: '50px', color: '#3C99DC' }}
-          />
+          <FontAwesomeIcon icon={icon} />
         </div>
         <div className="card-body">
           <h5 className={style.title}>{title}</h5>

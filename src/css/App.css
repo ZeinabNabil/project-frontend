@@ -1,14 +1,17 @@
-@import url(https://fonts.googleapis.com/earlyaccess/amiri.css);
 :root {
-  --main-color: #3c99dc;
-  --secondary-color: #facc5a;
+  --main-color: hsl(227deg 53% 23%);
+  --secondary-color: hsl(35deg 87% 63%);
   --shadow-color: #3c99dc7a;
   /* background-Color: rgba(128, 128, 128, 0.092); */
 }
 
 @media screen and (max-width: 575px) {
-  .carousel-caption p {font-size: 16px !important;}
-  .carousel-caption h3 {font-size: 20px !important;}
+  .carousel-caption p {
+    font-size: 16px !important;
+  }
+  .carousel-caption h3 {
+    font-size: 20px !important;
+  }
 }
 
 * {
@@ -74,16 +77,34 @@ input[type='number']::-webkit-inner-spin-button {
 
 .arabic {
   direction: rtl;
-  font-family: 'Amiri', serif;
+  font-family: 'Harmattan';
+  font-size: larger;
+  letter-spacing: 1.5px;
 }
 
 .english {
   direction: ltr;
-  font-family: 'DynaPuff', sans-serif !important;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
 }
 
-.carousel-caption h3, .carousel-caption p {
+.carousel-caption h3,
+.carousel-caption p {
   text-transform: uppercase;
 }
-.carousel-caption p {opacity: 40%;}
-.carousel-caption h3 {font-size: 26px;}
+.carousel-caption p {
+  opacity: 40%;
+}
+.carousel-caption h3 {
+  font-size: 26px;
+}
+.swiper-wrapper {
+  justify-content: center !important;
+}
+
+.loadingData {
+  margin-bottom: 50px;
+}
+.navbar-toggler {
+  background-color: var(--secondary-color);
+}

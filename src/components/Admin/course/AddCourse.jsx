@@ -15,23 +15,33 @@ const AddCourse = (props) => {
   const { t, i18n } = useTranslation();
   const { courseId } = useParams();
   const navigate = useNavigate();
+  const { currentUser, isAuthenticated } = props.user;
+  console.log(currentUser.role);
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth/login');
+    }
+    if (currentUser.role == 0 || currentUser.role == 3) {
+      navigate('/notAuth');
+    }
+  }, []);
   const categories = t('categories', { returnObjects: true });
   const [form, setForm] = useState({
-    name: '',
-    description: '',
-    about: '',
-    category: '',
-    hours: '',
-    duration: '',
-    classes: '',
-    image: '',
-    price: '',
+    name: undefined,
+    description: undefined,
+    about: undefined,
+    category: undefined,
+    hours: undefined,
+    duration: undefined,
+    classes: undefined,
+    image: undefined,
+    price: undefined,
     isHasOffer: false,
-    offer: '',
+    offer: undefined,
     endOfferDate: new Date(),
-    image: '',
-    lang: '',
-    courseCode: '',
+    image: undefined,
+    lang: undefined,
+    courseCode: undefined,
   });
   const onInputChange = (e) => {
     const value = e.target.value;
@@ -67,6 +77,7 @@ const AddCourse = (props) => {
         offer: course.offer,
         endOfferDate: moment(course.endOfferDate).format('YYYY-MM-DD'),
         image: course.image,
+        courseCode: course.courseCode,
       });
     }
   }, [course]);
@@ -290,6 +301,7 @@ const AddCourse = (props) => {
 const mapStateToProps = (state) => ({
   error: state.error,
   course: state.course,
+  user: state.user,
 });
 export default connect(mapStateToProps, {
   addCourse,
